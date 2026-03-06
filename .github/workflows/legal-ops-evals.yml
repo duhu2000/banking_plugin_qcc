@@ -34,12 +34,13 @@ jobs:
           python3 -c "
           import json
           with open('evals/routing-golden.json') as f:
-              data = json.load(f)
-          cases = data['cases']
+              cases = json.load(f)
+          assert isinstance(cases, list), f'Expected list, got {type(cases)}'
           assert len(cases) >= 5, f'Expected 5+ routing cases, got {len(cases)}'
           for c in cases:
               assert 'query' in c, f'Case missing query: {c}'
-              assert 'expected_product' in c, f'Case missing expected_product: {c}'
+              assert 'expected_product_skill' in c, f'Case missing expected_product_skill: {c}'
+              assert 'expected_jurisdiction' in c, f'Case missing expected_jurisdiction: {c}'
           print(f'Routing golden: {len(cases)} cases valid.')
           "
 
@@ -49,13 +50,13 @@ jobs:
           python3 -c "
           import json
           with open('evals/product-golden.json') as f:
-              data = json.load(f)
-          cases = data['cases']
+              cases = json.load(f)
+          assert isinstance(cases, list), f'Expected list, got {type(cases)}'
           assert len(cases) >= 5, f'Expected 5+ product cases, got {len(cases)}'
           for c in cases:
-              assert 'id' in c, f'Case missing id: {c}'
               assert 'product' in c, f'Case missing product: {c}'
-              assert 'content_checks' in c, f'Case {c[\"id\"]} missing content_checks'
+              assert 'scenario' in c, f'Case missing scenario: {c}'
+              assert 'expected_contains' in c, f'Case missing expected_contains: {c}'
           print(f'Product golden: {len(cases)} cases valid.')
           "
 
