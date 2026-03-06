@@ -22,7 +22,7 @@
     },
     {
       "name": "legal-ops",
-      "description": "Legal Operations and Compliance agent: 8 product skills, 5 jurisdiction overlays, 4 domain commands. Contract review, NDA triage, IP protection, regulatory monitoring, DSAR management across UK, EU, US, Pakistan, and UAE.",
+      "description": "Legal Operations and Compliance agent: 9 skills (router + 8 products), 6 jurisdiction overlays, 4 domain commands. Contract review, NDA triage, IP protection, regulatory monitoring, DSAR management, legal spend, compliance calendar, contract intake across UK, EU, US, Pakistan, UAE, and GCC.",
       "source": "./legal-ops",
       "version": "1.0.0"
     }
