@@ -1,36 +1,47 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "agentfactory-business",
+  "version": "1.0.0",
   "description": "Business domain agent plugins from The AI Agent Factory — Part 3: Business Domain Agent Workflows",
+  "owner": {
+    "name": "Panaversity",
+    "email": "info@panaversity.org"
+  },
   "plugins": [
     {
       "name": "islamic-finance",
       "description": "Jurisdiction-aware Islamic finance agent: 12 product skills, 13 jurisdiction overlays, 4 domain commands. AAOIFI, IFRS, local standards across 20 jurisdictions.",
       "source": "./islamic-finance",
-      "version": "2.0.0"
+      "version": "2.0.0",
+      "category": "finance"
     },
     {
       "name": "idfa-financial-architect",
       "description": "Intent-Driven Financial Architecture (IDFA) — a financial modeling language that replaces Excel cell references with Named Ranges. Four guardrails, three layers, five core skills.",
       "source": "./idfa-financial-architect",
-      "version": "2.0.0"
+      "version": "2.0.0",
+      "category": "finance"
     },
     {
       "name": "banking",
       "description": "Jurisdiction-aware banking regulatory agent: 16 product skills, 7 jurisdiction overlays, 4 domain commands. IFRS 9 ECL, Basel III/IV capital and liquidity, AML/KYC/sanctions, bank reconciliation across UK, EU, US, Australia, Singapore, UAE, Pakistan.",
       "source": "./banking",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "category": "finance"
     },
     {
       "name": "legal-ops",
       "description": "Legal Operations and Compliance agent: 9 skills (router + 8 products), 6 jurisdiction overlays, 4 domain commands. Contract review, NDA triage, IP protection, regulatory monitoring, DSAR management, legal spend, compliance calendar, contract intake across UK, EU, US, Pakistan, UAE, and GCC.",
       "source": "./legal-ops",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "category": "legal"
     },
     {
       "name": "sales-revops-marketing",
       "description": "Sales, RevOps & Marketing agent: 14 product skills, 5 agent skills, 4 jurisdiction overlays, 4 domain commands. Prospect research, lead scoring, outreach, sequences, pipeline analysis, content creation, campaign planning, and RevOps agents across US, EU, Pakistan, and GCC jurisdictions.",
       "source": "./sales-revops-marketing",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "category": "sales"
     }
   ]
 }
