@@ -11,12 +11,19 @@ Legal Operations and Compliance agent with 8 product skills, 6 jurisdiction over
 ### Option A: Claude Code CLI (Recommended)
 
 ```bash
-claude plugin install legal-ops@agentfactory-business
+# Layer 1: Anthropic's base Legal Plugin
+claude plugin install legal@knowledge-work-plugins
+
+# Layer 2: Agent Factory jurisdiction extension
+/plugin marketplace add panaversity/agentfactory-business-plugins
+/plugin install legal-ops@agentfactory-business
 ```
 
 ### Option B: Cowork (Claude.ai)
 
-Sidebar -> Customize -> Browse plugins -> + -> Add marketplace from GitHub -> `panaversity/agentfactory-business-plugins` -> Install "legal-ops"
+**Layer 1:** Sidebar -> Customize -> Browse plugins -> Search "Legal" -> Install `knowledge-work-plugins/legal`
+
+**Layer 2:** Sidebar -> Customize -> Browse plugins -> Personal -> + -> Add marketplace from GitHub -> `panaversity/agentfactory-business-plugins` -> Install "legal-ops"
 
 ### Option C: Download ZIP
 
@@ -45,8 +52,8 @@ legal-ops/
 ├── skills/                            # 9 skills (auto-loaded by agent)
 │   ├── legal-global-router/           # Routes to correct product + jurisdiction
 │   │   └── references/jurisdictions/  # 6 jurisdiction overlays (on-demand)
-│   ├── contract-review/               # Full clause-by-clause contract review
-│   ├── nda-triage/                    # NDA pre-screening and routing
+│   ├── jurisdiction-contract-review/   # Full clause-by-clause contract review
+│   ├── jurisdiction-nda-triage/       # NDA pre-screening and routing
 │   ├── ip-protection/                 # Patent, trademark, copyright, OSS
 │   ├── regulatory-monitoring/         # Regulatory change tracking
 │   ├── dsar-privacy/                  # DSAR/privacy request management
