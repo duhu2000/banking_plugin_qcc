@@ -1,0 +1,65 @@
+name: Legal Ops — Eval Suite
+
+on:
+  pull_request:
+    paths:
+      - "legal-ops/skills/**"
+      - "legal-ops/commands/**"
+      - "legal-ops/evals/**"
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Validate skill structure
+        run: |
+          cd legal-ops
+          for skill_dir in skills/*/; do
+            skill_name=$(basename "$skill_dir")
+            skill_file="${skill_dir}SKILL.md"
+            test -f "$skill_file" || { echo "FAIL: ${skill_name} missing SKILL.md"; exit 1; }
+            grep -q "^name:" "$skill_file" || { echo "FAIL: ${skill_name} missing name field"; exit 1; }
+            grep -q "^description:" "$skill_file" || { echo "FAIL: ${skill_name} missing description field"; exit 1; }
+            echo "OK: ${skill_name}"
+          done
+
+      - name: Validate routing golden file
+        run: |
+          cd legal-ops
+          python3 -c "
+          import json
+          with open('evals/routing-golden.json') as f:
+              data = json.load(f)
+          cases = data['cases']
+          assert len(cases) >= 5, f'Expected 5+ routing cases, got {len(cases)}'
+          for c in cases:
+              assert 'query' in c, f'Case missing query: {c}'
+              assert 'expected_product' in c, f'Case missing expected_product: {c}'
+          print(f'Routing golden: {len(cases)} cases valid.')
+          "
+
+      - name: Validate product golden file
+        run: |
+          cd legal-ops
+          python3 -c "
+          import json
+          with open('evals/product-golden.json') as f:
+              data = json.load(f)
+          cases = data['cases']
+          assert len(cases) >= 5, f'Expected 5+ product cases, got {len(cases)}'
+          for c in cases:
+              assert 'id' in c, f'Case missing id: {c}'
+              assert 'product' in c, f'Case missing product: {c}'
+              assert 'content_checks' in c, f'Case {c[\"id\"]} missing content_checks'
+          print(f'Product golden: {len(cases)} cases valid.')
+          "
+
+      - name: Dry-run eval harness
+        run: |
+          cd legal-ops
+          uv run evals/run-evals.py --dry-run
