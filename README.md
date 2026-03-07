@@ -1,10 +1,43 @@
-# Agent Factory — Business Domain Plugins
+# AgentFactory Business Plugins
 
-Marketplace for business domain agent plugins from **[The AI Agent Factory](https://learn.panaversity.org)** by Panaversity — Part 3: Business Domain Agent Workflows.
+![License](https://img.shields.io/github/license/panaversity/agentfactory-business-plugins)
+![Stars](https://img.shields.io/github/stars/panaversity/agentfactory-business-plugins)
+![Issues](https://img.shields.io/github/issues/panaversity/agentfactory-business-plugins)
+
+🚀 **Marketplace of domain-specific plugins for building enterprise AI agents.**
+
+Enable AI agents to perform **finance, banking, legal, and sales workflows** using modular domain plugins.
+
+AgentFactory Business Plugins extends AI agents with **specialized skills, commands, and workflow logic** for real-world enterprise environments.
+
+Part of the **AgentFactory ecosystem**.
 
 ---
 
-## Available Plugins
+## Why AgentFactory Business Plugins?
+
+Most AI agent frameworks provide general capabilities but lack **domain expertise** required for real-world enterprise workflows.
+
+AgentFactory Business Plugins solves this by providing **domain-specific agent skills** that allow AI agents to operate safely and effectively in regulated business environments.
+
+These plugins encode **business rules, regulatory knowledge, and workflow automation** that agents can execute autonomously.
+
+---
+
+## ✨ Features
+
+* 🧠 Domain-specific **AI agent skills**
+* 🧩 Modular **plugin architecture**
+* ⚡ Designed for **agentic AI workflows**
+* 🏢 Built for **enterprise business automation**
+* 🔌 Easy integration with AI agent frameworks
+* 📦 Expandable marketplace of plugins
+
+---
+
+## 📦 Available Plugins
+
+The repository includes plugins across multiple business domains.
 
 | Plugin                                                      | Description                                                                                                                                                            | Version | Install                                                                |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------- |
@@ -15,9 +48,38 @@ Marketplace for business domain agent plugins from **[The AI Agent Factory](http
 
 > Individual plugins may have their own license terms. See each plugin's LICENSE file for details.
 
+
 ---
 
-## Quick Start
+## 🤖 Example Agent Workflow
+
+User request:
+
+```
+Analyze this financial report and summarize risks
+```
+
+Agent workflow:
+
+1. Detect **financial analysis intent**
+2. Route request to **Finance Plugin**
+3. Execute domain-specific financial analysis
+4. Return structured insights
+
+Example result:
+
+```
+Risk Summary:
+• Revenue concentration risk
+• Liquidity exposure
+• Debt covenant breach risk
+```
+
+Each plugin contains domain-specific **skills and commands** that agents can execute.
+
+---
+
+## 🚀 Getting Started
 
 ### Option A: Install via Claude Code CLI (Recommended)
 
@@ -32,25 +94,29 @@ claude plugin install legal-ops@agentfactory-business
 claude --list-plugins
 ```
 
+
 ### Option B: Install via Cowork (Claude.ai)
 
 1. Sidebar → Customize → Browse plugins → +
 2. Add marketplace from GitHub → `panaversity/agentfactory-business-plugins`
 3. Select and install the plugin you need
 
-### Option C: Clone for Local Development
+### Option C: Clone the repository
 
-```bash
-git clone https://github.com/panaversity/agentfactory-business-plugins.git
+```
+git clone https://github.com/panaversity/agentfactory-business-plugins
+```
+
+Explore available plugins
+
+```
 claude --plugin-dir ./agentfactory-business-plugins/islamic-finance
 claude --plugin-dir ./agentfactory-business-plugins/idfa-financial-architect
 claude --plugin-dir ./agentfactory-business-plugins/banking
 claude --plugin-dir ./agentfactory-business-plugins/legal-ops
 ```
 
----
-
-## Marketplace Structure
+#### Marketplace Structure
 
 ```
 agentfactory-business-plugins/
@@ -89,6 +155,8 @@ agentfactory-business-plugins/
 │   └── workflow-recipes/     # 4 operational playbooks (download as zip)
 └── [future plugins...]       # More business domain plugins planned
 ```
+
+Integrate plugins with your AI agent framework.
 
 ---
 
@@ -141,12 +209,36 @@ Only Claude Code / Cowork get full plugin functionality (auto-routing, commands,
 | Cursor          | `.cursorrules`                    | Same                                      |
 | Codex           | `AGENTS.md` or system prompt      | Same                                      |
 
+
+## 🤝 Contributing
+
+We welcome contributions!
+
+You can contribute by:
+
+* Adding new domain plugins
+* Improving existing skills
+* Expanding documentation
+* Building integrations with agent frameworks
+
+This marketplace is maintained by [Panaversity](https://github.com/panaversity). Open a pull request to contribute.
+
 ---
 
-## Contributing
+## 🌍 AgentFactory Ecosystem
 
-This marketplace is maintained by [Panaversity](https://github.com/panaversity). Contributions welcome via pull request.
+This project is part of the **AgentFactory ecosystem** for building agentic AI systems.
+
+Learn more at **[The AI Agent Factory](https://agentfactory.panaversity.org)** — the complete guide to building and monetizing Digital FTEs.
+
+Maintained by [Panaversity](https://github.com/panaversity).
+
+---
 
 ## License
 
 Repository-level: Apache-2.0 — see [LICENSE](./LICENSE). Individual plugins may have their own license terms (see each plugin's LICENSE file).
+
+
+## Keywords
+AI agents, agentic AI, autonomous agents, enterprise AI, business automation, AI workflows, financial AI, banking AI, legal AI, sales automation, AI plugins, LLM agents, digital employees, claude code plugins, islamic finance AI, regulatory compliance AI, MCP plugins, agent skills.
