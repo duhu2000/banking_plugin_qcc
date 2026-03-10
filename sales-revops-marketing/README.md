@@ -2,7 +2,7 @@
 
 Plugin for **Chapter 23: Sales, RevOps & Marketing** from [The AI Agent Factory](https://learn.panaversity.org) by Panaversity.
 
-Sales, RevOps & Marketing agent with 14 product skills, 5 agent skills, 4 jurisdiction overlays, and 4 domain commands covering prospect research, lead scoring, CRM enrichment, outreach, sequences, pipeline analysis, content creation, campaign planning, copywriting, performance analysis, and revenue reporting across US, EU, Pakistan, and GCC jurisdictions.
+Sales, RevOps & Marketing agent with 14 product skills, 5 autonomous agents, and 4 jurisdiction overlays covering prospect research, lead scoring, CRM enrichment, outreach, sequences, pipeline analysis, content creation, campaign planning, copywriting, performance analysis, and revenue reporting across US, EU, Pakistan, and GCC jurisdictions.
 
 ---
 
@@ -42,7 +42,7 @@ Start a new Claude session and say: "I need to research a prospect at Meridian L
 ```
 sales-revops-marketing/
 ├── .claude-plugin/plugin.json          # Plugin manifest
-├── skills/                             # 19 skills (auto-loaded by agent)
+├── skills/                             # 15 skills (14 product + 1 router)
 │   ├── sales-marketing-global-router/  # Routes to correct skill + jurisdiction
 │   │   └── references/jurisdictions/   # 4 jurisdiction overlays (on-demand)
 │   ├── prospect-research/              # Deep prospect and account intelligence
@@ -58,52 +58,35 @@ sales-revops-marketing/
 │   ├── copywriting/                    # Ad copy, subject lines, CTAs
 │   ├── performance-analysis/           # Channel and campaign analytics
 │   ├── content-calendar/               # Publishing schedule and calendar
-│   ├── persona-icp/                    # ICP and buyer persona development
-│   ├── lead-intelligence-agent/        # HOT signal monitoring
-│   ├── crm-hygiene-agent/              # Automated CRM enrichment
-│   ├── outreach-sequencing-agent/      # Sequence management
-│   ├── marketing-performance-agent/    # Weekly analytics
-│   └── revenue-reporting-agent/        # Pipeline and forecast dashboard
-├── commands/                           # 4 slash commands
-│   ├── research-prospect.md            # /research-prospect
-│   ├── score-lead.md                   # /score-lead
-│   ├── plan-campaign.md                # /plan-campaign
-│   └── build-sequence.md              # /build-sequence
-├── workflow-recipes/                   # 4 operational playbooks
+│   └── persona-icp/                    # ICP and buyer persona development
+├── agents/                             # 5 autonomous agents
+│   ├── lead-intelligence-agent.md      # HOT signal monitoring
+│   ├── crm-hygiene-agent.md            # Automated CRM enrichment
+│   ├── outreach-sequencing-agent.md    # Sequence management
+│   ├── marketing-performance-agent.md  # Weekly analytics
+│   └── revenue-reporting-agent.md      # Pipeline and forecast dashboard
 └── sales-marketing.local.md.template   # ICP + brand config -- fill in + rename
 ```
 
 ---
 
-## Commands
-
-| Command              | What It Does                         | Example                                                         |
-| -------------------- | ------------------------------------ | --------------------------------------------------------------- |
-| `/research-prospect` | Deep prospect and account brief      | `/research-prospect "Jane Smith" "VP Ops" "Meridian Logistics"` |
-| `/score-lead`        | Three-dimension lead scoring         | `/score-lead "Meridian Logistics" "Jane Smith, VP Ops"`         |
-| `/plan-campaign`     | Full campaign brief with channel mix | `/plan-campaign goal:"lead gen" budget:"GBP 25K" timeline:"Q3"` |
-| `/build-sequence`    | Multi-touch outreach sequence        | `/build-sequence "Jane Smith" tier:"HOT" goal:"discovery call"` |
-
----
-
 ## How Each Folder Maps to Chapter 23 Lessons
 
-| Folder                                  | Lessons     | What You Do                              |
-| --------------------------------------- | ----------- | ---------------------------------------- |
-| `skills/prospect-research/`             | Part One    | Research prospects, build account briefs |
-| `skills/lead-scoring/`                  | Part One    | Score and qualify leads                  |
-| `skills/outreach/`                      | Part Two    | Draft personalised outreach messages     |
-| `skills/sequence/`                      | Part Two    | Build multi-touch sequences              |
-| `skills/pipeline/`                      | Part Three  | Analyse pipeline, forecast revenue       |
-| `skills/content-creation/`              | Part Four   | Create marketing content in all formats  |
-| `skills/campaign-planning/`             | Part Four   | Plan and budget campaigns                |
-| `skills/lead-intelligence-agent/`       | Part Five   | Build the Lead Intelligence Agent        |
-| `skills/crm-hygiene-agent/`             | Part Five   | Build the CRM Hygiene Agent              |
-| `skills/outreach-sequencing-agent/`     | Part Five   | Build the Outreach Sequencing Agent      |
-| `skills/marketing-performance-agent/`   | Part Five   | Build the Marketing Performance Agent    |
-| `skills/revenue-reporting-agent/`       | Part Five   | Build the Revenue Reporting Agent        |
-| `skills/sales-marketing-global-router/` | All         | Routing + 4 jurisdiction overlays        |
-| `workflow-recipes/`                     | Operational | Production workflow playbooks            |
+| Folder                                  | Lessons    | What You Do                              |
+| --------------------------------------- | ---------- | ---------------------------------------- |
+| `skills/prospect-research/`             | Part One   | Research prospects, build account briefs |
+| `skills/lead-scoring/`                  | Part One   | Score and qualify leads                  |
+| `skills/outreach/`                      | Part Two   | Draft personalised outreach messages     |
+| `skills/sequence/`                      | Part Two   | Build multi-touch sequences              |
+| `skills/pipeline/`                      | Part Three | Analyse pipeline, forecast revenue       |
+| `skills/content-creation/`              | Part Four  | Create marketing content in all formats  |
+| `skills/campaign-planning/`             | Part Four  | Plan and budget campaigns                |
+| `agents/lead-intelligence-agent`        | Part Five  | Build the Lead Intelligence Agent        |
+| `agents/crm-hygiene-agent`              | Part Five  | Build the CRM Hygiene Agent              |
+| `agents/outreach-sequencing-agent`      | Part Five  | Build the Outreach Sequencing Agent      |
+| `agents/marketing-performance-agent`    | Part Five  | Build the Marketing Performance Agent    |
+| `agents/revenue-reporting-agent`        | Part Five  | Build the Revenue Reporting Agent        |
+| `skills/sales-marketing-global-router/` | All        | Routing + 4 jurisdiction overlays        |
 
 ---
 

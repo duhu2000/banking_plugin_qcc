@@ -48,15 +48,6 @@ for every query.
 3. Check for ICP/brand configuration (`sales-marketing.local.md`) -> load if found
 4. Apply the mandatory output header to every response
 
-## Commands
-
-| Command              | What It Does                                             |
-| -------------------- | -------------------------------------------------------- |
-| `/research-prospect` | Deep prospect and account intelligence brief             |
-| `/score-lead`        | Three-dimension lead scoring with routing recommendation |
-| `/plan-campaign`     | Full campaign brief with channel mix and budget          |
-| `/build-sequence`    | Multi-touch outreach sequence generation                 |
-
 ## Mandatory Output Header
 
 Every sales/marketing output MUST begin with:
@@ -73,13 +64,16 @@ VERIFY DATA:   All prospect data should be verified before outreach
 When this extension is installed alongside the Anthropic base `knowledge-work-plugins/sales`
 and `/marketing` plugins, some skills overlap. The following resolution rules apply:
 
-| Overlapping Skill    | Resolution Pattern | Behaviour                                                                 |
-| -------------------- | ------------------ | ------------------------------------------------------------------------- |
-| `campaign-planning`  | **Wrapper**        | Extension wraps base skill, adding ICP targeting + budget localisation    |
-| `content-creation`   | **Wrapper**        | Extension wraps base skill, adding brand voice + non-English generation   |
-| `prospect-research`  | **Override**       | Extension replaces base — adds three-dimension scoring + timing signals  |
-| `outreach`           | **Override**       | Extension replaces base — applies Five Laws + jurisdiction compliance    |
-| All other skills     | **No collision**   | Extension-only skills (scoring, enrichment, RevOps agents, pipeline)     |
+| Overlapping Skill      | Resolution Pattern | Behaviour                                                                                                                                                                                  |
+| ---------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `campaign-planning`    | **Wrapper**        | Extension wraps base skill, adding ICP targeting + budget localisation                                                                                                                     |
+| `content-creation`     | **Wrapper**        | Extension wraps base skill, adding brand voice + non-English generation                                                                                                                    |
+| `prospect-research`    | **Override**       | Extension replaces base — adds three-dimension scoring + timing signals                                                                                                                    |
+| `outreach`             | **Override**       | Extension replaces base — applies Five Laws + jurisdiction compliance                                                                                                                      |
+| `pre-call-brief`       | **Override**       | Extension replaces base `call-prep` — adds ICP-scored context + three-dimension deal health                                                                                                |
+| `performance-analysis` | **Wrapper**        | Extension wraps base `performance-analytics`, adding ICP-filtered analysis + regional benchmarks                                                                                           |
+| `pipeline`             | **Override**       | Extension replaces base `/pipeline-review` — adds three-dimension scoring integration                                                                                                      |
+| All other skills       | **No collision**   | Unique to extension — no base equivalent (crm-enrichment, sequence, follow-up, copywriting, persona-icp, content-calendar, pre-call-brief scoring, lead-scoring, plus 5 autonomous agents) |
 
 **Pattern definitions:**
 
