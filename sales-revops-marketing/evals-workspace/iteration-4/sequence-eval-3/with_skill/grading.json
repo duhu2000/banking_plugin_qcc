@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To reactivate a warm relationship rather than starting cold, Touch 1 specifically references the October 2025 demo and the stated blocker (ERP migration), then acknowledges the blocker's resolution (completed in January per press release) as the reason for reconnecting -- re-engagement sequences that open cold as if no prior relationship exists get response rates no better than cold outreach",
+      "passed": true,
+      "evidence": "Touch 1: 'When we spoke back in October, you mentioned you loved what TradeLink could do but the timing wasn't right -- NovaTrade was mid-migration to a new ERP and couldn't take on another integration until Q1. Completely understood. I saw the press release that NovaTrade completed the ERP migration in January.' References the October demo, the specific stated blocker, and its resolution via press release."
+    },
+    {
+      "text": "To create urgency tied to Maria Santos's changed circumstances, Touch 2 introduces new value from at least one of: the LATAM expansion creating new partnership complexity across 3 markets, Maria's promotion from Senior Partnerships Manager to Head of Partnerships giving her a bigger mandate, or the PortBridge case study (28% partner-sourced revenue increase in 6 months) -- each of these is a distinct buying signal that did not exist during the October demo",
+      "passed": true,
+      "evidence": "Touch 2 introduces all three: 'since we last spoke in October, a lot has changed at NovaTrade -- 3 new LATAM markets, your move to Head of Partnerships, and an ERP migration behind you.' Then introduces PortBridge: 'PortBridge (B2B marketplace, cross-border, similar to NovaTrade) deployed TradeLink and increased partner-sourced revenue by 28% in 6 months. The biggest driver was managing partner onboarding and performance across multiple markets from one platform.'"
+    },
+    {
+      "text": "To prevent burning a prospect who already expressed product interest, Touch 3 is a graceful close or hand-off that is short, respectful, and leaves the door open without pressuring or guilting Maria into responding -- she said she loved the product, so a bad close risks permanently losing a prospect who is already sold on value",
+      "passed": true,
+      "evidence": "Touch 3: 'I've reached out a couple of times since the ERP migration wrapped up. I'll assume the timing still isn't right or priorities have shifted. Completely understand -- expanding into 3 new markets is a lot to navigate. If partner ecosystem management moves up the priority list, I'm here. You already know the product -- so it'd be a short conversation.' 67 words, respectful, no pressure, no guilt, leaves door open."
+    },
+    {
+      "text": "To reach Maria through different attention windows, at least 2 distinct channels are used across the 3 touches (not all 3 on the same channel) -- re-engagement prospects are harder to reach because they already filtered you out once, so channel variety is essential for breaking through",
+      "passed": true,
+      "evidence": "Channels: Touch 1 Email (Day 1), Touch 2 LinkedIn (Day 10), Touch 3 Email (Day 21). Two channels used (Email and LinkedIn). Not all on the same channel."
+    },
+    {
+      "text": "To ensure each touch earns its place in the sequence, no two touches repeat identical content -- Touch 1 anchors on the prior relationship and resolved blocker, Touch 2 introduces new value (LATAM expansion, promotion, or PortBridge proof point), and Touch 3 provides the graceful close -- a 3-touch sequence has zero margin for repetition",
+      "passed": true,
+      "evidence": "Touch 1: anchors on October demo + ERP blocker resolved. Touch 2: introduces three new elements (LATAM expansion, promotion, PortBridge case study 28% revenue increase). Touch 3: graceful close referencing LATAM expansion context. No content repeated between touches. Five Laws check confirms distinct specific references for each."
+    },
+    {
+      "text": "To prevent a re-engaged prospect from getting automated messages after replying, branching rules include the reply-exit rule (any reply at any touch exits the sequence and alerts the rep), and the sequence completion section specifies moving to a cultivate nurture cadence if no response after all 3 touches -- re-engaged prospects who reply need immediate human follow-up, not another automated touch",
+      "passed": true,
+      "evidence": "Branching Rules: 'Reply received at any touch -> EXIT SEQUENCE; alert rep immediately.' Sequence Completion: 'If no response after all 3 touches: move to CULTIVATE nurture cadence. Log in CRM: \"Re-engagement sequence completed -- [date] -- no response.\" Re-evaluate timing signal in 90 days via /enrich.'"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline generation: every content piece includes a CTA that maps to the campaign goal of demo requests -- pre-launch pieces drive toward waitlist/early access signups that feed the demo pipeline, post-launch pieces drive direct demo booking, and no piece exists without a conversion-oriented CTA tied to one of the two personas (VP Legal Ops or Head of Procurement)",
+      "passed": true,
+      "evidence": "Every row in the week-by-week tables includes a CTA column. Pre-launch weeks (1-4) consistently use 'Join the ClauseIQ early access waitlist' or 'Sign up for early access.' Post-launch weeks (5-8) consistently use 'Book a demo' variants. The CTA Mapping table explicitly shows 'Weeks 1-4: Join waitlist / early access -> Waitlist -> demo pipeline' and 'Weeks 5-8: Book a demo + use calculator -> Demo booking + ROI proof.' The summary states: 'Every content piece includes a CTA mapped to the campaign goal of demo requests.' All pieces are assigned to VP Legal Ops, Head of Procurement, or Both."
+    },
+    {
+      "text": "Content leverage: pillar-cluster model is clearly visible with at least 2 cornerstone assets (one pre-launch, one post-launch) each generating 4-8 derived cluster pieces across blog, LinkedIn, and email -- demonstrating maximum content output from minimum production effort by a single writer",
+      "passed": true,
+      "evidence": "Pillar 1 ('The Hidden Cost of Manual Contract Management') publishes Week 2 (pre-launch) with 6 cluster pieces across Weeks 2-4. Pillar 2 ('AI Contract Management ROI Calculator') publishes Week 6 (post-launch) with 6 cluster pieces across Weeks 6-8. The Pillar-Cluster Summary table confirms both pillars with 6 cluster pieces each. 6 is within the 4-8 range. Cluster content spans blog, LinkedIn company, CEO LinkedIn, and email."
+    },
+    {
+      "text": "Execution velocity: total weekly content volume stays within 6-9 pieces per week (1 full-time writer with AI multiplier), and any week approaching the ceiling is flagged with a recommendation to cut or defer lower-priority pieces -- prioritizing pillar content and demo-driving assets over channel fill",
+      "passed": true,
+      "evidence": "Every week shows 'Piece count: 7 (within 6-9 range).' The workload calculation states 'AI-assisted range: 6-9 pieces/week' and 'Target: 7 pieces/week average across 8 weeks = ~56 total pieces.' No week exceeds the ceiling. However, no week approaches the ceiling either (all at 7), so no flagging was needed. The capacity check note confirms '7 pieces/week is within the 6-9 AI-assisted range for 1 full-time writer. No weeks exceed the ceiling.'"
+    },
+    {
+      "text": "Execution velocity: every production deadline is set at least 5 business days before the corresponding publish date, and LegalTech Connect in week 3 has pre-event teasers, live coverage, and post-event recap content with deadlines that account for the event timeline -- ensuring the tentpole moment is not missed due to production delays",
+      "passed": true,
+      "evidence": "The Workload Calculation states 'Production deadlines: 5 business days before publish date (minimum).' Each week's summary includes a PRODUCTION DEADLINE line. Week 3 (LegalTech Connect) explicitly includes pre-event teasers (Mon, Wed), live coverage (Thu -- 'Key quote callout from CEO's talk + event photo' and CEO real-time post), and post-event recap (Fri blog: 'LegalTech Connect 2026 Recap'). Deadlines state: 'Pre-event teasers (Mon, Wed) due by prior Wednesday. Live posts (Thu) are real-time -- CEO to approve drafts morning-of. Recap blog due by Wednesday of event week for Friday publish.' This accounts for the event timeline."
+    },
+    {
+      "text": "Alignment: content is split between the two personas with messaging tailored to each buyer's priorities -- VP Legal Ops content emphasizes efficiency and risk reduction, Head of Procurement content emphasizes cost and compliance -- so the calendar produces assets the sales team can use in persona-specific outreach",
+      "passed": true,
+      "evidence": "The Persona Distribution table shows VP Legal Ops: 22 pieces (39%), Head of Procurement: 15 pieces (27%), Both: 19 pieces (34%). VP Legal Ops content consistently addresses efficiency and risk (e.g., 'Mid-market legal teams are drowning in contract backlogs,' 'The #1 efficiency killer in mid-market legal ops,' 'X% faster contract turnaround'). Head of Procurement content addresses cost and compliance (e.g., 'how much is contract non-compliance costing your org?', 'Contract Compliance Without the Bottleneck: A Procurement Leader's Guide,' 'compliance tracking so you don't have to chase legal for updates'). Messaging is clearly tailored to each persona's stated priorities."
+    },
+    {
+      "text": "Content leverage: only the four committed channels appear (LinkedIn company page, CEO LinkedIn, blog, email newsletter) with NO webinar or paid social content planned, and channel cadence stays within sustainable defaults (LinkedIn company page up to 3x/week, CEO LinkedIn up to 4-5x/week, blog 1-2x/week, email 1-2x/month) -- preventing the team from overcommitting to channels they cannot sustain",
+      "passed": true,
+      "evidence": "The Channel Distribution table shows: LinkedIn company 16 pieces (2x/week avg, within 3x), CEO Personal LinkedIn 24 pieces (3x/week avg, within 5x), Blog 8 pieces (1x/week, within 2x), Email Newsletter 4 pieces (2x/month, within 2x). Webinar: 0, Paid Social: 0 -- both explicitly labeled 'Not planned per brief.' The calendar explicitly states 'Channels NOT planned (per brief): Webinar, Paid Social. These are not included in the calendar.' Webinar and paid social are mentioned only as flagged recommendations outside the calendar."
+    }
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}
+}

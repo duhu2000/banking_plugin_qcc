@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Brightpath Education ($410K) is flagged as at-risk due to 40 days since last activity and the VP Ed going quiet, and the report directly challenges Jake Torres's 'Likely' classification by cross-referencing activity signals against stage duration — this enforces the NEVER rule about not forecasting on rep optimism alone, because a VP of Sales who includes $410K at 60% in the board number based on Jake's word is risking a $246K forecast miss when this deal slips to Q2",
+      "passed": true,
+      "evidence": "Brightpath section: 'BRIGHTPATH -- Challenging Jake's \"Likely\" Classification' lists 4 contradicting signals: 40 days since last activity, VP Ed went quiet, close date 6 days away with zero engagement, 'Was hot in January -- January was 6 weeks ago.' Explicitly states: 'The NEVER rule applies here' and 'Including Brightpath at $410K in the board number based on Jake's word risks a $246K weighted forecast miss.' Recommended reclassification to 'At Risk / Slip to Q2'."
+    },
+    {
+      "text": "Vanguard Distributing ($290K) is called out as an optimistic classification: Dana claims 50/50 but the deal is in Discovery stage with only one discovery call and a 20% stage probability, and the report does not accept the March 31 close date without confirmed prospect timeline — including this at face value would inflate the forecast by up to $290K on a deal with no validated sales process milestones",
+      "passed": true,
+      "evidence": "Vanguard section lists: 'Stage: Discovery with a stage probability of 20%, not 50%', 'Only one discovery call completed', 'closing a $290K deal from Discovery to Closed Won in 22 days would require completing Discovery, Qualification, Proposal, and Negotiation in 3 weeks', 'No validated sales process milestones'. States: 'Including Vanguard at face value ($290K) would inflate the forecast by up to $290K on a deal with no validated process milestones.'"
+    },
+    {
+      "text": "Cruxfield Data Suite ($275K) is explicitly excluded from Q1 forecast or moved to Q2 based on the deal notes stating 'Won't close Q1, pushing to Q2' — this prevents the common board-day error of including deals the rep has already mentally pushed, which inflates upside numbers and erodes leadership trust when the quarter closes short",
+      "passed": true,
+      "evidence": "Dedicated section: 'CRUXFIELD DATA SUITE -- EXCLUDED FROM Q1 FORECAST. Deal notes state \"Won't close Q1, pushing to Q2.\" Dana's own submitted forecast does not include it. Including this deal in Q1 upside numbers would inflate the board presentation with pipeline the rep has already mentally abandoned.' Moved to Q2 pipeline with weighted Q2 value calculated."
+    },
+    {
+      "text": "Report produces a realistic forecast number by adding $1.41M closed-won to the weighted value of remaining open Q1 deals, and explicitly quantifies the gap to the $3.6M board target — the gap analysis tells the VP of Sales exactly how much pipe needs to convert or be generated in the remaining 20 days of the quarter, which is the single most important number for the board conversation",
+      "passed": true,
+      "evidence": "Forecast Summary for the Board: Floor scenario $1.41M closed + $693K committed = $2,103,000, gap -$1,497,000. Best Case $2,978,000, gap -$622,000. Gap Analysis section: remaining quota $2,190,000, required daily pipeline conversion $68,186/day over 22 days. States: 'The math is clear: Q1 will close between $2.1M and $2.5M.'"
+    },
+    {
+      "text": "Rep-submitted forecast totals ($1.858M combined) are compared line-by-line against the weighted pipeline model to identify where each rep is over-forecasting or sandbagging — specifically, Jake's $740K submitted forecast is challenged because it includes Brightpath at 'Likely' despite stalled activity, and Dana's $290K is scrutinised because Vanguard's Discovery-stage deal has insufficient process validation to justify a Q1 commit",
+      "passed": true,
+      "evidence": "Full line-by-line analysis for all three reps. Jake: '$740K submitted, $541,500 weighted, +$198,500 over weighted' with Brightpath challenged at length. Dana: '$290K submitted, $58,000 weighted, +$232,000 over weighted' with Vanguard scrutinized. Sarah: '$828K submitted exceeds visible pipeline ($488K) by $340K -- discrepancy needs clarification.' Summary quantifies the $980K-$1.17M gap between rep submissions and adjusted forecast."
+    },
+    {
+      "text": "Forecast categories (Committed >80%, Likely 50-80%, Upside <50%) are populated with specific deal names and dollar amounts in each bucket, and the committed category only includes deals with confirmed prospect-side milestones (legal review, PO pending) — this three-tier structure lets the VP of Sales present a range to the board (best-case with upside vs. worst-case committed-only) rather than a single number that will be wrong",
+      "passed": true,
+      "evidence": "Three categories populated: Committed ($693K): Pinnacle (verbal yes from CFO, awaiting PO), Apex (legal review in progress, MSA redlines), Ridgeline (pricing approved, SOW under review) -- all with confirmed milestones. Likely ($595K): Brightpath and Meridian (both with risk flags). Upside ($290K): Vanguard (heavily discounted). Board scenarios presented as range: $2,103K to $2,978K."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

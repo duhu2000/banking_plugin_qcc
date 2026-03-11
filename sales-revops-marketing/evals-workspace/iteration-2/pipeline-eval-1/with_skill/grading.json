@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Weighted pipeline is calculated by multiplying each open deal's value by its stage probability (e.g., Apex $340K x 80% = $272K, Meridian $185K x 60% = $111K, TerraVolt $520K x 20% = $104K) and summing to a total near $943K-$960K — this is the number a VP of Sales can defend to the board, because presenting the unweighted total (~$2.97M open) would overstate the quarter by roughly 3x and destroy forecast credibility",
+      "passed": false,
+      "evidence": "The output calculates weighted pipeline as $1,293,900, which is significantly above the expected $943K-$960K range. The stage breakdown shows individual weighted values (e.g., Negotiation $390,400, Proposal Sent $357,000) that suggest correct per-deal math, but the total is higher than the expected range. The output does distinguish between weighted and unweighted pipeline ($2,878,000 open), but the weighted total does not match the expected range. The discrepancy may stem from the output including Nomura ($92K Closed Won) in the weighted calc or using different probabilities, but the expectation specifies a total near $943K-$960K and the output shows $1,293,900."
+    },
+    {
+      "text": "Coverage ratio is calculated against the remaining quota of $1.72M ($2.4M target minus $680K closed), not against the full $2.4M — a sales leader who uses total-quota coverage will undercount the urgency of the gap, and the report explicitly states whether weighted coverage meets the 3x threshold needed to confidently call the quarter",
+      "passed": true,
+      "evidence": "The output explicitly calculates: 'Quota remaining $1,720,000' and 'Coverage ratio (open pipeline / quota remaining) 1.67x'. It explicitly states: 'Coverage ratio is 1.67x -- critically below the 3x minimum. This pipeline cannot absorb deal slippage.' The Pipeline Gaps section also calculates the 3x coverage target as $5,160,000 against $1,720,000 remaining quota."
+    },
+    {
+      "text": "Brightpath Education ($410K, Proposal Sent) is flagged as stalled with at least three compounding risk factors: 40 days since last activity (exceeding the 30-day stall threshold), close date 2026-03-15 is imminent or passed with zero recent engagement, and no next step — this is $410K of pipeline that a manager might assume is alive but is almost certainly dead without intervention, and the recommended action specifies who should do what (e.g., 'Jake Torres should send a break-up email or direct-dial the VP Ed by Wednesday') rather than generic 'follow up'",
+      "passed": true,
+      "evidence": "The output has a dedicated stalled deal section for Brightpath: 'No activity in 40 days. This is the second-largest deal expected to close this quarter (2026-03-15 -- that is 4 days from now). A $410K deal closing in 4 days with zero activity in 40 days is not a real close date. Source is Content - Whitepaper, meaning this was an inbound lead, not a referred or high-intent deal.' Action: 'Jake Torres must make direct contact TOMORROW (2026-03-12). If the prospect does not respond within 48 hours, push the close date to Q2 (April at earliest) and reduce probability to 20%. Do NOT present this deal as Q1 revenue to leadership on Monday.' Three compounding risk factors are clearly stated (40 days stale, close date 4 days away, no recent engagement), and the action names Jake Torres with a specific deadline of tomorrow."
+    },
+    {
+      "text": "Helios CX Transformation ($630K, Discovery) is flagged as stalled at 33+ days without activity, and the report calculates that this single deal represents ~37% of the remaining quota gap — losing it without a replacement source leaves the quarter unrecoverable, so the action plan addresses both re-engagement (e.g., 'Dana Okafor to reach CTO via LinkedIn before April travel ends') and contingency pipeline generation",
+      "passed": false,
+      "evidence": "The output flags Helios as stalled at 33 days: 'No activity in 33 days. Largest deal in the pipeline at $630K but still in Discovery with a 2026-05-30 close date.' The action names Dana Okafor with a deadline: 'Dana Okafor to attempt re-engagement this week with new value -- a relevant case study, ROI model, or executive briefing offer. If no response by 2026-03-18, move to Closed Lost -- Stalled.' However, the output does NOT calculate that this deal represents ~37% of the remaining quota gap. It also does not explicitly address contingency pipeline generation specifically tied to the Helios risk. The pipeline gaps section addresses pipeline generation broadly but not as a contingency for losing Helios."
+    },
+    {
+      "text": "Meridian Healthcare ($185K, Proposal Sent) is flagged as at-risk because last activity was 2026-02-18 (19 days before report date, exceeding the 14-day no-activity threshold), and the recommended action is specific to the deal context — not 'follow up' but something that addresses the partner referral channel and re-engages the champion with a concrete ask and a deadline within the current week",
+      "passed": true,
+      "evidence": "The output flags Meridian as at-risk: 'No activity in 19 days (exceeds 14-day threshold). Proposal was sent but no follow-up logged since 2026-02-18. Close date is 2026-03-31 -- 22 days away with no recent engagement. Partner referral source means the referring partner may have context on silence.' Action: 'Jake Torres to contact the referring partner TODAY to get a read on the deal. If no response from the prospect by Wednesday (2026-03-12), re-engage the champion directly with a specific agenda (pricing questions, implementation timeline concerns, etc.). Do not wait until next week.' This is specific to the partner referral context, names the rep, and has a deadline within the current week."
+    },
+    {
+      "text": "At-risk deals each include a specific recommended action with a named rep, a concrete next step tied to the deal's context, and a deadline — the NEVER rule that at-risk deals must not remain in pipeline without a specific action and deadline is honoured, which prevents the most common pipeline hygiene failure: deals that sit in 'Proposal Sent' for months while reps report them as active",
+      "passed": true,
+      "evidence": "Every at-risk and stalled deal has a named rep, context-specific action, and deadline: Meridian: 'Jake Torres to contact the referring partner TODAY... If no response from the prospect by Wednesday (2026-03-12)...'. Cruxfield: 'Dana Okafor to confirm the deal record is clean in HubSpot and schedule a qualification call this week.' Brightpath: 'Jake Torres must make direct contact TOMORROW (2026-03-12)... If the prospect does not respond within 48 hours, push the close date to Q2.' Helios: 'Dana Okafor to attempt re-engagement this week... If no response by 2026-03-18, move to Closed Lost -- Stalled.'"
+    },
+    {
+      "text": "Pipeline gaps section quantifies the dollar shortfall between weighted pipeline and remaining quota, and recommends specific source channels to fill the gap based on which sources in the current data are producing pipeline — this gives the sales leader a concrete plan to present at Monday's leadership call rather than just flagging that coverage is insufficient",
+      "passed": true,
+      "evidence": "The Pipeline Gaps section quantifies: 'Quota remaining $1,720,000', '3x coverage target $5,160,000', 'Current open pipeline $2,878,000', 'Pipeline gap to 3x: $2,282,000'. It then provides a source-by-source breakdown with specific recommendations: '1. Double down on Outbound SDR -- highest conversion signal in this pipeline. SDR-sourced deals are progressing fastest (2 of 3 are in Negotiation, 1 already Closed Won).' Also recommends activating partner channel, notes inbound demo pipeline is large but slow, and says event/content leads need qualification rigor."
+    }
+  ],
+  "summary": {"passed": 5, "failed": 2, "total": 7, "pass_rate": 0.71}
+}

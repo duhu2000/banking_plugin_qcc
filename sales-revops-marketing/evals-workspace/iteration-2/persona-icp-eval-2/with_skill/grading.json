@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "WIN RATE: WHO THEY ARE section profiles the VP Engineering at mid-market B2B SaaS (200-1000 employees) with career trajectory, scope, and what drives them -- grounded in the stated focus on engineering velocity and retention -- giving reps enough context to speak as a peer from the first touch, not stumble through generic discovery",
+      "passed": true,
+      "evidence": "WHO THEY ARE gives a grounded VP Engineering profile with career trajectory, scope, and motivations centered on engineering velocity and retention."
+    },
+    {
+      "text": "WIN RATE: WHAT THEY WANT and WHAT THEY FEAR sections identify measurable outcomes they are evaluated on (velocity, retention, shipping cadence) and specific risks they fear (tool fatigue, team resistance, failed rollouts making them look bad to CTO/CEO) -- directly reflecting the 20 conversations, so reps frame every pitch around outcomes the buyer already cares about instead of features",
+      "passed": true,
+      "evidence": "WHAT THEY WANT and WHAT THEY FEAR are tied to measurable outcomes and specific risks from the prompt, including tool fatigue, failed rollouts, and attrition/velocity pressures."
+    },
+    {
+      "text": "WIN RATE: HOW THEY BUY includes Discovery, Evaluation, Decision, and Blocker sub-sections with the POC requirement explicitly addressed in Evaluation and the 'my team will resist another tool in the stack' objection explicitly handled in Blocker with reframe language -- arming the rep to navigate the two biggest deal-killers before they stall the deal",
+      "passed": true,
+      "evidence": "HOW THEY BUY includes Discovery, Evaluation, Decision, and Blocker sections; Evaluation explicitly makes the POC non-negotiable, and Blocker handles 'another tool in the stack' with concrete reframe guidance."
+    },
+    {
+      "text": "WIN RATE: HOW TO COMMUNICATE specifies peer-level technical tone, explicitly flags '10x productivity' claims as credibility-killing language to avoid, identifies phrases that resonate vs alienate, and prescribes what to lead with -- so reps don't self-disqualify in the first 30 seconds by triggering the skepticism pattern described in the prompt",
+      "passed": true,
+      "evidence": "HOW TO COMMUNICATE specifies peer-level technical tone, explicitly bans '10x productivity' language, lists phrases that resonate versus alienate, and tells reps what to lead with."
+    },
+    {
+      "text": "SALES CYCLE COMPRESSION: WHERE TO REACH THEM identifies primary channels, content they consume (engineering blogs, specific podcasts, conferences like QCon or LeadDev), and timing of receptivity -- specific enough that a rep can build a channel strategy and first-touch sequence directly from the persona without additional research",
+      "passed": true,
+      "evidence": "WHERE TO REACH THEM identifies channels, content, and conferences with enough specificity to build a channel strategy directly from the persona."
+    },
+    {
+      "text": "REP PREPARATION TIME: The persona includes actionable outreach guidance a rep can immediately translate into a first-touch message or sequence strategy -- concrete tactical direction on messaging, channel, and approach rather than abstract personality descriptions that require interpretation",
+      "passed": true,
+      "evidence": "The ACTIONABLE OUTREACH GUIDANCE section gives immediate tactical messaging and sequence direction, not just descriptive persona traits."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

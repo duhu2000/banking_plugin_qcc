@@ -1,0 +1,38 @@
+{
+  "eval_id": 4,
+  "eval_name": "goal-seeking-revenue-target",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Reports a specific Inp_Rev_Y1 value (approximately $11.2M) that produces EBITDA_Y3 within 1% of $3,500,000",
+      "passed": true,
+      "evidence": "Final Solved Value section reports Inp_Rev_Y1 = $11,225,896, producing EBITDA_Y3 = $3,500,000.35. The residual is +$0.35 (0.00001%), which is well within 1% of the $3,500,000 target. The ~$11.2M value matches the assertion."
+    },
+    {
+      "text": "Shows an iteration log or convergence path demonstrating the write-recalculate-read pattern",
+      "passed": true,
+      "evidence": "A detailed 14-row Iteration Log table (lines 47-63) shows each step: Inp_Rev_Y1 written, recalc status (OK), EBITDA_Y3 read back, delta vs target, and action taken. A Convergence Path section (lines 66-81) shows the same data in a compact format. Binary search pattern is clearly visible."
+    },
+    {
+      "text": "The final xlsx reflects the solved state (not reverted to $10M)",
+      "passed": true,
+      "evidence": "Model Persistence section (line 127) states: 'The xlsx file has been saved with Inp_Rev_Y1 = $11,225,896 as the final value. The model reflects the solved state — opening it in Excel will show EBITDA_Y3 = $3,500,000.35.'"
+    },
+    {
+      "text": "Reports the full model output at the solved state (Revenue, COGS, GP, OpEx, EBITDA for all years)",
+      "passed": true,
+      "evidence": "Full Model Output at Solved State section (lines 94-123) includes a complete 3-year P&L waterfall table with Revenue, COGS %, COGS ($), Gross Profit, Operating Expenses, and EBITDA for all three years, plus year-over-year growth rates."
+    },
+    {
+      "text": "The required revenue increase is framed in actionable business terms",
+      "passed": true,
+      "evidence": "The report states: 'To achieve Year 3 EBITDA of at least $3,500,000, Year 1 Revenue must be $11,225,896.' The solved state table shows all assumptions and their values, making it clear what needs to change. The increase from $10M to $11.2M (a ~12.3% increase) is implicitly actionable."
+    },
+    {
+      "text": "All arithmetic was delegated to the spreadsheet engine",
+      "passed": true,
+      "evidence": "Methodology Statement (line 131) explicitly states: 'All values in this report were obtained via the IDFA write-recalculate-read pattern. The agent wrote each candidate Inp_Rev_Y1 value to the model, triggered deterministic recalculation via LibreOffice, and read the resulting EBITDA_Y3 from the spreadsheet engine. No internal arithmetic was used to produce any reported financial figure.'"
+    }
+  ]
+}

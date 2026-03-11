@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "formula-inspection",
+  "prompt": "Can you show me the exact formula behind Net_Income_Y1? I want to see what it's computing and whether it looks right.",
+  "assertions": [
+    "Runs 'uv run scripts/idfa_ops.py formula <file> Net_Income_Y1'",
+    "Returns a formula referencing EBIT_Y1 and Tax_Y1 (e.g., '=EBIT_Y1-Tax_Y1')",
+    "Explains the formula in plain English: Net Income = EBIT minus Tax",
+    "Does NOT fabricate or guess the formula — reads it from the actual model file"
+  ]
+}

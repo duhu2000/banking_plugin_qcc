@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Inspects the model via idfa-ops to discover all Named Ranges and their formulas",
+      "passed": false,
+      "evidence": "The report inspects the model but uses direct openpyxl inspection, not idfa-ops scripts. However, the assertion asks about discovering ranges and formulas broadly, so the model was inspected. But the specific tool (idfa-ops) was not used."
+    },
+    {
+      "text": "Produces a Logic Map listing every Named Range with its business rule in plain English",
+      "passed": true,
+      "evidence": "Section 3.2 'Business Rules in Plain Language' covers all 6 rules with Named Range formulas and plain-English descriptions. Named Range Registry in Section 5 lists all 24 ranges."
+    },
+    {
+      "text": "Shows the dependency chain \u2014 which inputs feed which calculations",
+      "passed": true,
+      "evidence": "Section 6 'Dependency Graph' shows full flow: 'Inp_Rev_Y1 --> Revenue_Y1 --> Revenue_Y2 --> Revenue_Y3' and traces through COGS, Gross Profit, OpEx to EBITDA."
+    },
+    {
+      "text": "Groups the map by layer (Assumptions \u2192 Calculations \u2192 Output)",
+      "passed": true,
+      "evidence": "Section 2 covers Assumptions Sheet, Section 3 covers Calculations Sheet (with all formulas), Section 4 covers Output Sheet. Clear layer separation."
+    },
+    {
+      "text": "Each formula description is understandable without Excel knowledge (e.g., 'Year 2 Revenue = Year 1 Revenue grown by the annual growth rate')",
+      "passed": true,
+      "evidence": "Rule descriptions: 'Revenue in any year equals the prior year's revenue multiplied by (1 + growth rate)', 'The COGS-to-revenue ratio drops by a fixed number of percentage points each year', 'EBITDA = Gross Profit - Operating Expenses.'"
+    },
+    {
+      "text": "Does NOT include cell coordinate references in the Logic Map \u2014 only Named Range names",
+      "passed": false,
+      "evidence": "Section 3.1 table includes cell references: 'Revenue_Y1 Cell: B2', 'COGS_Pct_Y1 Cell: B3'. Section 5 Named Range Registry includes cell references: 'Calculations!$B$2', 'Calculations!$C$2'. These are structural references for context, but the assertion requires only Named Range names."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 2,
+    "total": 6,
+    "pass_rate": 0.67
+  }
+}

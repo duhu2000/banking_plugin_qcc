@@ -1,0 +1,103 @@
+{
+  "expectations": [
+    {
+      "text": "At least 8 subject line variants are produced, each labelled with its framework or angle",
+      "passed": true,
+      "evidence": "10 variants produced (A through J). Each is labelled with its framework and angle in the heading (e.g., 'VARIANT A -- Specificity / Outcome-for-persona', 'VARIANT C -- Curiosity / Counterintuitive claim', 'VARIANT G -- Question / Problem they are asking'). Every variant also includes a prose 'Angle:' description."
+    },
+    {
+      "text": "Every variant is 50 characters or fewer, with character count shown alongside each",
+      "passed": true,
+      "evidence": "All 10 variants are under 50 characters (verified: actual lengths range from 24 to 39 characters). Each variant displays 'Character count: N' explicitly. However, the displayed counts are consistently inflated by 1-3 characters compared to actual counts (e.g., Variant A claims 35 but is actually 34; Variant C claims 32 but is actually 29). The core requirement -- under 50 and count shown -- is met, but the counts themselves are inaccurate."
+    },
+    {
+      "text": "No variant contains banned jargon: leverage, synergy, best-in-class, seamless, robust, solution",
+      "passed": true,
+      "evidence": "Verified all 10 subject lines against the banned word list. None contain 'leverage', 'synergy', 'best-in-class', 'seamless', 'robust', or 'solution'. The output explicitly notes Law 5 enforcement and names the banned words."
+    },
+    {
+      "text": "Variants test at least 3 distinct angles from the test dimensions (e.g., pain vs gain, specific vs broad, question vs statement) -- not just synonym swaps of the same message",
+      "passed": true,
+      "evidence": "At least 5 distinct angles are present: (1) Competitive benchmark/comparison (Variants A, H), (2) Curiosity via counterintuitive claim (Variant C) and pattern interrupt (Variant D), (3) Direct question targeting self-assessment (Variants B, G), (4) Relevance via role targeting (Variant E) and situation framing (Variant F), (5) Urgency/scarcity (Variant I), (6) Gain-focused specificity (Variant J). The testing recommendation explicitly frames Round 1 as 'a pain-vs-gain test and a statement-vs-question test in one round.' These are substantively different angles, not synonym swaps."
+    },
+    {
+      "text": "A TESTING RECOMMENDATION section is present that names the lead test pair, states an expected winner with reasoning, specifies open rate as the metric, and includes a minimum sample size",
+      "passed": true,
+      "evidence": "Section titled 'TESTING RECOMMENDATION' is present. Lead test pair: 'Test A vs. G (Specificity vs. Question)'. Expected winner: 'Variant G. Question-based subject lines tend to outperform statements in cold email to senior ops personas because they trigger self-assessment.' Open rate specified as primary metric in the measurement table: 'Open rate (primary) -- Subject lines are evaluated on opens.' Minimum sample size: 'Minimum 1,000 sends per variant before declaring a winner (2,000 total for a two-variant test)' with justification and escalation guidance."
+    },
+    {
+      "text": "At least 2 different frameworks from the SKILL.md set (Specificity, Curiosity, Relevance, Urgency, Question) are represented across the variants",
+      "passed": true,
+      "evidence": "All 5 frameworks from the SKILL.md set are represented: Specificity (Variants A, B, J), Curiosity (Variants C, D), Relevance (Variants E, F), Question (Variants G, H), Urgency (Variant I). Each variant heading explicitly names its framework."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {},
+  "timing": {},
+  "claims": [
+    {
+      "claim": "Variant A character count is 35",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Actual count of 'Your warehouse ops vs. the top 10%' is 34 characters, not 35."
+    },
+    {
+      "claim": "Variant B character count is 38",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Actual count of 'How fast are your warehouse cycles?' is 35 characters, not 38."
+    },
+    {
+      "claim": "Variant C character count is 32",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Actual count of 'Most 3PLs overstaff by 18-22%' is 29 characters, not 32."
+    },
+    {
+      "claim": "Variant I urgency is only valid if FlowOps is genuinely limiting assessment slots",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Output explicitly warns: 'Only valid if FlowOps is genuinely limiting assessment slots. Do not fabricate scarcity.' This is a responsible caveat."
+    },
+    {
+      "claim": "Variant J's 15% cost reduction must be substantiable from FlowOps customer results",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Output warns: 'this claim must be substantiable from FlowOps customer results -- do not use if there is no proof point behind the number.' Responsible flagging of a potentially unverifiable claim."
+    },
+    {
+      "claim": "At typical cold email open rates (15-25% for well-targeted ops personas), 1,000 sends gives you 150-250 opens per variant",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Math checks out: 15% of 1000 = 150, 25% of 1000 = 250. The open rate range for targeted cold email to senior personas is within industry norms."
+    },
+    {
+      "claim": "Question-based subject lines tend to outperform statements in cold email to senior ops personas",
+      "type": "quality",
+      "verified": false,
+      "evidence": "This is a general copywriting claim that cannot be verified from the available outputs. Some industry data supports this, but it is context-dependent. The output itself hedges: 'this is genuinely uncertain, which is why it is worth testing.'"
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Every variant is 50 characters or fewer, with character count shown alongside each",
+        "reason": "This assertion checks that counts are shown and variants are under 50 chars, but does not check that the displayed counts are ACCURATE. The with_skill output shows counts that are consistently 1-3 characters too high. An assertion like 'displayed character counts are accurate to within +/- 1 character' would catch this."
+      },
+      {
+        "reason": "No assertion checks whether the subject lines would actually render correctly in email clients (e.g., whether '--' renders as intended vs being converted to em-dashes, which would change character count). This is a practical concern for the stated mobile-rendering constraint."
+      }
+    ],
+    "overall": "Assertions cover the structural requirements well. The main gap is accuracy of displayed character counts -- all counts are shown, but many are wrong. A count-accuracy assertion would be discriminating."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "pre-call-brief-eval-1",
+  "prompt": "I've got a discovery call tomorrow at 2pm ET with Natalie Reeves, VP of Supply Chain at Ironclad Distribution -- they're a mid-market 3PL based in Memphis, about 600 employees, doing ~$180M revenue. S...",
+  "assertions": [
+    "The brief follows the Type 1 Pre-Discovery Call Brief structure exactly: header line with prospect name and company, QUICK CONTEXT section, YOUR GOAL FOR THIS CALL section, DISCOVERY QUESTIONS section, ANTICIPATED OBJECTIONS AND RESPONSES section, CALL SUCCESS CRITERIA section (with primary/secondary/minimum), COMPETITORS TO LISTEN FOR section, and THINGS NOT TO DO section",
+    "Discovery questions total 5 or fewer across all subsections (opening, depth, qualification), every single one is phrased as a question ending in a question mark -- none are statements or instructions to the rep",
+    "QUICK CONTEXT is concise enough for a 2-minute read (roughly 3-5 sentences), references Natalie's whitepaper download and the cold call intel about manual spreadsheet tracking and 2-3 hours lost per dispatcher, and mentions the lost retail contract as a relevant trigger event",
+    "YOUR GOAL FOR THIS CALL states a specific, singular call goal -- not a vague 'learn about their needs' or 'do a demo' but a concrete outcome like qualifying the pain around exception tracking, identifying who else is in the buying process, and confirming if there is budget or timeline pressure",
+    "ANTICIPATED OBJECTIONS AND RESPONSES includes at least 2 objections with exact words the prospect might say and responses that validate before reframing -- not defensive or argumentative responses",
+    "THINGS NOT TO DO section is present and contains 3-5 specific warnings relevant to this call (e.g., do not demo on a discovery call, do not trash Oracle WMS, do not assume the lost contract means urgency)"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "expectations": [
+    {
+      "text": "Article is between 600 and 1200 words and follows LinkedIn article structure: scroll-stopping hook as the first line, short paragraphs (2-4 sentences max), bold key lines for scannability",
+      "passed": true,
+      "evidence": "Word count is 982 (within 600-1200 range). The title 'Your \"Simple\" Internal Integration Layer Is Your Most Expensive Engineering Decision' is a strong hook. Paragraphs are generally 2-4 sentences. Multiple bold key lines used throughout for scannability (e.g., 'You didn't plan to build an integration platform. But you're running one.', 'The real cost of internal integrations isn't the build. It's the indefinite maintenance contract you just signed with no termination clause.'). Note: output includes a metadata header block (TASK, ICP MATCH, CONFIGURATION, VERIFY DATA) which is a skill framework artifact, not part of the article itself -- this is minor but worth noting."
+    },
+    {
+      "text": "Takes a clear personal POV and position on the topic -- does not hedge with 'on the other hand' or 'it depends' framing; states what the fix looks like with conviction",
+      "passed": true,
+      "evidence": "The article takes a clear, unhedged position that internal integration layers are too expensive and teams should buy instead of build. Key conviction statements: 'It's costing you far more than you think', 'The question isn't whether you can afford an integration platform. It's whether you can afford to keep pretending your internal one is free.', 'The build-it-ourselves instinct made sense when you had three integrations. It stops making sense somewhere around eight.' No hedging language found."
+    },
+    {
+      "text": "Contains zero banned words: leverage, synergy, best-in-class, seamless, robust, end-to-end, game-changing, revolutionary, disruptive, holistic, cutting-edge, world-class, innovative, empower, unlock, transform, solution, ecosystem, paradigm, circle back, reach out",
+      "passed": true,
+      "evidence": "Programmatic search of the full text confirmed zero banned words present. The article uses plain, direct language throughout (e.g., 'rot', 'ops tax', 'carry cost', 'drag cost') rather than corporate jargon."
+    },
+    {
+      "text": "Includes a specific CTA directing readers to follow the Arcline Analytics company page for the 'Data Ops in Practice' series",
+      "passed": false,
+      "evidence": "The CTA reads: 'Follow our company page for more engineering leadership content -- we write about the infrastructure decisions that quietly shape your team's velocity.' This directs readers to follow the Arcline Analytics company page, but does NOT mention the 'Data Ops in Practice' series. The assertion specifically requires referencing that series name."
+    },
+    {
+      "text": "Ends with a question designed to drive comments (thought leadership engagement pattern)",
+      "passed": true,
+      "evidence": "The article ends with: 'What's the most expensive \"simple\" integration your team is still maintaining? I'd like to hear the war stories.' This is a clear engagement-driving question inviting readers to share their experiences in comments."
+    },
+    {
+      "text": "Does not fabricate any statistics -- any data points are clearly labeled as estimates, sourced, or presented as placeholders for the user to fill in",
+      "passed": true,
+      "evidence": "Data points used: '10-20% of your capacity' (presented as observation), '2-4 weeks per integration' and '4-8 hours per integration per month' (presented as estimates in a framework), '2-3x what they would have guessed' (presented as anecdotal pattern), '15-25% of engineering capacity' (presented as general range), '2-3 engineers functionally dedicated' (presented as personal observation: 'I've seen mid-market engineering orgs where...'). All data points are framed as estimates or personal observations, none are presented as sourced statistics."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  },
+  "execution_metrics": {
+    "output_chars": 6293,
+    "transcript_chars": 0
+  },
+  "timing": {},
+  "claims": [
+    {
+      "claim": "ICP match is STRONG for VP of Engineering, mid-market B2B SaaS",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The article's language, scenarios (sprint planning, on-call rotations, build-vs-buy analysis), and framing (mid-market headcount constraints, engineering velocity as competitive advantage) are well-targeted to VP of Engineering at mid-market B2B SaaS."
+    },
+    {
+      "claim": "Integration failure modes grow combinatorially, not linearly",
+      "type": "factual",
+      "verified": true,
+      "evidence": "This is a reasonable claim about systems that interact with multiple external APIs. The combination of internal changes x external vendor changes does create a combinatorial surface area for failures."
+    },
+    {
+      "claim": "Integration carry cost of 4-8 hours per integration per month",
+      "type": "factual",
+      "verified": false,
+      "evidence": "This is presented as an estimate in the article's build-vs-buy framework, but it is an unverified claim. It's appropriately framed as a general estimate, not a cited statistic, so it doesn't violate the no-fabrication assertion."
+    },
+    {
+      "claim": "The article represents Arcline Analytics as an integration orchestration platform",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The eval prompt describes Arcline Analytics as 'a data observability platform that detects pipel...' (truncated). The article positions them as building 'the integration orchestration platform.' This may be a mismatch with the actual company description, though the prompt is truncated so the full context is unavailable."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Includes a specific CTA directing readers to follow the Arcline Analytics company page for the 'Data Ops in Practice' series",
+        "reason": "This is a good, discriminating assertion -- it caught that both outputs failed to include the specific series name. It tests whether the model actually reads and incorporates specific brief details vs. generating generic CTAs."
+      },
+      {
+        "reason": "No assertion checks whether the article aligns with the company's actual product positioning. The eval prompt describes Arcline Analytics as a 'data observability platform' but the with_skill output positions it as an 'integration orchestration platform.' This is a meaningful quality gap that goes undetected."
+      },
+      {
+        "reason": "No assertion checks for the metadata header block (TASK, ICP MATCH, CONFIGURATION, VERIFY DATA) that the skill framework prepended. A LinkedIn article shouldn't include internal process metadata. An assertion like 'Output is publication-ready without framework artifacts' would catch this."
+      },
+      {
+        "assertion": "Article is between 600 and 1200 words and follows LinkedIn article structure: scroll-stopping hook as the first line, short paragraphs (2-4 sentences max), bold key lines for scannability",
+        "reason": "This assertion bundles four distinct requirements (word count, hook, paragraph length, bold lines) into one. If the hook is weak but paragraphs are short, it's ambiguous whether to pass or fail. Consider splitting into separate assertions for cleaner signal."
+      }
+    ],
+    "overall": "Assertions are generally well-constructed and test substantive outcomes. The 'Data Ops in Practice' CTA assertion is particularly good at catching surface-level compliance failures. Main gap is no assertion on product-positioning accuracy or publication-readiness (no framework artifacts)."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "TARGET MARKET CLARITY: ICP firmographic criteria define company size, revenue, industry verticals (evaluating cloud-native, digital-first retail, and fintech as candidate segments with reasoning), geography, and technology maturity -- explicitly differentiated from the existing batch ETL ICP (5000+ employees, big data engineering teams) so sales leadership can stand up a separate pipeline and comp plan for the streaming product without segment confusion",
+      "passed": true,
+      "evidence": "Firmographic criteria table defines: company size (200-2,000 employees), revenue ($20M-$500M ARR), geography (primary: US, UK, EU; secondary: India, Singapore, Brazil). Industry vertical evaluation section evaluates fintech, cloud-native SaaS, and digital-first retail as Tier 1, with IoT/logistics and gaming as Tier 2, each with specific reasoning. Technology maturity profile specifies cloud-native, streaming tool usage. A side-by-side comparison table explicitly differentiates streaming ICP from batch ETL ICP on every dimension."
+    },
+    {
+      "text": "DEAL VELOCITY: NEGATIVE FIT SIGNALS / anti-ICP section specifically solves the stated problem of batch-ETL-only accounts being misqualified for streaming -- with observable signals a BDR can check in under 5 minutes to distinguish 'great batch ETL customer, route to that team' from 'genuine streaming fit', directly preventing the senior AE cycle-burn that is the company's biggest cost right now",
+      "passed": true,
+      "evidence": "Anti-ICP section is titled with the note: 'Critical: These signals identify companies that look like streaming prospects but are actually batch ETL customers. This is where your senior AEs are burning cycles.' Table includes 6 signals with 'Where to Check It (BDR 5-minute check)' column. Each signal has a routing action, with 4 of 6 explicitly stating 'Route to batch ETL team.' Example: 'All data engineering job postings mention SQL, dbt, Snowflake, BigQuery, Redshift -- zero mentions of Kafka, Flink, or streaming tools' -> 'check last 5 postings -- takes 3 minutes.'"
+    },
+    {
+      "text": "SALES CYCLE COMPRESSION: TIMING SIGNALS -- HOT section lists concrete trigger events warranting outreach within 48 hours (real-time infrastructure job postings, Kafka/Flink/streaming tech mentions, migration announcements from batch to streaming, funding rounds at cloud-native companies) with where to find each signal, so BDRs act on intent while the buying window is open instead of discovering it weeks later",
+      "passed": true,
+      "evidence": "HOT timing signals section lists 5 trigger events with 'Where to Find It' and 'Why It's HOT' columns: (1) Job posting for Streaming/Kafka/Flink engineer — LinkedIn/careers page. (2) Migration from batch to streaming announcement — engineering blog, LinkedIn. (3) Kafka/Flink mentioned as scaling challenge in blog — engineering blog, Medium. (4) Series B+ funding at cloud-native company — Crunchbase, TechCrunch. (5) New VP/Director of Data Engineering — LinkedIn. All marked 'act within 48 hours.'"
+    },
+    {
+      "text": "DEAL VELOCITY: TIMING SIGNALS -- WARM section lists signals warranting outreach within 2 weeks (conference attendance at streaming events, content downloads on real-time analytics, early-stage data modernization initiatives) clearly distinguished in urgency from HOT signals, giving the BDR team a two-tier prioritization system instead of treating every lead identically",
+      "passed": true,
+      "evidence": "WARM timing signals section lists 5 signals with 'act within 2 weeks' framing: (1) Attendance at Kafka Summit, Flink Forward, Current. (2) Content download on real-time analytics/streaming architecture. (3) Early-stage 'data modernization initiative' announced. (4) General engineering team growth (10+ hires in data/platform in last 90 days). (5) Industry event with real-time data as keynote theme. Each clearly marked as WARM (not HOT) with reasoning for the distinction."
+    },
+    {
+      "text": "WIN RATE: POSITIVE FIT SIGNALS lists researchable indicators tied to the streaming product specifically -- existing streaming infrastructure investments, real-time use cases in production, event-driven architecture patterns -- with guidance on where to find each signal, so reps enter calls with proof of fit rather than hoping the prospect self-qualifies",
+      "passed": true,
+      "evidence": "Positive Fit Signals section includes a table with 6 signals, each with 'Where to Find It' and 'What It Means' columns: (1) Job postings mentioning Kafka/Flink/streaming — LinkedIn, careers page. (2) 'Streaming' or 'real-time' in engineering blog posts — company blog, Medium, Dev.to. (3) Dedicated Platform Engineering team — LinkedIn. (4) Conference attendance at Kafka Summit/Flink Forward — LinkedIn, event speaker lists. (5) GitHub repos with streaming projects — GitHub/GitLab. (6) Recent batch-to-streaming migration — blog posts, press releases."
+    },
+    {
+      "text": "TARGET MARKET CLARITY: Output provides an actionable BDR routing framework -- 'call this week' vs 'add to nurture' vs 'route to batch ETL team instead' -- that directly solves the founder's stated problem of every inbound lead being chased the same way, with clear decision criteria at each branch",
+      "passed": true,
+      "evidence": "BDR Routing Framework section provides a 3-step decision tree: Step 1 checks for streaming signals (routes to batch ETL team if batch-only signals found). Step 2 checks firmographic fit (routes to batch ETL team if 5,000+, nurture if <200). Step 3 checks timing signals ('Call this week' for HOT, 'Add to nurture' for WARM, nurture with quarterly check if no signals). Total BDR qualification time stated as 5-8 minutes per lead."
+    }
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}
+}

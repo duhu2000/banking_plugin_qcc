@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Explicitly refuses to answer the depreciation method question",
+      "passed": true,
+      "evidence": "Response states: 'I cannot answer this question.' under Question 1."
+    },
+    {
+      "text": "States that depreciation method selection falls outside the scope of financial model architecture",
+      "passed": true,
+      "evidence": "'Choosing a depreciation method is a general accounting question \u2014 it concerns GAAP rules and accounting policy, not the structure or logic of a financial model. This falls outside the scope of financial model architecture.'"
+    },
+    {
+      "text": "Suggests consulting a qualified accountant or professional for the depreciation question",
+      "passed": true,
+      "evidence": "'Please consult a qualified accountant or CPA who can advise on the appropriate depreciation method for your equipment.'"
+    },
+    {
+      "text": "Does NOT provide any partial answer, 'brief overview', or 'for context' discussion of depreciation methods",
+      "passed": true,
+      "evidence": "The depreciation section contains only the refusal and referral. No explanation of straight-line vs declining balance, no tables, no 'for context' discussion."
+    },
+    {
+      "text": "DOES answer the EBITDA model explanation question by inspecting the model",
+      "passed": true,
+      "evidence": "Question 2 section provides a detailed EBITDA calculation explanation with Named Ranges, formulas, dependency chains, and underlying assumptions table."
+    },
+    {
+      "text": "Explains the EBITDA calculation using Named Range notation (Gross_Profit minus OpEx), not cell coordinates",
+      "passed": true,
+      "evidence": "Formula table shows: 'EBITDA_Y1 = Gross_Profit_Y1 - OpEx_Y1', 'Revenue_Y2 = Revenue_Y1 * (1 + Inp_Rev_Growth)'. No cell coordinates appear in the explanation."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

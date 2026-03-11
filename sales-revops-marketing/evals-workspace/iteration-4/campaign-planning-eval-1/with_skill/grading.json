@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline generation: primary KPI is a dollar-denominated pipeline target derived from the six named accounts and $850K average deal size (e.g., $X in qualified expansion pipeline) -- NOT impressions, engagement scores, or any metric that cannot be tied to revenue",
+      "passed": true,
+      "evidence": "Primary KPI is 'Qualified expansion pipeline generated | Target: $3,400,000 (4 of 6 accounts entering pipeline at $850K average)'. This is explicitly dollar-denominated, derived from the named accounts and $850K deal size, not impressions or engagement scores."
+    },
+    {
+      "text": "Budget efficiency: budget allocation includes per-channel line items summing to exactly $120,000, with rationale for why each channel earns its allocation based on the stated constraint that personalized ABM worked and generic webinars did not -- channels with no historical evidence of ROI for this motion are excluded or deprioritized",
+      "passed": true,
+      "evidence": "Budget summary lists 10 line items summing to exactly $120,000. Each channel includes rationale referencing historical ABM success. Executive briefings are explicitly distinguished from generic webinars ('These are NOT generic webinars, which historically did not work'). No generic webinar channel is included."
+    },
+    {
+      "text": "Alignment: sales-marketing integration section maps each of the four AEs to specific named accounts, defines MQA-to-SAL scoring criteria that trigger AE engagement, specifies a Salesloft/HubSpot sequence for engaged contacts, and sets a measurable SLA for AE response time on hot accounts",
+      "passed": true,
+      "evidence": "AE-to-Account Mapping assigns AE 1 to JPMorgan+Goldman, AE 2 to Citi+BNY Mellon, AE 3 to State Street+Northern Trust, AE 4 as floater. MQA threshold >= 50 points with detailed scoring. HubSpot 'ABM Expansion' 5-touch sequence specified. SLA: HOT account = 2 hours, MQA = 24 hours, executive briefing request = 48 hours."
+    },
+    {
+      "text": "Execution velocity: content calendar and production plan stays within the capacity of one content marketer and 12 hrs/week shared design -- each week's deliverables are listed, and no single week exceeds what one writer can produce while maintaining quality on high-value ABM assets",
+      "passed": true,
+      "evidence": "Content calendar breaks down Week 1-2 (2 ROI analyses/week + HubSpot setup), Week 3-4 (3 landing pages/week + email sequences), Week 5-8 (1 case study/week), Week 9-13 (deal support). Capacity check explicitly verifies designer stays within 12 hrs/week and content marketer workload is feasible with repeatable templates."
+    },
+    {
+      "text": "Pipeline generation: campaign brief includes a structured campaign brief with all sections required to brief an execution team -- strategy rationale, audience definition with buyer personas per account, channel mix, lead magnet, sales-marketing integration, content calendar, success metrics, risk/contingency, and budget summary",
+      "passed": true,
+      "evidence": "Brief includes all mandated sections: Strategy (ABM rationale), Audience Definition (personas: VP/SVP, CTO, procurement, with 48-72 contacts), Channel Mix (8 channels with budget), Lead Magnet (custom ROI analysis), Sales-Marketing Integration (AE mapping, scoring, sequence, SLA), Content Calendar, Success Metrics, Risk and Contingency, and Budget Summary."
+    },
+    {
+      "text": "Alignment: lead magnet is tailored to financial services expansion buyers (e.g., custom ROI analysis showing platform-wide value vs. current mid-market plan, maturity assessment, or peer benchmarking) -- not a generic ebook or industry-agnostic asset",
+      "passed": true,
+      "evidence": "Lead magnet is 'Custom Platform Expansion ROI Analysis -- per account' with: (1) current usage metrics and feature adoption gaps, (2) peer benchmarking against comparable financial services firms, (3) projected ROI from full-platform deployment including compliance and security, (4) cost savings from consolidating point solutions. Explicitly tailored to financial services expansion buyers."
+    },
+    {
+      "text": "Budget efficiency: risk and contingency section includes a time-bound decision gate with a named metric, a specific week-number threshold, and a prescribed budget reallocation action (e.g., if fewer than 3 accounts showing engagement by Week 4, shift spend to highest-responding accounts) -- protecting the $120K from being spent on an underperforming motion",
+      "passed": true,
+      "evidence": "Decision gate: 'If fewer than 3 of 6 accounts have reached MQA status (engagement score >= 50) by Week 4' with four prescribed actions: (1) pause LinkedIn on non-responding accounts, (2) cancel briefings for non-responding accounts, (3) reallocate saved budget + $15K contingency to responding accounts, (4) shift AE 4 to highest-engagement account."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

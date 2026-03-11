@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "To prevent pipeline leakage from slow follow-up on inbound intent, the output identifies this as trigger-based enrichment from a content download event and references the 24-hour trigger-based enrichment SLA -- a whitepaper download is a buying signal that decays fast",
+      "passed": true,
+      "evidence": "The output explicitly states 'Enrichment Type: TRIGGER-BASED (Content Download)', 'Trigger event: Whitepaper download -- Clinical Workflow Automation', and 'SLA: 24-hour trigger-based enrichment SLA applies. Content downloads are buying signals that decay rapidly. This enrichment must be completed and routed to the appropriate rep or nurture track within 24 hours of the form submission.'"
+    },
+    {
+      "text": "To ensure outreach goes to a valid address, the work email priya.n@vantagehealth.co.uk is listed but NOT marked as verified without a deliverability check, and the missing direct phone is flagged for manual addition -- sending a personalised sequence to a bad email wastes the entire effort",
+      "passed": true,
+      "evidence": "Work email shows 'priya.n@vantagehealth.co.uk' with status 'PROVIDED -- NOT VERIFIED. Deliverability check required before sequence enrollment. Domain matches company (vantagehealth.co.uk) but no SMTP validation performed.' Direct phone shows 'MISSING' with action: 'Flag for manual addition. Check LinkedIn profile, company directory, or request via follow-up email.'"
+    },
+    {
+      "text": "To qualify or disqualify before investing rep time, the account-level enrichment for Vantage Health Systems includes headcount assessed against the 200-2000 mid-market target range and headquarters verified as UK -- these are the two ICP gates that determine whether this lead gets routed to a rep or deprioritised",
+      "passed": true,
+      "evidence": "ICP Qualification Assessment table shows Headcount target '200-2,000' with status 'Needs verification' (PENDING) and Headquarters target 'UK' with status 'Likely UK (.co.uk domain)' (PENDING). ICP Verdict: 'Cannot fully qualify or disqualify. Two of three ICP gates (headcount and confirmed UK HQ) are pending verification... Do not invest rep time until headcount and geography are confirmed. If either gate fails, deprioritize and route to nurture.'"
+    },
+    {
+      "text": "To enable multi-threading into the buying committee, the report recommends additional contacts at Vantage Health Systems in IT or procurement departments -- single-threaded deals close at half the rate of multi-threaded ones, and enrichment is where thread targets are identified",
+      "passed": true,
+      "evidence": "The 'BUYING COMMITTEE EXPANSION' section lists target roles: IT Director/Head of IT, CTO/CIO, Head of Procurement/Procurement Manager, COO/VP Operations, and Clinical Informatics Lead. States: 'IT Director and Head of Procurement are the highest-priority additions. Single-threaded deals close at half the rate of multi-threaded ones. Identify at least one IT and one procurement contact before the first sales conversation.'"
+    },
+    {
+      "text": "To create a complete lead record that scores accurately, the output includes a DATA QUALITY SCORE percentage and a RECORDS WITH MISSING MANDATORY FIELDS section listing the missing phone and any other unfilled fields -- lead scoring models that run on incomplete data produce misleading scores",
+      "passed": true,
+      "evidence": "DATA QUALITY SCORE is '45%' with a detailed field-by-field breakdown (12 rows showing each field, status, and weight). RECORDS WITH MISSING MANDATORY FIELDS section lists: Direct Phone (HIGH), Headcount (HIGH), HQ Location (HIGH), Work Email verified (MEDIUM), LinkedIn Profile (MEDIUM), Revenue (LOW). Warning: 'Lead scoring models running on this record will produce unreliable scores due to 55% missing data.'"
+    },
+    {
+      "text": "To capture buying intent timing, intelligence fields include the content download as a timing signal, career change flag for Priya Nandakumar (new role vs. established position), and account-level signals (news events, hiring signals, financial signals) with a timing classification of HOT/WARM/WATCH -- these fields drive whether the lead enters a fast or slow sequence",
+      "passed": true,
+      "evidence": "Account-level signals section includes: content download classified as 'HOT -- active intent signal, buying window open', news events (CHECK REQUIRED), hiring signals (CHECK REQUIRED), financial signals (CHECK REQUIRED), competitor signals (CHECK REQUIRED). Career change flag section states: 'If Priya recently moved into the Clinical Operations Director role (within last 6 months), this is an additional timing signal: new leaders in operational roles frequently evaluate new tools.' Overall timing classification: 'WARM (pending signal corroboration)' with note to 'upgrade to HOT if external research reveals additional active signals.'"
+    }
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}
+}

@@ -1,0 +1,38 @@
+{
+  "eval_id": 3,
+  "eval_name": "what-if-analysis",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Reports EBITDA_Y3 for at least three states: base case (~$2.877M), scenario 1 (~$2.426M), scenario 2 (~$2.315M)",
+      "passed": true,
+      "evidence": "Year 3 EBITDA Sensitivity Summary table (lines 87-92) reports: Base Case $2,877,000, Scenario A $2,425,500, Scenario B $2,315,250. All three values are within expected tolerance of the assertion targets."
+    },
+    {
+      "text": "Quantifies the dollar delta: revenue growth alone costs ~$451K in Y3 EBITDA (-15.7%)",
+      "passed": true,
+      "evidence": "Summary table shows Delta vs. Base for Scenario A: -$451,500 (-15.7%). Interpretation section (line 111) states: 'Halving revenue growth from 10% to 5% reduces Year 3 EBITDA by $451,500 (-15.7%).'"
+    },
+    {
+      "text": "Identifies that revenue growth is the dominant driver (~80% of total EBITDA decline)",
+      "passed": true,
+      "evidence": "Key Takeaway (line 132) states: 'Revenue growth is approximately 4x more impactful than COGS efficiency on Year 3 EBITDA ($451,500 vs. $110,250).' $451,500/$561,750 = 80.4%, confirming ~80% dominance. The waterfall table also makes this decomposition explicit."
+    },
+    {
+      "text": "All reported values come from the model's formula engine, not internal arithmetic",
+      "passed": true,
+      "evidence": "Methodology Notes (lines 147-155) state: 'The agent performed zero internal arithmetic -- all values in this report were read from the spreadsheet engine's deterministic output.' Describes the write-recalculate-read pattern using idfa_ops.py and LibreOffice headless."
+    },
+    {
+      "text": "Presents a clear comparison table",
+      "passed": true,
+      "evidence": "Multiple clear comparison tables are presented: full 3-year model output tables for Revenue, COGS, Gross Profit, OpEx, and EBITDA with all three scenarios side by side (lines 36-80), plus a dedicated Year 3 EBITDA Sensitivity Summary (lines 87-92) and a Waterfall decomposition (lines 98-103)."
+    },
+    {
+      "text": "The compound scenario correctly layers both changes simultaneously",
+      "passed": true,
+      "evidence": "Scenario B applies both changes together: Inp_Rev_Growth=5% AND Inp_COGS_Efficiency=0.5%. The COGS percentage table (lines 43-48) shows Scenario B has different COGS % than Scenario A (59.5% vs 59.0% in Y2, 59.0% vs 58.0% in Y3), confirming both changes are layered. The waterfall (lines 98-103) correctly decomposes into sequential impacts."
+    }
+  ]
+}

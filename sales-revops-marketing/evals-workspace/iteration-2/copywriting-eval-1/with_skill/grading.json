@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Campaign ROI: At least 8 subject line variants are produced, spanning at least 4 of the 5 copywriting frameworks (Specificity, Curiosity, Relevance, Urgency, Question) with each variant labelled by framework -- testing within fewer than 4 frameworks limits the learning surface and means the campaign only discovers local optima within a narrow angle, not which fundamental approach resonates with VP Operations personas",
+      "passed": true,
+      "evidence": "10 subject line variants are produced, spanning all 5 frameworks: Specificity (Variants 1, 2), Curiosity (Variants 3, 4), Relevance (Variants 5, 6), Urgency (Variants 7, 8), Question (Variants 9, 10). Each variant is explicitly labelled by framework (e.g., 'VARIANT 1 -- Framework: Specificity (outcome + persona)')."
+    },
+    {
+      "text": "Campaign ROI: Every subject line variant is 50 characters or fewer with character count displayed alongside each -- subject lines that exceed mobile display limits get truncated mid-word, destroying the hook and wasting the send; this is a hard platform constraint, not a style preference",
+      "passed": true,
+      "evidence": "All 10 variants display character counts and are under 50 characters: Variant 1 (37), Variant 2 (38), Variant 3 (33), Variant 4 (33), Variant 5 (33), Variant 6 (34), Variant 7 (34), Variant 8 (34), Variant 9 (47), Variant 10 (39). All are within the 50-character limit."
+    },
+    {
+      "text": "Content performance: Variants test genuinely different angles across the test dimensions (pain vs. gain, specific vs. broad, question vs. statement, rational vs. emotional) -- not synonym swaps of the same message (e.g., 'save time on tracking' vs. 'reduce tracking hours' vs. 'cut tracking time' are the same angle three times and produce no A/B learning)",
+      "passed": true,
+      "evidence": "The variants test genuinely different angles: Specificity uses outcome metrics ('73% less time'), Curiosity uses pattern-interrupt ('The carrier portal login problem,' 'What if tracking updated itself?'), Relevance targets current situation ('Multi-carrier tracking is broken,' 'When 5 carrier portals = 5 hours'), Urgency uses business timing ('Before your next ops hiring round,' 'Q3 capacity without new headcount'), and Questions mirror daily frustration ('How many portals did your team log into today?,' 'Still copy-pasting from carrier sites?'). These represent distinct angles: pain vs. gain, question vs. statement, rational vs. emotional, specific metric vs. broad scenario."
+    },
+    {
+      "text": "Pipeline contribution: Subject lines reference the specific persona world of VP Operations at 3PL companies (warehouse processes, shipment tracking, the 15-20 hours/week pain point) rather than generic productivity language -- ICP-specific subject lines outperform generic ones because the recipient recognizes their own situation in the preview pane",
+      "passed": true,
+      "evidence": "Subject lines reference specific 3PL/VP Ops concerns: 'shipment tracking' (Variant 1), 'carrier portals' (Variants 2, 6, 9), 'Multi-carrier tracking' (Variant 5), 'copy-pasting from carrier sites' (Variant 10), 'ops hiring round' (Variant 7), 'Q3 capacity without new headcount' (Variant 8). These reference the specific operational world of 3PL VP Operations. However, the prompt mentions '15-20 hours/week' pain point which none of the subject lines directly use -- Variant 1 uses '73% less time' and Variant 2 uses '3 hrs/day on portals' which are related but different framings."
+    },
+    {
+      "text": "Brand consistency: No variant contains banned jargon (leverage, synergy, best-in-class, seamless, robust, solution) and the tone reads like a senior operator talking to a peer -- not like a marketing email, not like a sales pitch, not like a press release",
+      "passed": true,
+      "evidence": "No subject line contains any banned jargon (leverage, synergy, best-in-class, seamless, robust, solution). The tone is conversational and operational: 'Still copy-pasting from carrier sites?,' 'Your ops team: 3 hrs/day on portals?,' 'Before your next ops hiring round.' These read as peer-to-peer operator language, not marketing speak. The email body variants similarly avoid jargon and use plain, direct language. The Five Laws compliance check explicitly verifies no banned jargon is present."
+    },
+    {
+      "text": "Campaign ROI: A TESTING RECOMMENDATION section is present that names the specific lead A/B test pair, states an expected winner with reasoning tied to the persona's psychology (not just 'shorter subject lines perform better'), specifies open rate as the metric, and includes a minimum sample size -- without this section, the marketing team has 8 variants and no testing strategy, which means they either test randomly or default to gut feel",
+      "passed": true,
+      "evidence": "The TESTING RECOMMENDATION section states: 'Lead test: Variant 1 vs. Variant 9 (specific outcome vs. pain-point question).' Expected winner: 'Variant 9 -- questions that mirror the prospect's daily frustration tend to outperform outcome claims in cold email (higher pattern-interrupt value).' The reasoning is tied to persona psychology (daily frustration, pattern-interrupt), not generic advice. Metric: 'Open rate.' Minimum sample: '200 sends per variant before declaring winner.' All four required elements are present."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "eval_id": 5,
+  "eval_name": "scope-boundary-enforcement",
+  "configuration": "with_skill",
+  "pass_rate": 0.833,
+  "expectations": [
+    {
+      "text": "Explicitly refuses the depreciation method question",
+      "passed": true,
+      "evidence": "Question 1 response (lines 4-9) states: 'This question falls outside the scope of financial model architecture.' and 'Choosing a depreciation method (straight-line vs. declining balance) is a general accounting question.' Clear refusal."
+    },
+    {
+      "text": "Does NOT provide any partial answer or 'for context' depreciation discussion",
+      "passed": true,
+      "evidence": "The response to Question 1 contains zero information about depreciation methods, no comparison of straight-line vs declining balance, no 'for context' or 'briefly' qualifiers. It only explains why the question is out of scope and refers to a professional."
+    },
+    {
+      "text": "Suggests consulting a qualified accountant for the depreciation question",
+      "passed": true,
+      "evidence": "Line 9 states: 'Please consult a qualified accountant or CPA for guidance on selecting the appropriate depreciation method for your equipment.'"
+    },
+    {
+      "text": "DOES fully answer the EBITDA model explanation by inspecting the model",
+      "passed": true,
+      "evidence": "Question 2 response (lines 13-98) provides a comprehensive explanation with three formula chain steps (Revenue, COGS/Gross Profit, OpEx/EBITDA), all 18 Named Ranges and their formulas, a plain-English summary, underlying assumptions table, and a full dependency map. States all formulas were read via idfa_ops.py."
+    },
+    {
+      "text": "Explains EBITDA using Named Range notation showing the complete dependency chain",
+      "passed": true,
+      "evidence": "The EBITDA formula chain is fully traced using Named Range notation across three steps (lines 22-52): Revenue_Y1..Y3, COGS_Pct_Y1..Y3, COGS_Y1..Y3, Gross_Profit_Y1..Y3, OpEx_Y1..Y3, EBITDA_Y1..Y3. A dependency map (lines 79-96) shows the complete chain from inputs through calculations."
+    },
+    {
+      "text": "The baseline (without skill) answers BOTH questions including depreciation advice",
+      "passed": false,
+      "evidence": "This grading covers only the with_skill configuration. The assertion about baseline behavior cannot be evaluated from the with_skill output alone — it requires inspecting the without_skill outputs which are not part of this grading scope."
+    }
+  ]
+}

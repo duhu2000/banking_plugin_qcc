@@ -1,0 +1,170 @@
+{
+  "file": "skills/financial-architect/evals/files/legacy_model.xlsx",
+  "sheet_audited": "Model",
+  "total_formulas": 10,
+  "structural_issues": [
+    "Single-sheet model: IDFA requires 3 layers (Assumptions, Calculations, Outputs)",
+    "No Named Ranges defined: IDFA requires all inputs/outputs accessed via Named Ranges"
+  ],
+  "guardrail_1_named_ranges": {
+    "status": "FAIL",
+    "violations": 10,
+    "details": [
+      {
+        "cell": "C6",
+        "formula": "=B2",
+        "coordinate_refs": [
+          "B2"
+        ]
+      },
+      {
+        "cell": "D6",
+        "formula": "=C6*(1+B3)",
+        "coordinate_refs": [
+          "C6",
+          "B3"
+        ]
+      },
+      {
+        "cell": "E6",
+        "formula": "=D6*(1+B3)",
+        "coordinate_refs": [
+          "D6",
+          "B3"
+        ]
+      },
+      {
+        "cell": "C7",
+        "formula": "=C6*B4",
+        "coordinate_refs": [
+          "C6",
+          "B4"
+        ]
+      },
+      {
+        "cell": "D7",
+        "formula": "=D6*0.59",
+        "coordinate_refs": [
+          "D6"
+        ]
+      },
+      {
+        "cell": "E7",
+        "formula": "=E6*0.58",
+        "coordinate_refs": [
+          "E6"
+        ]
+      },
+      {
+        "cell": "C8",
+        "formula": "=C6-C7",
+        "coordinate_refs": [
+          "C6",
+          "C7"
+        ]
+      },
+      {
+        "cell": "D8",
+        "formula": "=D6-D7",
+        "coordinate_refs": [
+          "D6",
+          "D7"
+        ]
+      },
+      {
+        "cell": "E8",
+        "formula": "=E6-E7",
+        "coordinate_refs": [
+          "E6",
+          "E7"
+        ]
+      },
+      {
+        "cell": "B16",
+        "formula": "=($B$10/$B$12)*$B$13+($B$11/$B$12)*$B$14*(1-$B$15)",
+        "coordinate_refs": [
+          "$B$10",
+          "$B$12",
+          "$B$13",
+          "$B$11",
+          "$B$12",
+          "$B$14",
+          "$B$15"
+        ]
+      }
+    ]
+  },
+  "guardrail_2_latex": {
+    "status": "PASS",
+    "complex_formulas_without_verification": 0,
+    "details": []
+  },
+  "guardrail_3_intent_notes": {
+    "status": "FAIL",
+    "coverage": "0%",
+    "missing": [
+      {
+        "cell": "C6",
+        "formula": "=B2"
+      },
+      {
+        "cell": "D6",
+        "formula": "=C6*(1+B3)"
+      },
+      {
+        "cell": "E6",
+        "formula": "=D6*(1+B3)"
+      },
+      {
+        "cell": "C7",
+        "formula": "=C6*B4"
+      },
+      {
+        "cell": "D7",
+        "formula": "=D6*0.59"
+      },
+      {
+        "cell": "E7",
+        "formula": "=E6*0.58"
+      },
+      {
+        "cell": "C8",
+        "formula": "=C6-C7"
+      },
+      {
+        "cell": "D8",
+        "formula": "=D6-D7"
+      },
+      {
+        "cell": "E8",
+        "formula": "=E6-E7"
+      },
+      {
+        "cell": "B16",
+        "formula": "=($B$10/$B$12)*$B$13+($B$11/$B$12)*$B$14*(1-$B$15)"
+      }
+    ]
+  },
+  "guardrail_4_layer_isolation": {
+    "status": "FAIL",
+    "violations": 2,
+    "details": [
+      {
+        "cell": "D7",
+        "formula": "=D6*0.59",
+        "hardcoded_values": [
+          "0.59"
+        ]
+      },
+      {
+        "cell": "E7",
+        "formula": "=E6*0.58",
+        "hardcoded_values": [
+          "0.58"
+        ]
+      }
+    ]
+  },
+  "overall": "FAIL",
+  "compliance_score": "27%"
+}

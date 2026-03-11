@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Lead score is computed as Fit (0-40) + Timing (0-40) + Engagement (0-20) = total out of 100, with per-criterion point breakdowns showing exactly how many points were awarded for each factor (e.g., company size match: +8, revenue range: +8, funding announcement: +15) — this three-dimension model prevents the routing error where a lead with strong fit but no timing signals gets expensive AE attention when it should be in marketing nurture, or where a demo-requesting prospect with weak fit gets deprioritized and a deal is lost",
+      "passed": false,
+      "evidence": "The score uses a different model: Firmographic Fit (25/30) + Contact-Level Fit (18/20) + Behavioral/Intent Signals (30/30) + Contextual/Timing Multipliers (19/20) = 92/100. This is a four-dimension model with different weights (30+20+30+20=100), NOT the required three-dimension Fit (0-40) + Timing (0-40) + Engagement (0-20) model. The categories and point allocations are fundamentally different."
+    },
+    {
+      "text": "Timing score awards points for the Series D funding announcement within the last 30 days (up to 15 points) and rapid hiring of sales engineers (up to 10 points), with recency context cited — these timing signals are what distinguish a lead that should be contacted THIS WEEK from one that matches the ICP but has no active buying cycle, and scoring without them would produce a Fit-only score that violates the NEVER rule about always checking Timing via web search",
+      "passed": false,
+      "evidence": "Timing signals are scored under 'Contextual / Timing Multipliers (19/20)': funding event gets 8/8, hiring activity gets 6/6, referral source gets 5/6. While funding and hiring are scored, the point allocations do not match the expected model (up to 15 for funding, up to 10 for hiring). The funding gets only 8 points (not up to 15) and hiring gets only 6 points (not up to 10). Recency is mentioned ('~2 weeks ago') but the scoring framework does not match."
+    },
+    {
+      "text": "Engagement score awards points for the two pricing page visits (up to 8 points) and the gated content download (up to 8 points), reflecting unprompted prospect-initiated actions — pricing page visits are the highest-intent digital signal short of a demo request because they indicate active vendor comparison, and a model that ignores them would underweight this lead relative to a competitor who is tracking the same signals",
+      "passed": false,
+      "evidence": "Pricing page visits and content download are scored under 'Behavioral / Intent Signals (30/30)': pricing page visits get 10/10, content download gets 10/10, and recency gets 10/10. While the signals ARE scored, the point allocations (10 each, not up to 8 each) and the category name and maximum (30, not 20) do not match the expected Engagement (0-20) model. The scoring framework is fundamentally different."
+    },
+    {
+      "text": "Total score falls in the 80-100 HOT range and the recommended action specifies the 24-hour SLA for first contact, a specific outreach channel (e.g., warm intro via investor network or direct email to Cassandra), and a positioning frame tied to TerraGrid's growth stage (Series D, scaling RevOps) — routing a HOT lead to a generic nurture sequence instead of a named AE with a 24-hour deadline is the single most common revenue leak in lead handoff, and this assertion verifies the skill produces the urgency signal that prevents it",
+      "passed": true,
+      "evidence": "Total score is 92/100 with Priority: HOT. Recommended action #1 says 'Immediate outreach (within 24-48 hours).' Action #2 specifies channel: 'Leverage the investor referral. Request a warm introduction from the referring investor.' Action #3 provides positioning: 'Frame the outreach around the specific challenge TerraGrid faces right now: scaling revenue operations post-Series D while onboarding a wave of new sales engineers.' The SLA is '24-48 hours' which is close to 24 hours though slightly looser."
+    },
+    {
+      "text": "Score rationale is 2-3 sentences that explain WHY TerraGrid is buying-ready right now — connecting the $120M Series D to budget availability, the sales engineer hiring to operational scaling pain, and the pricing page visits to active vendor evaluation — rather than just restating 'Fit is 34, Timing is 38, Engagement is 16' which gives the AE no positioning advantage in the first conversation",
+      "passed": true,
+      "evidence": "The Notes sections under each scoring category provide rationale. Under Contextual/Timing Multipliers: 'A fresh $120M Series D means TerraGrid has significant capital to deploy and is under pressure to scale revenue operations quickly. The aggressive sales engineer hiring confirms they are actively building out their go-to-market engine — exactly when RevOps automation becomes critical.' Under Behavioral: 'Repeat pricing page visits indicate active evaluation and budget consideration.' While distributed across sections rather than a single rationale block, the connections are made between Series D and budget, hiring and scaling pain, and pricing visits and active evaluation."
+    },
+    {
+      "text": "Next review date is set within days (not weeks or quarters), reflecting HOT-tier urgency — a review date set 30 days out on a HOT lead with active pricing-page engagement means the lead could complete its evaluation cycle with a competitor before the next check-in, converting a winnable deal into a silent loss",
+      "passed": false,
+      "evidence": "There is no explicit next review date set anywhere in the output. The Risk Factors section mentions 'Speed and quality of the initial touchpoint matter disproportionately right now' but no specific review date or review cadence is specified."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  }
+}

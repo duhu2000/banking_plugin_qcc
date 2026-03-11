@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Runs 'uv run scripts/idfa_ops.py create-range <file> Inp_Discount_Rate Assumptions B8'",
+      "passed": true,
+      "evidence": "Step 2: 'uv run scripts/idfa_ops.py create-range ops_test_model.xlsx Inp_Discount_Rate Assumptions B8'. Result: {\"status\": \"ok\", \"name\": \"Inp_Discount_Rate\", \"reference\": \"Assumptions!B8\"}."
+    },
+    {
+      "text": "Runs 'uv run scripts/idfa_ops.py write <file> Inp_Discount_Rate 0.08' to set the value",
+      "passed": true,
+      "evidence": "Step 3: 'uv run scripts/idfa_ops.py write ops_test_model.xlsx Inp_Discount_Rate 0.08'. Result: {\"status\": \"ok\", \"name\": \"Inp_Discount_Rate\", \"value\": 0.08}."
+    },
+    {
+      "text": "Verifies the range was created correctly (either via read or inspect)",
+      "passed": true,
+      "evidence": "Step 4: 'uv run scripts/idfa_ops.py read ops_test_model.xlsx Inp_Discount_Rate'. Result: {\"status\": \"ok\", \"values\": {\"Inp_Discount_Rate\": 0.08}}."
+    },
+    {
+      "text": "Uses the correct IDFA naming convention (Inp_ prefix for an input assumption)",
+      "passed": true,
+      "evidence": "Named Range created as 'Inp_Discount_Rate' \u2014 uses Inp_ prefix correctly for an input assumption."
+    },
+    {
+      "text": "Does not manually edit the xlsx with openpyxl \u2014 uses the idfa_ops.py script",
+      "passed": true,
+      "evidence": "All operations use idfa_ops.py: create-range, write, read. No direct openpyxl usage mentioned."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  }
+}

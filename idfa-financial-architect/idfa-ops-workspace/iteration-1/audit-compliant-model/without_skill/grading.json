@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "Runs 'uv run scripts/idfa_audit.py <file>'",
+      "passed": false,
+      "evidence": "Report header: 'Method: Automated inspection via openpyxl (formula-level, no skill files used)'. No idfa_audit.py was used."
+    },
+    {
+      "text": "Reports status for Guardrail 1 (Named Range Priority) \u2014 should be PASS for this model",
+      "passed": true,
+      "evidence": "'Named ranges: PASS. Every input and every calculated cell has a named range. Formulas use names exclusively \u2014 no raw cell references.'"
+    },
+    {
+      "text": "Reports status for Guardrail 2 (LaTeX Verification) \u2014 PASS or WARN (no complex formulas like WACC)",
+      "passed": false,
+      "evidence": "No mention of LaTeX verification or Guardrail 2. The audit does not check for this."
+    },
+    {
+      "text": "Reports status for Guardrail 3 (Intent Notes) \u2014 should reflect comment coverage",
+      "passed": false,
+      "evidence": "No mention of intent notes/comments or Guardrail 3 in the audit. The report does not check for cell comments."
+    },
+    {
+      "text": "Reports status for Guardrail 4 (Layer Isolation) \u2014 should be PASS (no hardcoded values)",
+      "passed": true,
+      "evidence": "'No hardcoded values in formulas: PASS. All numeric inputs live on the Assumptions sheet.'"
+    },
+    {
+      "text": "Presents the overall compliance score/percentage",
+      "passed": true,
+      "evidence": "Scoring Summary shows category scores totaling 'Overall: 33/50'. While not an IDFA compliance score per se, it does present an overall numeric assessment."
+    },
+    {
+      "text": "Explains what each guardrail checks in terms the user can understand",
+      "passed": false,
+      "evidence": "The report uses its own audit categories (Sheet architecture, Named ranges, Formula correctness, etc.) rather than IDFA guardrails. It does not explain IDFA guardrails."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 4,
+    "total": 7,
+    "pass_rate": 0.43
+  }
+}

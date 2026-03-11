@@ -1,0 +1,13 @@
+{
+  "eval_id": 9,
+  "eval_name": "add-new-line-item",
+  "prompt": "I need to add a new line item to the compliant model: Depreciation. It should be 10% of revenue each year. Add it and update EBITDA to account for it — making it EBITDA after depreciation, essentially EBIT.",
+  "assertions": [
+    "Creates Inp_Depreciation_Pct (or similar Inp_ name) = 0.10 as a new assumption",
+    "Creates Depreciation_Y1/Y2/Y3 calculations using Named Ranges only",
+    "Either updates EBITDA to subtract depreciation OR creates separate EBIT Named Ranges",
+    "Uses idfa-ops create-range and write commands",
+    "The modified model's formula chain remains intact and internally consistent",
+    "Reports expected values for the new line items (Depreciation_Y1 ≈ $1M, EBIT_Y1 ≈ $1M)"
+  ]
+}

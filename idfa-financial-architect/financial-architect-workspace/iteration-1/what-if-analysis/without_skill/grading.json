@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Uses the idfa-ops write command to change Inp_Rev_Growth to 0.05 (not manually editing cells)",
+      "passed": false,
+      "evidence": "The without-skill run explicitly does not use idfa-ops scripts. It computed values internally based on the model's formula chain."
+    },
+    {
+      "text": "Calls recalc_bridge.py to trigger deterministic recalculation after each assumption change",
+      "passed": false,
+      "evidence": "No mention of recalc_bridge.py in the output. Calculations were performed manually/internally."
+    },
+    {
+      "text": "Uses the idfa-ops read command to retrieve EBITDA_Y3 (and ideally other affected values)",
+      "passed": false,
+      "evidence": "No idfa-ops read command used. Values were computed internally based on the model's formula chain."
+    },
+    {
+      "text": "Does NOT calculate EBITDA_Y3 internally and report that number \u2014 all reported numbers come from model reads",
+      "passed": false,
+      "evidence": "All numbers are calculated internally. The report states 'Calculation Logic (from Excel formulas)' and computes all values (e.g., 'EBITDA = Gross Profit - OpEx, Y3: $5,082,000 - $2,205,000 = $2,877,000')."
+    },
+    {
+      "text": "Presents a clear before/after comparison of the scenarios",
+      "passed": true,
+      "evidence": "'Year 3 EBITDA Sensitivity Summary' table shows Base Case $2,877,000, Scenario A $2,425,500, Scenario B $2,315,250 with deltas and % changes. 'Decomposition of Impact' breaks down each driver."
+    },
+    {
+      "text": "Runs the second scenario (COGS efficiency change) as a compound change on top of the first, reading the combined impact",
+      "passed": true,
+      "evidence": "Scenario B combines both changes: 'Revenue Growth 5% + COGS Efficiency Drops to 0.5%/yr' with COGS% showing 59.5%/59.0% (vs base 59%/58%). Combined delta is -$561,750."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  }
+}

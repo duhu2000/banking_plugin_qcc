@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Inspects the model via idfa-ops to discover all Named Ranges and their formulas",
+      "passed": true,
+      "evidence": "Report header: 'Total Named Ranges: 24 (6 inputs, 18 calculations)'. Quick Reference table lists all 24 Named Ranges with formulas. The model was inspected to extract this data."
+    },
+    {
+      "text": "Produces a Logic Map listing every Named Range with its business rule in plain English",
+      "passed": true,
+      "evidence": "Each block (Revenue, COGS Percentage, COGS Dollar, Gross Profit, OpEx, EBITDA) has a table with columns 'Named Range', 'Formula', 'Business Rule in Plain English'. All 18 calculation ranges are listed."
+    },
+    {
+      "text": "Shows the dependency chain \u2014 which inputs feed which calculations",
+      "passed": true,
+      "evidence": "Each block includes a 'Dependency chain' showing arrows: 'Revenue_Y1 <-- Inp_Rev_Y1', 'Revenue_Y2 <-- Revenue_Y1, Inp_Rev_Growth'. Complete Dependency Graph section shows full flow from inputs to EBITDA."
+    },
+    {
+      "text": "Groups the map by layer (Assumptions \u2192 Calculations \u2192 Output)",
+      "passed": true,
+      "evidence": "Organized as 'Layer 1 \u2014 Assumptions (Inputs)' then 'Layer 2 \u2014 Calculations (Business Rules)' with subsections for each block. States 'Layer 3 \u2014 Output: Presentation and formatting. Reads from Layer 2 only.'"
+    },
+    {
+      "text": "Each formula description is understandable without Excel knowledge (e.g., 'Year 2 Revenue = Year 1 Revenue grown by the annual growth rate')",
+      "passed": true,
+      "evidence": "Examples: 'Year 2 Revenue equals Year 1 Revenue grown by the annual growth rate', 'Year 1 COGS in dollars = Year 1 Revenue times Year 1 COGS %', 'Year 1 EBITDA = Year 1 Gross Profit minus Year 1 Operating Expenses.'"
+    },
+    {
+      "text": "Does NOT include cell coordinate references in the Logic Map \u2014 only Named Range names",
+      "passed": true,
+      "evidence": "All formulas reference Named Ranges only: '=Revenue_Y1*(1+Inp_Rev_Growth)', '=COGS_Pct_Y1-Inp_COGS_Efficiency'. Zero cell coordinates (A1, B2, etc.) appear in the Logic Map body."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "First sentence references Elena Vasquez's LinkedIn post about rethinking hospital IT onboarding or the publicly visible G2 NPS drop from 62 to 47, not OnboardIQ or Daniel (drives reply rate) — opening with the prospect's own publicly stated challenge creates immediate relevance and signals the rep did real research, not a mail merge",
+      "passed": true,
+      "evidence": "First sentence: 'Your recent post about rethinking how you onboard hospital IT teams caught my attention -- especially the point about reducing time-to-value for health IT implementations.' References Elena's LinkedIn post about onboarding. No mention of OnboardIQ or Daniel in the opener."
+    },
+    {
+      "text": "Message uses only publicly safe signals from the research brief (LinkedIn post, G2 reviews trend, HIMSS talk) and does NOT reference the Mercy Regional contract loss directly (compliance/risk) — referencing a private contract loss would feel invasive and could damage the brand's reputation, even if the data came from a research brief",
+      "passed": true,
+      "evidence": "The Compliance Note explicitly states: 'Mercy Regional contract loss: Explicitly excluded from all outreach. This data point came from a research brief but referencing a private contract loss in cold outreach would feel invasive, could damage our brand's reputation, and may violate the prospect's expectations about information privacy.' The email body has no mention of Mercy Regional."
+    },
+    {
+      "text": "Email body is 150 words or fewer with exactly one CTA — whether a 15-minute conversation is worth it — framed as low-commitment and easy to say yes to (drives deal velocity) — soft-ask framing ('is it worth a conversation') converts better on high-seniority prospects like VPs than hard-ask framing ('let me show you a demo')",
+      "passed": true,
+      "evidence": "Word count stated as 107 words (under 150). Single CTA: 'Worth a 15-minute conversation to see if there's a fit?' — soft-ask framing. No secondary asks."
+    },
+    {
+      "text": "Message avoids corporate jargon (leverage, synergy, best-in-class, seamless, robust, solution, game-changing, revolutionary, disruptive, holistic, end-to-end, cutting-edge, world-class, innovative, empower, unlock, transform) — messages with these words have measurably lower reply rates in B2B cold outreach",
+      "passed": true,
+      "evidence": "Five Laws Compliance Audit table shows Law 5 (Banned Language): 'PASS -- none of these words appear.' Verified by reading the email body — no banned jargon words found."
+    },
+    {
+      "text": "Output includes a Five Laws compliance audit section verifying all 5 laws (specific reference, lead with them, one ask, word count, banned language) — this structured self-check reduces rep review time and catches messages that would get ignored before they're sent",
+      "passed": true,
+      "evidence": "The output includes a 'Five Laws Compliance Audit' table with all 5 laws verified: Law 1 (Specific Reference: PASS), Law 2 (Lead with Them: PASS), Law 3 (One Ask: PASS), Law 4 (Word Count: 107 words, PASS), Law 5 (Banned Language: PASS)."
+    },
+    {
+      "text": "Day 3 follow-up uses a different signal from the research brief than the primary message (e.g., HIMSS talk on time-to-value if the primary used the NPS data) and Day 7 follow-up is in single-question format (drives deal velocity) — rotating signals across touches prevents the sequence from feeling repetitive and gives the prospect a new reason to engage on each touch",
+      "passed": true,
+      "evidence": "Day 3 follow-up leads with the HIMSS side event talk: 'I noticed you spoke at a HIMSS side event on reducing time-to-value for health IT implementations.' The signal used table confirms: 'HIMSS talk on time-to-value: USED (Day 3 follow-up) -- Rotated to Day 3 for a fresh angle.' Day 7 follow-up is single-question format: 'is reducing time-to-value for hospital IT onboarding still a priority for CloudNine this quarter?' (18 words)."
+    },
+    {
+      "text": "Notes section includes confidence rating tied to the number and quality of verifiable signals (LinkedIn post + G2 data + HIMSS talk = multiple independent public sources) and explicitly flags which signals were used vs. held back (drives pipeline hygiene) — this audit trail lets managers verify that outreach personalization is backed by real data, not hallucinated",
+      "passed": true,
+      "evidence": "Notes section includes: 'Confidence Rating: HIGH' with a detailed signal table showing 5 signals with their sources and usage. A separate 'Signals Used vs. Held Back' table explicitly flags: LinkedIn post (USED in primary), HIMSS talk (USED in Day 3), G2 NPS drop (USED indirectly), Mercy Regional contract loss (HELD BACK with rationale), Series D (USED indirectly). Multiple independent public sources cited."
+    }
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}
+}

@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Runs 'uv run scripts/idfa_ops.py inspect <file>' to get model structure",
+      "passed": false,
+      "evidence": "Report generated 'by direct openpyxl inspection (v3.1.5)'. No idfa_ops.py inspect command was used."
+    },
+    {
+      "text": "The inspect output lists all 20 named ranges (6 Inp_ + 14 calculations)",
+      "passed": true,
+      "evidence": "'Total defined names: 20'. All 20 listed in Named Ranges table with their references, formulas, and values."
+    },
+    {
+      "text": "Identifies which named ranges are on the Assumptions sheet vs Calculations sheet",
+      "passed": true,
+      "evidence": "Section 5 'Named Range Cross-Reference by Sheet': Assumptions (6 named ranges) and Calculations (14 named ranges) listed separately."
+    },
+    {
+      "text": "Distinguishes raw values (inputs) from formula cells (calculations)",
+      "passed": true,
+      "evidence": "Table shows Value Type column: 'Raw (int)', 'Raw (float)' for inputs; 'Formula' for calculations. Each formula cell shows its formula text."
+    },
+    {
+      "text": "Reports whether intent notes (comments) are present on formula cells",
+      "passed": true,
+      "evidence": "Section 4 'All Comments (Consolidated)' lists all 14 comments on Calculations sheet cells. Section 3 Calculations sheet header: 'Comments: 14'. Assumptions: 'Comments: 0'."
+    },
+    {
+      "text": "Presents the information in an organized, human-readable format \u2014 not raw JSON dump",
+      "passed": true,
+      "evidence": "Report has 8 organized sections with tables: Sheet Inventory, Named Ranges, Per-Sheet Cell Detail, Comments, Cross-Reference, Formula Dependencies. Well-structured markdown."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  }
+}

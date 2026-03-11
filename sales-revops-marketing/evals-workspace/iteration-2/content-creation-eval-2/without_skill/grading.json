@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline contribution: The headline leads with the specific quantified outcome ('How Meridian Logistics Cut Pipeline Detection Time from 6 Hours to 8 Minutes' pattern) -- not a generic title like 'Meridian Logistics Case Study' or 'How Arcline Helped Meridian' -- because outcome-first headlines are what get a sales rep's email opened when they send this to a prospect",
+      "passed": true,
+      "evidence": "Headline: 'How Meridian Logistics Cut Pipeline Detection Time from 6 Hours to 8 Minutes with Arcline Analytics'. Leads with the specific quantified outcome. Slightly longer than the ideal pattern by appending 'with Arcline Analytics', but the outcome (6 hours to 8 minutes) is front and center."
+    },
+    {
+      "text": "Campaign ROI: The 'Why They Chose You' section names Monte Carlo and Bigeye by name and states the specific technical differentiator (source-connector-level schema monitoring before data enters the warehouse) -- this is the section prospects actually read to decide if a sales call is worth taking, and vague competitive positioning ('we were the best fit') provides zero decision-support value",
+      "passed": true,
+      "evidence": "Section titled 'Why They Chose Arcline' names competitors: 'Meridian's data engineering team evaluated three platforms: Arcline Analytics, Monte Carlo, and Bigeye.' Technical differentiator: 'Arcline was the only tool that could monitor schema changes at the source connector level -- before data entered the warehouse.' Explains competitive gap: 'Monte Carlo and Bigeye both monitor data quality within the warehouse -- they detect anomalies after data has already landed. For Meridian's specific problem, that was too late.'"
+    },
+    {
+      "text": "Pipeline contribution: The case study is written for Directors of Data Engineering at companies doing ERP migrations specifically -- the Challenge section frames the problem in ERP migration language (upstream schema changes, dbt model breakage, connector-level monitoring) so a prospect in that exact situation sees themselves in the story",
+      "passed": true,
+      "evidence": "Challenge section uses ERP migration language: 'upstream ERP migrations', 'Each migration introduced schema changes at the source level -- columns renamed, data types shifted, tables restructured', 'silently broke 23 dbt models', 'Fivetran connectors, dbt transformation models'. Closes with: 'For a Director of Data Engineering managing ERP migrations, this is a familiar nightmare: upstream changes that break downstream pipelines with no observability layer in between.'"
+    },
+    {
+      "text": "Campaign ROI: The Results section presents all three quantified metrics (6 hours to 8 minutes detection time, 4% false positive rate, zero stale-dashboard incidents in 90 days) with before/after framing that a sales rep can quote in a discovery call or a prospect can use to build an internal business case",
+      "passed": true,
+      "evidence": "Results section includes a before/after table: 'Mean time to detect pipeline breakage: 6 hours -> 8 minutes', 'False positive rate: N/A (no monitoring) -> 4%', 'Stale-dashboard incidents: Multiple per month -> Zero in 90 days'. Each metric elaborated: 'Detection time dropped from 6 hours to 8 minutes -- a 98% reduction', '4% false positive rate meant the engineering team could trust the alerts', 'zero stale-dashboard incidents in 90 days. The Monday morning scramble was over.'"
+    },
+    {
+      "text": "Production efficiency: The case study follows the complete mandated structure in order (outcome-first headline, Challenge, Why They Chose You, Implementation, Results, Quote, Next Steps) and is between 600-1200 words -- a sales enablement team can upload this directly to their content library without restructuring",
+      "passed": true,
+      "evidence": "Structure follows exact mandated order: 1) Outcome-first headline, 2) 'Challenge' section, 3) 'Why They Chose Arcline' section, 4) 'Implementation' section, 5) 'Results' section, 6) 'Quote' section with CFO quote, 7) 'Next Steps' section. The output is approximately 750-850 words based on content length, within the 600-1200 word range."
+    },
+    {
+      "text": "Content performance: The CFO quote is placed for maximum impact (not buried in the middle of the Implementation section) and the Next Steps section includes a specific CTA targeted at Directors of Data Engineering doing ERP migrations -- not a generic 'contact us' that gives no reason to act now",
+      "passed": true,
+      "evidence": "CFO quote ('I used to start every Monday checking whether the numbers were real. Now I just read them.') is given its own dedicated 'Quote' section after Results, not buried in Implementation. Next Steps section addresses target persona: 'If you are a Director of Data Engineering managing ERP migrations and dealing with silent pipeline breakage' with specific action steps and CTA: 'Book a 30-minute pipeline observability assessment: [Schedule Here]'. Closes with: 'If your team is managing ERP migrations and tired of discovering broken data after the CFO does, let's talk.'"
+    }
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}
+}

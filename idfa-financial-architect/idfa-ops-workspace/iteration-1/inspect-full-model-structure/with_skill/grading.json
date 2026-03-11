@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Runs 'uv run scripts/idfa_ops.py inspect <file>' to get model structure",
+      "passed": true,
+      "evidence": "Report header: 'Tool used: uv run scripts/idfa_ops.py inspect'. Raw JSON output in inspect_raw.json confirms the inspect command produced structured output with status 'ok'."
+    },
+    {
+      "text": "The inspect output lists all 20 named ranges (6 Inp_ + 14 calculations)",
+      "passed": true,
+      "evidence": "Summary: 'Total Named Ranges: 20'. Layer tables list 6 assumption inputs (Inp_ prefix) and 14 calculation ranges. inspect_raw.json confirms 'count': 20."
+    },
+    {
+      "text": "Identifies which named ranges are on the Assumptions sheet vs Calculations sheet",
+      "passed": true,
+      "evidence": "Layer 1: 'Sheet: Assumptions, Named Ranges: 6'. Layer 2: 'Sheet: Calculations, Named Ranges: 14'. Each range listed with its sheet."
+    },
+    {
+      "text": "Distinguishes raw values (inputs) from formula cells (calculations)",
+      "passed": true,
+      "evidence": "Layer 1 table: 'Type: Raw values'. Layer 2 table: 'Type: Formulas'. Each calculation shows its formula (e.g., '=Units_Y1*Inp_Price'). Assumption cells show values only."
+    },
+    {
+      "text": "Reports whether intent notes (comments) are present on formula cells",
+      "passed": true,
+      "evidence": "Summary table: 'Assumptions: Intent Notes: None'. 'Calculations: Intent Notes: All 14 have'. Each calculation range in the table shows its intent note text."
+    },
+    {
+      "text": "Presents the information in an organized, human-readable format \u2014 not raw JSON dump",
+      "passed": true,
+      "evidence": "Report uses organized sections (Summary, Layer 1, Layer 2, Formula Dependency Chain, Observations) with formatted tables. The raw JSON is in a separate inspect_raw.json file, not in the main report."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

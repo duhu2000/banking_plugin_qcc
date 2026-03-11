@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "DEAL VELOCITY: DEAL HEALTH ASSESSMENT classifies this as AT RISK (not HEALTHY, not STALLED) with explicit reasoning referencing at least two of: the 12-day missed close date, 3+ weeks of procurement silence on redlines, Gail Hashimoto going dark after one call, and the 12-day conversation gap -- giving the rep an honest read on deal health instead of false confidence from the champion's 'we're close' language",
+      "passed": true,
+      "evidence": "Assessment explicitly states 'DEAL HEALTH ASSESSMENT: AT RISK' and provides five reasoning points referencing all four signals: (1) 'Missed close date with no clear new timeline' -- 12 days past March 28, (2) 'Procurement silence for 3+ weeks on redlines', (3) 'VP Gail Hashimoto went dark after one call', (4) '12-day conversation gap with champion', (5) 'Front-runner and we're close language without movement'. All four required signals are covered."
+    },
+    {
+      "text": "WIN RATE: KNOWN VS. UNKNOWN correctly separates confirmed facts (champion identified, POC successful, competitor Aerolytics named, redlines sent and responded to) from critical gaps (procurement timeline, Gail's actual stance, whether Aerolytics is actively competing or just leverage, who the final decision-maker is) -- surfacing the intelligence gaps the rep must close before this deal is winnable",
+      "passed": true,
+      "evidence": "Known section lists: 'Champion identified: Derek Yoon', 'POC completed successfully with no technical evaluation concerns', 'Competitor Aerolytics is being evaluated', 'Redlines were on our data residency clause...we responded within 48 hours'. Unknown section lists: procurement contact and timeline, 'Why Gail Hashimoto went dark', 'Whether Aerolytics is actively competing...or is being used as leverage', 'Who the final decision-maker is'. All specified facts and gaps are present."
+    },
+    {
+      "text": "WIN RATE: RISK FACTORS identifies 2-3 risks grounded in the deal details -- such as single-threaded after VP went dark, 'front-runner' language as a potential negotiation tactic or stall, procurement silence suggesting internal blockers or competing priority -- not generic pipeline risks but threats specific to this $340K deal that the rep must actively mitigate",
+      "passed": true,
+      "evidence": "Three risk factors identified: (1) 'Single-threaded after VP went dark' -- Derek is only active relationship, Gail's disengagement means no executive sponsor, (2) 'Front-runner language may be a negotiation tactic or stall' -- could keep us engaged while Aerolytics completes evaluation, (3) 'Procurement silence on data residency redlines signals a deeper blocker' -- lists four possible explanations including competing vendor proposals and deprioritization. All are specific to this deal."
+    },
+    {
+      "text": "SALES CYCLE COMPRESSION: RECOMMENDED NEXT ACTION is specific and time-bound -- not 'follow up with Derek' but a concrete play such as asking Derek for a direct introduction to the procurement contact, proposing a joint call with legal teams to resolve data residency, or a break-up email with a deadline -- designed to force the deal forward or surface the real blocker within days, not weeks",
+      "passed": true,
+      "evidence": "Action states: 'Within the next 48 hours, call Derek with a specific ask: request a direct introduction to the procurement contact handling the redlines so that your legal team and their procurement team can resolve the data residency clause on a single 30-minute call.' Includes exact framing language. Also includes escalation path: 'If Derek cannot or will not facilitate this introduction within 48 hours, escalate: reach out directly to Gail Hashimoto.' Both time-bound and concrete."
+    },
+    {
+      "text": "DEAL VELOCITY: NEXT STEP TO BOOK names one specific meeting or action to advance the deal (e.g., a three-way call with Derek, procurement, and your legal team to resolve redlines in one session) rather than a vague 'keep the conversation going' -- giving the rep a concrete calendar action that either unstalls the deal or confirms it's dead",
+      "passed": true,
+      "evidence": "States: 'A joint redline-resolution call between your legal team, Derek Yoon, and the Stratos procurement contact responsible for the data residency review -- scheduled within the next 5 business days. One session, both legal teams, resolve the outstanding clause and agree on a revised signature timeline.' Also notes: 'If Derek cannot get this meeting scheduled, that itself is the diagnostic: the deal has stalled for reasons beyond the redlines.'"
+    },
+    {
+      "text": "WIN RATE: The brief treats Derek's 'we're the front-runner' and 'we're close' statements with appropriate skepticism -- flagging that champion optimism without procurement movement is a classic stall signal, not reassurance -- so the rep acts with urgency rather than waiting passively",
+      "passed": true,
+      "evidence": "Assessment point 5: 'Champion optimism that is not accompanied by concrete procurement action is a classic stall signal. Derek may genuinely believe we are the front-runner, but his visibility into procurement's actual deliberations is unconfirmed.' Risk Factor 2: 'Derek's characterization of our competitive position could be genuine, but it could also be used to keep us engaged and patient while Aerolytics completes their own evaluation. Without independent confirmation...front-runner is Derek's opinion, not an organizational commitment.'"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

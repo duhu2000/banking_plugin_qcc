@@ -1,0 +1,21 @@
+{
+  "eval_id": 1,
+  "eval_name": "crm-enrichment-eval-1",
+  "prompt": "hey can you enrich our record for Brightpath Consulting? they're a Tier 1 account but the data is embarassingly stale -- last touched maybe 14 months ago. Main contact is David Hargreaves, he was Head of Ops when we last spoke but I think hes moved. Also pretty sure their headcount jumped after that Series B last year. Their rep is Jess Moreno and they're in an active nurture sequence right now. Oh and Jess manually entered the direct phone number herself from a conference badge so dont mess with that. Need this cleaned up before our QBR Thursday.",
+  "expectations": [
+    "To prevent wasted outreach to a stale contact, the output flags David Hargreaves for potential role change (no LinkedIn updates in >12 months) rather than assuming he is still Head of Ops at Brightpath Consulting -- a wrong-title email tanks response rates",
+    "To protect revenue on an active deal, the output does NOT overwrite the manually-entered direct phone number -- it explicitly flags it as a human-entered field and defers to Jess Moreno as record owner before any change, since reps trust CRM data they entered themselves",
+    "To protect the active nurture sequence from breaking, the output does NOT remove David Hargreaves from the sequence due to any email change -- instead it specifies pausing the sequence and alerting Jess Moreno to verify new contact details first, preventing a live prospect from going dark",
+    "To enable accurate segmentation and lead routing after the Series B, account-level enrichment addresses Brightpath Consulting headcount with a flag if the change exceeds 20%, plus the Series B funding captured as a news event -- these fields drive tier classification and ICP scoring",
+    "To ensure the QBR uses reliable data, the output includes a DATA QUALITY SCORE as a percentage of enriched records now complete, plus a RECORDS WITH MISSING MANDATORY FIELDS section listing any fields still unfilled -- giving the rep a clear picture of what is verified vs. what still needs manual work",
+    "To drive accurate pipeline forecasting, the output covers all six contact-level mandatory fields (full name, current title, current company, work email, direct phone, LinkedIn URL) and all five account-level mandatory fields (legal name, revenue estimate, headcount, headquarters, website) -- incomplete records create routing errors and missed handoffs"
+  ],
+  "assertions": [
+    "To prevent wasted outreach to a stale contact, the output flags David Hargreaves for potential role change (no LinkedIn updates in >12 months) rather than assuming he is still Head of Ops at Brightpath Consulting -- a wrong-title email tanks response rates",
+    "To protect revenue on an active deal, the output does NOT overwrite the manually-entered direct phone number -- it explicitly flags it as a human-entered field and defers to Jess Moreno as record owner before any change, since reps trust CRM data they entered themselves",
+    "To protect the active nurture sequence from breaking, the output does NOT remove David Hargreaves from the sequence due to any email change -- instead it specifies pausing the sequence and alerting Jess Moreno to verify new contact details first, preventing a live prospect from going dark",
+    "To enable accurate segmentation and lead routing after the Series B, account-level enrichment addresses Brightpath Consulting headcount with a flag if the change exceeds 20%, plus the Series B funding captured as a news event -- these fields drive tier classification and ICP scoring",
+    "To ensure the QBR uses reliable data, the output includes a DATA QUALITY SCORE as a percentage of enriched records now complete, plus a RECORDS WITH MISSING MANDATORY FIELDS section listing any fields still unfilled -- giving the rep a clear picture of what is verified vs. what still needs manual work",
+    "To drive accurate pipeline forecasting, the output covers all six contact-level mandatory fields (full name, current title, current company, work email, direct phone, LinkedIn URL) and all five account-level mandatory fields (legal name, revenue estimate, headcount, headquarters, website) -- incomplete records create routing errors and missed handoffs"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Runs 'uv run scripts/idfa_ops.py write <file> Inp_Price 125' (or equivalent path)",
+      "passed": true,
+      "evidence": "Step 2 shows: 'Command: uv run scripts/idfa_ops.py write ops_test_model.xlsx Inp_Price 125'. Output: {\"status\": \"ok\", \"name\": \"Inp_Price\", \"value\": 125, \"cell\": \"Assumptions!B2\"}."
+    },
+    {
+      "text": "Runs 'uv run scripts/idfa_ops.py read <file> Inp_Price' to verify the write",
+      "passed": true,
+      "evidence": "Step 3 shows: 'Command: uv run scripts/idfa_ops.py read ops_test_model.xlsx Inp_Price'. Output: {\"status\": \"ok\", \"values\": {\"Inp_Price\": 125}}."
+    },
+    {
+      "text": "The read command returns the updated value 125 (not the original 100)",
+      "passed": true,
+      "evidence": "Step 3 output: {\"status\": \"ok\", \"values\": {\"Inp_Price\": 125}}. 'Confirmed new value is 125.'"
+    },
+    {
+      "text": "Both commands produce JSON output with status 'ok'",
+      "passed": true,
+      "evidence": "Write output: {\"status\": \"ok\",...}. Read output: {\"status\": \"ok\",...}. Both show status 'ok'."
+    },
+    {
+      "text": "Does not modify the file manually via openpyxl or other means \u2014 uses the idfa_ops.py script exclusively",
+      "passed": true,
+      "evidence": "Tool Used: 'uv run scripts/idfa_ops.py from skills/idfa-ops/'. All operations use the idfa_ops.py script. No mention of direct openpyxl usage."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  }
+}

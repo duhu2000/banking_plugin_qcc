@@ -1,0 +1,99 @@
+{
+  "expectations": [
+    {
+      "text": "ICP includes firmographic criteria with specific numeric ranges for company size (employee count range), revenue range, geography (US and UK as primary markets), and industry verticals ranked by conversion likelihood -- not generic placeholders but ranges anchored to the mid-market positioning and $48K ARR deal size described",
+      "passed": true,
+      "evidence": "Output specifies Tier 1: 500-1,200 employees, $100M-$350M revenue; Tier 2: 300-1,500 employees, $50M-$500M revenue. Geography: 'US, UK, Canada (English-language contracts)' as primary, 'EU (English-language contract subset)' as secondary. Industry verticals listed with Tier 1 (Fintech, Healthtech, B2B SaaS) and Tier 2 (Insurtech, Regtech, Medtech, Legaltech-adjacent). Tiered firmographic approach is well-anchored to mid-market positioning."
+    },
+    {
+      "text": "Technology maturity criterion is specified with reference to legal ops function maturity and contract volume thresholds (500+ contracts/month referenced as a qualifying signal), reflecting the pattern the founder described rather than invented assumptions",
+      "passed": false,
+      "evidence": "Section 1.3 'Technographic Signals' covers technology maturity with signals like 'No CLM platform in place,' 'Using a basic e-signature tool but nothing upstream,' and 'AI-receptive culture.' However, the contract volume thresholds are 200-300/month (Tier 2) and 300+/month (Tier 1) in the firmographic table. The assertion requires '500+ contracts/month referenced as a qualifying signal' which does not appear anywhere in the output."
+    },
+    {
+      "text": "NEGATIVE FIT SIGNALS / anti-ICP section is present and identifies at least two distinct anti-ICP profiles -- the time-waster profile (engages but never buys) and the wrong-fit profile (buys but churns) -- with specific characteristics for each, not generic warnings",
+      "passed": false,
+      "evidence": "Part 2 contains a substantial Anti-ICP section. Section 2.1 (Hard Disqualifiers) clearly identifies the time-waster profile: Fortune 500/Enterprise with 'Evaluation cycles 9-18 months. Existing workflows are good enough.' Section 2.2 (Soft Disqualifiers) mentions 'Innovation theater buyer' as 'likely to churn at renewal.' However, the assertion requires a distinct 'wrong-fit profile (buys but churns)' with 'specific characteristics.' The without_skill output does not have a dedicated, clearly delineated 'buys but churns' profile -- the churn mention is one row in a soft disqualifiers table, not a distinct anti-ICP profile with detailed characteristics. The with_skill output by contrast has a full 'Churn Risk (Buys but does not retain)' profile with 4 specific red flags and BDR action guidance."
+    },
+    {
+      "text": "TIMING SIGNALS are split into HOT (act within 48 hours) and WARM (act within 2 weeks) with concrete trigger events relevant to legal/procurement contract review (e.g. regulatory deadlines, M&A activity, legal team hiring surges, new compliance requirements) rather than generic buying signals",
+      "passed": false,
+      "evidence": "Section 1.2 'Situational Triggers (Timing Criteria)' lists 5 triggers rank-ordered by 'observed close velocity': Post-Series B/C, Post-M&A, Regulatory compliance deadline, Legal team attrition, New GC/VP Legal Ops hired. The triggers themselves are concrete and relevant. However, they are NOT split into HOT (48 hours) and WARM (2 weeks) categories as the assertion requires. There is no urgency-based categorization at all -- just a ranked list."
+    },
+    {
+      "text": "POSITIVE FIT SIGNALS section lists observable, researchable indicators a sales rep could actually find during prospecting (e.g. job postings for legal ops roles, contract management tool mentions in tech stack, public procurement volume indicators) with guidance on where to find each signal",
+      "passed": true,
+      "evidence": "While there is no single section labeled 'POSITIVE FIT SIGNALS,' the output provides equivalent content across multiple sections. Section 1.3 (Technographic Signals) lists observable tech indicators. Section 1.6 (ICP Scoring Model) has a 'How to Verify' column listing specific sources: 'LinkedIn, Crunchbase, company website,' 'Technographic data (BuiltWith, 6sense, or discovery),' 'LinkedIn headcount search,' etc. Section 3.1 (Account Sourcing Criteria) maps Crunchbase, LinkedIn Sales Navigator, M&A databases, job boards, and G2/Capterra intent signals to specific filter logic. Collectively, these provide observable, researchable indicators with where-to-find guidance."
+    },
+    {
+      "text": "Output includes actionable next steps or recommendations for how to operationalise the ICP -- such as quarterly recalibration cadence, suggested data sources for signal monitoring, or integration with lead scoring -- acknowledging the ICP is not static",
+      "passed": true,
+      "evidence": "Part 4 'Validation & Iteration Plan' includes: Section 4.1 'Data to Track From Deal 31 Onward' (9 specific fields to capture), Section 4.2 'Quarterly ICP Review Cadence' with milestones at 50, 75, and 100 deals, Section 4.3 'Signals That the ICP Needs Updating' (4 specific triggers). Additionally, Section 1.6 provides an ICP Scoring Model with point values and routing thresholds for lead scoring integration. The document header explicitly states 'Status: Initial formalization -- revisit after 75 deals' and ends with 'This document should be treated as a living artifact.'"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 3,
+    "total": 6,
+    "pass_rate": 0.5
+  },
+  "claims": [
+    {
+      "claim": "ICP is based on 30 deals and should be revisited after 75 deals",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Document header states 'Basis: Pattern analysis from first 30 closed deals' and 'Status: Initial formalization -- revisit after 75 deals.'"
+    },
+    {
+      "claim": "Contract review backlog of 2+ weeks is a quantified pain threshold",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Section 1.5 states 'Contract review backlog: 2+ week turnaround on standard vendor contracts (should be 2-3 days).' This is a reasonable and specific pain quantification."
+    },
+    {
+      "claim": "Outside counsel bleed of $15K-$50K/month is a pain indicator",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Specific and actionable financial metric. Consistent with mid-market legal department spending patterns."
+    },
+    {
+      "claim": "Max ICP score is 100 points with defined thresholds",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Section 1.6 lists scoring criteria summing to 100 max (20+15+10+25+10+10+10=100 for Tier 1 firmographic fit). Routing thresholds defined at 70-100, 50-69, 30-49, 0-29."
+    },
+    {
+      "claim": "Government/public sector is a hard disqualifier",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Listed in Section 2.1 with reasoning: 'Procurement cycles incompatible with startup sales motion. Compliance requirements (FedRAMP etc.) you likely don't have yet.' Reasonable inference from startup context."
+    },
+    {
+      "claim": "Outreach templates are trigger-based and use peer references",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Section 3.2 provides 4 trigger-based templates (Series B/C, M&A, New GC, Legal hiring) each referencing peer companies: 'Here's how [similar company]'s legal team...' and 'We helped [reference]...'"
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Technology maturity criterion is specified with reference to legal ops function maturity and contract volume thresholds (500+ contracts/month referenced as a qualifying signal), reflecting the pattern the founder described rather than invented assumptions",
+        "reason": "Same issue as with_skill grading: the full eval prompt is truncated in eval_metadata.json, so the exact context around '500+ contracts/month' cannot be verified. If the prompt was truncated and the models never received the 500+ figure, this assertion penalizes both outputs for something they couldn't have known."
+      },
+      {
+        "assertion": "NEGATIVE FIT SIGNALS / anti-ICP section is present and identifies at least two distinct anti-ICP profiles -- the time-waster profile (engages but never buys) and the wrong-fit profile (buys but churns) -- with specific characteristics for each, not generic warnings",
+        "reason": "This assertion effectively discriminated between the two outputs. The with_skill output has a dedicated 'Churn Risk' profile while the without_skill output only briefly mentions churn as one row in a soft disqualifiers table. This is a strong assertion."
+      },
+      {
+        "reason": "The without_skill output includes substantial content not tested by any assertion: a quantified pain thresholds section (1.5), a numeric scoring model (1.6), trigger-based outreach templates (3.2), a one-page BDR reference card (Part 5), and a buying committee map (1.4). These are valuable operational artifacts. An assertion testing for actionable BDR-ready qualification criteria or a buying committee map would capture this."
+      }
+    ],
+    "overall": "The assertions discriminated well between the two outputs on structural organization (HOT/WARM timing split, dedicated anti-ICP profiles). The without_skill output contains strong operational content (scoring model, outreach templates, BDR reference card) but misses structural requirements specified in the assertions. The 500+ contracts/month assertion failed both outputs and may depend on truncated prompt content."
+  }
+}

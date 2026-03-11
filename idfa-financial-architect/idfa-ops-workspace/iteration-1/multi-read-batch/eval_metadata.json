@@ -1,0 +1,11 @@
+{
+  "eval_id": 7,
+  "eval_name": "multi-read-batch",
+  "prompt": "Give me a quick snapshot of all the Year 1 results: units, revenue, variable costs, contribution, EBIT, tax, and net income.",
+  "assertions": [
+    "Runs idfa_ops.py read with multiple names in a single command (e.g., 'read <file> Units_Y1 Revenue_Y1 Variable_Costs_Y1 Contribution_Y1 EBIT_Y1 Tax_Y1 Net_Income_Y1')",
+    "Returns values for all requested Named Ranges in one JSON response",
+    "Presents the values in a clear, formatted summary for the user",
+    "Does not make 7 separate read calls when one batch call suffices"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "eval_id": 8,
+  "eval_name": "explain-model-logic-map",
+  "prompt": "I need to hand this model off to a colleague who has never seen it. Can you produce a complete Logic Map so they can understand every business rule without opening the spreadsheet?",
+  "assertions": [
+    "Lists ALL 24 Named Ranges with their business rules in plain English",
+    "Shows the dependency chain from inputs through calculations to outputs",
+    "Groups by layer (Assumptions → Calculations → Output)",
+    "Each formula description is understandable without Excel knowledge",
+    "Includes the key input levers and their downstream effects",
+    "Does NOT include cell coordinate references in the Logic Map"
+  ]
+}

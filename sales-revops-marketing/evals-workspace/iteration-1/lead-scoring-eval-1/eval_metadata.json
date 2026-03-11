@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "lead-scoring-eval-1",
+  "prompt": "Just got a referral from our investor network -- Cassandra Oyelaran, VP of Revenue Operations at TerraGrid Energy. They're a Series C cleantech company, about 450 employees, $85M ARR, headquartered in...",
+  "assertions": [
+    "Score output includes all three dimensions (Fit, Timing, Engagement) with individual per-criterion point breakdowns and brief explanations for each criterion scored",
+    "Total score is the arithmetic sum of the three dimension subtotals, does not exceed 100, and falls in the 80-100 HOT range given the strong signals across all three dimensions",
+    "Timing score includes points for the Series D funding announcement (up to 15 pts) and rapid hiring in target department (up to 10 pts), both sourced with recency context -- the score is not based solely on Fit",
+    "Score rationale is 2-3 sentences explaining why TerraGrid is buying-ready right now (funding creating budget, ops leadership evaluating tools, active engagement pattern) rather than just restating the numeric breakdown",
+    "Recommended action specifies a route (e.g. senior AE or named rep), outreach channel and timing (e.g. direct email or warm intro within 24 hours per HOT SLA), a positioning frame tied to their growth stage, and a first-touch goal",
+    "Next review date is set within a short window appropriate to HOT lead urgency (days, not weeks)"
+  ]
+}

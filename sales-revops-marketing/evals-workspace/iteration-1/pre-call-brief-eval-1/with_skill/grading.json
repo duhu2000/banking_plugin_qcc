@@ -1,0 +1,95 @@
+{
+  "expectations": [
+    {
+      "text": "The brief follows the Type 1 Pre-Discovery Call Brief structure exactly: header line with prospect name and company, QUICK CONTEXT section, YOUR GOAL FOR THIS CALL section, DISCOVERY QUESTIONS section, ANTICIPATED OBJECTIONS AND RESPONSES section, CALL SUCCESS CRITERIA section (with primary/secondary/minimum), COMPETITORS TO LISTEN FOR section, and THINGS NOT TO DO section",
+      "passed": true,
+      "evidence": "All required sections are present with exact or near-exact names: 'PRE-CALL BRIEF: Natalie Reeves, VP of Supply Chain | Ironclad Distribution' (header), 'QUICK CONTEXT (2-minute read)', 'YOUR GOAL FOR THIS CALL', 'DISCOVERY QUESTIONS -- USE IN THIS ORDER', 'ANTICIPATED OBJECTIONS AND RESPONSES', 'CALL SUCCESS CRITERIA' (with Primary, Secondary, and Minimum sub-sections), 'COMPETITORS TO LISTEN FOR', and 'THINGS NOT TO DO'."
+    },
+    {
+      "text": "Discovery questions total 5 or fewer across all subsections (opening, depth, qualification), every single one is phrased as a question ending in a question mark -- none are statements or instructions to the rep",
+      "passed": false,
+      "evidence": "The DISCOVERY QUESTIONS section contains well more than 5 questions. Opening has 1 question embedded in a suggested statement. Depth has 5 numbered questions. Qualification has 3 additional bullet-point questions. Total is approximately 9 questions across all subsections, far exceeding the 5-question limit. All are phrased as questions ending in question marks, but the count constraint fails."
+    },
+    {
+      "text": "QUICK CONTEXT is concise enough for a 2-minute read (roughly 3-5 sentences), references Natalie's whitepaper download and the cold call intel about manual spreadsheet tracking and 2-3 hours lost per dispatcher, and mentions the lost retail contract as a relevant trigger event",
+      "passed": false,
+      "evidence": "QUICK CONTEXT is present and concise (~5 sentences). It references the whitepaper download ('downloading the warehouse automation ROI whitepaper'), manual spreadsheet tracking ('tracking exception rates manually in spreadsheets'), and the lost retail contract ('lost a retail client, Redline Sports, last quarter due to fulfillment accuracy issues'). However, it does NOT mention '2-3 hours lost per dispatcher' -- this specific detail from the prompt is absent from the section. The assertion requires all elements including the dispatcher hours detail."
+    },
+    {
+      "text": "YOUR GOAL FOR THIS CALL states a specific, singular call goal -- not a vague 'learn about their needs' or 'do a demo' but a concrete outcome like qualifying the pain around exception tracking, identifying who else is in the buying process, and confirming if there is budget or timeline pressure",
+      "passed": true,
+      "evidence": "YOUR GOAL FOR THIS CALL states: 'Confirm the operational pain (manual exception tracking, fulfillment accuracy) is tied to measurable business impact (client loss, revenue churn, peak-season capacity), identify who else is involved in evaluating a solution (IT, CFO, COO), and determine whether there is a timeline or triggering event driving urgency. A successful call ends with a second meeting booked that includes a technical stakeholder or economic buyer.' This is specific, actionable, and tied to concrete outcomes -- not vague."
+    },
+    {
+      "text": "ANTICIPATED OBJECTIONS AND RESPONSES includes at least 2 objections with exact words the prospect might say and responses that validate before reframing -- not defensive or argumentative responses",
+      "passed": true,
+      "evidence": "Three objections with exact prospect quotes: (1) 'Our Oracle WMS works fine for the basics -- we just need to fix the exception tracking piece, not rip and replace.' (2) 'We're early in this process -- not ready to commit to anything or bring other people in yet.' (3) 'We've been burned by implementations before -- our team doesn't have bandwidth for a big rollout.' Each response opens with validation ('That makes total sense', 'Completely fair', 'That's a real concern') before reframing. None are defensive or argumentative."
+    },
+    {
+      "text": "THINGS NOT TO DO section is present and contains 3-5 specific warnings relevant to this call (e.g., do not demo on a discovery call, do not trash Oracle WMS, do not assume the lost contract means urgency)",
+      "passed": true,
+      "evidence": "THINGS NOT TO DO section contains 5 specific warnings: (1) Do NOT lead with a product demo or feature walkthrough, (2) Do NOT dwell on the Redline Sports loss, (3) Do NOT badmouth Oracle, (4) Do NOT ask more than 2-3 questions in a row without offering something back, (5) Do NOT end the call without proposing a specific next step with a date. All are relevant to this specific call scenario."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 2,
+    "total": 6,
+    "pass_rate": 0.67
+  },
+  "execution_metrics": {
+    "output_chars": 8904
+  },
+  "claims": [
+    {
+      "claim": "ICP match is MODERATE for mid-market 3PL with ~600 employees and manual processes",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The assessment of MODERATE is reasonable -- strong operational fit (3PL, manual processes, legacy WMS) but no confirmation of budget or authority yet, as stated in the brief header."
+    },
+    {
+      "claim": "Natalie described Oracle WMS as 'good enough for the basics'",
+      "type": "factual",
+      "verified": true,
+      "evidence": "This detail appears in the eval prompt context and is referenced consistently in the output. The brief correctly attributes this quote to Natalie via Marcus's cold call intel."
+    },
+    {
+      "claim": "ShipSmart sits on top of existing WMS and doesn't replace Oracle",
+      "type": "factual",
+      "verified": false,
+      "evidence": "This is a product claim about ShipSmart's architecture. Cannot be verified from available inputs -- the eval prompt does not describe ShipSmart's technical architecture. The output appears to have fabricated or assumed this positioning."
+    },
+    {
+      "claim": "Ironclad lost Redline Sports last quarter due to fulfillment accuracy issues",
+      "type": "factual",
+      "verified": true,
+      "evidence": "This detail is present in the eval prompt and consistently referenced in the output."
+    },
+    {
+      "claim": "The output follows a Type 1 Pre-Discovery Call Brief structure",
+      "type": "process",
+      "verified": true,
+      "evidence": "The output uses all required section headers from the Type 1 format as specified in the assertion."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Discovery questions total 5 or fewer across all subsections (opening, depth, qualification), every single one is phrased as a question ending in a question mark -- none are statements or instructions to the rep",
+        "reason": "This assertion bundles two independent criteria (count <= 5, all phrased as questions). The with-skill output gets the phrasing right but fails the count. Splitting these would give more diagnostic signal -- you'd know whether the skill understands question formatting vs. question economy."
+      },
+      {
+        "assertion": "QUICK CONTEXT is concise enough for a 2-minute read (roughly 3-5 sentences), references Natalie's whitepaper download and the cold call intel about manual spreadsheet tracking and 2-3 hours lost per dispatcher, and mentions the lost retail contract as a relevant trigger event",
+        "reason": "The '2-3 hours lost per dispatcher' detail is required by the assertion but the eval prompt as stored in eval_metadata.json is truncated at 203 characters and may not contain this detail. If the prompt given to the executor did not include this data, the assertion is unfair. Verify the full prompt was provided to the executor."
+      },
+      {
+        "reason": "No assertion checks the quality or specificity of the CALL SUCCESS CRITERIA beyond requiring primary/secondary/minimum sub-sections to exist. The with-skill output has genuinely useful tiered criteria, but a version with empty or vague tiers would also pass assertion 1. Consider adding a content-quality assertion for success criteria."
+      },
+      {
+        "reason": "No assertion checks whether the COMPETITORS TO LISTEN FOR section names contextually relevant competitors (e.g., Manhattan, Blue Yonder, Korber for 3PL mid-market). The section could list irrelevant competitors and still pass."
+      }
+    ],
+    "overall": "Assertions test structural compliance well but under-test content quality. The question count limit (5 or fewer) is a strong discriminating assertion -- it correctly caught the with-skill output's tendency to over-generate questions. Adding content-quality checks for CALL SUCCESS CRITERIA and COMPETITORS would strengthen the eval."
+  }
+}

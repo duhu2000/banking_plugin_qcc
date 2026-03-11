@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To give the AE enough verified intelligence to write outreach that gets a reply, the research brief contains all required output sections with the mandatory header (TASK, ICP MATCH, CONFIGURATION, VERIFY DATA) \u2014 WHO IS section with career background sourced from LinkedIn or public profiles, WHAT IS DATADOG with real financials from public filings, WHAT IS HAPPENING NOW with classified signals, THE SPECIFIC PAIN, THE HOOK, PRODUCT FIT, and RECOMMENDED FIRST TOUCH",
+      "passed": false,
+      "evidence": "The brief lacks the mandatory TASK/ICP MATCH/CONFIGURATION/VERIFY DATA header and does not present the required section structure (e.g. WHAT IS HAPPENING NOW / THE HOOK / RECOMMENDED FIRST TOUCH) even though it contains useful research."
+    },
+    {
+      "text": "To surface timing signals that determine whether to reach out now or wait, signal classification categorizes Datadog's CI/CD platform expansion as a relevant signal with source attribution to earnings calls, press releases, or product announcements \u2014 and checks for additional signals from engineering job postings, recent acquisitions, or leadership changes that indicate active investment in the CI/CD space",
+      "passed": false,
+      "evidence": "The output discusses Datadog's expansion and acquisitions, but it does not explicitly classify timing signals or source-attribute them in a dedicated signal-analysis section the way the expectation requires."
+    },
+    {
+      "text": "To ensure the AE's outreach references something real and checkable, at least one hook is identified that is specific and verifiable \u2014 tied to a public event such as Datadog's earnings report, a product launch announcement, a specific job posting for CI/CD roles, or a conference talk \u2014 not a generic industry trend about observability platforms expanding",
+      "passed": false,
+      "evidence": "No specific outreach hook is surfaced as a discrete, recommended message anchor. The brief is rich research, but it does not identify a concrete hook section the AE can lift directly into outreach."
+    },
+    {
+      "text": "To qualify whether this deal is worth pursuing before the AE invests time, ICP match assessment evaluates Datadog against the stated criteria (public or late-stage, developer tooling / observability company, 1000+ headcount, US-based) and produces a STRONG / MODERATE / WEAK rating with specific reasoning \u2014 including whether selling CI/CD tooling to a company that builds CI/CD visibility creates a competitive tension that weakens fit",
+      "passed": true,
+      "evidence": "The ICP Alignment Check table explicitly evaluates Datadog against the stated criteria and concludes it is not a fit on size while explaining the competitive tension around selling CI/CD analytics to a company that builds CI/CD analytics."
+    },
+    {
+      "text": "To connect Datadog's situation to a specific reason they would buy, the pain assessment constructs a causal chain from their platform expansion (moving beyond APM into security and CI/CD) to infrastructure scaling pressure \u2014 identifying whether Datadog is a buyer of CI/CD tooling for internal engineering needs or a competitor building CI/CD products, and how that distinction changes the sales approach",
+      "passed": true,
+      "evidence": "The 'Core Tension' and 'Arguments For/Against Pursuing' sections clearly distinguish Datadog as a potential customer versus a direct competitor and explain how that distinction changes the sales strategy and resource allocation."
+    },
+    {
+      "text": "To determine who on the buying committee should receive the first message, the recommended first touch evaluates whether Amit Agarwal is the right entry point or whether a Director of Platform Engineering or Infrastructure lead would be more appropriate \u2014 specifying channel, tone, and goal with reasoning based on the prospect's seniority and Datadog's org structure",
+      "passed": false,
+      "evidence": "The recommendation says not to pursue Datadog and suggests alternatives, but it does not specify a recommended first touch with channel, tone, and goal for the real buying committee or for Amit as the proper first message."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  }
+}

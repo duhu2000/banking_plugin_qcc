@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "sequence-eval-1",
+  "prompt": "Build me a HOT lead sequence for Priya Kapoor, VP of Engineering at Vantage Robotics (Series C, $85M raised, 320 employees, industrial automation for warehouse fulfillment). We sell FleetMind -- an AI...",
+  "assertions": [
+    "Sequence contains exactly 6 touches over 21 days with day assignments matching the HOT structure (Day 1, Day 3, Day 7, Day 10, Day 17, Day 21) and each touch includes full message text with word count",
+    "Channel mix is present: at least 2 distinct channels (LinkedIn and email) are used across the 6 touches, and no single channel is used for consecutive touches within fewer than 3 days",
+    "Value escalation is visible: Touch 1-2 are personalised to Priya's situation (LinkedIn post, reliability hire, distribution centers), Touch 3 is a no-ask value add, Touch 4 introduces social proof (Apex Fulfillment case study with the 11% to 3.2% downtime stat), and Touch 6 is the graceful close",
+    "Touch 6 is a graceful close: short, respectful, leaves the door open, contains no ask, no guilt language, and no 'just checking in'",
+    "No two touches contain identical or substantially duplicated content -- each touch adds a new angle, data point, or framing that was not present in any previous touch",
+    "Branching rules section is present and includes at minimum: reply at any touch triggers sequence exit with rep alert, and LinkedIn connection accepted without reply triggers a custom warm follow-up DM (not the generic sequence touch)"
+  ]
+}

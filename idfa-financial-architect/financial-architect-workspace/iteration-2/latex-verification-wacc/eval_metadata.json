@@ -1,0 +1,13 @@
+{
+  "eval_id": 7,
+  "eval_name": "latex-verification-wacc",
+  "prompt": "Can you check the WACC formula in my legacy model? I want to make sure the math is right before we do anything else with it.",
+  "assertions": [
+    "Reads the WACC formula from the model and presents its LaTeX equivalent",
+    "Verifies equity weight + debt weight = 1.0",
+    "Verifies that only the debt term is multiplied by (1 - Tax Rate)",
+    "Verifies cost of equity and cost of debt are in consistent units",
+    "Confirms the formula is mathematically correct (WACC ≈ 9.19%)",
+    "Flags the cell-coordinate references as an IDFA violation"
+  ]
+}

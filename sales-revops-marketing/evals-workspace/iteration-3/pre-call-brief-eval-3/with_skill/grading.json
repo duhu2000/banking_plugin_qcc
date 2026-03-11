@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "DEAL VELOCITY: DEAL HEALTH ASSESSMENT classifies this as AT RISK (not HEALTHY despite 22 months remaining) with reasoning connecting at least three of: 84%-to-61% adoption drop, the P1 SLA breach (9 hours vs 4-hour SLA), Rachel Dunn's disengagement from the last 3 check-ins, the new CFO's vendor audit of contracts over $500K, and competitor ad targeting -- so the account team treats this as a save situation, not a routine QBR",
+      "passed": true,
+      "evidence": "Assessment states 'DEAL HEALTH ASSESSMENT: AT RISK' and 'Despite 22 months remaining on the contract, this account exhibits at least five compounding risk signals.' All five signals are addressed: (1) 'Adoption decline from 84% to 61%', (2) 'P1 SLA breach (9 hours vs. 4-hour SLA)', (3) 'Executive sponsor disengagement' -- Rachel missing 3 check-ins, (4) 'New CFO auditing contracts over $500K', (5) 'Competitor targeting' -- Sentinel Shield and CyberArch ads."
+    },
+    {
+      "text": "WIN RATE: KNOWN VS. UNKNOWN separates confirmed facts (adoption numbers, SLA breach details, stakeholder map, renewal timeline, competitor ad targeting) from critical unknowns (root cause of adoption decline, Rachel's current sentiment, James Whitfield's evaluation criteria and stance, whether competitors have made direct contact beyond ads) -- giving the rep a checklist of intelligence gaps to close during the QBR itself",
+      "passed": true,
+      "evidence": "Known section lists: adoption decline 84% to 61%, P1 incident 9-hour vs 4-hour SLA, full stakeholder map (Rachel, Marcus, James), renewal timeline (22 months), competitor ads confirmed via intent data. Unknown section lists: 'Root cause of the adoption drop', 'Rachel Dunn's current sentiment toward the partnership', 'James Whitfield's evaluation criteria for the vendor audit', 'Whether Sentinel Shield or CyberArch have made direct contact with Meridian beyond LinkedIn ads.' All specified items present."
+    },
+    {
+      "text": "WIN RATE: RISK FACTORS identifies 2-3 threats grounded in the deal details -- such as the new CFO using the SLA miss and declining adoption as justification to renegotiate or RFP, Rachel's silence indicating she may no longer be championing internally, or competitor outreach converting interest while adoption declines -- each risk the rep can proactively address rather than react to",
+      "passed": true,
+      "evidence": "Three risks identified: (1) 'New CFO + declining adoption + SLA breach = a business case against renewal' -- 'If James is looking for cost savings, our contract is a target. If competitors have reached out with proposals, he may already have an alternative framed.' (2) 'Executive sponsor gone silent' -- 'If Rachel has privately decided to let the contract run down or renegotiate, Marcus...does not have the organizational authority to defend an $890K commitment.' (3) 'Competitor activity during a vulnerability window' -- 'a CFO-driven vendor audit can trigger an early RFP or renegotiation at any time.' All deal-specific."
+    },
+    {
+      "text": "SALES CYCLE COMPRESSION: RECOMMENDED NEXT ACTION provides a specific QBR strategy -- such as leading with an adoption recovery plan before James raises it, requesting a 1:1 with Rachel before the QBR to re-establish executive alignment, or preparing a value realization report quantifying ROI in terms the CFO cares about -- not 'present a business review' but a concrete play designed to neutralize the biggest risk before it becomes a formal objection",
+      "passed": true,
+      "evidence": "Three concrete actions: (1) 'Reach out to Rachel Dunn directly for a 15-minute 1:1 call before the QBR' with exact framing language, (2) 'Prepare a value realization report for James Whitfield' quantifying 'cost avoidance, operational efficiency, and risk reduction', acknowledging the SLA breach, (3) QBR strategy: 'Lead with the adoption recovery plan, not the business review slide deck' -- open by proactively acknowledging the adoption decline, follow with value data, then SLA remediation, close with 90-day recovery program. All three suggested approaches from the expectation are present."
+    },
+    {
+      "text": "DEAL VELOCITY: NEXT STEP TO BOOK identifies one specific post-QBR action (e.g., a dedicated session with James Whitfield to walk through contract value quantification, or an adoption workshop with Marcus's team to reverse the usage decline) -- a concrete next meeting that locks in momentum from the QBR rather than letting the account drift for another quarter",
+      "passed": true,
+      "evidence": "States: 'A dedicated 45-minute session with James Whitfield (and ideally Rachel Dunn) within two weeks after the QBR, specifically focused on contract value quantification and the 90-day adoption recovery roadmap.' Includes specific framing and three objectives: establish CFO relationship, demonstrate accountability with adoption recovery milestones, create calendar commitment preventing drift."
+    },
+    {
+      "text": "WIN RATE: The brief arms the rep for the CFO conversation specifically -- anticipating that James Whitfield will evaluate the $890K contract through a cost-reduction lens and preparing the rep with ROI framing, adoption recovery timeline, and SLA remediation evidence before they walk into a room with someone they've never met who controls budget",
+      "passed": true,
+      "evidence": "Action 2 explicitly prepares a value realization report for James: 'quantify the platform's impact in terms a CFO cares about: cost avoidance (security incidents prevented, compliance penalties avoided), operational efficiency (time saved by IT Ops team), and risk reduction (threat detection metrics).' Addresses SLA breach: 'Acknowledge the P1 SLA breach directly -- show that root cause was identified, remediation steps were implemented.' Addresses adoption: 'Present the adoption decline as a known issue with a concrete recovery plan, not as something you hope he won't notice.' Risk Factor 1 explicitly frames James's perspective: 'does not know us, has no relationship capital...will evaluate the $890K contract on data.'"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Email body is under 100 words and does NOT recap the full deal history or re-pitch the product (drives reply rate) — stalled deal re-engagement emails that dump prior meeting notes and product benefits read as pressure; short, low-pressure messages get reopened because they cost the prospect almost nothing to respond to",
+      "passed": true,
+      "evidence": "The output states 'Word count: 82 words' and the compliance notes confirm 'No deal history recap' and 'No product re-pitch.' The email does not mention the discovery call, demo, proposal, or product features. The only reference is to the screening pain point for context."
+    },
+    {
+      "text": "An easy exit is explicitly offered — something like 'if priorities have shifted, that's completely fine' or 'if now isn't the right time, just let me know and I'll close this out' (drives pipeline hygiene) — giving permission to say no is counterintuitively the highest-converting re-engagement tactic because it removes the guilt that causes ghosting, and it lets the rep clean dead deals out of the pipeline",
+      "passed": true,
+      "evidence": "The email states: 'If priorities have shifted or the timing isn't right, completely understand -- just let me know and I'll close this out on my end.'"
+    },
+    {
+      "text": "An easy re-entry is explicitly offered — something like 'if you're still evaluating, happy to pick up where we left off' (drives deal velocity) — this lowers the activation energy for the prospect to re-engage without requiring them to explain the gap or commit to a full sales cycle restart",
+      "passed": true,
+      "evidence": "The email states: 'If you're still evaluating options for screening, happy to pick up right where we left off.'"
+    },
+    {
+      "text": "Email acknowledges the silence respectfully without guilt-tripping — no language like 'I've tried reaching you multiple times' or 'I haven't heard back from my last 2 emails' that tallies up ignored messages (drives reply rate) — counting ignored messages triggers defensiveness and trains the prospect to keep ignoring; respectful acknowledgment preserves the relationship for re-engagement",
+      "passed": true,
+      "evidence": "The email opens with 'I know things get busy -- especially when you're screening 6,000 applicants with a team of two.' The compliance notes confirm 'Respectful acknowledgment without guilt-tripping: Yes -- without tallying ignored messages or referencing the cancellation/silence.'"
+    },
+    {
+      "text": "Email avoids all banned follow-up phrases: 'just checking in', 'circling back', 'bumping this up', 'touching base' (drives reply rate) — these phrases are the single strongest signal to a buyer that an email is a template, and they correlate with immediate deletion",
+      "passed": false,
+      "evidence": "The email contains the sentence 'I wanted to check in on where things stand.' While not the exact phrase 'just checking in,' the phrase 'check in' is a variant of the banned phrase 'checking in.' The expectation bans 'just checking in' — this is borderline. However, reviewing strictly: the banned phrase is 'just checking in' and the email uses 'check in on where things stand' which is semantically the same pattern. Grading strictly as failed."
+    },
+    {
+      "text": "Next action section specifies a concrete plan if Rachel does not respond — e.g., one more follow-up in 7-10 days then mark closed-lost or move to nurture (drives pipeline hygiene) — without a defined exit plan, stalled deals linger in the pipeline indefinitely, inflating forecast and masking real pipeline health from management",
+      "passed": true,
+      "evidence": "The 'Next Action Plan' table specifies: March 18-21 (7-10 days later) send final 'closing the loop' email; March 25 (14 days) move deal to closed-lost in CRM with a logged loss reason; ongoing quarterly nurture cadence. This is a concrete, dated exit plan."
+    }
+  ],
+  "summary": {"passed": 5, "failed": 1, "total": 6, "pass_rate": 0.83}
+}

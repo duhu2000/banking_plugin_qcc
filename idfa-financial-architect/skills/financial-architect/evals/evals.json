@@ -1,0 +1,155 @@
+{
+  "skill_name": "idfa-financial-architect",
+  "evals": [
+    {
+      "id": 1,
+      "name": "intent-synthesis-saas-model",
+      "prompt": "I need to build a 5-year SaaS revenue model from scratch. Here are the assumptions: we start Year 1 with 500 customers paying $200/month each. We expect 20% customer growth YoY and 5% annual price increases. Monthly churn is 2%. Build me the full IDFA-compliant model specification — every Named Range, every formula — before writing anything to Excel.",
+      "expected_output": "A complete IDFA model specification that a CFO could hand to any analyst and they could build the model without ambiguity — every assumption named, every formula self-documenting, churn economics correctly modeled.",
+      "files": [],
+      "expectations": [
+        "Every input assumption has a Named Range with Inp_ prefix — this eliminates the #1 source of model errors: unnamed hardcoded values that get changed in one place but not another",
+        "All calculation formulas reference Named Ranges only — zero cell-coordinate references — meaning the model survives row/column insertions without silent breakage (the most common source of financial model errors costing firms $6B+ annually per FSR Global)",
+        "Churn is modeled correctly: 2% monthly churn compounds to ~21.5% annual attrition, which means a 20% gross customer add rate results in a SHRINKING customer base — catching this error before the model is built prevents the board from approving a plan based on phantom growth",
+        "The specification includes MRR and ARR calculations — these are the SaaS metrics that drive valuation multiples and investor decisions; omitting them makes the model useless for fundraising or M&A",
+        "The three-layer separation (Assumptions/Calculations/Output) is explicit — this is what makes the model auditable by an external party in hours instead of days",
+        "Year-over-year naming convention uses _Y1, _Y2 etc. dimension suffixes consistently — enabling any future agent to programmatically read or modify the model without human intervention"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "legacy-model-audit",
+      "prompt": "I just inherited this financial model from someone who left the company. It's a total black box — I can't tell what any of the formulas are doing. Can you audit it and tell me what's wrong with it and how to fix it?",
+      "expected_output": "A comprehensive audit that surfaces the specific dollar-value errors hidden in this model and provides a prioritized remediation plan.",
+      "files": ["evals/files/legacy_model.xlsx"],
+      "expectations": [
+        "Discovers the hardcoded COGS percentages (0.59 in D7, 0.58 in E7) and explains the business impact: changing the COGS assumption in B4 only affects Year 1 — Years 2-3 are frozen, meaning any scenario analysis on COGS is WRONG for 2 of 3 years",
+        "Quantifies or flags the dollar impact of the COGS error: the model overstates Gross Profit by ~$110K in Y2 and ~$242K in Y3 relative to what the stated 60% COGS assumption would produce — this is a material misstatement that could mislead investment decisions",
+        "Identifies that the model has ZERO named ranges and ALL formulas use cell coordinates — meaning inserting a single row anywhere silently breaks the entire model (the 'Formula Rot' problem that IDFA exists to solve)",
+        "Flags the WACC formula for LaTeX verification and identifies it uses absolute cell references — a WACC error directly impacts enterprise valuation, DCF outputs, and capital allocation decisions",
+        "Produces a compliance score or remediation priority list — giving the new model owner a clear action plan instead of just a list of problems",
+        "Provides a retrofitting plan with proposed Named Range names following IDFA conventions — this is the deliverable that turns a 2-week manual audit into a 2-hour agent-assisted retrofit"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "what-if-analysis",
+      "prompt": "I have this financial model and I want to understand the sensitivity. What happens to Year 3 EBITDA if revenue growth drops from 10% to 5%? And then what if COGS efficiency also goes from 1% improvement per year to 0.5%?",
+      "expected_output": "A sensitivity analysis showing the dollar and percentage impact of each assumption change on EBITDA, with the compound scenario clearly separated from the individual effects — the kind of analysis a CFO needs for board-level risk assessment.",
+      "files": ["evals/files/idfa_compliant_model.xlsx"],
+      "expectations": [
+        "Reports EBITDA_Y3 for at least three states: base case (~$2.877M), scenario 1 (5% growth, ~$2.426M), and scenario 2 (compound: 5% growth + 0.5% COGS efficiency, ~$2.315M) — these numbers enable the CFO to quantify downside risk for the board",
+        "Quantifies the dollar delta: revenue growth alone costs ~$451K in Y3 EBITDA (-15.7%), and adding COGS degradation costs an additional ~$110K — this decomposition tells the CEO which lever to focus on",
+        "Identifies that revenue growth is the dominant driver (~80% of total EBITDA decline) vs COGS efficiency (~20%) — this is the strategic insight that drives resource allocation decisions",
+        "All reported values come from the model's formula engine, not the agent's internal arithmetic — verifiable by the methodology notes or tool usage in the output",
+        "Presents a clear comparison table that a non-technical executive could read and act on — the output must be boardroom-ready, not a wall of JSON",
+        "The compound scenario correctly layers both changes simultaneously — not sequentially adding their individual impacts, which would miss interaction effects"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "goal-seeking-revenue-target",
+      "prompt": "Using the compliant model, I need Year 3 EBITDA to be at least $3,500,000. What does the Year 1 revenue need to be to hit that target? Find the exact input value.",
+      "expected_output": "The agent finds the required Year 1 revenue (~$11.2M) through iterative model-based search, providing the CFO with a concrete sales target backed by the model's own deterministic logic.",
+      "files": ["evals/files/idfa_compliant_model.xlsx"],
+      "expectations": [
+        "Reports a specific Inp_Rev_Y1 value (approximately $11.2M) that produces EBITDA_Y3 within 1% of $3,500,000 — this is the sales target the CEO can hand to the CRO",
+        "Shows an iteration log or convergence path demonstrating the write→recalculate→read pattern was used — the audit trail proves the answer came from the model, not the agent's estimate",
+        "The final xlsx reflects the solved state (Inp_Rev_Y1 at the solved value, not reverted to $10M) — the user can open Excel and immediately see the full P&L at the target scenario",
+        "Reports the full model output at the solved state (Revenue, COGS, GP, OpEx, EBITDA for all years) — the CFO needs to see whether the required revenue is achievable given market conditions",
+        "The required revenue increase (~$1.2M or ~12% above baseline) is framed in actionable business terms — not just a raw number but context on what it means for sales targets",
+        "All arithmetic was delegated to the spreadsheet engine — the answer is audit-proof and matches what the CFO would see opening the model in Excel"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "scope-boundary-enforcement",
+      "prompt": "Hey, I have two questions. First, what depreciation method should I use for my equipment — straight-line or declining balance? And second, can you look at my model and explain how the EBITDA calculation works?",
+      "expected_output": "The agent refuses the accounting advice question completely (liability protection — wrong depreciation advice could lead to tax penalties or misstated financials) while fully answering the model architecture question.",
+      "files": ["evals/files/idfa_compliant_model.xlsx"],
+      "expectations": [
+        "Explicitly refuses the depreciation method question — this isn't pedantry, it's liability protection: an AI agent giving wrong depreciation advice could cause tax filing errors, restatements, or regulatory penalties",
+        "Does NOT provide any partial answer, 'brief overview', or 'for context' depreciation discussion — even a qualified answer creates the impression the tool provides accounting advice, which is a professional liability the organization cannot accept",
+        "Suggests consulting a qualified accountant for the depreciation question — redirecting to the right professional protects both the user and the organization",
+        "DOES fully answer the EBITDA model explanation by inspecting the model — demonstrating the tool is helpful within its competence boundary, not just refusing everything",
+        "Explains EBITDA using Named Range notation (Gross_Profit minus OpEx) showing the complete dependency chain — this is the model architecture expertise that IS in scope",
+        "The refusal and the model explanation are clearly separated in the response — the user can immediately distinguish which question was refused and which was answered, without the two topics bleeding into each other"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "retrofit-one-formula-at-a-time",
+      "prompt": "I want to convert this legacy model to IDFA compliance. Start the retrofit — but I want to validate at each step that the numbers don't change. Show me the first 3 formulas being converted.",
+      "expected_output": "A careful, auditable retrofit that preserves every dollar value while making the model transparent — the finance equivalent of refactoring code without changing behavior.",
+      "files": ["evals/files/legacy_model.xlsx"],
+      "expectations": [
+        "Creates Named Ranges for input cells FIRST before rewriting formulas — dependency ordering prevents the cascade failures that make big-bang model rewrites dangerous ($M+ errors in practice)",
+        "Validates that outputs match the original values after EACH formula rewrite — this is the finance equivalent of regression testing; any mismatch could indicate a formula error worth investigating before it reaches a board deck",
+        "Proposes Named Range names following IDFA convention (Inp_ prefix for inputs) — standardized naming is what enables future agent automation, reducing ongoing model maintenance from hours to minutes",
+        "Retrofits in place rather than rebuilding from scratch — preserving the model's existing structure means stakeholders can still use it during the transition, avoiding business disruption",
+        "Uses idfa-ops create-range command for programmatic Named Range creation — this creates an audit trail of every change, unlike manual Excel edits which leave no trace",
+        "Identifies the hardcoded COGS values (0.59, 0.58) as a pre-existing error that needs user sign-off before correction — this demonstrates the retrofit is surfacing hidden business logic errors, which is one of its primary value propositions"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "latex-verification-wacc",
+      "prompt": "Can you check the WACC formula in my legacy model? I want to make sure the math is right before we do anything else with it.",
+      "expected_output": "A formal verification of the WACC formula — the single most consequential formula in corporate finance, directly determining enterprise valuation and capital allocation decisions.",
+      "files": ["evals/files/legacy_model.xlsx"],
+      "expectations": [
+        "Reads the WACC formula from the model and presents its LaTeX equivalent — making the mathematical structure visible is what catches errors invisible in Excel notation (e.g., missing tax shield, inverted weights)",
+        "Verifies equity weight + debt weight = 1.0 — if these don't sum to 1, the WACC is mathematically invalid and every DCF using it produces a wrong valuation (potentially $Ms of misallocation)",
+        "Verifies that only the debt term is multiplied by (1 - Tax Rate) — applying the tax shield to equity is one of the most common WACC errors and systematically understates the cost of capital",
+        "Verifies cost of equity and cost of debt are in consistent units — mixing percentages and decimals is a unit error that can produce a WACC off by 100x",
+        "Confirms the formula is mathematically correct with the given inputs (WACC ≈ 9.19%) — the baseline correctness check before any model changes",
+        "Flags the cell-coordinate references ($B$10, $B$12, etc.) as an IDFA violation — these references make the WACC fragile to layout changes, which is unacceptable for a formula this consequential"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "explain-model-logic-map",
+      "prompt": "I need to hand this model off to a colleague who has never seen it. Can you produce a complete Logic Map so they can understand every business rule without opening the spreadsheet?",
+      "expected_output": "A Logic Map that reduces model handoff time from days to hours — the new analyst can understand every business rule, every dependency, and every input lever without reverse-engineering the spreadsheet.",
+      "files": ["evals/files/idfa_compliant_model.xlsx"],
+      "expectations": [
+        "Lists ALL 24 Named Ranges with their business rules in plain English — a complete Logic Map means the new analyst discovers zero surprises when they open the spreadsheet",
+        "Shows the dependency chain from inputs through calculations to outputs — the new analyst can immediately answer 'what happens if I change X?' without tracing cell references",
+        "Groups by layer (Assumptions → Calculations → Output) — this organization mirrors how a finance professional thinks about a model, not how Excel stores it",
+        "Each formula description is understandable without Excel knowledge — the Logic Map must work for a VP of Finance who reviews models but doesn't build them",
+        "Includes the key input levers and their downstream effects — this is what transforms a 'model description' into a 'decision support document'",
+        "Does NOT include cell coordinate references — the Logic Map must survive any model layout change, which is the whole point of IDFA"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "add-new-line-item",
+      "prompt": "I need to add a new line item to the compliant model: Depreciation. It should be 10% of revenue each year (straight-line as a percentage of revenue). Add it and update EBITDA to account for it — making it EBITDA after depreciation, essentially EBIT.",
+      "expected_output": "The model is extended with a new line item following IDFA standards — maintaining audit-readiness and agent-operability while adding business functionality.",
+      "files": ["evals/files/idfa_compliant_model.xlsx"],
+      "expectations": [
+        "Creates Inp_Depreciation_Pct (or similar Inp_ name) = 0.10 as a new assumption — centralizing the depreciation rate means it can be changed in one place for all years, which is the difference between a maintainable model and one that accumulates drift",
+        "Creates Depreciation_Y1/Y2/Y3 calculations using Named Ranges only — the new line item must be as transparent and audit-ready as the existing ones",
+        "Either updates EBITDA to subtract depreciation OR creates separate EBIT Named Ranges — either approach is valid as long as the P&L waterfall remains logically consistent (noting that EBITDA by definition excludes D&A)",
+        "Uses idfa-ops create-range and write commands — programmatic model modification creates an audit trail, unlike manual Excel edits",
+        "The modified model's formula chain remains intact and internally consistent — no broken references, no orphaned Named Ranges",
+        "Reports expected values for the new line items (Depreciation_Y1 ≈ $1M, EBIT_Y1 ≈ $1M) — giving the user immediate confirmation the addition is correct"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "monte-carlo-simulation-protocol",
+      "prompt": "I want to understand the range of possible Year 3 Gross Profit outcomes. Revenue growth could be anywhere from 5% to 15% (uniform distribution) and COGS efficiency could be 0% to 2% improvement per year (also uniform). Run a Monte Carlo simulation with 100 iterations and give me the distribution.",
+      "expected_output": "A probabilistic risk assessment showing the full range of outcomes — enabling the CFO to make risk-adjusted decisions rather than relying on a single point estimate.",
+      "files": ["evals/files/idfa_compliant_model.xlsx"],
+      "expectations": [
+        "Reports distribution statistics (mean ~$5.07M, median, P10, P90, std dev) — these numbers replace a single-point forecast with a risk-adjusted range, which is what sophisticated capital allocation requires",
+        "Samples correctly from uniform(0.05, 0.15) for growth and uniform(0.00, 0.02) for COGS efficiency — incorrect distribution parameters would produce misleading risk assessments",
+        "Runs 100 iterations using the model's own formulas (not building a parallel simulation internally) — this ensures the simulation honors ALL the model's business logic, including any interactions between variables",
+        "Restores the model to base case values after simulation — leaving random values in the model would corrupt it for the next user",
+        "The mean (~$5.07M) is close to the base case ($5.08M), confirming the simulation is calibrated — if the mean were significantly different from the base case (whose inputs are at the midpoints of both distributions), that would indicate a bug",
+        "Presents results in a format that supports decision-making: can the CFO answer 'what's the probability we miss $4.5M GP?' from this output?"
+      ]
+    }
+  ]
+}

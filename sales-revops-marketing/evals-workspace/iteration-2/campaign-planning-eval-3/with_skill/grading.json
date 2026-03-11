@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline generation: primary KPI is 60 qualified demos booked with a 20 net-new sub-target, and the plan includes secondary conversion metrics (demo-to-opportunity rate, cross-sell attach rate) that connect demos to actual pipeline dollars -- not product signups, page views, or announcement impressions",
+      "passed": true,
+      "evidence": "Primary KPI stated as '60 qualified demos booked' with 'Sub-target: 20+ from net-new logos' and 'Sub-target: 40+ from cross-sell install base'. Secondary KPIs include 'Demo-to-opportunity conversion rate: target 50% (30 opportunities from 60 demos)', 'Cross-sell attach rate: target 12% of 340 install base accounts', 'Net-new pipeline created: target $600K', and 'Cross-sell pipeline created: target $1.2M'. These connect demos to pipeline dollars, not vanity metrics."
+    },
+    {
+      "text": "Budget efficiency: $200,000 budget is allocated across phased spend (pre-launch, launch week, sustained demand gen) with the majority weighted toward sustained demand gen weeks 3-12 rather than front-loaded into launch week -- directly addressing the stated risk that announcement-only launches fizzle after two weeks",
+      "passed": true,
+      "evidence": "Budget split: Pre-Launch (Weeks 1-2) $30,000 (15%), Launch Week (Week 3) $35,000 (17.5%), Sustained Demand Gen (Weeks 4-12) $135,000 (67.5%). Explicitly states '67.5% of the budget is allocated, directly addressing the risk that announcement-only launches fizzle after two weeks.' The majority is clearly weighted toward sustained demand gen."
+    },
+    {
+      "text": "Alignment: sales-marketing integration routes demo requests to hunting AEs for net-new logos and farming AEs for cross-sell, with a scoring model that distinguishes the two lead types, a Salesloft sequence configured for demo follow-up, and an SLA for demo scheduling turnaround -- ensuring all 60 demos reach the right AE within a defined timeframe",
+      "passed": true,
+      "evidence": "Net-new demo requests route to '4 hunting AEs via round-robin in Salesforce'. Cross-sell routes to '4 farming AEs matched to existing account owner'. Scoring distinguishes using 'Existing Customer field in Salesforce'. Salesloft sequences: 'Net-new HOT: 6-touch sequence over 21 days', 'Cross-sell WARM: 3-touch CSM-assisted sequence over 14 days'. SLA: 'Hunting AE SLA: respond to HOT demo request within 4 hours; schedule demo within 48 hours' and 'Farming AE SLA: respond within 4 hours; demo within 48 hours'."
+    },
+    {
+      "text": "Content leverage: campaign brief treats net-new and cross-sell as distinct audience segments with differentiated messaging, channel selection, and conversion paths -- the cross-sell motion leverages the install base relationship and CRM analytics usage data, while the net-new motion uses ICP-targeted outbound channels",
+      "passed": true,
+      "evidence": "Audience section clearly splits 'Primary -- Net-New' and 'Primary -- Cross-Sell' with distinct channels: net-new uses 'LinkedIn, Google Ads, partner co-marketing' while cross-sell uses 'Email, in-app messaging, CSM-led outreach, webinar'. Cross-sell messaging explicitly references CRM analytics usage data: 'adoption data shows which accounts are most active' and install base emails are 'segmented by CRM analytics usage tier'."
+    },
+    {
+      "text": "Execution velocity: content calendar sequences deliverables across 12 weeks for the full team (one PM, two content marketers, full-time designer, 20 hrs/week video editor) with no week exceeding team capacity, and production milestones ensure launch-week assets are complete before the launch date with buffer time built in",
+      "passed": true,
+      "evidence": "The Team Capacity Check table maps all team members across three phases. States 'No week exceeds team capacity. Production milestones ensure all launch-week assets are complete by end of Week 2, with a 3-business-day buffer before launch.' The video editor is accounted for with specific hour allocations (e.g., 'Demo video (15 hrs), social clips (5 hrs)')."
+    },
+    {
+      "text": "Pipeline generation: partner co-marketing with Salesforce and HubSpot ecosystem partners is structured as a pipeline-contributing channel with its own demo target or attribution model, not just a logo-placement exercise -- partner-sourced pipeline is tracked as a named secondary KPI",
+      "passed": true,
+      "evidence": "Salesforce partner: 'Joint webinar, co-branded content, ecosystem marketplace listing' with target of partner-sourced demos. HubSpot partner: 'Second partner webinar (Week 7) + ongoing co-branded content distribution' with 'target: 300 registrations, 150 attendees, 20+ demo requests; partner-sourced pipeline tracked as named KPI'. Secondary KPIs include 'Partner-sourced demos: target 15' and 'Partner-sourced pipeline: target $450K (tracked as named secondary KPI)'."
+    },
+    {
+      "text": "Budget efficiency: risk and contingency section addresses the specific post-launch demand dropoff risk with a time-bound decision gate (e.g., if demo pace below 15 by Week 4), a named metric to evaluate, and a prescribed corrective action (budget reallocation, retargeting activation, or partner acceleration) -- protecting $200K from being spent on a declining-returns curve",
+      "passed": true,
+      "evidence": "Decision Gate: 'If demo pace is below 15 total demos by end of Week 4, trigger contingency.' Metric: 'weekly demo booking rate (target: 5+/week sustained after launch week)'. Corrective actions: '1. Reallocate $15K from underperforming LinkedIn awareness to retargeting, 2. Activate partner acceleration, 3. Deploy CSM blitz, 4. Refresh creative.' Additional gates for cross-sell underperformance and partner co-marketing risk."
+    }
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}
+}

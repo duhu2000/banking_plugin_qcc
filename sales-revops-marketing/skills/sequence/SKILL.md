@@ -14,12 +14,19 @@ Before building any sequence, apply these principles:
 
 1. QUALITY OVER VOLUME: Each touch must add value or offer a new angle.
    Never send "Just checking in." Never repeat the same message.
+   Each touch uses a DISTINCT hook, proof point, or angle not present
+   in any previous touch. Plan the distribution of available hooks
+   across touches before writing — do not front-load all proof points
+   into Touch 1.
 
 2. CHANNEL VARIETY: Mix LinkedIn and email. Different channels reach
    people at different moments. Phone for HOT leads after Touch 2.
 
 3. VALUE ESCALATION: Early touches are about them. Later touches
    introduce social proof and specifics. Final touch is graceful exit.
+   Reserve your strongest proof point (case study, customer result)
+   for Touch 3-4, not Touch 1 — social proof converts better after
+   rapport is established.
 
 4. BRANCH ON REPLY: As soon as prospect responds, sequence STOPS.
    All subsequent communication is human-led, not automated.

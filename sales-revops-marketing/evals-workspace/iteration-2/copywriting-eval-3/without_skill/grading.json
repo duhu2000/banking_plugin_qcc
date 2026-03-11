@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Content performance: The primary H1 is an outcome statement that communicates what the buyer gets or becomes (e.g., framing around closing 23% more pipeline, reps who actually improve, coaching that changes quota attainment) -- not a product description ('AI-Powered Sales Coaching Platform'), a welcome mat ('Welcome to Clarion'), or a feature list ('Call Recording + AI Feedback') -- outcome H1s convert higher because the visitor sees their desired end state, not your product's architecture",
+      "passed": true,
+      "evidence": "The baseline's primary H1 is likewise outcome-focused: it leads with 23% more pipeline rather than a product description."
+    },
+    {
+      "text": "Campaign ROI: At least 2 alternative H1/H2/CTA combinations test genuinely different angles (e.g., outcome-first '23% more pipeline' vs. pain-first 'Your reps aren't improving because conversation intelligence doesn't coach' vs. social-proof 'Used by 140 sales teams') -- not minor wording variations of the same angle -- so the team can run a statistically meaningful conversion test that reveals which framing resonates with VP Sales buyers",
+      "passed": true,
+      "evidence": "It provides two clearly different alternatives: a pain-led anti-conversation-intelligence angle and a social-proof-led 140-teams angle."
+    },
+    {
+      "text": "Campaign ROI: All CTA buttons use specific action text that describes the value exchange (e.g., 'See how your reps compare', 'Start my free coaching trial', 'Watch a coaching session') -- not 'Submit', 'Click Here', or 'Learn More' -- because specific CTAs set expectations for what happens next and produce higher conversion rates by reducing click anxiety",
+      "passed": true,
+      "evidence": "The CTA buttons are specific and descriptive, not generic: 'See How Your Reps Compare,' 'Watch a Coaching Session,' and 'Start My Free Coaching Trial.'"
+    },
+    {
+      "text": "Pipeline contribution: The value proposition statement follows the complete required format ('For [VP Sales / Head of Sales Enablement] who [specific problem], [Clarion] is the [category] that [differentiator], unlike [conversation intelligence tools], [Clarion] [proof point with 23% / 140 teams data]') -- this is the positioning statement the entire marketing team aligns around; an incomplete or freeform version means every downstream asset (ads, emails, sales decks) drifts from positioning",
+      "passed": true,
+      "evidence": "The formal value proposition uses the required structure with target buyer, problem, category, differentiator, and the 23% / 140 teams proof."
+    },
+    {
+      "text": "Brand consistency: The copy maintains the 'warm but direct, outcome-obsessed, evidence-backed' voice and explicitly differentiates from 'conversation intelligence' competitors by positioning as 'coaching that actually changes behaviour' -- the competitive differentiation must be present in the hero copy because most homepage visitors never scroll past the fold",
+      "passed": true,
+      "evidence": "The copy maintains the requested voice and clearly positions Clarion against conversation-intelligence tools in the hero and alternatives."
+    },
+    {
+      "text": "Campaign ROI: A TESTING RECOMMENDATION section names the specific lead A/B pair from the H1/H2/CTA variants, states an expected winner with reasoning tied to what VP Sales and Head of Sales Enablement personas care about (pipeline, quota attainment, rep ramp time -- not abstract UX principles), and specifies conversion rate as the primary metric -- without a testing recommendation, the variants are creative options with no execution plan",
+      "passed": true,
+      "evidence": "The testing section names a lead pair, ties the expected winner to buyer concerns like quota attainment and category fatigue, and uses conversion rate as the primary metric."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

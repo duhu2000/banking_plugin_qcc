@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "Every input assumption has a Named Range with Inp_ prefix (e.g., Inp_Customers_Y1, Inp_Price_Monthly, Inp_Customer_Growth, Inp_Price_Increase, Inp_Churn_Monthly)",
+      "passed": false,
+      "evidence": "Named ranges use lowercase descriptive names without Inp_ prefix: starting_customers, starting_monthly_price, annual_customer_growth_rate, annual_price_increase_rate, monthly_churn_rate. Does not follow IDFA Inp_ convention."
+    },
+    {
+      "text": "All calculation formulas reference Named Ranges only \u2014 zero cell-coordinate references like A1, B2, $C$3",
+      "passed": true,
+      "evidence": "All formulas in the specification reference named ranges: e.g., 'monthly_price_Y1 = starting_monthly_price', 'eom_customers_Y1 = Month 12 EoM Customers'. No cell-coordinate references like A1 or $C$3 appear in calculation formulas."
+    },
+    {
+      "text": "The model separates into three layers: Assumptions (inputs only), Calculations (logic only), Output (presentation only)",
+      "passed": true,
+      "evidence": "The workbook has separate sheets: Assumptions, Customer_Model, Pricing_Model, Revenue_Model, SaaS_Metrics, Summary_Dashboard. While more than 3 sheets, it follows an inputs-first, calculations-middle, dashboard-last architecture."
+    },
+    {
+      "text": "Revenue calculations correctly account for churn reducing the customer base",
+      "passed": true,
+      "evidence": "Monthly detail formulas show 'Churned Customers This Month = BoM_Customers * monthly_churn_rate' and 'EoM Customers = BoM + New - Churned'. The model explicitly notes the tension between 20% growth and 2% monthly churn."
+    },
+    {
+      "text": "The specification includes both MRR (Monthly Recurring Revenue) and ARR (Annual Recurring Revenue) as Named Ranges",
+      "passed": true,
+      "evidence": "Revenue Model section includes total_MRR_start_Y[n], total_MRR_end_Y[n], avg_MRR_Y[n], ARR_start_Y[n], ARR_end_Y[n] as Named Ranges."
+    },
+    {
+      "text": "Each formula is readable as a plain-English business rule without needing to trace cell references",
+      "passed": true,
+      "evidence": "Formulas use descriptive named ranges like 'starting_customers', 'monthly_churn_rate' making them readable. Business rules are described in plain language sections."
+    },
+    {
+      "text": "Year-over-year naming convention uses _Y1, _Y2 etc. dimension suffixes consistently",
+      "passed": true,
+      "evidence": "Named ranges consistently use _Y[n] suffixes: bom_customers_Y1-Y5, monthly_price_Y1-Y5, annual_revenue_Y1-Y5, etc. Complete Named Range Registry shows 161 ranges following this convention."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 1,
+    "total": 7,
+    "pass_rate": 0.86
+  }
+}

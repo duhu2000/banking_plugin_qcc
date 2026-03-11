@@ -1,0 +1,13 @@
+{
+  "eval_id": 10,
+  "eval_name": "audit-legacy-with-violations",
+  "prompt": "I have this other model that I think might not be IDFA compliant. Can you run the audit and show me exactly what's wrong?",
+  "assertions": [
+    "Runs idfa_audit.py on the legacy model file",
+    "Reports Guardrail 1 FAIL — identifies coordinate references in formulas",
+    "Reports Guardrail 4 FAIL — identifies hardcoded values (0.59, 0.58 in COGS formulas)",
+    "Reports Guardrail 3 FAIL — identifies missing intent notes (0% coverage)",
+    "Reports an overall FAIL status with a low compliance score",
+    "Lists specific cells and formulas that violate each guardrail"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Identifies that the model has ZERO named ranges \u2014 a fundamental IDFA violation",
+      "passed": true,
+      "evidence": "Report states: 'Total formulas: 10, Formulas using Named Ranges: 0 (0%)' and G1 status: 'FAIL \u2014 0 Named Ranges defined; 100% coordinate refs'."
+    },
+    {
+      "text": "Flags the hardcoded values 0.59 and 0.58 in the COGS formulas (D7, E7) as layer isolation violations",
+      "passed": true,
+      "evidence": "Error 2 section: 'Cells: D7 (=D6*0.59) and E7 (=E6*0.58). Problem: The COGS percentages for Year 2 and Year 3 are hardcoded magic numbers embedded directly in the formulas.'"
+    },
+    {
+      "text": "Identifies that ALL formulas use cell-coordinate references instead of Named Ranges",
+      "passed": true,
+      "evidence": "The Complete Formula Inventory shows all 10 formulas using coordinates (B2, C6, B3, D6, B4, $B$10, etc.). States: 'Formulas with coordinate references: 10 (100%)'"
+    },
+    {
+      "text": "Flags the WACC formula for LaTeX verification since it contains absolute cell references ($B$10, $B$12, etc.)",
+      "passed": true,
+      "evidence": "Appendix section includes LaTeX verification of WACC: 'WACC = E/(E+D) * Ke + D/(E+D) * Kd * (1-T)'. Notes in compliance: 'G2 \u2014 LaTeX Verification: FAIL \u2014 No verification notes on WACC formula'."
+    },
+    {
+      "text": "Notes the single-sheet structure violates IDFA three-layer separation (Assumptions / Calculations / Output)",
+      "passed": true,
+      "evidence": "'Sheet Layout: The model contains a single sheet named \"Model\" with 16 rows and 5 columns. There is no separation into Assumptions, Calculations, and Output layers.' Layer Violations table shows Layer 2 and 3 as 'No'."
+    },
+    {
+      "text": "Provides a retrofitting plan that proposes Named Range names following IDFA conventions (Inp_ for inputs, Variable_Dimension for calculations)",
+      "passed": true,
+      "evidence": "Proposed Named Range Map lists: Inp_Rev_Y1, Inp_Rev_Growth, Inp_COGS_Pct_Y1, Inp_COGS_Efficiency (Inp_ prefix). Calculations: Revenue_Y1, COGS_Pct_Y1, Gross_Profit_Y1, WACC (Variable_Dimension pattern)."
+    },
+    {
+      "text": "Does NOT attempt to perform any calculations internally \u2014 only inspects model structure",
+      "passed": true,
+      "evidence": "The report inspects formulas, identifies structural issues, and provides a remediation plan. It does not compute model outputs. WACC LaTeX verification shows math to verify correctness of the existing formula, not to produce new values."
+    },
+    {
+      "text": "Produces a compliance score or percentage indicating the model's IDFA adherence level",
+      "passed": true,
+      "evidence": "Report states 'Overall IDFA Compliance: 0%' in the Executive Summary."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

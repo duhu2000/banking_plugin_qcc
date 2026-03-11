@@ -1,0 +1,38 @@
+{
+  "eval_id": 4,
+  "eval_name": "write-recalc-read-pattern",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Executes idfa_ops.py write, recalc_bridge.py, and idfa_ops.py read in that order",
+      "passed": true,
+      "evidence": "Step 1 (Write): 'uv run scripts/idfa_ops.py write ops_test_model.xlsx Inp_Price 150'. Step 2 (Recalculate): 'uv run scripts/recalc_bridge.py ops_test_model.xlsx'. Step 3 (Read): 'uv run scripts/idfa_ops.py read ops_test_model.xlsx Inp_Price Net_Income_Y1 Net_Income_Y2...'. Explicit three-step order."
+    },
+    {
+      "text": "Reports Net Income results for both years",
+      "passed": true,
+      "evidence": "JSON output shows Net_Income_Y1: 3150000 and Net_Income_Y2: 3727500. Summary table shows both years with before/after comparison."
+    },
+    {
+      "text": "If recalc fails, handles it gracefully",
+      "passed": true,
+      "evidence": "Recalc bridge reported success, but the output notes: 'The standard recalc_bridge.py macro approach was used first and reported success, but did not populate cached values readable by openpyxl. A LibreOffice ODS round-trip... was used to ensure deterministic recalculation.' This shows graceful fallback handling."
+    },
+    {
+      "text": "Frames the results as the MODEL's output, not the agent's calculation",
+      "passed": true,
+      "evidence": "Methodology states: 'All values obtained via the IDFA Write-Recalculate-Read pattern. Recalculation performed by LibreOffice.' Conclusion: 'All formula-traced values match the LibreOffice-recalculated values exactly.'"
+    },
+    {
+      "text": "Shows the full before/after impact",
+      "passed": true,
+      "evidence": "Step 0 establishes baseline (Net_Income_Y1: 1,400,000; Net_Income_Y2: 1,715,000). Summary table shows full before/after comparison for all metrics including Revenue, Variable Costs, Contribution, EBIT, Tax, and Net Income for both years with change amounts and percentages."
+    },
+    {
+      "text": "The three-step pattern is explicitly documented in the output",
+      "passed": true,
+      "evidence": "Steps are labeled 'Step 1: Write', 'Step 2: Recalculate', 'Step 3: Read' with explicit section headers. Methodology line: 'All values obtained via the IDFA Write-Recalculate-Read pattern.'"
+    }
+  ]
+}

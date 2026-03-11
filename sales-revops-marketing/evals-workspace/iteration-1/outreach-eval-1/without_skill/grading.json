@@ -1,0 +1,78 @@
+{
+  "expectations": [
+    {
+      "text": "Output contains a Five Laws check section with all five laws explicitly verified: specific reference, lead with them, one ask, word count, and banned language",
+      "passed": false,
+      "evidence": "The output contains only the raw LinkedIn DM message. There is no 'Five Laws' check section anywhere in the output. No structured verification of specific reference, lead with them, one ask, word count, or banned language is present."
+    },
+    {
+      "text": "Message body is 100 words or fewer (LinkedIn DM channel limit)",
+      "passed": true,
+      "evidence": "Independent word count of the message body (excluding 'Hi Sarah,' greeting and signature): 78 words. Including the greeting 'Hi Sarah,' it is 80 words. Both are under the 100-word limit."
+    },
+    {
+      "text": "First sentence of the message body references Sarah Chen's LinkedIn post or her team's achievement -- does not begin with 'We', 'I', 'My company', 'RevStack', or any sender-focused language",
+      "passed": true,
+      "evidence": "After the 'Hi Sarah,' greeting, the first sentence is: 'Saw your post about cutting Salesforce-to-NetSuite sync errors by 70% after rebuilding in-house -- impressive results, especially at scale.' This references her LinkedIn post and begins with 'Saw your post' (prospect-focused), not sender-focused language."
+    },
+    {
+      "text": "Message contains exactly one CTA: a 15-minute call -- no alternative asks, no vague 'let me know if interested', no multiple options",
+      "passed": false,
+      "evidence": "The message contains a 15-minute call CTA ('Would you be open to a 15-minute call to swap notes?') but then adds a second offer: 'Happy to share patterns we've seen work well at your stage.' This constitutes a secondary value proposition that dilutes the single-ask principle. The assertion requires 'exactly one CTA' with 'no alternative asks', and the additional offer to share patterns functions as a supplementary ask layered onto the call request."
+    },
+    {
+      "text": "Message body contains none of the banned words: leverage, synergy, best-in-class, seamless, robust, solution, game-changing, revolutionary, disruptive, holistic, end-to-end, cutting-edge, world-class, innovative, empower, unlock, transform",
+      "passed": true,
+      "evidence": "Searched the entire message body for all 17 banned words. None found."
+    },
+    {
+      "text": "Output includes both a Day 3 follow-up variant (different angle, not 'just checking in') and a Day 7 follow-up variant (shorter, single question format)",
+      "passed": false,
+      "evidence": "The output contains only the primary LinkedIn DM message. There is no Day 3 follow-up variant and no Day 7 follow-up variant anywhere in the output."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 3,
+    "total": 6,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": {
+    "output_chars": 562,
+    "transcript_chars": null
+  },
+  "timing": null,
+  "claims": [
+    {
+      "claim": "The message is a LinkedIn DM as requested",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The message is formatted as a short direct message appropriate for LinkedIn DM. However, it lacks any explicit labeling as a LinkedIn DM."
+    },
+    {
+      "claim": "The message references the correct prospect and company",
+      "type": "factual",
+      "verified": true,
+      "evidence": "References Sarah (via 'Hi Sarah'), Datawise, RevStack, and the Salesforce-to-NetSuite sync error reduction -- all matching the eval prompt."
+    },
+    {
+      "claim": "The message maintains professional tone",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Tone is professional and conversational. Uses 'Curious how your team is thinking' and 'swap notes' -- appropriate peer-level language."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Message contains exactly one CTA: a 15-minute call -- no alternative asks, no vague 'let me know if interested', no multiple options",
+        "reason": "This assertion is somewhat subjective in the without-skill case. 'Happy to share patterns we've seen work well at your stage' could be read as supporting context for the call rather than a separate ask. The assertion would be more discriminating if it specified: 'The message contains only one sentence that requests action from the prospect.' As graded, I erred on the strict side -- the assertion says 'no alternative asks' and the sharing offer is an additional value proposition beyond the call."
+      },
+      {
+        "reason": "No assertion checks whether the output includes structural metadata (channel labeling, ICP match status, configuration notes). The with-skill output includes these as a quality framework; the without-skill output lacks them entirely. An assertion like 'Output labels the outreach channel and includes an ICP match status' would capture this structural difference."
+      }
+    ],
+    "overall": "The assertions effectively discriminate between the with-skill and without-skill outputs. The three failures (no Five Laws check, no follow-up variants, borderline CTA purity) are all genuine gaps in the without-skill output. The assertions are well-designed for this eval."
+  }
+}

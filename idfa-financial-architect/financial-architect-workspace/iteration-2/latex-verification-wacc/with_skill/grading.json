@@ -1,0 +1,38 @@
+{
+  "eval_id": 7,
+  "eval_name": "latex-verification-wacc",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Reads the WACC formula from the model and presents its LaTeX equivalent",
+      "passed": true,
+      "evidence": "Section 1 (lines 10-28) extracts the formula '=($B$10/$B$12)*$B$13+($B$11/$B$12)*$B$14*(1-$B$15)' from cell B16. Section 2 (lines 32-57) presents LaTeX equivalents: both the textbook form (WACC = E/(E+D) * Ke + D/(E+D) * Kd * (1-T)) and the model-specific substituted form."
+    },
+    {
+      "text": "Verifies equity weight + debt weight = 1.0",
+      "passed": true,
+      "evidence": "Check 1 (lines 64-68) explicitly computes: 'w_E + w_D = E/V + D/V = 5,000,000/8,000,000 + 3,000,000/8,000,000 = 0.625 + 0.375 = 1.0' and marks it PASS."
+    },
+    {
+      "text": "Verifies that only the debt term is multiplied by (1 - Tax Rate)",
+      "passed": true,
+      "evidence": "Check 2 (lines 70-81) breaks down: 'Equity component: ($B$10/$B$12)*$B$13 -- no tax shield applied. Correct.' and 'Debt component: ($B$11/$B$12)*$B$14*(1-$B$15) -- tax shield applied. Correct.' Marked PASS."
+    },
+    {
+      "text": "Verifies cost of equity and cost of debt are in consistent units",
+      "passed": true,
+      "evidence": "Check 3 (lines 83-88) confirms: 'Cost of Equity (B13): 0.12 (decimal)' and 'Cost of Debt (B14): 0.06 (decimal)' — 'Both are expressed as decimals, consistent units.' Marked PASS."
+    },
+    {
+      "text": "Confirms the formula is mathematically correct (WACC ≈ 9.19%)",
+      "passed": true,
+      "evidence": "Section 4 (lines 92-100) shows numerical verification: WACC = 0.625 * 0.12 + 0.375 * 0.06 * 0.75 = 0.075 + 0.016875 = 0.091875 = 9.19%. Section 5 verdict (line 106): 'The WACC math is correct.'"
+    },
+    {
+      "text": "Flags the cell-coordinate references as an IDFA violation",
+      "passed": true,
+      "evidence": "Section 6 Guardrail 1 (lines 114-124) states: 'The WACC formula uses cell-coordinate references exclusively ($B$10, $B$12, $B$13, $B$11, $B$14, $B$15). No Named Ranges exist anywhere in the model (0 Named Ranges defined).' Provides IDFA-compliant replacement formula using Named Ranges. Overall compliance: '0% (0 of 3 applicable guardrails pass)'."
+    }
+  ]
+}

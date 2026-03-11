@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "REP PREPARATION TIME: QUICK CONTEXT is concise enough for a 2-minute pre-call read (3-5 sentences), references Natalie's whitepaper download, the cold call intel about manual spreadsheet tracking with 2-3 hours lost per dispatcher per day, the Oracle WMS detail, and the lost retail contract as a pain-amplifying trigger -- giving the rep complete situational awareness without any additional research",
+      "passed": true,
+      "evidence": "QUICK CONTEXT is a single paragraph of 5 sentences that references all four required elements: 'downloaded our warehouse automation whitepaper three weeks ago', 'manually tracking shipment exceptions in spreadsheets, losing 2-3 hours per dispatcher per day', 'Oracle WMS (believed to be a legacy version)', and 'Ironclad recently lost a major retail client contract due to SLA misses'. Explicitly labeled '2-minute read'."
+    },
+    {
+      "text": "WIN RATE: YOUR GOAL FOR THIS CALL states a specific, singular call outcome -- not 'learn about their needs' but a concrete qualifying objective like confirming the pain around exception tracking is budget-worthy, identifying other stakeholders in the buying process, and surfacing whether the lost contract creates executive urgency -- so the rep advances the deal in one call instead of needing a second discovery",
+      "passed": true,
+      "evidence": "Goal states: 'Confirm that the manual exception-tracking pain is significant enough to warrant budget allocation, identify who else (IT, finance, executive leadership) would be involved in an evaluation, and determine whether the lost retail contract has created executive urgency and a timeline for action -- then book a follow-up technical scoping session with the relevant stakeholders.' This is specific, concrete, and directly maps to all three qualifying objectives."
+    },
+    {
+      "text": "WIN RATE: Discovery questions total 5 or fewer, each phrased as a question ending in a question mark, ordered from opening (build rapport on the whitepaper download) to depth (quantify the dispatcher time loss and SLA impact) to qualification (budget, authority, timeline) -- structured so the rep uncovers decision criteria and deal blockers within the 30-minute window",
+      "passed": true,
+      "evidence": "Exactly 5 questions, all ending with '?'. Ordered: Opening Q1 references whitepaper download and builds rapport. Depth Q2 quantifies dispatcher time cost, Q3 probes Oracle WMS limitations, Q4 asks about success criteria. Qualification Q5 asks about other stakeholders (authority). Explicitly labeled by phase: 'Opening', 'Depth', 'Qualification'."
+    },
+    {
+      "text": "WIN RATE: ANTICIPATED OBJECTIONS includes at least 2 objections with the prospect's likely exact words and responses that validate before reframing -- specifically addressing predictable pushback like Oracle WMS integration concerns or 'we're handling it fine with spreadsheets' -- so the rep handles resistance in real-time instead of losing momentum",
+      "passed": true,
+      "evidence": "Three objections provided. Objection 1: 'We're already running Oracle WMS -- I'm not sure another system would integrate cleanly' with a validate-then-reframe response ('That's a fair concern'). Objection 2: 'we're managing it fine with spreadsheets. It's not ideal, but it works' with validation ('spreadsheets are familiar and they get the job done') then reframe on sustainability. Objection 3 addresses timing concerns. Both Oracle WMS integration and spreadsheet pushback are explicitly covered."
+    },
+    {
+      "text": "SALES CYCLE COMPRESSION: CALL SUCCESS CRITERIA defines primary, secondary, and minimum outcomes (e.g., primary: book a technical demo with the full buying committee; secondary: confirm budget and timeline; minimum: identify the other decision-makers) giving the rep a fallback plan that still advances the deal even if the call goes sideways",
+      "passed": true,
+      "evidence": "Three tiers defined. Primary: 'confirms exception-tracking is a budget-worthy pain, identifies the other stakeholders...agrees to book a follow-up technical scoping session within the next two weeks.' Secondary: 'confirms the pain and its business impact (quantified), provides clarity on whether budget exists or needs to be created.' Minimum: 'Identify who the other decision-makers are and confirm whether the lost retail contract has created executive-level urgency.' Each tier advances the deal even if higher tiers fail."
+    },
+    {
+      "text": "WIN RATE: THINGS NOT TO DO section contains 3-5 warnings specific to this call -- such as do not demo on a discovery call, do not trash Oracle WMS (it may have internal champions), do not assume the lost contract means automatic urgency -- preventing the rep from making credibility-killing mistakes that would stall or lose the opportunity",
+      "passed": true,
+      "evidence": "Five call-specific warnings: (1) 'Do NOT demo or pitch product features on this call', (2) 'Do NOT trash Oracle WMS or imply it was a bad decision -- Oracle likely has internal champions', (3) 'Do NOT assume the lost retail contract means automatic urgency -- Natalie may not want to discuss it, it may be politically sensitive internally', (4) Don't invent Oracle WMS version details, (5) Don't overwhelm the 30-minute window. All three specified examples from the expectation are present."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

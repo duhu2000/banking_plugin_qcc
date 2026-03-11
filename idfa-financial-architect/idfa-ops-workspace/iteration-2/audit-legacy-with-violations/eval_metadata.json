@@ -1,0 +1,13 @@
+{
+  "eval_id": 10,
+  "eval_name": "audit-legacy-with-violations",
+  "prompt": "I have this other model that I think might not be IDFA compliant.",
+  "assertions": [
+    "Reports Guardrail 1 FAIL with specific coordinate-reference violations",
+    "Reports Guardrail 4 FAIL identifying the hardcoded 0.59 and 0.58 values",
+    "Reports Guardrail 3 FAIL with 0% intent note coverage",
+    "Reports overall FAIL with a low compliance score",
+    "Lists specific cells and their violations",
+    "Differentiates between structural problems and intentional design choices"
+  ]
+}

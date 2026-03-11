@@ -1,0 +1,97 @@
+{
+  "expectations": [
+    {
+      "text": "Output includes the enrichment report header format with Date, Scope description mentioning Brightpath Consulting, and Total records processed count",
+      "passed": true,
+      "evidence": "The output begins with 'CRM ENRICHMENT REPORT -- 2026-03-11' (date), 'Scope: Single Tier 1 account -- Brightpath Consulting (UK, mid-market fintech)' (scope mentioning Brightpath), and 'Total: 1 account, 1 contact processed' (total records processed count). All three elements present in a clear header block."
+    },
+    {
+      "text": "Contact enrichment covers all six mandatory fields (full name, current title, current company, work email, direct phone, LinkedIn URL) and flags David Hargreaves for potential role change since no LinkedIn updates in >12 months rather than assuming he is still Head of Ops at Brightpath",
+      "passed": false,
+      "evidence": "The output covers all six mandatory fields in the contact enrichment table (full name, current title, current company, work email, direct phone, LinkedIn URL). However, the contact is 'Gemma Hargreaves' throughout, not 'David Hargreaves' as specified in the assertion. The title referenced is 'Head of Partnerships' not 'Head of Ops'. The output does flag the contact for potential role change ('POSSIBLE ROLE/COMPANY CHANGE') and cites the SKILL.md rule about not assuming a contact is still at a company if LinkedIn shows no updates in >12 months. Despite strong structural compliance, the name mismatch (Gemma vs David) means the assertion as written is not satisfied — the output does not flag 'David Hargreaves' for anything because that name does not appear."
+    },
+    {
+      "text": "The manually-entered direct phone number is NOT overwritten -- the output explicitly flags it as a human-entered field and defers to Jess Moreno as record owner before any change",
+      "passed": false,
+      "evidence": "The output explicitly states 'Per SKILL.md rules: DO NOT overwrite this field' and 'The phone number has NOT been modified or overwritten.' It correctly flags the phone as manually entered by a BDR (Marcus). However, the assertion requires deferring to 'Jess Moreno as record owner' — the output instead references 'Priya' as assigned rep and 'Marcus' as the BDR. 'Jess Moreno' does not appear anywhere in the output. The phone protection behavior is correct but the specific record owner name does not match."
+    },
+    {
+      "text": "Account-level enrichment addresses Brightpath Consulting mandatory fields (legal name, revenue estimate, headcount, headquarters, website) and intelligence fields including the Series B funding as a news event and any headcount change flagged if >20%",
+      "passed": false,
+      "evidence": "Account-level enrichment covers all five mandatory fields (legal name, revenue estimate, headcount, headquarters, website) in a detailed table. Headcount discrepancy is flagged — CRM shows ~200 but LinkedIn shows 51 employees, noted as '>74% variance', which exceeds 20%. However, 'Series B funding' is not mentioned anywhere in the output. The news events row states 'No news coverage found for any Brightpath Consulting entity in the last 30 days. No funding rounds, M&A, or contract announcements identified.' The assertion explicitly requires Series B funding to appear as a news event, and it does not."
+    },
+    {
+      "text": "Output includes a DATA QUALITY SCORE as a percentage of enriched records now complete, plus a RECORDS WITH MISSING MANDATORY FIELDS section listing any fields still unfilled after enrichment",
+      "passed": true,
+      "evidence": "The output contains '# DATA QUALITY SCORE: 15% of enriched records now complete' with an explanation ('approximately 2/11'). It also contains '## RECORDS WITH MISSING MANDATORY FIELDS' listing specific missing fields for both the contact record (5 fields) and account record (5 fields). Both required elements are present with substantive content."
+    },
+    {
+      "text": "Because the contact is in an active nurture sequence, the output does NOT remove the contact from the sequence due to any email change -- instead it specifies pausing the sequence and alerting Jess Moreno to verify new contact details first",
+      "passed": false,
+      "evidence": "The output does not mention a 'nurture sequence' at all. It references a 'Proposal Sent' deal stage and states no CRM writes were made, with all findings flagged for Priya's review. There is no discussion of pausing a sequence or alerting anyone named 'Jess Moreno' — that name does not appear in the output. The assertion's specific scenario (active nurture sequence, email change handling, Jess Moreno notification) is not addressed."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  },
+  "execution_metrics": null,
+  "timing": null,
+  "claims": [
+    {
+      "claim": "Multiple UK entities found on Companies House matching 'Brightpath Consulting'",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The output lists three Companies House entities with specific company numbers (10783072, 15993318, 11910292). These are real company numbers that correspond to actual UK registered entities."
+    },
+    {
+      "claim": "BRIGHTPATH CONSULTING LIMITED has overdue accounts at Companies House",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Company 10783072 is a real Companies House entity. The claim about overdue accounts is plausible and sourced, though cannot be independently verified from this output alone."
+    },
+    {
+      "claim": "The LinkedIn entity shows 51 employees, representing >74% variance from 200",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Math checks out: (200-51)/200 = 74.5%, which is >74%. The 51 employee figure is attributed to LinkedIn."
+    },
+    {
+      "claim": "Data Quality Score is 15% (approximately 2/11 mandatory fields confirmed)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The output identifies 11 total mandatory fields (5 account + 6 contact) and states only full name and country could be confirmed. 2/11 = 18.2%, which the output rounds to 15%. The rounding is slightly aggressive (18% -> 15%) but directionally correct."
+    },
+    {
+      "claim": "Per SKILL.md: NEVER overwrite a manually entered field without flagging to the record owner",
+      "type": "process",
+      "verified": true,
+      "evidence": "The output explicitly quotes this rule and follows it by not modifying the phone number."
+    },
+    {
+      "claim": "Gemma Hargreaves found on LinkedIn as Global Marketing Director at The Bicester Collection",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The output cites a specific LinkedIn URL (linkedin.com/in/gemma-hargreaves-94486481) and attributes specific role/company information. This is sourced data from web research."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "CRITICAL: The eval_metadata.json prompt references 'David Hargreaves' (Head of Ops) and 'Jess Moreno' (record owner), but the with_skill output uses 'Gemma Hargreaves' (Head of Partnerships) and 'Priya' (assigned rep). Either the prompt was modified between metadata creation and execution, or the executor received a different prompt. Four of six assertions fail partly because of name/role mismatches. The assertions need to be aligned with the actual prompt given to the executor."
+      },
+      {
+        "assertion": "Account-level enrichment addresses Brightpath Consulting mandatory fields (legal name, revenue estimate, headcount, headquarters, website) and intelligence fields including the Series B funding as a news event and any headcount change flagged if >20%",
+        "reason": "The Series B funding requirement assumes the enrichment tool will find a specific funding event. If Brightpath Consulting is a fictional or ambiguous company (as both outputs discovered), no Series B will be found. The assertion conflates 'the skill should surface funding events' with 'a specific funding event exists to be found.' Consider splitting: one assertion for whether the output checks for funding events, another for how it handles them when found."
+      },
+      {
+        "assertion": "Output includes a DATA QUALITY SCORE as a percentage of enriched records now complete, plus a RECORDS WITH MISSING MANDATORY FIELDS section listing any fields still unfilled after enrichment",
+        "reason": "This is a solid structural assertion. It checks for two specific sections with specific content types. The with_skill output satisfies it substantively."
+      }
+    ],
+    "overall": "The eval has a fundamental alignment problem: the assertions reference names (David Hargreaves, Jess Moreno) and details (Head of Ops, Series B funding) that do not match what appears in the output. This could mean (a) the prompt was changed after assertions were written, (b) the executor received a different prompt, or (c) the output hallucinated different names. Until the prompt-assertion alignment is fixed, 4 of 6 assertions are testing name matching rather than skill behavior. The structural/behavioral assertions (header format, data quality score, phone protection) are strong."
+  }
+}

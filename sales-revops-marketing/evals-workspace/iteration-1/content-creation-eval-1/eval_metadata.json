@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "content-creation-eval-1",
+  "prompt": "Write a LinkedIn article for our VP of Engineering persona at mid-market B2B SaaS companies (200-1000 employees). Company context: Arcline Analytics is a data observability platform that detects pipel...",
+  "assertions": [
+    "Article is between 600 and 1200 words and follows LinkedIn article structure: scroll-stopping hook as the first line, short paragraphs (2-4 sentences max), bold key lines for scannability",
+    "Takes a clear personal POV and position on the topic -- does not hedge with 'on the other hand' or 'it depends' framing; states what the fix looks like with conviction",
+    "Contains zero banned words: leverage, synergy, best-in-class, seamless, robust, end-to-end, game-changing, revolutionary, disruptive, holistic, cutting-edge, world-class, innovative, empower, unlock, transform, solution, ecosystem, paradigm, circle back, reach out",
+    "Includes a specific CTA directing readers to follow the Arcline Analytics company page for the 'Data Ops in Practice' series",
+    "Ends with a question designed to drive comments (thought leadership engagement pattern)",
+    "Does not fabricate any statistics -- any data points are clearly labeled as estimates, sourced, or presented as placeholders for the user to fill in"
+  ]
+}

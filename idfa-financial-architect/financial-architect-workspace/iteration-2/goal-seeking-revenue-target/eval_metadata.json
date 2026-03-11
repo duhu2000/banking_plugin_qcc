@@ -1,0 +1,13 @@
+{
+  "eval_id": 4,
+  "eval_name": "goal-seeking-revenue-target",
+  "prompt": "Using the compliant model, I need Year 3 EBITDA to be at least $3,500,000. What does the Year 1 revenue need to be to hit that target? Find the exact input value.",
+  "assertions": [
+    "Reports a specific Inp_Rev_Y1 value (approximately $11.2M) that produces EBITDA_Y3 within 1% of $3,500,000",
+    "Shows an iteration log or convergence path demonstrating the write-recalculate-read pattern",
+    "The final xlsx reflects the solved state (not reverted to $10M)",
+    "Reports the full model output at the solved state (Revenue, COGS, GP, OpEx, EBITDA for all years)",
+    "The required revenue increase is framed in actionable business terms",
+    "All arithmetic was delegated to the spreadsheet engine"
+  ]
+}

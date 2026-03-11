@@ -1,18 +1,16 @@
 ---
 name: idfa-financial-architect
 description: >-
-  Apply the Intent-Driven Financial Architecture (IDFA) when building,
-  auditing, retrofitting, or analysing Excel financial models. Activate when
-  the user mentions: financial model, spreadsheet, Excel formula, named ranges,
-  cell references, formula tracing, model audit, COGS, revenue projection,
-  gross profit, EBITDA, DCF, LBO, comps, three-statement model, budget,
-  forecast, variance analysis, what-if analysis, scenario modelling, goal
-  seeking, Monte Carlo simulation, model review, or model handover. Also
-  activate when the user says "the model is a black box", "I inherited this
-  model", "I need to audit this spreadsheet", or any similar phrase indicating
-  confusion about how a financial model works. Do NOT activate for general
-  accounting questions, tax advice, investment recommendations, or tasks
-  unrelated to the structure and logic of financial spreadsheets.
+  Use this skill for hands-on Excel financial model work: building models
+  from scratch (SaaS, three-statement, revenue/COGS/EBITDA), auditing a
+  spreadsheet for formula errors, explaining or mapping out model logic,
+  converting cell references to named ranges, running what-if or scenario
+  analysis, goal-seeking (what input value produces a target output?), or
+  running Monte Carlo simulations. Also use when someone has inherited an
+  unfamiliar model, calls it a "black box", or needs a specific formula
+  (like WACC) checked. The trigger is a user who has a spreadsheet and
+  needs to do something with it. Do NOT use for accounting theory, tax
+  questions, investment advice, or finance questions with no model attached.
 license: Proprietary
 metadata:
   author: Panaversity
@@ -208,6 +206,25 @@ structure, and auditing compliance. See `idfa-ops` skill documentation.
 
 ---
 
+## Audit Dollar-Impact Rule
+
+When auditing a model and discovering hardcoded values that diverge from stated
+assumptions, always **quantify the dollar impact**. A CFO needs to know the
+magnitude of the error, not just that an error exists.
+
+**Example:** If the model states COGS = 60% in the assumptions cell, but Year 2
+uses a hardcoded 0.59 and Year 3 uses 0.58:
+- Compute what Year 2 COGS **would be** at the stated 60%: Revenue_Y2 × 0.60
+- Compare to what it **actually is**: Revenue_Y2 × 0.59
+- Report the difference: "Year 2 Gross Profit is overstated by ~$110K"
+- Do the same for Year 3: "Year 3 Gross Profit is overstated by ~$242K"
+
+This turns an abstract compliance finding into a concrete financial risk that
+drives remediation urgency. "$242K misstatement" gets executive attention;
+"hardcoded value in D7" does not.
+
+---
+
 ## Naming Conventions
 
 Consistent names are what make models readable across teams and tools.
@@ -307,8 +324,8 @@ Use this table to determine which action to take for any financial modelling tas
 | Task                        | Action                                                                                                                                                                                                                         |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Building a new model        | Extract inputs → name them with `Inp_` → write calculations in Named Range notation → LaTeX-verify complex formulas → attach Intent Notes                                                                                      |
-| Auditing an existing model  | Inspect the model (via `idfa-ops`) → check every Calculation layer formula for coordinate references → flag violations → report compliance percentage                                                                          |
-| Retrofitting a legacy model | Inspect the model (via `idfa-ops`) → identify all hardcoded values → propose Named Ranges → rewrite formulas one by one → validate outputs match original                                                                      |
+| Auditing an existing model  | Inspect the model (via `idfa-ops`) → check every Calculation layer formula for coordinate references → flag violations → **quantify the dollar impact of any hardcoded values that diverge from stated assumptions** → report compliance percentage |
+| Retrofitting a legacy model | Inspect the model (via `idfa-ops`) → identify all hardcoded values → propose Named Ranges → use `idfa_ops.py create-range` for every new Named Range (audit trail) → rewrite formulas one by one → validate outputs match original |
 | What-if analysis            | Write assumption → recalculate → read result (via `idfa-ops`) for each change → report results without internal calculation                                                                                                    |
 | Goal-seeking                | Write → recalculate → read, iterate until target reached (via `idfa-ops`) → report the required input value                                                                                                                    |
 | Explaining a formula        | Read the formula for the Named Range (via `idfa-ops`) → state the business rule in plain English → check for Intent Note → if missing, add one                                                                                 |
@@ -345,7 +362,7 @@ When the user asks "What is the range of outcomes?" or "How likely is [target]?"
    a point estimate? (e.g., revenue growth could be 5-15% instead of exactly 10%)
 2. **Define distributions** — for each uncertain input, agree with the user on a
    distribution (uniform, normal, triangular) and its parameters
-3. **Iterate N times** (default N=1000, adjustable):
+3. **Iterate N times** (default N=100 for quick runs, N=1000 for production):
    - Sample each uncertain input from its distribution
    - `idfa_ops.py write` each sampled value to the model
    - `recalc_bridge.py` to recalculate
@@ -358,9 +375,77 @@ When the user asks "What is the range of outcomes?" or "How likely is [target]?"
 6. **Report** — present the distribution summary, a histogram if possible, and
    the probability of the user's target scenario
 
-**Key constraint:** Each iteration MUST delegate to the spreadsheet engine. Do NOT
-build an internal simulation model — the whole point is that the Excel formulas
-define the business logic, and Monte Carlo samples from their input space.
+**Key constraint:** Each iteration MUST use the idfa-ops scripts to delegate
+arithmetic to the spreadsheet engine. The correct implementation is a loop that
+calls `idfa_ops.py write`, then `recalc_bridge.py`, then `idfa_ops.py read` on
+every single iteration. Do NOT build a parallel Python simulation that parses
+formulas and evaluates them with `eval()` or any other internal calculation —
+that defeats the entire purpose of IDFA (the model's formulas ARE the business
+logic, and only the spreadsheet engine's evaluation of those formulas is
+audit-valid).
+
+**When LibreOffice is unavailable:** If `recalc_bridge.py` fails because
+LibreOffice is not installed, the Monte Carlo simulation cannot produce
+audit-valid results. In this case:
+1. Inform the user that the simulation requires LibreOffice for deterministic
+   recalculation
+2. Offer to trace the formula chain manually for a **single** scenario to
+   demonstrate the model's logic
+3. Do NOT run 100+ iterations of internal Python calculation and present the
+   results as if they came from the model — that is misleading. A clearly-labeled
+   "estimated via formula tracing (not model-verified)" single-pass is acceptable;
+   an unlabeled Python simulation is not.
+
+---
+
+## Output Expectations
+
+Every analysis task MUST produce a **text results file** (Markdown) alongside any
+modified xlsx. The results file is the human-readable deliverable — the xlsx alone
+is not sufficient because it cannot be reviewed without opening Excel.
+
+**What-if analysis:** Save a `what_if_results.md` with scenario comparison tables,
+dollar deltas, percentage changes, and interpretation.
+
+**Goal-seeking:** Save a `goal_seek_results.md` with iteration log, convergence
+path, final solved value, and full model output at the solved state.
+
+**Monte Carlo:** Save a `monte_carlo_results.md` with distribution statistics,
+percentile table, and probability of user's target threshold.
+
+**Audit:** Save an `audit_results.md` with per-guardrail status, specific
+violations, remediation priority, and compliance score.
+
+**Retrofit:** Save a `retrofit_results.md` documenting each formula conversion,
+before/after validation, and remaining work.
+
+The results file is what enables the user (and any grader) to verify what happened
+without re-running the analysis.
+
+---
+
+## Graceful Degradation When LibreOffice Is Unavailable
+
+LibreOffice is required for deterministic recalculation (`recalc_bridge.py`).
+When it is not installed:
+
+1. **The write and read operations still work** — `idfa_ops.py write` persists
+   values, `idfa_ops.py read` retrieves cached values, `idfa_ops.py inspect`
+   and `formula` work normally.
+
+2. **Recalculation cannot complete** — formulas will not update to reflect new
+   input values. The read-back will return stale (pre-write) calculated values.
+
+3. **Acceptable fallback:** Trace the formula chain manually by reading each
+   formula via `idfa_ops.py formula`, substituting known values, and computing
+   the result. **Label this clearly** as "computed via formula tracing (not
+   model-verified)" so the user knows it did not come from the spreadsheet engine.
+
+4. **Unacceptable:** Silently computing results internally and presenting them
+   as if they came from the model. The distinction matters for audit validity.
+
+5. **Always inform the user** that LibreOffice is needed for full functionality
+   and suggest installing it.
 
 ---
 
@@ -384,6 +469,11 @@ These are the four formulas where errors are most common and most consequential.
 validating that outputs match at each step. A model that calculates correctly
 in coordinate form and correctly in IDFA form simultaneously is a model that
 has been correctly retrofitted.
+
+❌ **Never create Named Ranges via raw openpyxl during retrofit.** Always use
+`idfa_ops.py create-range` — this creates a programmatic audit trail of every
+structural change. Manual openpyxl edits leave no trace, which defeats the
+purpose of a controlled retrofit.
 
 ❌ **Never name a range with spaces.** Excel allows display names with spaces
 but formula references require underscores. Use `Inp_Rev_Y1` not `Inp Rev Y1`.

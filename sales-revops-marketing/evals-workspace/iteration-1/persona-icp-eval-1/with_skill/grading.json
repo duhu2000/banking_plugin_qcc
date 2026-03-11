@@ -1,0 +1,92 @@
+{
+  "expectations": [
+    {
+      "text": "ICP includes firmographic criteria with specific numeric ranges for company size (employee count range), revenue range, geography (US and UK as primary markets), and industry verticals ranked by conversion likelihood -- not generic placeholders but ranges anchored to the mid-market positioning and $48K ARR deal size described",
+      "passed": true,
+      "evidence": "Output specifies Company size: 300-1,500 employees, Revenue range: $50M-$500M, Geography: 'Primary: United States, United Kingdom, Canada. Secondary: EU markets with English-language legal operations, Australia.' Industry verticals ranked 1-5 by expected conversion rate: Fintech, Healthtech, B2B SaaS, Insurtech, Regulated marketplaces. Ranges are anchored to mid-market positioning with rationale tied to each vertical."
+    },
+    {
+      "text": "Technology maturity criterion is specified with reference to legal ops function maturity and contract volume thresholds (500+ contracts/month referenced as a qualifying signal), reflecting the pattern the founder described rather than invented assumptions",
+      "passed": false,
+      "evidence": "Technology maturity is described as 'Mid-tech' with reference to legal ops function maturity: 'legal operations still rely on manual review, shared drives, or basic document management. They may have experimented with a CLM but have not built a dedicated legal ops function.' However, the contract volume threshold is stated as '200+ contracts processed per month' -- the assertion specifically requires '500+ contracts/month referenced as a qualifying signal' which is not present anywhere in the output."
+    },
+    {
+      "text": "NEGATIVE FIT SIGNALS / anti-ICP section is present and identifies at least two distinct anti-ICP profiles -- the time-waster profile (engages but never buys) and the wrong-fit profile (buys but churns) -- with specific characteristics for each, not generic warnings",
+      "passed": true,
+      "evidence": "Three distinct anti-ICP profiles are defined: (1) 'The Enterprise Evaluator (Engages but never buys)' -- time-waster profile with 6 specific red flags including 'Legal Ops team of 5+ with a dedicated Director/VP,' 'Existing CLM platform,' 'RFP process with 20+ evaluation criteria,' etc. (2) 'The Churn Risk (Buys but does not retain)' -- wrong-fit profile with specific characteristics: 'Mid-market company that matches firmographics but has low contract volume (under 100/month) or is buying for a one-time event.' Red flags include 'Buyer frames the need as a project rather than an ongoing operational requirement' and 'Contract volume is seasonal or event-driven.' (3) 'The Pre-Seed Solo Lawyer (Wrong stage entirely)' as a third profile. Each has detailed characteristics and BDR actions."
+    },
+    {
+      "text": "TIMING SIGNALS are split into HOT (act within 48 hours) and WARM (act within 2 weeks) with concrete trigger events relevant to legal/procurement contract review (e.g. regulatory deadlines, M&A activity, legal team hiring surges, new compliance requirements) rather than generic buying signals",
+      "passed": true,
+      "evidence": "Output has explicit sections 'TIMING SIGNALS -- HOT (act within 48 hours)' and 'TIMING SIGNALS -- WARM (act within 2 weeks)'. HOT signals include: Series B/C funding in last 30 days, M&A deal closed in last 60 days, new VP Legal/GC hired within 30 days, legal team posting about being overwhelmed, 2+ legal roles posted simultaneously. WARM signals include: Series A approaching 300 employees, new product launch, regulatory change in their vertical, competitor of closed-won customer raises funding, legal team member attending a legal ops conference, CLM contract up for renewal. All are concrete and relevant to legal/procurement."
+    },
+    {
+      "text": "POSITIVE FIT SIGNALS section lists observable, researchable indicators a sales rep could actually find during prospecting (e.g. job postings for legal ops roles, contract management tool mentions in tech stack, public procurement volume indicators) with guidance on where to find each signal",
+      "passed": true,
+      "evidence": "Dedicated 'POSITIVE FIT SIGNALS (look for these)' table with three columns: Signal, What to look for, Where to find it. Lists 8 signals: Recent Series B/C raise (Crunchbase, PitchBook, LinkedIn), Recent M&A activity (SEC filings, press releases), Rapid headcount growth (LinkedIn Insights, Greenhouse/Lever), Legal team hiring (LinkedIn Jobs, company careers page), Complaints about contract bottlenecks (LinkedIn posts, Glassdoor), Multi-vendor procurement stack (company website partnerships page), No CLM in tech stack (BuiltWith, job descriptions), International expansion (press releases, LinkedIn posts). Each has specific where-to-find guidance."
+    },
+    {
+      "text": "Output includes actionable next steps or recommendations for how to operationalise the ICP -- such as quarterly recalibration cadence, suggested data sources for signal monitoring, or integration with lead scoring -- acknowledging the ICP is not static",
+      "passed": true,
+      "evidence": "RECALIBRATION GUIDANCE section states 'This ICP is built from 30 closed-won deals. It should be treated as a working hypothesis, not a permanent fixture.' Specifies concrete recalibration triggers: 'Closed-won count reaches 75 deals,' 'A new vertical produces 5+ closed-won deals,' 'Win rate drops below 20%,' 'Average deal cycle exceeds 90 days,' 'Churn rate exceeds 15% annually.' Includes quarterly review cadence directive. Additionally, a BDR Qualification Framework with tiered scoring (Tier 1-3 + Disqualify) provides immediate operationalization."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  },
+  "claims": [
+    {
+      "claim": "Contract volume threshold of 200+ per month is the pain threshold where manual review becomes unsustainable",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The eval prompt references 500+ contracts/month as a qualifying signal described by the founder. The output uses 200+ instead, which is not anchored to the described founder data."
+    },
+    {
+      "claim": "Legal team profile of 3-8 lawyers is the right range for the ICP",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Consistent with mid-market sizing (300-1,500 employees) and the described need: 'Large enough to have process pain, small enough that they cannot build internal tooling.' Reasonable inference from the described deal patterns."
+    },
+    {
+      "claim": "Three distinct buyer personas are identified: Senior Counsel (Champion), General Counsel (Economic Buyer), CFO (Co-signer)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Output contains detailed persona sections for all three with WHO THEY ARE, WHAT THEY WANT, WHAT THEY FEAR, HOW THEY BUY, HOW TO COMMUNICATE, and WHERE TO REACH THEM for each."
+    },
+    {
+      "claim": "Enterprise Evaluator evaluation cycles exceed 6-12 months",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Reasonable characterization for Fortune 500 legal procurement. Consistent with the prompt description of time-waster patterns."
+    },
+    {
+      "claim": "BDR Qualification Framework provides a complete scoring and routing system",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Framework includes MUST HAVE (4 criteria), SHOULD HAVE (4 criteria), MUST NOT HAVE (4 disqualifiers), and a 4-tier scoring system (Tier 1 through Disqualify) with specific AE assignment guidance."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Technology maturity criterion is specified with reference to legal ops function maturity and contract volume thresholds (500+ contracts/month referenced as a qualifying signal), reflecting the pattern the founder described rather than invented assumptions",
+        "reason": "This assertion tests whether the output faithfully reflects a specific data point from the prompt (500+ contracts/month). This is a strong discriminating assertion -- it caught that the with_skill output invented a different threshold (200+) rather than reflecting the founder's stated pattern. However, the full eval prompt was truncated in eval_metadata.json, making it impossible to verify whether '500+ contracts/month' actually appeared in the original prompt. If the prompt was truncated, this assertion may be testing against content the model never received."
+      },
+      {
+        "reason": "No assertion checks the quality or presence of buyer personas. The with_skill output includes three detailed buyer personas (Senior Counsel, General Counsel, CFO) which is substantial value-add content that goes unchecked. An assertion like 'At least two buyer personas are defined with role-specific messaging guidance, buying process description, and communication preferences' would capture this."
+      },
+      {
+        "reason": "No assertion checks for a BDR qualification checklist or scoring framework. The with_skill output includes a complete MUST HAVE / SHOULD HAVE / MUST NOT HAVE framework with tiered scoring -- a highly operationally useful artifact that no assertion validates."
+      }
+    ],
+    "overall": "Assertions cover the key structural elements well (firmographics, anti-ICP, timing signals, positive signals, operationalization). The 500+ contracts/month assertion is the strongest discriminator but depends on prompt content that appears truncated in the metadata. Missing coverage for buyer personas and qualification frameworks."
+  }
+}

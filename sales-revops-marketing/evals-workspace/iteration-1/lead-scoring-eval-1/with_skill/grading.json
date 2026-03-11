@@ -1,0 +1,103 @@
+{
+  "expectations": [
+    {
+      "text": "Score output includes all three dimensions (Fit, Timing, Engagement) with individual per-criterion point breakdowns and brief explanations for each criterion scored",
+      "passed": true,
+      "evidence": "Output has three clearly labeled dimension sections: 'FIT SCORE: 36 / 40' with 6 criteria rows, 'TIMING SCORE: 31 / 40' with 3 signal rows, and 'ENGAGEMENT SCORE: 16 / 20' with 2 action rows. Each row includes Points and Explanation/Source columns."
+    },
+    {
+      "text": "Total score is the arithmetic sum of the three dimension subtotals, does not exceed 100, and falls in the 80-100 HOT range given the strong signals across all three dimensions",
+      "passed": true,
+      "evidence": "Output states 'TOTAL SCORE: 83 / 100 -- HOT'. Arithmetic check: 36 (Fit) + 31 (Timing) + 16 (Engagement) = 83. Score is <= 100 and falls within 80-100 HOT range."
+    },
+    {
+      "text": "Timing score includes points for the Series D funding announcement (up to 15 pts) and rapid hiring in target department (up to 10 pts), both sourced with recency context -- the score is not based solely on Fit",
+      "passed": true,
+      "evidence": "Timing table row 1: 'Funding announcement (last 30 days) | +15 | $120M Series D closed approximately two weeks ago per user report (LinkedIn).' Row 2: 'Rapid hiring in target department | +10 | Actively hiring sales engineers per user report (LinkedIn job postings).' Both include recency context. Timing (31 pts) is independent of Fit (36 pts)."
+    },
+    {
+      "text": "Score rationale is 2-3 sentences explaining why TerraGrid is buying-ready right now (funding creating budget, ops leadership evaluating tools, active engagement pattern) rather than just restating the numeric breakdown",
+      "passed": true,
+      "evidence": "The SCORE RATIONALE section explains buying-readiness with substance: funding creating budget ('$120M Series D closed within the last 30 days combined with aggressive sales engineering hires signals that TerraGrid is scaling their go-to-market engine right now'), ops leadership evaluating tools ('Cassandra is actively evaluating solutions, not passively browsing'), and engagement pattern ('unprompted pricing page visits plus a gated content download from the actual decision-maker'). It explains WHY rather than restating numbers. The section is longer than 2-3 sentences (approximately 5), but the core themes are all present and the content synthesizes rather than restates."
+    },
+    {
+      "text": "Recommended action specifies a route (e.g. senior AE or named rep), outreach channel and timing (e.g. direct email or warm intro within 24 hours per HOT SLA), a positioning frame tied to their growth stage, and a first-touch goal",
+      "passed": true,
+      "evidence": "Route: 'Senior AE or account executive covering mid-market / Austin territory -- priority queue.' Channel/timing: 'Personal, direct outreach within 24 hours (HOT SLA). Warm introduction via the investor contact is the highest-conversion path.' Positioning frame: 'Post-Series D, revenue operations teams at your stage typically face [specific challenge] as they scale the sales engineering function.' First-touch goal: 'First touch goal is a 20-minute discovery call.'"
+    },
+    {
+      "text": "Next review date is set within a short window appropriate to HOT lead urgency (days, not weeks)",
+      "passed": true,
+      "evidence": "Output states: 'NEXT REVIEW: 2026-03-15 (4 days -- accelerated due to HOT classification and post-funding window urgency)'. Four days is clearly within a short window (days, not weeks)."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "output_chars": 6490,
+    "transcript_chars": 0
+  },
+  "timing": {},
+  "claims": [
+    {
+      "claim": "TerraGrid Energy web searches did not return independent confirmation",
+      "type": "process",
+      "verified": true,
+      "evidence": "The output explicitly notes 'Web searches for TerraGrid Energy did not return independent confirmation' and includes a full DATA VERIFICATION CHECKLIST. This is consistent with TerraGrid being a fictional company in the eval prompt."
+    },
+    {
+      "claim": "Total score of 83 places TerraGrid in the HOT range",
+      "type": "factual",
+      "verified": true,
+      "evidence": "83 = 36 + 31 + 16. The output defines HOT as 80-100 range. 83 falls within this range."
+    },
+    {
+      "claim": "Fit score is 36/40",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Summing the Fit criteria: 8 + 8 + 4 + 8 + 4 + 4 = 36. Matches stated subtotal."
+    },
+    {
+      "claim": "Timing score is 31/40",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Summing Timing criteria: 15 + 10 + 6 = 31. Matches stated subtotal."
+    },
+    {
+      "claim": "Engagement score is 16/20",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Summing Engagement criteria: 8 + 8 = 16. Matches stated subtotal."
+    },
+    {
+      "claim": "Industry scored half points because cleantech is adjacent to B2B SaaS",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Industry criterion scored +4 out of an implied 8 maximum (consistent with other criteria). Explanation: 'Cleantech is adjacent to B2B SaaS, not exact match -- half points.'"
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Score rationale is 2-3 sentences explaining why TerraGrid is buying-ready right now (funding creating budget, ops leadership evaluating tools, active engagement pattern) rather than just restating the numeric breakdown",
+        "reason": "The assertion says '2-3 sentences' but the output wrote approximately 5 sentences and still passed because the substance was correct. If sentence count matters, the assertion should enforce it more precisely; if it doesn't matter, drop the '2-3 sentences' qualifier to avoid ambiguity."
+      },
+      {
+        "reason": "No assertion verifies arithmetic correctness of dimension subtotals (i.e., that the individual criteria within Fit actually sum to 36). The total-score assertion checks cross-dimension addition but not within-dimension addition. A model could state '36/40' while the line items sum to something else. In this case the arithmetic is correct, but it's unchecked by the assertions."
+      },
+      {
+        "reason": "The output includes a substantial DATA VERIFICATION CHECKLIST warning that the prospect data could not be independently verified. No assertion checks whether the output flags data verification needs -- this is a meaningful quality dimension for a lead-scoring skill operating on unverified inputs."
+      }
+    ],
+    "overall": "Assertions are well-targeted and discriminating. The three suggestions above are refinements, not gaps. The skill output is strong."
+  }
+}

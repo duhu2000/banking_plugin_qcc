@@ -1,0 +1,148 @@
+{
+  "skill_name": "idfa-ops",
+  "evals": [
+    {
+      "id": 1,
+      "name": "write-read-roundtrip",
+      "prompt": "I need to update the price assumption in my model from $100 to $125 and then verify the change took effect. Use the idfa-ops scripts to write the new value and read it back.",
+      "expected_output": "The assumption is updated via the standardized API (not manual Excel edits), creating an audit trail. The read-back confirms persistence — essential for any automated workflow that modifies model inputs.",
+      "files": ["evals/files/ops_test_model.xlsx"],
+      "expectations": [
+        "Runs idfa_ops.py write to set Inp_Price to 125 — using the script (not raw openpyxl) creates a standardized, repeatable operation that any agent can invoke",
+        "Runs idfa_ops.py read to verify the value is 125 — the read-back confirmation prevents silent write failures from propagating through downstream analysis",
+        "Both commands produce JSON output with status 'ok' — structured output enables programmatic error handling in automated pipelines",
+        "The operation preserves all existing Named Ranges and formulas — a write to one assumption must never corrupt the rest of the model",
+        "Does not use raw openpyxl or manual cell editing — the whole point of idfa-ops is a standardized interface that works identically across any IDFA model"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "inspect-full-model-structure",
+      "prompt": "I want to understand the complete structure of this model — every named range, what sheet it's on, whether it has a formula or raw value, and whether there are intent notes. Give me the full picture.",
+      "expected_output": "A complete structural inventory — this is what enables a new analyst or agent to operate the model without guessing. The equivalent of an API schema for a financial model.",
+      "files": ["evals/files/ops_test_model.xlsx"],
+      "expectations": [
+        "Runs idfa_ops.py inspect and discovers all 20 Named Ranges — a complete inventory means no hidden variables, no undocumented assumptions",
+        "Distinguishes Assumptions layer (6 Inp_ ranges with raw values) from Calculations layer (14 ranges with formulas) — this separation is what makes the model auditable",
+        "Reports whether intent notes (comments) are present — intent note coverage is a key IDFA compliance metric and directly predicts whether the model can be maintained long-term",
+        "Presents the information organized by layer, not as a raw JSON dump — the output must be immediately useful to a finance professional, not just a developer",
+        "Identifies the formula chain structure (inputs → units → revenue → costs → contribution → EBIT → tax → net income) — this dependency map is what enables safe model modification",
+        "Reports the model uses Named Range references exclusively (no bare cell coordinates) — confirming the model is agent-operable and layout-change-proof"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "formula-inspection",
+      "prompt": "Can you show me the exact formula behind Net_Income_Y1? I want to see what it's computing and whether it looks right.",
+      "expected_output": "The exact formula text from the model, translated into plain English — enabling an analyst to verify business logic without opening Excel.",
+      "files": ["evals/files/ops_test_model.xlsx"],
+      "expectations": [
+        "Runs idfa_ops.py formula and returns the exact formula (=EBIT_Y1-Tax_Y1 or equivalent) — reading from the actual file, not guessing",
+        "Explains the formula in plain English: Net Income = Earnings Before Tax minus Tax — making the business rule accessible to non-Excel users",
+        "Traces the dependency chain at least one level back (EBIT depends on Contribution minus Fixed Costs, Tax depends on EBIT times Tax Rate) — this context is what lets the reviewer assess whether the formula is correct",
+        "Does NOT fabricate a formula or compute the value internally — the value of this operation is that it shows exactly what the spreadsheet engine will execute"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "write-recalc-read-pattern",
+      "prompt": "I want to see what happens to Net Income in both years if I increase the unit price from $100 to $150. Walk me through the full write-recalculate-read cycle.",
+      "expected_output": "The complete three-step pattern demonstrating deterministic model interaction — this is the fundamental operation that separates audit-valid analysis from agent guessing.",
+      "files": ["evals/files/ops_test_model.xlsx"],
+      "expectations": [
+        "Executes idfa_ops.py write, recalc_bridge.py, and idfa_ops.py read in that order — the sequence matters because reading before recalculating returns stale values",
+        "Reports Net Income results for both years — a $50 price increase on 50K+ units should roughly double Net Income, providing the user with high-impact sensitivity data",
+        "If recalc fails (LibreOffice unavailable), handles it gracefully — informs the user, explains the limitation, and either reads cached values or traces formulas manually rather than crashing",
+        "Frames the results as the MODEL's output, not the agent's calculation — this distinction is what makes the analysis audit-proof for regulated environments (SOX, SEC filings)",
+        "Shows the full before/after impact — the user should immediately understand both the magnitude ($1.75M+ increase) and the mechanism (price flows through to contribution margin with no offsetting cost increase)",
+        "The three-step pattern is explicitly documented in the output — this teaches the user the IDFA workflow so they can verify it independently"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "audit-compliant-model",
+      "prompt": "Run a full IDFA compliance audit on this model. I want to know if it passes all four guardrails.",
+      "expected_output": "A formal compliance certification — the kind of check that would precede putting a model in front of a board, regulator, or investor.",
+      "files": ["evals/files/ops_test_model.xlsx"],
+      "expectations": [
+        "Runs idfa_audit.py and reports all four guardrails — Named Range Priority, LaTeX Verification, Intent Notes, Layer Isolation",
+        "Reports Guardrail 1 PASS (zero coordinate references) — this means the model survives layout changes, the single most common source of spreadsheet errors",
+        "Reports Guardrail 3 status on Intent Notes — comment coverage directly predicts maintainability; a model with 0% coverage becomes a black box within 6 months of the original author leaving",
+        "Reports Guardrail 4 PASS (no hardcoded constants) — every assumption flowing from a single source of truth means scenario analysis actually works",
+        "Presents the overall compliance score — a single number the Controller or CFO can use for model registry tracking",
+        "Explains what each guardrail protects against in business terms — not just 'PASS/FAIL' but why it matters (audit readiness, error prevention, agent operability)"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "create-new-named-range",
+      "prompt": "I need to add a new input to the model: a discount rate of 8% for future DCF analysis. Create a Named Range called Inp_Discount_Rate on the Assumptions sheet, and put it in cell B8.",
+      "expected_output": "A new Named Range is created, populated, and verified — extending the model's input space while maintaining IDFA compliance.",
+      "files": ["evals/files/ops_test_model.xlsx"],
+      "expectations": [
+        "Runs idfa_ops.py create-range to define the Named Range — this is the atomic operation that extends a model's API surface",
+        "Runs idfa_ops.py write to set the value to 0.08 — separating 'define the range' from 'set the value' maintains the pattern where Named Ranges are structural and values are data",
+        "Verifies the range was created correctly via read or inspect — confirmation prevents downstream formula errors from referencing a range that doesn't exist",
+        "Uses the IDFA naming convention (Inp_ prefix) — consistency across the model enables programmatic discovery of all inputs",
+        "Does not use raw openpyxl — all operations go through the standardized idfa-ops API"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "multi-read-batch",
+      "prompt": "Give me a quick snapshot of all the Year 1 results: units, revenue, variable costs, contribution, EBIT, tax, and net income.",
+      "expected_output": "A complete Year 1 P&L snapshot retrieved in a single API call — demonstrating the efficiency of batch operations for dashboard-style queries.",
+      "files": ["evals/files/ops_test_model.xlsx"],
+      "expectations": [
+        "Uses a SINGLE idfa_ops.py read command with multiple Named Range arguments — batch reads are O(1) file opens instead of O(N), critical for performance when models have 100+ Named Ranges",
+        "Returns values for all 7 Year 1 Named Ranges — a complete P&L snapshot from Units through Net Income",
+        "Presents the values in a formatted summary (table or structured list) — raw JSON is useful for agents, but the user needs a human-readable P&L",
+        "The values form a consistent P&L waterfall (Revenue - Variable Costs = Contribution, Contribution - Fixed Costs = EBIT, EBIT - Tax = Net Income) — internal consistency proves the model is working correctly"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "error-handling-bad-name",
+      "prompt": "Can you read the value of 'Total_Revenue_All_Years' from the model?",
+      "expected_output": "Graceful error recovery that helps the user find what they're looking for — not a crash or a generic error message.",
+      "files": ["evals/files/ops_test_model.xlsx"],
+      "expectations": [
+        "Attempts the read and receives a 'Named Range not found' error — confirming the API provides clear error messages, not silent failures",
+        "Does NOT crash or give up — recovers by inspecting the model to find available Named Ranges",
+        "Suggests the correct alternatives (Revenue_Y1, Revenue_Y2) — error recovery that provides actionable next steps is the difference between a tool and a frustration",
+        "Explains WHY the name doesn't exist (the model tracks per-year revenue, not aggregates) — this teaches the user the model's naming convention, preventing future errors",
+        "Optionally offers to create the missing aggregate or sum the existing values — proactive problem-solving, not just error reporting"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "sequential-multi-write",
+      "prompt": "I want to model an aggressive scenario: increase units to 75,000 in Year 1, drop the variable cost per unit to $35, and cut fixed costs to $800,000. Make all three changes and then tell me what happens to Year 2 Net Income.",
+      "expected_output": "Three assumption changes applied atomically with a single recalculation, showing the compound impact — this is the multi-lever scenario analysis that drives strategic decisions.",
+      "files": ["evals/files/ops_test_model.xlsx"],
+      "expectations": [
+        "Writes all three assumptions via idfa_ops.py write (Inp_Units_Y1=75000, Inp_Variable_Cost_Per_Unit=35, Inp_Fixed_Costs=800000) — three separate write commands, each confirmed",
+        "Triggers recalculation at least once after all writes — recalculating after each individual write is wasteful; batching writes then recalculating once is the efficient pattern",
+        "Reports Year 2 Net Income (~$3.36M, up from baseline ~$1.72M, roughly +96%) — this is the compound operating leverage effect that makes multi-lever scenarios so valuable for strategic planning",
+        "Reads the result from the model via idfa_ops.py read, not from internal calculation — audit-proof results",
+        "Presents the results with a clear before/after comparison showing the magnitude of change — a 96% increase in Net Income tells the CEO that aggressive expansion is high-leverage",
+        "The output file (xlsx or results.md) contains the complete scenario — all three changed assumptions and the resulting P&L"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "audit-legacy-with-violations",
+      "prompt": "I have this other model that I think might not be IDFA compliant. Can you run the audit and show me exactly what's wrong?",
+      "expected_output": "A detailed failure report that surfaces every structural risk in the legacy model — the audit that tells the CFO 'this model cannot be trusted for board-level decisions in its current state.'",
+      "files": ["../financial-architect/evals/files/legacy_model.xlsx"],
+      "expectations": [
+        "Reports Guardrail 1 FAIL with specific coordinate-reference violations — every formula using cell addresses is a formula that will break silently when the layout changes",
+        "Reports Guardrail 4 FAIL identifying the hardcoded 0.59 and 0.58 values — these are not just style violations, they represent hidden assumptions that will produce wrong scenario analysis results",
+        "Reports Guardrail 3 FAIL with 0% intent note coverage — a model with zero documentation is a model that cannot be audited, which means it cannot be used in any regulated context",
+        "Reports overall FAIL with a low compliance score — giving the model owner an unambiguous signal that remediation is required",
+        "Lists specific cells and their violations — actionable detail, not just aggregate statistics",
+        "The audit differentiates between the legacy model's structural problems and legitimate errors vs. intentional design choices — the hardcoded COGS values might be intentional efficiency assumptions, but they're invisible without documentation"
+      ]
+    }
+  ]
+}

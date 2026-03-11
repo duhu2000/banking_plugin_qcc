@@ -1,0 +1,536 @@
+{
+  "metadata": {
+    "skill_name": "idfa-ops",
+    "skill_path": "skills/idfa-ops",
+    "executor_model": "claude-opus-4-6",
+    "analyzer_model": "claude-opus-4-6",
+    "timestamp": "2026-03-11T00:00:00Z",
+    "evals_run": [
+      "write-read-roundtrip",
+      "inspect-full-model-structure",
+      "formula-inspection",
+      "write-recalc-read-pattern",
+      "audit-compliant-model",
+      "create-new-named-range",
+      "multi-read-batch",
+      "error-handling-bad-name",
+      "sequential-multi-write",
+      "audit-legacy-with-violations"
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "eval_name": "write-read-roundtrip",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs 'uv run scripts/idfa_ops.py write <file> Inp_Price 125' (or equivalent path)", "passed": true, "evidence": "Step 2 shows: 'Command: uv run scripts/idfa_ops.py write ops_test_model.xlsx Inp_Price 125'. Output: {\"status\": \"ok\"}."},
+        {"text": "Runs 'uv run scripts/idfa_ops.py read <file> Inp_Price' to verify the write", "passed": true, "evidence": "Step 3 shows: read command returns {\"status\": \"ok\", \"values\": {\"Inp_Price\": 125}}."},
+        {"text": "The read command returns the updated value 125 (not the original 100)", "passed": true, "evidence": "Confirmed new value is 125."},
+        {"text": "Both commands produce JSON output with status 'ok'", "passed": true, "evidence": "Both write and read output show status 'ok'."},
+        {"text": "Does not modify the file manually via openpyxl or other means — uses the idfa_ops.py script exclusively", "passed": true, "evidence": "All operations use the idfa_ops.py script. No direct openpyxl usage."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "write-read-roundtrip",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.2,
+        "passed": 1,
+        "failed": 4,
+        "total": 5,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs 'uv run scripts/idfa_ops.py write <file> Inp_Price 125' (or equivalent path)", "passed": false, "evidence": "Used openpyxl directly — no idfa_ops.py script was used."},
+        {"text": "Runs 'uv run scripts/idfa_ops.py read <file> Inp_Price' to verify the write", "passed": false, "evidence": "Verification used openpyxl directly."},
+        {"text": "The read command returns the updated value 125 (not the original 100)", "passed": true, "evidence": "Reload confirms value is 125: PASS."},
+        {"text": "Both commands produce JSON output with status 'ok'", "passed": false, "evidence": "No JSON output produced."},
+        {"text": "Does not modify the file manually via openpyxl or other means — uses the idfa_ops.py script exclusively", "passed": false, "evidence": "Used openpyxl directly."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "inspect-full-model-structure",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs 'uv run scripts/idfa_ops.py inspect <file>' to get model structure", "passed": true, "evidence": "Report header references idfa_ops.py inspect. Raw JSON output confirms status 'ok'."},
+        {"text": "The inspect output lists all 20 named ranges (6 Inp_ + 14 calculations)", "passed": true, "evidence": "Summary: 'Total Named Ranges: 20'. inspect_raw.json confirms 'count': 20."},
+        {"text": "Identifies which named ranges are on the Assumptions sheet vs Calculations sheet", "passed": true, "evidence": "Layer 1: 'Sheet: Assumptions, Named Ranges: 6'. Layer 2: 'Sheet: Calculations, Named Ranges: 14'."},
+        {"text": "Distinguishes raw values (inputs) from formula cells (calculations)", "passed": true, "evidence": "Layer 1: 'Type: Raw values'. Layer 2: 'Type: Formulas'."},
+        {"text": "Reports whether intent notes (comments) are present on formula cells", "passed": true, "evidence": "Assumptions: 'Intent Notes: None'. Calculations: 'Intent Notes: All 14 have'."},
+        {"text": "Presents the information in an organized, human-readable format — not raw JSON dump", "passed": true, "evidence": "Organized sections with formatted tables. Raw JSON in separate file."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "inspect-full-model-structure",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs 'uv run scripts/idfa_ops.py inspect <file>' to get model structure", "passed": false, "evidence": "Used direct openpyxl inspection, not idfa_ops.py inspect."},
+        {"text": "The inspect output lists all 20 named ranges (6 Inp_ + 14 calculations)", "passed": true, "evidence": "Total defined names: 20. All listed."},
+        {"text": "Identifies which named ranges are on the Assumptions sheet vs Calculations sheet", "passed": true, "evidence": "Cross-Reference by Sheet correctly separates Assumptions (6) and Calculations (14)."},
+        {"text": "Distinguishes raw values (inputs) from formula cells (calculations)", "passed": true, "evidence": "Value Type column distinguishes 'Raw' from 'Formula'."},
+        {"text": "Reports whether intent notes (comments) are present on formula cells", "passed": true, "evidence": "All Comments section lists 14 comments on Calculations sheet."},
+        {"text": "Presents the information in an organized, human-readable format — not raw JSON dump", "passed": true, "evidence": "8 organized sections with well-structured markdown tables."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "eval_name": "formula-inspection",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs 'uv run scripts/idfa_ops.py formula <file> Net_Income_Y1'", "passed": true, "evidence": "Report header confirms idfa_ops.py formula was used."},
+        {"text": "Returns a formula referencing EBIT_Y1 and Tax_Y1 (e.g., '=EBIT_Y1-Tax_Y1')", "passed": true, "evidence": "Direct Formula: Net_Income_Y1 = EBIT_Y1 - Tax_Y1."},
+        {"text": "Explains the formula in plain English: Net Income = EBIT minus Tax", "passed": true, "evidence": "Plain-English Explanation includes: 'Net Income = EBIT minus tax.'"},
+        {"text": "Does NOT fabricate or guess the formula — reads it from the actual model file", "passed": true, "evidence": "Formula read via idfa_ops.py, matches model's known structure."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "eval_name": "formula-inspection",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs 'uv run scripts/idfa_ops.py formula <file> Net_Income_Y1'", "passed": false, "evidence": "Used direct openpyxl inspection, not idfa_ops.py formula command."},
+        {"text": "Returns a formula referencing EBIT_Y1 and Tax_Y1 (e.g., '=EBIT_Y1-Tax_Y1')", "passed": true, "evidence": "Direct Formula in Cell B8: =EBIT_Y1 - Tax_Y1."},
+        {"text": "Explains the formula in plain English: Net Income = EBIT minus Tax", "passed": true, "evidence": "Includes: 'Net Income = EBIT - Tax.'"},
+        {"text": "Does NOT fabricate or guess the formula — reads it from the actual model file", "passed": true, "evidence": "Formula traces through actual formula chain from the model."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "eval_name": "write-recalc-read-pattern",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs idfa_ops.py write to set Inp_Price to 150", "passed": true, "evidence": "Step 1 WRITE: idfa_ops.py write returns {\"status\": \"ok\", \"value\": 150}."},
+        {"text": "Runs recalc_bridge.py to trigger LibreOffice recalculation", "passed": true, "evidence": "Step 2 RECALCULATE: recalc_bridge.py was run (returned error: no recalculation engine found)."},
+        {"text": "Runs idfa_ops.py read to retrieve Net_Income_Y1 and Net_Income_Y2", "passed": true, "evidence": "Step 3 READ: returns values (null due to no recalc engine)."},
+        {"text": "Executes the three steps in the correct order: write THEN recalc THEN read", "passed": true, "evidence": "Steps executed in order: Step 1 WRITE, Step 2 RECALCULATE, Step 3 READ."},
+        {"text": "Reports the results as the model's deterministic output, not an internal calculation", "passed": false, "evidence": "Since recalc failed, report traces formulas manually. Values come from internal calculation."},
+        {"text": "If recalc fails, gracefully handles the error and informs the user", "passed": true, "evidence": "Handled gracefully with explanation and suggestion to install LibreOffice."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "eval_name": "write-recalc-read-pattern",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.17,
+        "passed": 1,
+        "failed": 5,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs idfa_ops.py write to set Inp_Price to 150", "passed": false, "evidence": "Wrote via openpyxl directly, not idfa_ops.py."},
+        {"text": "Runs recalc_bridge.py to trigger LibreOffice recalculation", "passed": false, "evidence": "No recalc_bridge.py used."},
+        {"text": "Runs idfa_ops.py read to retrieve Net_Income_Y1 and Net_Income_Y2", "passed": false, "evidence": "Values computed by replicating formulas in Python."},
+        {"text": "Executes the three steps in the correct order: write THEN recalc THEN read", "passed": false, "evidence": "No write-recalc-read pattern used."},
+        {"text": "Reports the results as the model's deterministic output, not an internal calculation", "passed": false, "evidence": "Values explicitly computed internally."},
+        {"text": "If recalc fails, gracefully handles the error and informs the user", "passed": true, "evidence": "Notes that openpyxl cannot recalculate formulas and explains limitation."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "eval_name": "audit-compliant-model",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs 'uv run scripts/idfa_audit.py <file>'", "passed": true, "evidence": "audit_raw.json shows structured output from idfa_audit.py."},
+        {"text": "Reports status for Guardrail 1 (Named Range Priority) — should be PASS", "passed": true, "evidence": "Guardrail 1: Status: PASS, Violations: 0."},
+        {"text": "Reports status for Guardrail 2 (LaTeX Verification) — PASS or WARN", "passed": true, "evidence": "Guardrail 2: Status: PASS. No complex formulas without LaTeX verification."},
+        {"text": "Reports status for Guardrail 3 (Intent Notes) — should reflect comment coverage", "passed": true, "evidence": "Guardrail 3: Status: PASS (100% coverage). All 14 formula cells have comments."},
+        {"text": "Reports status for Guardrail 4 (Layer Isolation) — should be PASS", "passed": true, "evidence": "Guardrail 4: Status: PASS, Violations: 0."},
+        {"text": "Presents the overall compliance score/percentage", "passed": true, "evidence": "Overall Result: PASS, Compliance Score: 100%."},
+        {"text": "Explains what each guardrail checks in terms the user can understand", "passed": true, "evidence": "Each guardrail section includes a 'What this guardrail checks:' paragraph."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "eval_name": "audit-compliant-model",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.43,
+        "passed": 3,
+        "failed": 4,
+        "total": 7,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs 'uv run scripts/idfa_audit.py <file>'", "passed": false, "evidence": "Used openpyxl directly, not idfa_audit.py."},
+        {"text": "Reports status for Guardrail 1 (Named Range Priority) — should be PASS", "passed": true, "evidence": "Named ranges: PASS. Formulas use names exclusively."},
+        {"text": "Reports status for Guardrail 2 (LaTeX Verification) — PASS or WARN", "passed": false, "evidence": "No mention of LaTeX verification or Guardrail 2."},
+        {"text": "Reports status for Guardrail 3 (Intent Notes) — should reflect comment coverage", "passed": false, "evidence": "No mention of intent notes or Guardrail 3."},
+        {"text": "Reports status for Guardrail 4 (Layer Isolation) — should be PASS", "passed": true, "evidence": "No hardcoded values in formulas: PASS."},
+        {"text": "Presents the overall compliance score/percentage", "passed": true, "evidence": "Scoring Summary with 'Overall: 33/50'."},
+        {"text": "Explains what each guardrail checks in terms the user can understand", "passed": false, "evidence": "Uses own audit categories rather than IDFA guardrails."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "eval_name": "create-new-named-range",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs 'uv run scripts/idfa_ops.py create-range <file> Inp_Discount_Rate Assumptions B8'", "passed": true, "evidence": "Step 2: create-range returns {\"status\": \"ok\"}."},
+        {"text": "Runs 'uv run scripts/idfa_ops.py write <file> Inp_Discount_Rate 0.08' to set the value", "passed": true, "evidence": "Step 3: write returns {\"status\": \"ok\", \"value\": 0.08}."},
+        {"text": "Verifies the range was created correctly (either via read or inspect)", "passed": true, "evidence": "Step 4: read returns {\"status\": \"ok\", \"values\": {\"Inp_Discount_Rate\": 0.08}}."},
+        {"text": "Uses the correct IDFA naming convention (Inp_ prefix for an input assumption)", "passed": true, "evidence": "Named Range 'Inp_Discount_Rate' uses correct Inp_ prefix."},
+        {"text": "Does not manually edit the xlsx with openpyxl — uses the idfa_ops.py script", "passed": true, "evidence": "All operations via idfa_ops.py: create-range, write, read."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "eval_name": "create-new-named-range",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs 'uv run scripts/idfa_ops.py create-range <file> Inp_Discount_Rate Assumptions B8'", "passed": false, "evidence": "Used openpyxl directly, not idfa_ops.py."},
+        {"text": "Runs 'uv run scripts/idfa_ops.py write <file> Inp_Discount_Rate 0.08' to set the value", "passed": false, "evidence": "Value written directly via openpyxl."},
+        {"text": "Verifies the range was created correctly (either via read or inspect)", "passed": true, "evidence": "Verification confirms range exists and points to correct cell with value 0.08."},
+        {"text": "Uses the correct IDFA naming convention (Inp_ prefix for an input assumption)", "passed": true, "evidence": "Named Range created as 'Inp_Discount_Rate' with Inp_ prefix."},
+        {"text": "Does not manually edit the xlsx with openpyxl — uses the idfa_ops.py script", "passed": false, "evidence": "Explicitly uses openpyxl directly."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "eval_name": "multi-read-batch",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs idfa_ops.py read with multiple names in a single command", "passed": true, "evidence": "Single command reads all 7 Named Ranges at once."},
+        {"text": "Returns values for all requested Named Ranges in one JSON response", "passed": true, "evidence": "Single JSON response with all 7 values (null due to no recalc)."},
+        {"text": "Presents the values in a clear, formatted summary for the user", "passed": true, "evidence": "Deterministic Results table with Named Range, Formula, and Value columns."},
+        {"text": "Does not make 7 separate read calls when one batch call suffices", "passed": true, "evidence": "One call, not seven."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "eval_name": "multi-read-batch",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.25,
+        "passed": 1,
+        "failed": 3,
+        "total": 4,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs idfa_ops.py read with multiple names in a single command", "passed": false, "evidence": "No idfa_ops.py used. Values computed from formula chain."},
+        {"text": "Returns values for all requested Named Ranges in one JSON response", "passed": false, "evidence": "No JSON response. Results presented as markdown table."},
+        {"text": "Presents the values in a clear, formatted summary for the user", "passed": true, "evidence": "Well-formatted Income Statement table."},
+        {"text": "Does not make 7 separate read calls when one batch call suffices", "passed": false, "evidence": "No read calls made at all — values computed internally."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 8,
+      "eval_name": "error-handling-bad-name",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Attempts to read 'Total_Revenue_All_Years' via idfa_ops.py read", "passed": true, "evidence": "Step 1: read command returns {\"error\": \"Named Range not found\"}."},
+        {"text": "Receives a 'Named Range not found' error (exit code 1)", "passed": true, "evidence": "Error returned with exit code 1."},
+        {"text": "Does NOT crash or give up — handles the error gracefully", "passed": true, "evidence": "Agent continues to inspect and diagnose. No crash."},
+        {"text": "Either inspects the model to find similar/correct names, or lists available revenue-related Named Ranges", "passed": true, "evidence": "Step 2: inspect identifies Revenue_Y1, Revenue_Y2."},
+        {"text": "Suggests the correct Named Ranges that exist (Revenue_Y1, Revenue_Y2)", "passed": true, "evidence": "Suggested alternatives with instructions for creating a cross-year total."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 8,
+      "eval_name": "error-handling-bad-name",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.6,
+        "passed": 3,
+        "failed": 2,
+        "total": 5,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Attempts to read 'Total_Revenue_All_Years' via idfa_ops.py read", "passed": false, "evidence": "Used direct openpyxl inspection, not idfa_ops.py."},
+        {"text": "Receives a 'Named Range not found' error (exit code 1)", "passed": false, "evidence": "No structured JSON error or exit code."},
+        {"text": "Does NOT crash or give up — handles the error gracefully", "passed": true, "evidence": "Lists all defined names and identifies closest matches."},
+        {"text": "Either inspects the model to find similar/correct names, or lists available revenue-related Named Ranges", "passed": true, "evidence": "All 20 Defined Names listed. Closest matches identified."},
+        {"text": "Suggests the correct Named Ranges that exist (Revenue_Y1, Revenue_Y2)", "passed": true, "evidence": "Suggests Revenue_Y1 and Revenue_Y2 as closest matches."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 9,
+      "eval_name": "sequential-multi-write",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 6,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Writes Inp_Units_Y1 = 75000 via idfa_ops.py write", "passed": false, "evidence": "Only ops_test_model.xlsx in outputs — no transcript or results to verify."},
+        {"text": "Writes Inp_Variable_Cost_Per_Unit = 35 via idfa_ops.py write", "passed": false, "evidence": "No transcript or results file to verify."},
+        {"text": "Writes Inp_Fixed_Costs = 800000 via idfa_ops.py write", "passed": false, "evidence": "No transcript or results file to verify."},
+        {"text": "Triggers recalculation via recalc_bridge.py (at least once after all writes)", "passed": false, "evidence": "No transcript or results file to verify."},
+        {"text": "Reads Net_Income_Y2 via idfa_ops.py read", "passed": false, "evidence": "No transcript or results file to verify."},
+        {"text": "Reports the result as the model's output, not an internal calculation", "passed": false, "evidence": "No results markdown was produced."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 9,
+      "eval_name": "sequential-multi-write",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 6,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Writes Inp_Units_Y1 = 75000 via idfa_ops.py write", "passed": false, "evidence": "Written via openpyxl directly, not idfa_ops.py."},
+        {"text": "Writes Inp_Variable_Cost_Per_Unit = 35 via idfa_ops.py write", "passed": false, "evidence": "Written via openpyxl directly."},
+        {"text": "Writes Inp_Fixed_Costs = 800000 via idfa_ops.py write", "passed": false, "evidence": "Written via openpyxl directly."},
+        {"text": "Triggers recalculation via recalc_bridge.py (at least once after all writes)", "passed": false, "evidence": "No recalc_bridge.py used."},
+        {"text": "Reads Net_Income_Y2 via idfa_ops.py read", "passed": false, "evidence": "Net_Income_Y2 computed internally."},
+        {"text": "Reports the result as the model's output, not an internal calculation", "passed": false, "evidence": "Values computed internally."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 10,
+      "eval_name": "audit-legacy-with-violations",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs idfa_audit.py on the legacy model file", "passed": true, "evidence": "audit_raw.json shows structured output from idfa_audit.py."},
+        {"text": "Reports Guardrail 1 FAIL — identifies coordinate references in formulas", "passed": true, "evidence": "G1: Status: FAIL, Violations: 10. 100% of formulas use coordinates."},
+        {"text": "Reports Guardrail 4 FAIL — identifies hardcoded values (0.59, 0.58 in COGS formulas)", "passed": true, "evidence": "G4: Status: FAIL. D7: =D6*0.59, E7: =E6*0.58."},
+        {"text": "Reports Guardrail 3 FAIL — identifies missing intent notes (0% coverage)", "passed": true, "evidence": "G3: Status: FAIL, Coverage: 0%. All 10 formulas missing intent notes."},
+        {"text": "Reports an overall FAIL status with a low compliance score", "passed": true, "evidence": "Overall verdict: FAIL, Compliance score: 27%."},
+        {"text": "Lists specific cells and formulas that violate each guardrail", "passed": true, "evidence": "All cells and formulas listed per guardrail violation."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 10,
+      "eval_name": "audit-legacy-with-violations",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.33,
+        "passed": 2,
+        "failed": 4,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Runs idfa_audit.py on the legacy model file", "passed": false, "evidence": "Used direct openpyxl inspection, not idfa_audit.py."},
+        {"text": "Reports Guardrail 1 FAIL — identifies coordinate references in formulas", "passed": false, "evidence": "Identifies coordinate references but does not use IDFA guardrail terminology."},
+        {"text": "Reports Guardrail 4 FAIL — identifies hardcoded values (0.59, 0.58 in COGS formulas)", "passed": true, "evidence": "Identifies D7 =D6*0.59 and E7 =E6*0.58 as violations."},
+        {"text": "Reports Guardrail 3 FAIL — identifies missing intent notes (0% coverage)", "passed": false, "evidence": "No mention of intent notes or Guardrail 3."},
+        {"text": "Reports an overall FAIL status with a low compliance score", "passed": false, "evidence": "No overall FAIL/PASS status or IDFA compliance score."},
+        {"text": "Lists specific cells and formulas that violate each guardrail", "passed": true, "evidence": "Complete Formula Inventory with Status column. Specific violations listed."}
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {"mean": 0.88, "stddev": 0.3, "min": 0.0, "max": 1.0},
+      "time_seconds": {"mean": 0, "stddev": 0, "min": 0, "max": 0},
+      "tokens": {"mean": 0, "stddev": 0, "min": 0, "max": 0}
+    },
+    "without_skill": {
+      "pass_rate": {"mean": 0.4, "stddev": 0.25, "min": 0.0, "max": 0.83},
+      "time_seconds": {"mean": 0, "stddev": 0, "min": 0, "max": 0},
+      "tokens": {"mean": 0, "stddev": 0, "min": 0, "max": 0}
+    },
+    "delta": {
+      "pass_rate": "+0.48",
+      "time_seconds": "+0",
+      "tokens": "+0"
+    }
+  },
+  "notes": [
+    "The idfa-ops skill achieves perfect scores (100%) on 8 of 10 evals, with the only exceptions being write-recalc-read-pattern (83%, due to LibreOffice unavailability forcing manual formula tracing) and sequential-multi-write (0%, due to missing output artifacts).",
+    "The most consistent differentiator is tool usage: with_skill runs use idfa_ops.py and idfa_audit.py scripts exclusively, while without_skill runs default to direct openpyxl manipulation. This difference accounts for the majority of expectation failures in without_skill runs.",
+    "The sequential-multi-write eval scores 0% for both configurations — with_skill due to missing output artifacts (executor issue), without_skill due to using openpyxl instead of idfa_ops.py. This eval may need investigation for executor reliability.",
+    "Without the skill, the agent can still accomplish the core task (reading/writing/inspecting models) but loses IDFA-specific behaviors: structured JSON output, guardrail-based auditing, and the write-recalc-read pattern discipline.",
+    "The audit evals show the largest gap: with_skill produces IDFA-standard reports with all 4 guardrails, compliance scores, and remediation plans; without_skill produces generic quality assessments that miss LaTeX verification (G2) and intent notes (G3) entirely."
+  ]
+}

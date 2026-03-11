@@ -1,0 +1,12 @@
+{
+  "eval_id": 8,
+  "eval_name": "error-handling-bad-name",
+  "prompt": "Can you read the value of 'Total_Revenue_All_Years' from the model?",
+  "assertions": [
+    "Attempts the read and receives a 'Named Range not found' error",
+    "Does NOT crash or give up",
+    "Suggests the correct alternatives (Revenue_Y1, Revenue_Y2)",
+    "Explains WHY the name doesn't exist",
+    "Optionally offers to create the missing aggregate"
+  ]
+}

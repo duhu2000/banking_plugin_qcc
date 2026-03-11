@@ -1,0 +1,109 @@
+{
+  "expectations": [
+    {
+      "text": "Research brief contains all required sections: WHO IS [NAME] with career trajectory and role scope and activity and signal interpretation, WHAT IS [COMPANY] with business model and revenue estimate and headcount and tech stack and market position, WHAT IS HAPPENING NOW with HOT/WARM/WATCH classified signals, THE SPECIFIC PAIN, THE HOOK, PRODUCT FIT, and RECOMMENDED FIRST TOUCH",
+      "passed": false,
+      "evidence": "The output contains substantial coverage but does NOT use the required section structure. Missing or non-conformant sections: (1) No 'WHO IS [NAME]' header -- the content is split across 'PROSPECT PROFILE' and 'Background & Persona Inference' which cover career trajectory and role scope, but there is no explicit 'activity' subsection (no mention of LinkedIn posts, conference talks, or public activity) and no 'signal interpretation' subsection. (2) No 'WHAT IS [COMPANY]' header -- 'COMPANY PROFILE' covers business model, headcount, and 'Likely Technical Environment' covers tech stack, but revenue estimate is absent (no range, no methodology, just not addressed) and market position is not discussed. (3) No 'WHAT IS HAPPENING NOW' section with HOT/WARM/WATCH classification. The 'MARKET & TIMING SIGNALS' section lists 5 buying window indicators but does NOT classify them as HOT, WARM, or WATCH. (4) No 'THE SPECIFIC PAIN' section -- pain is discussed throughout (especially points 1-4 under timing signals) but not as a dedicated section. (5) 'THE HOOK' is present as 'Recommended Hook: Stripe-to-Startup CI/CD Scale Problem'. (6) 'PRODUCT FIT' is present as 'ICP FIT ASSESSMENT'. (7) 'RECOMMENDED FIRST TOUCH' is present as 'OUTREACH STRATEGY' with channel, tone, and goal. The output covers most topics substantively but fails to conform to the required section taxonomy, particularly the HOT/WARM/WATCH classification structure."
+    },
+    {
+      "text": "Signal classification categorizes the Series B funding round (closed within 30 days) as a HOT signal with source attribution to the TechCrunch article and approximate date -- and identifies any additional signals from job postings or hiring surges in engineering as supporting HOT or WARM signals",
+      "passed": false,
+      "evidence": "The output has no HOT/WARM/WATCH signal classification system. The Series B is discussed as a 'buying window indicator' and 'strong signal' but is never classified as HOT. No source attribution to the TechCrunch article appears anywhere in the output. The output references the Series B as '$45M from Accel ~8 months ago' rather than the prompt's '$38M from Greylock ~3 weeks ago' -- different amount, investor, and timing. Hiring signals are discussed ('aggressive hiring and delivery targets') but not classified as HOT or WARM. Additional signals from job postings are listed as open research TODOs ('Check Tessera AI's careers page') rather than analyzed."
+    },
+    {
+      "text": "At least one hook is identified that is specific and verifiable -- not a generic industry trend but something tied to Kavitha Ramachandran personally (a LinkedIn post, a conference talk, a career move) or to a specific Tessera AI event (the Series B terms, a specific job posting requirement, a named partnership or product launch)",
+      "passed": false,
+      "evidence": "The recommended hook is 'Stripe-to-Startup CI/CD Scale Problem' which is described as: 'Bridge the gap between Stripe-grade developer productivity and the realities of scaling a startup's engineering infrastructure.' This is a persona-based inference, not a specific verifiable artifact. It is not tied to a specific LinkedIn post, conference talk, or observable event. The hook reasoning is: 'It acknowledges her background without being sycophantic' and 'It names a real, specific pain point.' However, the assertion requires something 'specific and verifiable' -- the Stripe career move could qualify as a career move hook, but it is marked [provided] and unverified. The opening also suggests 'Reference a specific, observable signal -- a recent Tessera blog post, job listing for a DevOps/platform engineer, or a conference talk. If none are available, lead with the stage-specific pain point' -- acknowledging no verifiable hook was found. The suggested email opening is generic stage-based messaging: 'Most VPEs I talk to 6 months after a Series B are dealing with the same problem.'"
+    },
+    {
+      "text": "ICP match assessment evaluates Tessera AI against the stated criteria (Series A-C, developer tooling / AI-ML company, 50-500 headcount, US-based) and produces a STRONG / MODERATE / WEAK rating with reasoning for the rating rather than just stating it",
+      "passed": true,
+      "evidence": "Section 4 'ICP FIT ASSESSMENT' contains a table evaluating each criterion individually: Stage (Series B = STRONG), Sector (Dev tools + AI = STRONG), Headcount (~120 = STRONG), Location (San Francisco = STRONG), with an overall rating of EXCELLENT. Reasoning is provided: buyer authority is analyzed ('Kavitha owns infrastructure and tooling decisions. She is either the decision-maker or the primary technical champion'), budget authority is addressed ('Budget authority for a $45M-funded company on a tool like BuildKite Pro is well within her remit'). The assessment uses a clear rating scale and explains why each criterion scores as it does, though the reasoning per criterion is brief. This passes because each ICP dimension is evaluated individually with a rating and the overall assessment includes reasoning beyond just stating the rating."
+    },
+    {
+      "text": "Pain assessment connects the post-Series B situation (scaling pressure, engineering hiring, infrastructure strain from growth) specifically to CI/CD and deployment automation needs -- not generic 'they might need better tools' but a causal chain from their situation to the product category",
+      "passed": true,
+      "evidence": "Multiple sections build a detailed causal chain: (1) 'Post-Series B = infrastructure buildout. The 6-12 month window after a Series B is the most common time for CI/CD platform adoption.' (2) 'Rapid hiring creates CI/CD pain. Every new engineer added to the team increases build queue contention, slows feedback loops, and exposes pipeline fragility.' (3) 'AI/ML pipeline complexity. Traditional CI/CD tools struggle with ML workloads -- long-running training jobs, GPU resource management, large artifact storage.' (4) 'Stripe alumni expect great tooling. The delta between what I had at Stripe and what we have here creates urgency.' (5) 'Dev tools companies eat their own dogfood. A mature CI/CD platform is table stakes for a company selling to developers.' (6) Company stage analysis: 'Companies at this stage typically shift from ad hoc tooling to mature, scalable platforms. CI/CD is often one of the first infrastructure investments after a major funding round.' (7) Build vs buy inflection: 'At ~120 employees (probably 50-70 engineers), maintaining custom CI/CD infrastructure becomes expensive. This is the exact headcount range where teams adopt specialized CI/CD platforms.' This is a rich, specific, multi-layered causal chain connecting situation to CI/CD needs."
+    },
+    {
+      "text": "Recommended first touch specifies channel (LinkedIn / Email / Phone with reasoning for why that channel suits this prospect), tone (peer-level / educational / ROI-focused), and goal (discovery call / referral / event / content share) -- and any factual claims in the brief about Kavitha's background or Tessera's business carry source attribution or are explicitly labeled as unverified",
+      "passed": true,
+      "evidence": "Channel: Email is PRIMARY with reasoning: 'VPEs process email systematically; a well-crafted cold email with a specific hook has the best conversion rate for this persona.' LinkedIn is SECONDARY: 'Use as a warm follow-up after email, or lead with LinkedIn if you can find a mutual connection.' Mutual intro via Stripe network is listed as HIGH VALUE. Tone: 'Data-driven', 'Infrastructure-aware', 'DX-focused', 'Time-conscious' with reasoning tied to Stripe background. The 'What NOT to Do' section reinforces tone: 'Do not oversimplify the technical pitch. She will disengage if you treat her like a non-technical buyer.' Goal: 'No meeting needed' -- the ask is content sharing ('Happy to share the architecture doc') as a low-commitment first step. Source attribution: Claims are consistently marked as '*[provided]*' throughout the brief. The opening caveat states: 'All claims sourced from your intake are marked as [provided] and should be validated before outreach via LinkedIn, mutual connections, or Tessera's website.' The verification section notes 'Web research did not surface a verifiable public profile' for either the prospect or company."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 3,
+    "total": 6,
+    "pass_rate": 0.50
+  },
+  "execution_metrics": {
+    "output_chars": 8045,
+    "transcript_chars": 0,
+    "note": "No transcript, metrics.json, or timing.json files were found for this execution."
+  },
+  "timing": {},
+  "claims": [
+    {
+      "claim": "Staff Engineers at Stripe operate at a high bar with sophisticated internal build/test/deploy tooling",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Stripe's engineering culture and high hiring bar are well-documented in industry discourse. The claim about internal tooling sophistication is consistent with public knowledge about Stripe's engineering practices."
+    },
+    {
+      "claim": "At ~120 employees, engineering typically represents 40-70 engineers with the VP owning infrastructure decisions",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Reasonable industry inference. At dev tools companies, engineering headcount is typically 40-50%+ of total. At this size, the VP of Engineering typically owns tooling and infrastructure decisions."
+    },
+    {
+      "claim": "The 6-12 month window after a Series B is the most common time for CI/CD platform adoption",
+      "type": "factual",
+      "verified": false,
+      "evidence": "This is presented as fact but is not cited. It may be a reasonable generalization but could also be fabricated. No source is provided."
+    },
+    {
+      "claim": "BuildKite customers include Shopify, Canva, and other high-growth engineering orgs",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Buildkite's public customer page and case studies confirm Shopify as a customer. Canva is also a known Buildkite user. This claim is verifiable."
+    },
+    {
+      "claim": "There is a Tessl company with $125M raised and Accel participation",
+      "type": "factual",
+      "verified": false,
+      "evidence": "This specific claim appears in the verification caveat. Cannot confirm from available outputs whether Tessl exists with these exact funding details, though it is specific enough to suggest it came from web research."
+    },
+    {
+      "claim": "The output references $45M Series B from Accel approximately 8 months ago",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The eval prompt says '$38M Series B about three weeks ago led by Greylock' but the output says '$45M, led by Accel, ~8 months ago.' These are substantially different details -- different amount, different investor, different timing. Same discrepancy as the with_skill output, suggesting both outputs were generated from a different version of the prompt."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": [],
+    "note": "No user_notes.md file found."
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Research brief contains all required sections: WHO IS [NAME]... WHAT IS [COMPANY]... WHAT IS HAPPENING NOW with HOT/WARM/WATCH...",
+        "reason": "This assertion bundles 7+ distinct requirements into one pass/fail check. The without_skill output covers most content substantively but fails because it doesn't use the exact section taxonomy (especially HOT/WARM/WATCH). Splitting this into individual assertions per section would give more granular signal about what specifically the skill template adds vs. what an unshaped model already produces."
+      },
+      {
+        "reason": "Both outputs (with_skill and without_skill) reference $45M/Accel/8 months instead of the eval prompt's $38M/Greylock/3 weeks. This strongly suggests both executions received a different prompt than what is recorded in eval_metadata.json. The eval infrastructure has a data fidelity issue that undermines the validity of several assertions, particularly the signal classification assertion which checks for 'closed within 30 days' and 'TechCrunch article' -- details present in the eval_metadata prompt but apparently not in the actual execution prompt."
+      },
+      {
+        "reason": "The without_skill output is substantially richer in several areas (competitive landscape analysis, suggested email copy, risk factors table, 'What NOT to Do' guidance) that no assertion measures. An assertion checking for competitive positioning or risk assessment would capture the without_skill output's strengths in actionable sales intelligence."
+      },
+      {
+        "assertion": "At least one hook is identified that is specific and verifiable",
+        "reason": "For a synthetic/fictional prospect that cannot be found via web search, this assertion may be structurally impossible to pass for any model that actually conducts research. Both outputs correctly identify that no verifiable hook exists. This penalizes honest research behavior. Consider either using a real prospect or adding an alternative assertion: 'If no verifiable hook is found, the brief proposes conditional hooks clearly labeled as requiring verification.'"
+      }
+    ],
+    "overall": "The eval has a fundamental design tension: the prospect appears to be synthetic (neither output could verify the person or company), which makes assertions requiring 'verifiable' artifacts structurally difficult to pass. Additionally, the prompt recorded in eval_metadata.json differs from what was apparently executed (different funding amount, investor, and timing in both outputs). These two issues -- synthetic prospect + prompt mismatch -- account for most failures in both outputs. The assertions that do work well are the pain assessment and first touch assertions, which test genuine analytical depth rather than data retrieval."
+  }
+}

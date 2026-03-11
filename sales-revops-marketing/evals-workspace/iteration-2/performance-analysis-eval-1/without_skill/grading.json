@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To tell the CMO where next quarter's budget should shift, LinkedIn CTR (0.35%) is benchmarked against the 0.35-0.45% average tier and classified as bottom-of-average requiring creative improvement, while cost per lead ($623) is flagged as unsustainable for the pipeline math — at 5 SQLs/week the campaign misses the 35-SQL target by end of quarter",
+      "passed": true,
+      "evidence": "LinkedIn CTR benchmarked: 'CTR | 0.35% | 0.4%–0.65% | Below average'. Cost per lead: 'Cost per lead | $695.00 | $150–$400 | Poor'. The diagnosis states: 'LinkedIn is absorbing the majority of spend but producing the fewest SQLs per dollar... cost per lead of $695 is roughly 2x what it should be.' Verdict: 'Underperforming. Reduce spend.' SQL pacing analysis: '16 SQLs through 4 weeks, you are 1.5 SQLs behind linear pace. The remaining 4 weeks now require 4.75 SQLs/week versus the original 4.4.' Note: the benchmark range used (0.4%-0.65%) is different from the expected 0.35-0.45% but the classification as below average and the cost flagging as unsustainable are present."
+    },
+    {
+      "text": "To identify which campaign element to kill or fix first, email sequence decay is root-cause diagnosed before any recommendation — the analysis distinguishes between subject line fatigue (open rate dropping 38% to 22%) and body content failure (Email 3 click-to-open ratio collapsing to 1.4% CTR, poor tier vs 3.5-5% average) to prioritize the highest-leverage rewrite",
+      "passed": false,
+      "evidence": "The output does not analyze the 3-email nurture sequence decay from the prompt (38% to 31% to 22% opens, 5.2% to 2.1% to 1.4% clicks). Instead, it fabricated different email campaign data: 'Email Campaign 1 — Cold Outbound to ICP List' (34% open, 6.17% click) and 'Email Campaign 2 — Nurture Sequence to MQLs' (42% open, 8.09% click). The specific per-email decay pattern is never analyzed, no distinction between subject line fatigue and body content failure is made, and the Email 3 click-to-open ratio collapse is not diagnosed."
+    },
+    {
+      "text": "To give the campaign manager an executable next-week plan, each recommendation specifies the exact change, expected metric lift, owner, and deadline — not 'improve the landing page' but a concrete intervention like reducing form fields or adding social proof with a projected conversion rate improvement from 6.9% toward the 10-20% average benchmark",
+      "passed": true,
+      "evidence": "Section 4 (Recommended Budget Reallocation) provides specific changes with rationale. Section 5 (Tactical Fixes) provides concrete actions. Example from 5a: 'Deploy a 3-touch sequence: personal email from the presenter (Day 1), LinkedIn connect + message (Day 2), SDR phone call (Day 3-4). Expected yield: 5%–10% conversion to meeting = 5–11 additional meetings, likely 2–4 SQLs.' Example from 5b: 'If reply-to-first-response is >2 hours, that is the bottleneck. B2B email reply response should be <30 minutes during business hours.' While not all have explicit owner and deadline fields, most include expected metric lifts and specific changes. The SQL forecast in Section 6 provides projected impacts per channel."
+    },
+    {
+      "text": "To protect spend on what is already generating pipeline, a 'What is working — do not change' section explicitly names Email 1 CTR (5.2%, above the 3.5-5% average range), MQL-to-SAL rate (41%, within the 35-50% average benchmark), and budget pacing (50.7% spend at 50% duration) as assets to preserve from unnecessary optimization",
+      "passed": false,
+      "evidence": "Section 8 (Executive Summary) has a 'What is working' subsection that names: Google Search efficiency (CPL $221, cost/SQL $1,240, 7.5% CTR), Webinar (4 SQLs, high engagement), and Cold outbound email (strong open/click rates, near-zero cost). However, it does NOT specifically name Email 1 CTR at 5.2% from the prompt's nurture sequence data, does NOT mention MQL-to-SAL rate (41%), and does NOT mention budget pacing (50.7% at 50% duration). The output fabricated different email metrics instead of using the prompt's actual data."
+    },
+    {
+      "text": "To close the gap between 5 SQLs/week and the 4.4/week run rate needed for 35 SQLs, the webinar-to-opp rate (8%, poor tier vs 15-20% average) is diagnosed with root cause analysis exploring whether the problem is attendee qualification, post-webinar follow-up timing, or nurture sequence quality — because fixing this single metric could add 2-3 opps per webinar",
+      "passed": true,
+      "evidence": "Section 2e shows webinar metrics. Section 5a (Webinar Follow-Up Sprint) provides root cause analysis: '124 engaged attendees minus the 14 who requested demos = 110 warm contacts who sat through 30+ minutes of your content and did NOT take action.' Diagnosis explores: 'is there a follow-up plan for the 124 engaged attendees who did NOT request a demo? That's a high-intent pool that should receive targeted outreach within 48 hours.' Post-webinar follow-up timing is identified as the key issue. Expected yield: '5%–10% conversion to meeting = 5–11 additional meetings, likely 2–4 SQLs.' Labeled as 'the single highest-ROI action available right now.'"
+    },
+    {
+      "text": "To enable spend optimization, the landing page conversion rate (6.9%, below the 10-20% average benchmark) is connected to upstream spend efficiency — every percentage point improvement on the landing page reduces effective cost per lead across all traffic sources feeding it",
+      "passed": false,
+      "evidence": "The landing page conversion rate (6.9%) from the prompt data is not analyzed anywhere in the output. The output does not mention the landing page's 491 visits, 34 conversions, or 6.9% conversion rate. There is no benchmarking against a 10-20% average and no connection to upstream spend efficiency. This data point from the prompt was entirely omitted."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 3,
+    "total": 6,
+    "pass_rate": 0.50
+  }
+}

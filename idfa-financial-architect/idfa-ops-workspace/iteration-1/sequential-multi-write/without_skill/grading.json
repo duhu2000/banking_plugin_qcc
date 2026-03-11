@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Writes Inp_Units_Y1 = 75000 via idfa_ops.py write",
+      "passed": false,
+      "evidence": "No idfa_ops.py used. Report states values were written via openpyxl: 'Assumptions sheet cells B3, B5, B6 updated.'"
+    },
+    {
+      "text": "Writes Inp_Variable_Cost_Per_Unit = 35 via idfa_ops.py write",
+      "passed": false,
+      "evidence": "Written via openpyxl directly, not idfa_ops.py."
+    },
+    {
+      "text": "Writes Inp_Fixed_Costs = 800000 via idfa_ops.py write",
+      "passed": false,
+      "evidence": "Written via openpyxl directly, not idfa_ops.py."
+    },
+    {
+      "text": "Triggers recalculation via recalc_bridge.py (at least once after all writes)",
+      "passed": false,
+      "evidence": "No recalc_bridge.py used. Values computed internally."
+    },
+    {
+      "text": "Reads Net_Income_Y2 via idfa_ops.py read",
+      "passed": false,
+      "evidence": "No idfa_ops.py read. Net_Income_Y2 computed internally as $3,364,375.00."
+    },
+    {
+      "text": "Reports the result as the model's output, not an internal calculation",
+      "passed": false,
+      "evidence": "Values computed internally: 'all formulas in Calculations and Output sheets will recalculate when opened in Excel.' The reported $3,364,375 was computed internally, not read from the model."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 6,
+    "total": 6,
+    "pass_rate": 0.0
+  }
+}

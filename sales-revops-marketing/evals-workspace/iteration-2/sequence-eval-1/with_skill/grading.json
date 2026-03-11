@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To maximise response rate on the opening touch, Touch 1 leads with Priya Kapoor's specific situation (her LinkedIn post about fleet coordination across 3 distribution centers and/or the Head of Reliability Engineering hire) rather than leading with FleetMind or Vantage Robotics -- prospects respond to messages about their problem, not your product",
+      "passed": true,
+      "evidence": "Touch 1 opens with Priya's specific situation: 'your post last week about fleet downtime costing Vantage 11% of operational capacity,' rather than leading with FleetMind or the seller."
+    },
+    {
+      "text": "To prevent the sequence from going stale, each of the 6 touches uses a distinct angle or proof point not present in any previous touch -- the available hooks (LinkedIn post, reliability hire, distribution center expansion, Georgia Tech connection, Apex Fulfillment case study, sector-level downtime patterns) must be distributed across touches, not front-loaded or repeated",
+      "passed": false,
+      "evidence": "The sequence repeats the same proof points heavily across touches -- Priya's 11% downtime post and the Apex Fulfillment result appear in multiple touches. Several useful hooks from the prompt, such as the Georgia Tech connection, the Head of Reliability Engineering hire, and the 3 new distribution centers, are not distributed as distinct angles."
+    },
+    {
+      "text": "To convert awareness into pipeline, Touch 4 introduces the Apex Fulfillment proof point (unplanned downtime from 11% to 3.2% in 90 days) as social proof from a similar-scale warehouse automation company -- same-vertical proof points are the highest-converting element in outreach sequences, and burying them in Touch 1 wastes their impact",
+      "passed": false,
+      "evidence": "Apex Fulfillment is introduced in Touch 1 and reused in later touches. The expectation explicitly wanted that proof point introduced in Touch 4 so it could function as later-stage social proof rather than being spent immediately."
+    },
+    {
+      "text": "To protect the relationship for future attempts, Touch 6 is a graceful close that is short, leaves the door open, contains no ask, and uses no guilt language or 'just checking in' -- a bad close poisons the entire account for re-engagement sequences later",
+      "passed": true,
+      "evidence": "Touch 6 is a short graceful close that leaves the door open and contains no ask: it says the rep is happy to pick the conversation up later if fleet downtime becomes a priority."
+    },
+    {
+      "text": "To maintain channel effectiveness, at least 2 distinct channels (LinkedIn and email) are used across the 6 touches, and no single channel is used for consecutive touches within fewer than 3 days -- channel fatigue drives unsubscribes and connection-request rejections that permanently reduce reachability",
+      "passed": true,
+      "evidence": "The sequence uses at least two channels (LinkedIn and email), and the channels alternate across the 14-day cadence rather than repeating the same channel within fewer than 3 days."
+    },
+    {
+      "text": "To prevent live prospects from falling through cracks, branching rules include: reply at any touch exits the sequence and alerts the rep (continuing to sequence a prospect who replied destroys trust), and LinkedIn connection accepted without reply triggers a custom warm follow-up DM rather than the generic next sequence touch",
+      "passed": true,
+      "evidence": "The branching rules explicitly say 'Reply received at any touch -> EXIT SEQUENCE immediately; alert Tariq' and 'LinkedIn connection accepted without reply -> send warm follow-up DM (not the next scheduled sequence touch).'"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 2,
+    "total": 6,
+    "pass_rate": 0.67
+  }
+}

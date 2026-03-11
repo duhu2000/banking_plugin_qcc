@@ -1,0 +1,99 @@
+{
+  "expectations": [
+    {
+      "text": "Output contains a Five Laws check section with all five laws explicitly verified: specific reference, lead with them, one ask, word count, and banned language",
+      "passed": true,
+      "evidence": "Output contains a 'FIVE LAWS CHECK' section for the main message listing all five laws: Law 1 (Specific reference), Law 2 (Lead with them), Law 3 (One ask), Law 4 (Word count: 76 words / limit: 100), Law 5 (No jargon: Confirmed clean). Additionally, each follow-up variant also includes its own Five Laws check."
+    },
+    {
+      "text": "Message body is 100 words or fewer (LinkedIn DM channel limit)",
+      "passed": true,
+      "evidence": "Verified word count of the main DM message body (excluding signature): 76 words. The output self-reports 76 words, which matches independent verification. Well under the 100-word limit."
+    },
+    {
+      "text": "First sentence of the message body references Sarah Chen's LinkedIn post or her team's achievement -- does not begin with 'We', 'I', 'My company', 'RevStack', or any sender-focused language",
+      "passed": true,
+      "evidence": "First sentence: 'Congrats on cutting your Salesforce-to-NetSuite sync errors by 70% -- rebuilding that integration layer in-house is no small lift, especially at scale.' This directly references Sarah Chen's LinkedIn post about cutting sync errors by 70%. It begins with 'Congrats' (prospect-focused), not any sender-focused language."
+    },
+    {
+      "text": "Message contains exactly one CTA: a 15-minute call -- no alternative asks, no vague 'let me know if interested', no multiple options",
+      "passed": true,
+      "evidence": "The only CTA in the main DM is: 'Worth a 15-minute call to compare notes?' This is a single, specific ask for a 15-minute call. No alternative asks or vague language present."
+    },
+    {
+      "text": "Message body contains none of the banned words: leverage, synergy, best-in-class, seamless, robust, solution, game-changing, revolutionary, disruptive, holistic, end-to-end, cutting-edge, world-class, innovative, empower, unlock, transform",
+      "passed": true,
+      "evidence": "Searched the main DM message body for all 17 banned words. None found. The output's own Five Laws check also confirms: 'Confirmed clean -- no banned language detected.'"
+    },
+    {
+      "text": "Output includes both a Day 3 follow-up variant (different angle, not 'just checking in') and a Day 7 follow-up variant (shorter, single question format)",
+      "passed": true,
+      "evidence": "Day 3 follow-up present under '### Day 3 Follow-Up (Email -- channel switch from LinkedIn DM)' -- it takes a different angle by offering a resource ('short breakdown of how two mid-market rev-ops teams handled that second phase'), not a 'just checking in' message. Day 7 follow-up present under '### Day 7 Follow-Up (Email -- shorter, single question)' -- it is shorter (20 words) and uses a single diagnostic question: 'Is keeping that rebuilt integration layer running smoothly still a priority for your team, or has the focus shifted elsewhere?'"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "output_chars": 2932,
+    "transcript_chars": null
+  },
+  "timing": null,
+  "claims": [
+    {
+      "claim": "Word count of main message is 76 words",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Independent word count confirms 76 words in the message body (excluding signature)."
+    },
+    {
+      "claim": "Day 3 follow-up is 57 words",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Consistent with the follow-up body text length. Reasonable count for the message content."
+    },
+    {
+      "claim": "Day 7 follow-up is 20 words",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The single-sentence body is indeed approximately 20 words."
+    },
+    {
+      "claim": "No banned language detected in any message",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Searched all three message bodies for all 17 banned words. None found in any."
+    },
+    {
+      "claim": "Tone is peer-level",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Message uses 'compare notes', 'curious whether', and references specifics -- reads as peer-to-peer rather than salesy or subordinate."
+    },
+    {
+      "claim": "ICP match is listed as UNVERIFIED",
+      "type": "process",
+      "verified": true,
+      "evidence": "Header states 'ICP MATCH: UNVERIFIED' -- the output does not falsely claim ICP verification."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Message body is 100 words or fewer (LinkedIn DM channel limit)",
+        "reason": "The assertion checks the word limit but relies on the output self-reporting its word count. A stronger assertion would verify the count independently. However, independent verification confirmed the self-reported count is accurate in this case."
+      },
+      {
+        "reason": "No assertion checks whether the follow-up variants also comply with the banned words list and word limits. The with_skill output does include Five Laws checks for each follow-up, but the eval assertions only verify the main message. A message with clean primary DM but banned words in follow-ups would pass all assertions."
+      },
+      {
+        "reason": "No assertion checks that the Day 3 follow-up uses a genuinely different angle vs. merely rephrasing the original message. The current assertion only checks for the presence of a Day 3 variant and that it's not 'just checking in', but a near-duplicate of the original with minor rewording would also pass."
+      }
+    ],
+    "overall": "Assertions are well-structured and cover the key outreach quality dimensions. The main gap is that follow-up variants get less scrutiny than the primary message -- banned words and word limits are only asserted for the main DM."
+  }
+}

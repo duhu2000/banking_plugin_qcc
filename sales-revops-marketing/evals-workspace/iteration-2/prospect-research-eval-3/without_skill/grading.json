@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To enter an active evaluation before the shortlist closes, the research brief treats urgency as a structural element — the WHO IS RAJ PATEL section catalogs his LinkedIn posting cadence (4-5 posts over 3 weeks), specific themes (Datadog cost at scale, microservices observability, open-source alternatives), engagement levels (200+ reactions on key post), and classifies this as a HOT signal per the skill's criteria (prospect posted about your problem area in last 14 days)",
+      "passed": false,
+      "evidence": "The output mentions the LinkedIn activity ('4-5 posts over the past 3 weeks,' '200+ reactions,' themes of 'observability challenges, Datadog costs, and evaluating alternatives') but does not use the structured WHO IS section format, does not classify the signal as HOT using formal signal classification criteria, and does not reference any skill-defined signal framework. The treatment is informal ('What This Tells Us: He's clearly the decision-maker or key influencer') rather than structured with formal classification."
+    },
+    {
+      "text": "To surface whether Komodo Health has additional buying signals beyond one person's posts, the WHAT IS HAPPENING NOW section checks for corroborating signals — job postings for observability or platform engineering roles, recent funding that would fund infrastructure investments, tech stack signals from engineering job descriptions mentioning Datadog or alternatives — building a picture of whether this is one engineer's frustration or an organizational initiative",
+      "passed": false,
+      "evidence": "There is no WHAT IS HAPPENING NOW section. The output mentions general info about Komodo Health ('Series D or E,' '500-800 employees,' 'hundreds of microservices, currently on Datadog') but does not check for corroborating organizational signals such as job postings, engineering blog posts, or other evidence that this is an organizational initiative vs. one person's frustration. No signal classification of any kind is performed."
+    },
+    {
+      "text": "To give the AE a hook that demonstrates genuine awareness of Raj's perspective, at least one hook references a specific element from his LinkedIn activity — such as the 'open-source-first observability' theme — framed as referencing the theme of his public commentary rather than quoting his exact words, consistent with the skill's hook identification guidance",
+      "passed": true,
+      "evidence": "The Recommended Approach section states: 'Reference his posts -- mention that you've seen his commentary on observability costs at scale. Don't quote him directly, just show awareness.' While not in a formal HOOK section, it does reference the specific theme of his LinkedIn commentary and explicitly advises referencing the theme rather than quoting directly."
+    },
+    {
+      "text": "To qualify whether this account is worth fast-tracking, the ICP match assessment evaluates Komodo Health against reasonable criteria for an open-source observability vendor (healthcare data analytics company, late-stage funding, 500-800 headcount, engineering-heavy organization running microservices at scale) and produces a rating with reasoning about fit strength",
+      "passed": false,
+      "evidence": "There is no formal ICP match assessment with a rating (STRONG/MODERATE/WEAK). The output says 'The fit here looks really strong' informally under 'Why This Matters' but does not evaluate against specific ICP criteria systematically or produce a formal rating. It lists what Raj wants and says 'Your product checks all three boxes' but this is product fit, not ICP match assessment of the account."
+    },
+    {
+      "text": "To connect the prospect's stated pain to a specific buying rationale, the pain assessment builds a causal chain: hundreds of microservices generating high observability data volume, Datadog per-host pricing scaling nonlinearly with infrastructure growth, platform engineering team under budget pressure — leading to open-source observability as the solution category that addresses both cost and control concerns",
+      "passed": false,
+      "evidence": "There is no formal pain assessment section. The output notes 'He wants: Open-source-first approach, Observability that scales (logs, metrics, traces), Cost control vs. Datadog's pricing model' but does not build a causal chain connecting infrastructure scale to non-linear cost growth to budget pressure. The connection between microservices scale and Datadog's pricing model creating specific cost pressure is not articulated as a causal chain."
+    },
+    {
+      "text": "To capitalize on the narrow evaluation window, the recommended first touch specifies LinkedIn as the channel (given Raj's active presence), recommends a peer-level tone that positions as sharing relevant perspective on the exact problem he is publicly discussing, sets the goal as entering the active evaluation, and flags that timing is the critical variable because the prospect has signaled he is already evaluating alternatives",
+      "passed": true,
+      "evidence": "Recommended Approach: '1. Reach out on LinkedIn -- that's where he's active,' '2. Reference his posts -- mention that you've seen his commentary,' '3. Position around his stated needs -- open-source, cost-effective, works at microservices scale,' '4. Ask for one thing -- a conversation about what he's looking for in his evaluation. Don't try to pitch; try to get included in the eval.' Timing section: 'This is urgent... A shortlist is forming or already exists... If you're not in the conversation soon, you could miss the window entirely.' Bottom Line: 'Move fast -- reach out within the next day or two.' While not formally structured, it covers LinkedIn channel, awareness-based tone, evaluation entry goal, and timing urgency."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  }
+}

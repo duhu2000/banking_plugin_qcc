@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Production efficiency: All 10 derivative asset types are produced from a single whitepaper brief (LinkedIn long-form article, 3 CEO/VP LinkedIn posts, email newsletter, social carousel outline, cold email hook, sales one-pager, 5 ad copy variants, 8 email subject line variants, webinar outline, FAQ post) -- this is the core time-saving value of content multiplication; missing any asset type means the marketing team still has to create it manually",
+      "passed": true,
+      "evidence": "All 10 asset types are present: Asset 1 = LinkedIn long-form article, Asset 2 = 3 CEO/VP LinkedIn posts, Asset 3 = email newsletter, Asset 4 = social carousel outline (8 slides), Asset 5 = cold email hook, Asset 6 = sales one-pager, Asset 7 = 5 ad copy variants, Asset 8 = 8 email subject line variants, Asset 9 = webinar outline, Asset 10 = FAQ post."
+    },
+    {
+      "text": "Content performance: The 3 CEO/VP LinkedIn posts each take a genuinely different angle on the whitepaper content (e.g., one on the 11.4 hours/week cost quantification, one on the Shift-Left Data Quality framework, one on customer proof points) with different hooks -- posting the same message three times with different words wastes executive publishing slots and trains the algorithm that your content is repetitive",
+      "passed": true,
+      "evidence": "Post 1 = 'The Cost Quantification Angle' (opens with '11.4 hours. Every single week.'), Post 2 = 'The Shift-Left Framework Angle' (opens with 'In software engineering, shift left means catching bugs earlier'), Post 3 = 'The Customer Proof Point Angle' (opens with 'Two numbers that changed how I think about data pipeline monitoring: 6 hours to 8 minutes... 100%'). Three genuinely different angles."
+    },
+    {
+      "text": "Campaign ROI: The 5 ad copy variants test meaningfully different hooks (e.g., pain-point stat, framework name, customer result, counterintuitive claim, question) with each variant implicitly or explicitly testable as an A/B pair -- without distinct angles, the marketing team is spending ad budget on creative rotation that generates no learning about what resonates with the ICP",
+      "passed": true,
+      "evidence": "Variant A = Pain-Point Stat Hook, Variant B = Framework Name Hook, Variant C = Customer Result Hook, Variant D = Counterintuitive Claim Hook, Variant E = Question Hook. Five distinct hook types, each clearly labeled and testable."
+    },
+    {
+      "text": "Campaign ROI: The 8 email subject line variants comply with the 50-character mobile display limit and span at least 3 of the 5 copywriting frameworks (Specificity, Curiosity, Relevance, Urgency, Question) -- subject lines that exceed mobile character limits get truncated and lose their hook, and testing within a single framework produces marginal gains versus testing across frameworks",
+      "passed": true,
+      "evidence": "All 8 subject lines are under 50 characters (45, 42, 38, 43, 35, 37, 47, 46 chars). Framework coverage explicitly listed: Specificity (2), Curiosity (2), Relevance (2), Question (2) -- spanning 4 of the 5 major copywriting frameworks."
+    },
+    {
+      "text": "Pipeline contribution: The cold email hook is approximately 50 words, leads with a single specific stat from the whitepaper as a conversation opener, and the sales one-pager follows the skill-defined structure (outcome-focused headline, problem bullets, proof with quantified customer results, how-it-works, CTA) -- these two assets are the direct sales-enablement outputs that feed pipeline; generic or unstructured versions get ignored by reps",
+      "passed": true,
+      "evidence": "Cold email hook is ~49 words, opens with '11.4 hours a week investigating why dashboards don't match source data' stat. Sales one-pager has: outcome-focused headline ('Stop Losing 11.4 Hours a Week to Schema Drift'), problem bullets (4 bullets), Proof section with Meridian and Strata results in table format, How Shift-Left Data Quality works (4 steps), and CTA ('Request a 15-minute walkthrough')."
+    },
+    {
+      "text": "Brand consistency: All statistics used across every derivative asset are drawn only from the whitepaper brief provided (11.4 hours/week, Meridian 6h to 8min, Strata 100% correction elimination, 200 data teams surveyed) -- fabricated numbers in any single asset create a factual inconsistency across the content ecosystem that erodes brand credibility when a prospect encounters multiple touchpoints",
+      "passed": true,
+      "evidence": "Output includes a 'Statistics Audit (Brand Consistency Check)' table mapping every stat to its source. Stats used: 11.4 hours/week, 200 data teams, Meridian 6h to 8min, Strata 100% correction elimination, Meridian $340M revenue, Strata $89M revenue. States 'No statistics were fabricated or sourced from outside the whitepaper brief.'"
+    },
+    {
+      "text": "Production efficiency: Each asset follows its format-specific structure from the skill definition (e.g., LinkedIn article has scroll-stopping first line and ends with a comment-driving question; email newsletter has subject line, preview text, conversational opening, and single CTA; social carousel has 8 slides with one finding per slide) and every asset includes a CTA -- assets that require structural rework before publishing negate the efficiency gain of automated content multiplication",
+      "passed": true,
+      "evidence": "LinkedIn article opens with 'Your dashboards are lying to you' (scroll-stopping) and ends with 'What's the most painful schema drift incident your team has dealt with?' (comment-driving question). Email newsletter has subject line, preview text, conversational opening ('Quick question: when was the last time...'), and single CTA. Carousel has 8 slides with one finding per slide. Every asset includes a CTA. All CEO posts end with engagement-driving questions."
+    }
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}
+}

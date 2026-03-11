@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "To reframe the team's decision around pipeline impact rather than conversion vanity metrics, effective MQL yield per visitor is calculated for both variants (A: 8.98% x 34% = 3.05% = ~79 MQLs/month; B: 15.80% x 19% = 3.00% = ~78 MQLs/month) — exposing that the raw conversion lift produces zero net gain in qualified pipeline",
+      "passed": true,
+      "evidence": "Section 'THE REAL NUMBER: EFFECTIVE MQL YIELD PER VISITOR' contains exact calculations: Variant A: 8.98% x 34% = 3.05%, ~79 MQLs; Variant B: 15.80% x 19% = 3.00%, ~78 MQLs. States: 'The raw conversion lift produces zero net gain in qualified pipeline.'"
+    },
+    {
+      "text": "To tell the CMO whether this page can hit the 80 MQL/month target, both variants are assessed against the target and both are found insufficient — the analysis frames this as 'neither variant solves the business problem' rather than picking a winner from two losing options",
+      "passed": true,
+      "evidence": "Output explicitly states: 'Neither variant hits the 80 MQL/month target' and 'Neither variant solves the business problem. Picking a \"winner\" between two options that both miss the target is the wrong frame for this decision.'"
+    },
+    {
+      "text": "To diagnose why the MQL rate dropped so the team can fix it, root cause analysis identifies that removing company size and use case fields eliminated the qualification signal — the form reduction increased volume but removed the data that separates qualified from unqualified leads",
+      "passed": true,
+      "evidence": "Section 'ROOT CAUSE: FORM FIELD REMOVAL KILLED QUALIFICATION DATA' states: 'Variant B reduced the form from 7 fields to 4 by removing company size, phone number, and use case. These are the three fields most commonly used for MQL qualification. The MQL rate dropped from 34% to 19%... without company size and use case data, the scoring model cannot distinguish qualified mid-market buyers from students, competitors, and early-stage companies.'"
+    },
+    {
+      "text": "To generate a recommendation that actually hits the 80 MQL target, the analysis proposes a specific Variant C: Variant B's 4-field form with progressive profiling on the thank-you page or backend enrichment via Clearbit/ZoomInfo to recover qualification data without adding form friction — with projected MQL yield math",
+      "passed": true,
+      "evidence": "Two Variant C options are proposed: (A) Progressive profiling on thank-you page (40-60% completion, recovery of qualification fields) and (B) Backend enrichment via Clearbit/ZoomInfo (70-80% coverage). Projected Variant C MQL yield (Option B): 15.80% x 28% = 4.42%, ~115 MQLs/month, exceeding the 80 target by 44%."
+    },
+    {
+      "text": "To benchmark both variants against industry standards, conversion rates are compared to the skill's landing page benchmark (average 10-20%) — Variant A (8.98%) classified as below average, Variant B (15.80%) classified as average-to-good — contextualizing the UX improvement as real even though MQL yield is flat",
+      "passed": true,
+      "evidence": "Headline numbers table classifies: 'A: Below average; B: Average-to-Good' against '10-20% (benchmark avg)'. Benchmarks Context section repeats: 'Variant A is underperforming the industry average. Variant B sits solidly in the average-to-good range. The UX improvement from A to B is real and meaningful, even though the MQL yield is flat.'"
+    },
+    {
+      "text": "To protect the UX gains worth preserving regardless of which variant ships, the analysis identifies Variant B's lower bounce rate (44% vs 61%) and higher time-on-page (2:18 vs 1:42) as engagement improvements that indicate better page design — these should carry forward into any Variant C",
+      "passed": true,
+      "evidence": "'WHAT IS WORKING -- DO NOT CHANGE' section item 1: 'Variant B's page design and UX. The 17-percentage-point bounce rate reduction (61% to 44%) and 36-second time-on-page increase represent genuine engagement improvements. These metrics are independent of form length and reflect a better page experience. Protect these gains in any Variant C build.' Optimization opportunity #3 also states these 'should carry forward into Variant C regardless of which form approach is chosen.'"
+    }
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}
+}

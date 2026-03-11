@@ -1,0 +1,38 @@
+{
+  "eval_id": 2,
+  "eval_name": "inspect-full-model-structure",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Runs idfa_ops.py inspect and discovers all 20 Named Ranges",
+      "passed": true,
+      "evidence": "Summary table shows 'Total Named Ranges: 20' and the Named Range Index lists all 20 ranges numbered 1-20 alphabetically."
+    },
+    {
+      "text": "Distinguishes Assumptions layer (6 Inp_ ranges) from Calculations layer (14 ranges with formulas)",
+      "passed": true,
+      "evidence": "Summary shows 'Input ranges (raw values): 6' and 'Calculated ranges (formulas): 14'. Separate sections for 'Sheet: Assumptions (Input Layer)' with 6 Inp_ ranges and 'Sheet: Calculations (Calculation + Output Layer)' with 14 formula ranges."
+    },
+    {
+      "text": "Reports whether intent notes (comments) are present",
+      "passed": true,
+      "evidence": "Summary: 'Intent notes present: 14 / 14 formula cells (100%)'. Each calculation table includes an 'Intent Note' column with specific note text (e.g., 'Year 1 revenue = units * price per unit')."
+    },
+    {
+      "text": "Presents information organized by layer, not as raw JSON dump",
+      "passed": true,
+      "evidence": "Output is organized with separate sections: 'Sheet: Assumptions (Input Layer)' and 'Sheet: Calculations (Calculation + Output Layer)', further subdivided by category (Units, Revenue, Variable Costs, Contribution, EBIT, Tax, Net Income). An IDFA Layer Mapping table is also provided."
+    },
+    {
+      "text": "Identifies the formula chain structure",
+      "passed": true,
+      "evidence": "A full 'Formula Dependency Chain' section with an ASCII diagram shows the flow from inputs through Units → Revenue → Variable_Costs → Contribution → EBIT → Tax → Net_Income for both Y1 and Y2."
+    },
+    {
+      "text": "Reports the model uses Named Range references exclusively",
+      "passed": true,
+      "evidence": "IDFA Compliance Audit table shows 'G1: All formulas use Named Ranges — PASS — 0 violations — no hard-coded cell references'. Also: 'All cells on this sheet contain formulas that reference Named Ranges exclusively.'"
+    }
+  ]
+}

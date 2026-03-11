@@ -1,0 +1,26 @@
+{
+  "file": "/Users/mjs/Documents/code/panaversity-official/agentfactory-business-plugins/idfa-financial-architect/skills/idfa-ops/evals/files/ops_test_model.xlsx",
+  "total_formulas": 14,
+  "guardrail_1_named_ranges": {
+    "status": "PASS",
+    "violations": 0,
+    "details": []
+  },
+  "guardrail_2_latex": {
+    "status": "PASS",
+    "complex_formulas_without_verification": 0,
+    "details": []
+  },
+  "guardrail_3_intent_notes": {
+    "status": "PASS",
+    "coverage": "100%",
+    "missing": []
+  },
+  "guardrail_4_layer_isolation": {
+    "status": "PASS",
+    "violations": 0,
+    "details": []
+  },
+  "overall": "PASS",
+  "compliance_score": "100%"
+}

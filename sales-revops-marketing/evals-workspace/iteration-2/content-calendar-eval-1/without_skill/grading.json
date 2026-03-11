@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline generation: every content piece includes a CTA that maps to the campaign goal of demo requests -- pre-launch pieces drive toward waitlist/early access signups that feed the demo pipeline, post-launch pieces drive direct demo booking, and no piece exists without a conversion-oriented CTA tied to one of the two personas (VP Legal Ops or Head of Procurement)",
+      "passed": false,
+      "evidence": "While many pieces include CTAs oriented toward waitlist signups (pre-launch) and demo requests (post-launch), neither of the two named personas (VP Legal Ops, Head of Procurement) is consistently referenced. The output never mentions 'Head of Procurement' as a persona at all. Additionally, not every content piece has a CTA -- many LinkedIn posts and YouTube videos have implicit engagement goals but not explicit conversion-oriented CTAs tied to a persona. The persona column is absent entirely from this output's content tables."
+    },
+    {
+      "text": "Content leverage: pillar-cluster model is clearly visible with at least 2 cornerstone assets (one pre-launch, one post-launch) each generating 4-8 derived cluster pieces across blog, LinkedIn, and email -- demonstrating maximum content output from minimum production effort by a single writer",
+      "passed": true,
+      "evidence": "Two cornerstone assets are identifiable: (1) Pre-launch: Week 3's 'AI-Native vs. AI-Added: Why Architecture Matters More Than Feature Lists in Contract Management' is labeled 'THIS IS THE CORNERSTONE PIECE' with cluster content derived across weeks 3-4 (buyer's guide, technical examples, case study, related LinkedIn posts, emails). (2) Post-launch: Week 8's '2026 AI Contract Management Benchmark Report' is a gated PDF lead magnet with associated LinkedIn, email, and blog content. Both generate multiple derivative pieces across blog, LinkedIn, email, and YouTube channels. The pillar-cluster model is clearly visible."
+    },
+    {
+      "text": "Execution velocity: total weekly content volume stays within 6-9 pieces per week (1 full-time writer with AI multiplier), and any week approaching the ceiling is flagged with a recommendation to cut or defer lower-priority pieces -- prioritizing pillar content and demo-driving assets over channel fill",
+      "passed": false,
+      "evidence": "Weekly content volume is consistently at 13 pieces per week (2 blogs + 5 LinkedIn + 1 email + 1 YouTube = 9, but some weeks have additional pieces). Week 8 (launch week) has 3 blogs + 8 LinkedIn posts + 2 emails + 2 YouTube videos = 15 pieces, far exceeding the 6-9 ceiling. The output does not flag any week as approaching a ceiling or recommend cutting/deferring pieces. Additionally, the weekly cadence includes 5 LinkedIn posts/week and weekly YouTube videos, which appears unsustainable for 1 full-time writer. The output acknowledges a 'Content Writer burnout' risk but does not flag specific weeks or recommend deferrals."
+    },
+    {
+      "text": "Execution velocity: every production deadline is set at least 5 business days before the corresponding publish date, and LegalTech Connect in week 3 has pre-event teasers, live coverage, and post-event recap content with deadlines that account for the event timeline -- ensuring the tentpole moment is not missed due to production delays",
+      "passed": false,
+      "evidence": "The output's production workflow shows content being drafted and published same-day or next-day ('Monday: Draft Blog #1 (Tue publish),' 'Thursday: Finalize & publish Blog #2'). This means production deadlines are 0-1 business days before publish, not 5 business days. Additionally, LegalTech Connect is never mentioned anywhere in the output. The prompt explicitly states 'Our CEO is speaking at LegalTech Connect in week 3 -- that's a tentpole moment,' but the output completely ignores this event. No pre-event teasers, live coverage, or post-event recap content is planned."
+    },
+    {
+      "text": "Alignment: content is split between the two personas with messaging tailored to each buyer's priorities -- VP Legal Ops content emphasizes efficiency and risk reduction, Head of Procurement content emphasizes cost and compliance -- so the calendar produces assets the sales team can use in persona-specific outreach",
+      "passed": false,
+      "evidence": "The output never mentions 'Head of Procurement' as a target persona. The entire calendar targets a single broad audience of 'mid-market legal ops teams.' While the output does address cost and compliance topics in some pieces (e.g., the comparison blog in Week 6, the integration guide), these are not explicitly tagged to a procurement persona. There is no content split between the two personas specified in the prompt. The calendar does not produce persona-specific assets that a sales team could map to VP Legal Ops vs. Head of Procurement outreach."
+    },
+    {
+      "text": "Content leverage: only the four committed channels appear (LinkedIn company page, CEO LinkedIn, blog, email newsletter) with NO webinar or paid social content planned, and channel cadence stays within sustainable defaults (LinkedIn company page up to 3x/week, CEO LinkedIn up to 4-5x/week, blog 1-2x/week, email 1-2x/month) -- preventing the team from overcommitting to channels they cannot sustain",
+      "passed": false,
+      "evidence": "The output includes YouTube as a channel (1x/week, Friday publish) which was not among the four committed channels in the prompt. The prompt specified: LinkedIn company page, CEO's personal LinkedIn, blog, and email newsletter. YouTube is a fifth, uncommitted channel. LinkedIn company page cadence is 5x/week (daily weekdays), which exceeds the sustainable default of up to 3x/week. Email newsletter is 1x/week (8 sends across 8 weeks, with 2 in launch week), exceeding the 1-2x/month default. Blog cadence at 2x/week (Tue & Thu) is at the upper end but within range. The output explicitly states the user said 'No webinars or paid social' but still adds YouTube, which was not requested."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 5,
+    "total": 6,
+    "pass_rate": 0.17
+  }
+}

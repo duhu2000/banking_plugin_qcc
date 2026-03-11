@@ -1,0 +1,572 @@
+{
+  "generated_at": "2026-03-11T15:01:47Z",
+  "note": "Actual on-disk status. Missing executions were not fabricated. Remaining runs are blocked by Claude CLI rate limiting until reset.",
+  "workspace": "sales-revops-marketing/evals-workspace/iteration-2",
+  "coverage": {
+    "defined_eval_cases": 45,
+    "completed_eval_cases": 21,
+    "pending_eval_cases": 24,
+    "completed_runs": 42,
+    "pending_runs": 48,
+    "timing_files_present": 0
+  },
+  "benchmark_completed_subset": {
+    "with_skill": {
+      "passed": 103,
+      "total": 128,
+      "pass_rate": 0.8047
+    },
+    "without_skill": {
+      "passed": 67,
+      "total": 128,
+      "pass_rate": 0.5234
+    },
+    "delta_points": 28.1
+  },
+  "top_positive_deltas": [
+    {
+      "eval_name": "sales-marketing-global-router-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 0.17,
+      "delta_points": 83.0
+    },
+    {
+      "eval_name": "copywriting-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 0.33,
+      "delta_points": 67.0
+    },
+    {
+      "eval_name": "lead-scoring-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 0.33,
+      "delta_points": 67.0
+    },
+    {
+      "eval_name": "outreach-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 0.33,
+      "delta_points": 67.0
+    },
+    {
+      "eval_name": "prospect-research-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 0.33,
+      "delta_points": 67.0
+    },
+    {
+      "eval_name": "pipeline-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.71,
+      "without_pass_rate": 0.29,
+      "delta_points": 42.0
+    },
+    {
+      "eval_name": "content-creation-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.67,
+      "without_pass_rate": 0.33,
+      "delta_points": 34.0
+    },
+    {
+      "eval_name": "prospect-research-eval-2",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.67,
+      "without_pass_rate": 0.33,
+      "delta_points": 34.0
+    }
+  ],
+  "zero_delta_cases": [
+    {
+      "eval_name": "campaign-planning-eval-2",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 1.0,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "content-calendar-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.17,
+      "without_pass_rate": 0.17,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "copywriting-eval-2",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 1.0,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "copywriting-eval-3",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 1.0,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "crm-enrichment-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 1.0,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "lead-scoring-eval-2",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 1.0,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "performance-analysis-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.5,
+      "without_pass_rate": 0.5,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "persona-icp-eval-2",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 1.0,
+      "delta_points": 0.0
+    }
+  ],
+  "completed_cases": [
+    {
+      "eval_name": "sales-marketing-global-router-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 0.17,
+      "delta_points": 83.0
+    },
+    {
+      "eval_name": "copywriting-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 0.33,
+      "delta_points": 67.0
+    },
+    {
+      "eval_name": "lead-scoring-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 0.33,
+      "delta_points": 67.0
+    },
+    {
+      "eval_name": "outreach-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 0.33,
+      "delta_points": 67.0
+    },
+    {
+      "eval_name": "prospect-research-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 0.33,
+      "delta_points": 67.0
+    },
+    {
+      "eval_name": "pipeline-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.71,
+      "without_pass_rate": 0.29,
+      "delta_points": 42.0
+    },
+    {
+      "eval_name": "content-creation-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.67,
+      "without_pass_rate": 0.33,
+      "delta_points": 34.0
+    },
+    {
+      "eval_name": "prospect-research-eval-2",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.67,
+      "without_pass_rate": 0.33,
+      "delta_points": 34.0
+    },
+    {
+      "eval_name": "sequence-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.67,
+      "without_pass_rate": 0.33,
+      "delta_points": 34.0
+    },
+    {
+      "eval_name": "pre-call-brief-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.33,
+      "without_pass_rate": 0.0,
+      "delta_points": 33.0
+    },
+    {
+      "eval_name": "campaign-planning-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.86,
+      "without_pass_rate": 0.57,
+      "delta_points": 29.0
+    },
+    {
+      "eval_name": "persona-icp-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 0.83,
+      "delta_points": 17.0
+    },
+    {
+      "eval_name": "follow-up-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.33,
+      "without_pass_rate": 0.17,
+      "delta_points": 16.0
+    },
+    {
+      "eval_name": "campaign-planning-eval-2",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 1.0,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "content-calendar-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.17,
+      "without_pass_rate": 0.17,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "copywriting-eval-2",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 1.0,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "copywriting-eval-3",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 1.0,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "crm-enrichment-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 1.0,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "lead-scoring-eval-2",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 1.0,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "performance-analysis-eval-1",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 0.5,
+      "without_pass_rate": 0.5,
+      "delta_points": 0.0
+    },
+    {
+      "eval_name": "persona-icp-eval-2",
+      "with_output": true,
+      "without_output": true,
+      "with_grading": true,
+      "without_grading": true,
+      "with_pass_rate": 1.0,
+      "without_pass_rate": 1.0,
+      "delta_points": 0.0
+    }
+  ],
+  "pending_cases": [
+    {
+      "eval_name": "campaign-planning-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "content-calendar-eval-2",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "content-calendar-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "content-creation-eval-2",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "content-creation-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "crm-enrichment-eval-2",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "crm-enrichment-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "follow-up-eval-2",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "follow-up-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "lead-scoring-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "outreach-eval-2",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "outreach-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "performance-analysis-eval-2",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "performance-analysis-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "persona-icp-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "pipeline-eval-2",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "pipeline-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "pre-call-brief-eval-2",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "pre-call-brief-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "prospect-research-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "sales-marketing-global-router-eval-2",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "sales-marketing-global-router-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "sequence-eval-2",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    },
+    {
+      "eval_name": "sequence-eval-3",
+      "with_output": false,
+      "without_output": false,
+      "with_grading": false,
+      "without_grading": false
+    }
+  ]
+}

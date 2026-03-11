@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Runs idfa_ops.py write to set Inp_Price to 150",
+      "passed": true,
+      "evidence": "Step 1 WRITE: 'uv run scripts/idfa_ops.py write ops_test_model.xlsx Inp_Price 150'. Result: {\"status\": \"ok\", \"name\": \"Inp_Price\", \"value\": 150}."
+    },
+    {
+      "text": "Runs recalc_bridge.py to trigger LibreOffice recalculation",
+      "passed": true,
+      "evidence": "Step 2 RECALCULATE: 'uv run scripts/recalc_bridge.py ops_test_model.xlsx'. Result: {\"status\": \"error\", \"message\": \"No recalculation engine found.\"}. The command was run even though it failed."
+    },
+    {
+      "text": "Runs idfa_ops.py read to retrieve Net_Income_Y1 and Net_Income_Y2",
+      "passed": true,
+      "evidence": "Step 3 READ: 'uv run scripts/idfa_ops.py read ops_test_model.xlsx Net_Income_Y1 Net_Income_Y2 Inp_Price'. Result: {\"status\": \"ok\", \"values\": {\"Net_Income_Y1\": null, \"Net_Income_Y2\": null, \"Inp_Price\": 150}}."
+    },
+    {
+      "text": "Executes the three steps in the correct order: write THEN recalc THEN read",
+      "passed": true,
+      "evidence": "Steps numbered and executed in order: Step 1 WRITE, Step 2 RECALCULATE, Step 3 READ."
+    },
+    {
+      "text": "Reports the results as the model's deterministic output, not an internal calculation",
+      "passed": false,
+      "evidence": "Since recalc failed and read returned null, the report traces formulas manually: 'Since the recalculation engine was unavailable, the expected values are traced manually through the model's formula chain.' The reported Net Income values ($3,150,000 and $3,727,500) come from internal calculation, not model reads."
+    },
+    {
+      "text": "If recalc fails due to LibreOffice not being installed, gracefully handles the error and informs the user",
+      "passed": true,
+      "evidence": "Recalc failure was handled gracefully. Key Observations section explains: 'Recalc failed \u2014 No LibreOffice or xlsx-skill recalc engine was available.' Suggests: 'brew install --cask libreoffice' to fix."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  }
+}

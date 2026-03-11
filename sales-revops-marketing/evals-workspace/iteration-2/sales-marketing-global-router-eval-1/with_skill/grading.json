@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Output routes through the outreach skill and contains a Five Laws compliance check section explicitly verifying all five laws (specific reference, lead with them, one ask, word count, banned language) -- wrong routing means no Five Laws check, no jurisdiction overlay, and a bad message that loses the deal",
+      "passed": true,
+      "evidence": "The output explicitly routes through the outreach skill and includes a full FIVE LAWS CHECK section that verifies all five laws one by one."
+    },
+    {
+      "text": "Output explicitly flags Germany's UWG consent requirement for cold email to individual email addresses and recommends using a corporate or role-based email address (e.g. engineering@voltgrid.de or a team alias) instead of a personal firstname.lastname@ address -- missing this means the rep sends a cold email that violates German law, creating legal exposure and potential fines",
+      "passed": true,
+      "evidence": "The jurisdiction section explicitly flags Germany's UWG consent rule, warns against cold emailing an individual address without consent, and recommends a corporate or role-based address such as engineering@voltgrid.de or info@voltgrid.de."
+    },
+    {
+      "text": "Output includes the mandatory output header at the top with TASK, ICP MATCH, CONFIGURATION, and VERIFY DATA fields -- missing the header breaks the structured workflow that RevOps teams rely on for tracking and QA across all agent outputs",
+      "passed": true,
+      "evidence": "The mandatory output header appears at the top with TASK, ICP MATCH, CONFIGURATION, and VERIFY DATA."
+    },
+    {
+      "text": "The email body's first sentence references Dr. Bruckner's MLOps World talk on taming feature drift or his specific work -- it does not begin with 'We', 'I', 'Lattice AI', 'My company', or any sender-focused language -- violating Law 2 (lead with their problem) means the prospect deletes immediately",
+      "passed": true,
+      "evidence": "The email opens with 'Your MLOps World talk on scaling model monitoring beyond Prometheus...' which references Dr. Bruckner's work directly and does not begin with sender-first language like 'We' or 'Lattice AI'."
+    },
+    {
+      "text": "Output includes GDPR-relevant guidance such as documenting legitimate interest for the outreach, including an opt-out mechanism, and noting data minimisation requirements from the EU overlay -- these are not optional footnotes but jurisdiction-mandated requirements that the router must surface when EU/Germany is detected",
+      "passed": true,
+      "evidence": "The compliance section includes GDPR-relevant guidance: document a Legitimate Interest Assessment, include a one-click opt-out, honour right-to-object requests, and verify EU-US data transfer safeguards."
+    },
+    {
+      "text": "Output ends with ALL OUTREACH OUTPUTS REQUIRE HUMAN REVIEW BEFORE SENDING -- this is the governance guardrail separating agent-drafted output from human-approved sends, and its absence means the rep may treat the draft as ready-to-send",
+      "passed": true,
+      "evidence": "The output ends with 'ALL OUTREACH OUTPUTS REQUIRE HUMAN REVIEW BEFORE SENDING.'"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

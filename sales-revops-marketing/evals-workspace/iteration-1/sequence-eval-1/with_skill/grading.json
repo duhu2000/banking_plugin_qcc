@@ -1,0 +1,110 @@
+{
+  "expectations": [
+    {
+      "text": "Sequence contains exactly 6 touches over 21 days with day assignments matching the HOT structure (Day 1, Day 3, Day 7, Day 10, Day 17, Day 21) and each touch includes full message text with word count",
+      "passed": true,
+      "evidence": "All 6 touches match the HOT structure exactly: Touch 1 (Day 1, LinkedIn DM, 71 words), Touch 2 (Day 3, Email, 127 words), Touch 3 (Day 7, Email, 93 words), Touch 4 (Day 10, Phone + Email, 118/102 words), Touch 5 (Day 17, LinkedIn DM, 56 words), Touch 6 (Day 21, Email, 46 words). Each touch includes full message text with explicit word counts."
+    },
+    {
+      "text": "Channel mix is present: at least 2 distinct channels (LinkedIn and email) are used across the 6 touches, and no single channel is used for consecutive touches within fewer than 3 days",
+      "passed": true,
+      "evidence": "Three distinct channels used: LinkedIn DM (Touches 1, 5), Email (Touches 2, 3, 6), Phone (Touch 4). Channel listed as 'LinkedIn x2 + Email x3 + Phone x1'. Closest same-channel gap is Email on Day 7 (Touch 3) and Email follow-up on Day 10 (Touch 4), which is 3 days apart -- not fewer than 3."
+    },
+    {
+      "text": "Value escalation is visible: Touch 1-2 are personalised to Priya's situation (LinkedIn post, reliability hire, distribution centers), Touch 3 is a no-ask value add, Touch 4 introduces social proof (Apex Fulfillment case study with the 11% to 3.2% downtime stat), and Touch 6 is the graceful close",
+      "passed": false,
+      "evidence": "Touch 1-2 are personalized to Priya's LinkedIn post about fleet coordination past 200 robots, but the reliability hire is not mentioned until Touch 4 and distribution centers are not explicitly referenced. Touch 3 is a no-ask value add ('No pitch attached -- just data'). Touch 4 references Apex Fulfillment but does NOT include the specific '11% to 3.2% downtime stat' -- instead it uses replanning latency (500ms), throughput drops (25-40%), and reliability engineering framing. Touch 6 is a graceful close. The assertion requires the specific downtime stat which is absent from the output."
+    },
+    {
+      "text": "Touch 6 is a graceful close: short, respectful, leaves the door open, contains no ask, no guilt language, and no 'just checking in'",
+      "passed": true,
+      "evidence": "Touch 6 is 46 words. Opens with 'I'll assume the timing isn't right. Completely understood.' (respectful, no guilt). Leaves the door open: 'If fleet coordination at scale becomes a priority you want outside perspective on, I'm here.' Contains no ask, no guilt language, no 'just checking in'. Ends with 'Best, Nathan Cole'."
+    },
+    {
+      "text": "No two touches contain identical or substantially duplicated content -- each touch adds a new angle, data point, or framing that was not present in any previous touch",
+      "passed": true,
+      "evidence": "Each touch introduces distinct substance: Touch 1 -- LinkedIn post hook + Apex scaling proof point. Touch 2 -- technical deep-dive on algorithm collapse (combinatorial load, replanning latency, collision avoidance shift). Touch 3 -- data from 14 deployments, 3x throughput-per-sqm insight, no-ask framing. Touch 4 -- three-pattern framework (500ms latency, predictive-to-reactive shift, reliability bottleneck) + reliability hire signal. Touch 5 -- trigger check, timing-respectful lighter touch. Touch 6 -- graceful close. Some recurring references to the 200-robot threshold and Apex, but each touch wraps them in a new framing rather than repeating content."
+    },
+    {
+      "text": "Branching rules section is present and includes at minimum: reply at any touch triggers sequence exit with rep alert, and LinkedIn connection accepted without reply triggers a custom warm follow-up DM (not the generic sequence touch)",
+      "passed": true,
+      "evidence": "Branching rules section is explicitly present with four rules: (1) 'Reply received at any touch -> EXIT SEQUENCE; alert Nathan immediately', (2) 'LinkedIn connection accepted without reply -> warm follow-up DM (not the generic sequence touch)', (3) email open after Touch 3 triggers acceleration, (4) bounce detection pauses sequence. Both required minimum rules are present verbatim."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  },
+  "execution_metrics": {},
+  "timing": {},
+  "claims": [
+    {
+      "claim": "ICP match is STRONG",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Prospect details (VP Engineering at warehouse robotics company, specific LinkedIn post trigger, reliability hire signal) align well with a fleet orchestration product."
+    },
+    {
+      "claim": "All LinkedIn DMs are under 100 words",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Touch 1 (LinkedIn DM): 71 words. Touch 5 (LinkedIn DM): 56 words. Both under 100."
+    },
+    {
+      "claim": "All emails are under 150 words",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Touch 2 (Email): 127 words. Touch 3 (Email): 93 words. Touch 4 follow-up email: 102 words. Touch 6 (Email): 46 words. All under 150."
+    },
+    {
+      "claim": "Voicemail is under 120 words",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Touch 4 voicemail: 118 words, listed as such."
+    },
+    {
+      "claim": "No instances of banned jargon (leverage, synergy, best-in-class, etc.)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Searched full output text for all 17 banned terms listed in the Five Laws Check. None found."
+    },
+    {
+      "claim": "Georgia Tech alumni connection was 'deliberately held back per rep instruction'",
+      "type": "process",
+      "verified": true,
+      "evidence": "Sequence notes state: 'Unused signal: Georgia Tech alumni connection -- deliberately held back per rep instruction. Could deploy naturally in a reply conversation.' The connection is not used in any of the 6 touches."
+    },
+    {
+      "claim": "Apex Fulfillment scaled from 180 to 400 robots per facility",
+      "type": "factual",
+      "verified": false,
+      "evidence": "This is a case study stat referenced from the prompt. Cannot verify against external data; it is used consistently across the output."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Sequence contains exactly 6 touches over 21 days with day assignments matching the HOT structure (Day 1, Day 3, Day 7, Day 10, Day 17, Day 21) and each touch includes full message text with word count",
+        "reason": "This assertion encodes a specific day structure (Day 1/3/7/10/17/21) that appears to come from a skill template. The assertion is strong and discriminating -- it correctly failed the without-skill output which used different days. However, it might be worth separating the day-assignment check from the word-count check, since they test different capabilities."
+      },
+      {
+        "assertion": "Value escalation is visible: Touch 1-2 are personalised to Priya's situation (LinkedIn post, reliability hire, distribution centers), Touch 3 is a no-ask value add, Touch 4 introduces social proof (Apex Fulfillment case study with the 11% to 3.2% downtime stat), and Touch 6 is the graceful close",
+        "reason": "This assertion packs too many sub-conditions into one pass/fail. The '11% to 3.2% downtime stat' is extremely specific and may not have been in the original prompt (it was truncated). If this stat wasn't in the prompt input, the assertion is testing for content the model couldn't have produced. Consider verifying the prompt contains this stat, or splitting into sub-assertions."
+      },
+      {
+        "reason": "No assertion checks whether the product name in the output matches the product name in the prompt. The prompt says 'FleetMind' but the with-skill output uses 'PathOS' throughout. This is a significant factual error that goes completely uncaught by the current assertions."
+      },
+      {
+        "reason": "No assertion checks tone or voice quality -- e.g., whether messages read as peer-level technical communication vs. generic sales copy. Both outputs demonstrate strong tone but this is a key differentiator that could distinguish genuine skill output from template-filling."
+      }
+    ],
+    "overall": "The assertions are generally well-structured and discriminating. The biggest gap is that no assertion catches the product name mismatch (FleetMind vs PathOS). The compound assertion about value escalation should be decomposed -- it conflates several independent quality checks into a single pass/fail, making it hard to identify which specific sub-condition failed."
+  }
+}

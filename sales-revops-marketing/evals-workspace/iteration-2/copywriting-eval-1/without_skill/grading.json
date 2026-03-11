@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Campaign ROI: At least 8 subject line variants are produced, spanning at least 4 of the 5 copywriting frameworks (Specificity, Curiosity, Relevance, Urgency, Question) with each variant labelled by framework -- testing within fewer than 4 frameworks limits the learning surface and means the campaign only discovers local optima within a narrow angle, not which fundamental approach resonates with VP Operations personas",
+      "passed": false,
+      "evidence": "10 subject line variants are produced, which meets the quantity requirement. However, none of the variants are labelled by framework. The subject lines are presented as a numbered list (1-10) without any framework categorization (Specificity, Curiosity, Relevance, Urgency, Question). The expectation explicitly requires each variant to be 'labelled by framework.' Without labels, the marketing team cannot identify which frameworks are being tested or ensure coverage across at least 4 of the 5 frameworks."
+    },
+    {
+      "text": "Campaign ROI: Every subject line variant is 50 characters or fewer with character count displayed alongside each -- subject lines that exceed mobile display limits get truncated mid-word, destroying the hook and wasting the send; this is a hard platform constraint, not a style preference",
+      "passed": false,
+      "evidence": "No character counts are displayed alongside any of the 10 subject lines. Additionally, several subject lines appear to exceed 50 characters: #1 'Your ops coordinators are losing 25 hrs/week to carrier portals' is approximately 63 characters, #2 'How PeakLogistics cut shipment tracking time by 73%' is approximately 52 characters, #3 'Still logging into 6+ carrier portals every morning?' is approximately 53 characters, #5 '[Name], quick question about your carrier tracking workflow' is approximately 58 characters. Multiple variants exceed the 50-character hard limit and no character counts are shown."
+    },
+    {
+      "text": "Content performance: Variants test genuinely different angles across the test dimensions (pain vs. gain, specific vs. broad, question vs. statement, rational vs. emotional) -- not synonym swaps of the same message (e.g., 'save time on tracking' vs. 'reduce tracking hours' vs. 'cut tracking time' are the same angle three times and produce no A/B learning)",
+      "passed": true,
+      "evidence": "The variants do test different angles: pain-focused (#1 'losing 25 hrs/week'), social proof (#2 'How PeakLogistics cut...', #9 'PeakLogistics eliminated 73%'), question-based (#3 'Still logging into...', #7 'What would you do with...'), metaphor (#4 'The manual tracking tax'), personalization (#5 '[Name], quick question'), FOMO/competition (#6 '3PLs are automating this -- are you?'), hidden cost (#8 'The hidden cost of...'), and direct solution (#10 'Your carrier portal problem has a fix'). These represent genuinely different angles across pain vs. gain, question vs. statement, specific vs. broad dimensions."
+    },
+    {
+      "text": "Pipeline contribution: Subject lines reference the specific persona world of VP Operations at 3PL companies (warehouse processes, shipment tracking, the 15-20 hours/week pain point) rather than generic productivity language -- ICP-specific subject lines outperform generic ones because the recipient recognizes their own situation in the preview pane",
+      "passed": true,
+      "evidence": "Subject lines reference specific 3PL VP Ops concerns: 'ops coordinators' (#1), 'carrier portals' (#1, #3), 'shipment tracking' (#2, #8, #9), 'carrier tracking workflow' (#5), '3PLs are automating this' (#6), '25 hrs/week' (#1 -- approximating the 15-20 hr/week pain point). These are ICP-specific references to the VP Operations world at 3PL companies rather than generic productivity language."
+    },
+    {
+      "text": "Brand consistency: No variant contains banned jargon (leverage, synergy, best-in-class, seamless, robust, solution) and the tone reads like a senior operator talking to a peer -- not like a marketing email, not like a sales pitch, not like a press release",
+      "passed": false,
+      "evidence": "The subject lines themselves are clean of banned jargon. However, the email body variants contain the banned word 'solution' is not present in subject lines but the email body Variant A uses 'FlowOps connects to 200+ carrier APIs' and Variant B uses 'FlowOps auto-connects to 200+ carriers, pulls live status into one dashboard, and flags exceptions before your customers even notice' -- these read more like sales pitch copy than a senior operator talking to a peer. Variant C opens with 'Quick math' which is more operator-like. The subject lines themselves pass the brand voice test, but #6 '3PLs are automating this -- are you?' reads as marketing FOMO rather than peer conversation. On balance, most subject lines maintain peer tone, but the email bodies drift into sales pitch territory."
+    },
+    {
+      "text": "Campaign ROI: A TESTING RECOMMENDATION section is present that names the specific lead A/B test pair, states an expected winner with reasoning tied to the persona's psychology (not just 'shorter subject lines perform better'), specifies open rate as the metric, and includes a minimum sample size -- without this section, the marketing team has 8 variants and no testing strategy, which means they either test randomly or default to gut feel",
+      "passed": false,
+      "evidence": "There is no TESTING RECOMMENDATION section for subject lines. The output includes a 'Campaign Notes' section at the end that describes email sequence cadence and LinkedIn coordination, but does not name a specific A/B test pair for subject lines, does not state an expected winner with reasoning, does not specify open rate as the metric, and does not include a minimum sample size. The note 'A/B test subject lines across variants' is mentioned in passing but without any structure, recommended pairs, or testing strategy."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  }
+}

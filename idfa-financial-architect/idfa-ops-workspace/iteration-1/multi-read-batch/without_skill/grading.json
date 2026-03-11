@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "Runs idfa_ops.py read with multiple names in a single command (e.g., 'read <file> Units_Y1 Revenue_Y1 Variable_Costs_Y1 Contribution_Y1 EBIT_Y1 Tax_Y1 Net_Income_Y1')",
+      "passed": false,
+      "evidence": "No idfa_ops.py used. Values were computed from the assumption values using the formula chain, not read from the model via the tool."
+    },
+    {
+      "text": "Returns values for all requested Named Ranges in one JSON response",
+      "passed": false,
+      "evidence": "No JSON response from idfa_ops.py. Results presented as a markdown income statement table."
+    },
+    {
+      "text": "Presents the values in a clear, formatted summary for the user",
+      "passed": true,
+      "evidence": "Year 1 Income Statement table clearly shows: Units Sold 50,000, Revenue $5,000,000, Variable Costs ($2,000,000), etc. Well-formatted."
+    },
+    {
+      "text": "Does not make 7 separate read calls when one batch call suffices",
+      "passed": false,
+      "evidence": "No read calls were made at all. Values were computed internally from the formula chain."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 3,
+    "total": 4,
+    "pass_rate": 0.25
+  }
+}

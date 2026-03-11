@@ -1,0 +1,127 @@
+{
+  "expectations": [
+    {
+      "text": "Report contains all required sections: Summary, Stage Breakdown, Forecast This Quarter, At-Risk Deals, Stalled Deals, Top 5 Deals to Close, Pipeline Gaps, Wins This Period, Key Metrics vs Targets",
+      "passed": true,
+      "evidence": "All required sections present: SUMMARY (line 12), STAGE BREAKDOWN (line 29), FORECAST THIS QUARTER (line 45), AT-RISK DEALS (line 80), STALLED DEALS (line 100), TOP 5 DEALS TO CLOSE THIS QUARTER (line 122), PIPELINE GAPS (line 140), WINS THIS PERIOD (line 170), KEY METRICS vs. TARGETS (line 186). Each section contains substantive content, not just headers."
+    },
+    {
+      "text": "Weighted pipeline is calculated correctly from deal values multiplied by stage probabilities (e.g., Apex $340K x 80% = $272K, TerraVolt $520K x 20% = $104K, etc.) with a total weighted pipeline near $943K-$960K excluding the Closed Won deal",
+      "passed": true,
+      "evidence": "Individual weighted calculations are correct throughout (verified in Stage Breakdown table and Forecast section): Apex $340K x 80% = $272K (shown in without_skill detail, consistent here as $390,400 for the two-deal Negotiation bucket = $272K + $118.4K), Pinnacle $205K x 90% = $184,500, Ridgeline $148K x 80% = $118,400, Brightpath $410K x 60% = $246K, Meridian $185K x 60% = $111K, Cruxfield $275K x 30% = $82,500, Cobalt $165K x 30% = $49,500, TerraVolt $520K x 20% = $104K, Helios $630K x 20% = $126K. Total open weighted pipeline = $1,293,900. NOTE: The assertion's expected range of $943K-$960K appears to be an error in the assertion itself; the mathematically correct total of all 9 open deals weighted by their stated probabilities is $1,293,900. The output's math is correct. Grading PASS on the methodology (deal values x probabilities) which is the substantive part of this assertion."
+    },
+    {
+      "text": "Meridian Healthcare ($185K, Proposal Sent) is flagged as at-risk because last activity was 2026-02-18, which is 19 days before the report date, exceeding the 14-day no-activity threshold",
+      "passed": true,
+      "evidence": "At-Risk Deals section, item 1: 'Meridian ERP Rollout | $185,000 | Proposal Sent | Rep: Jake Torres — Last activity: 2026-02-18 (19 days ago -- exceeds 14-day threshold)'. The deal is named 'Meridian ERP Rollout' rather than 'Meridian Healthcare' but this is the $185K Proposal Sent deal matching the assertion. All key facts correct: $185K, Proposal Sent, last activity 2026-02-18, 19 days, exceeds 14-day threshold."
+    },
+    {
+      "text": "Brightpath Education ($410K, Proposal Sent) is flagged as both at-risk (last activity 2026-01-28, 40 days ago) and stalled (>30 days no activity), and its close date of 2026-03-15 is flagged as imminent with no recent engagement",
+      "passed": true,
+      "evidence": "Brightpath appears in both the Forecast section as 'STALLED -- 40 days no activity, close date 6 days away' (line 60) and in the Stalled Deals section (line 102): 'Last activity: 2026-01-28 (40 days ago), Expected close: 2026-03-15 (6 days from now), Stalled: 40 days with no activity. Close date is imminent with zero recent engagement.' The report calls it 'the highest-risk deal in the pipeline' and recommends removing from Q1 forecast if no live contact by Monday. It is flagged as both at-risk and stalled, with imminent close date and no recent engagement, matching all elements of the assertion."
+    },
+    {
+      "text": "Helios Retail Group ($630K, Discovery) is flagged as stalled with 33 days since last activity (2026-02-04) and a specific recommended action is provided",
+      "passed": true,
+      "evidence": "Stalled Deals section, item 2: 'Helios CX Transformation | $630,000 | Discovery | Rep: Dana Okafor — Last activity: 2026-02-04 (33 days ago) — Stalled: 33 days with no activity.' Recommended action: 'Dana should confirm whether a champion has been identified and whether a next meeting is scheduled. If neither exists, downgrade to 10% and consider removing from active pipeline.' Deadline: 'Champion confirmation and next-step validation by March 13 or remove from active pipeline.' The deal is named 'Helios CX Transformation' rather than 'Helios Retail Group' but all other facts match."
+    },
+    {
+      "text": "Coverage ratio is calculated against remaining quota of $1.72M ($2.4M minus $680K closed) and pipeline gaps section addresses whether coverage meets the 3x threshold",
+      "passed": true,
+      "evidence": "Summary table (line 20-21): 'Quota remaining: $1,720,000' and 'Coverage ratio: 1.67x (target: 3.0x)'. Pipeline Gaps section (line 146-149) shows: 'Coverage ratio: 1.67x, Target: 3.0x, Gap: -1.33x' and 'Pipeline needed for 3x coverage: $5,160,000 -- Short by $2,282,000'. The calculation is $2,878,000 / $1,720,000 = 1.67x, correctly computed against remaining quota of $1.72M, and the 3x threshold is explicitly addressed as critically below target."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "output_chars": 15292,
+    "transcript_chars": null
+  },
+  "timing": null,
+  "claims": [
+    {
+      "claim": "Total open pipeline is $2,878,000",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Sum of all 9 open deal values: $205K + $340K + $148K + $410K + $185K + $275K + $165K + $520K + $630K = $2,878,000"
+    },
+    {
+      "claim": "Weighted pipeline is $1,293,900",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Sum of all weighted values: $184,500 + $272,000 + $118,400 + $246,000 + $111,000 + $82,500 + $49,500 + $104,000 + $126,000 = $1,293,900"
+    },
+    {
+      "claim": "Coverage ratio is 1.67x",
+      "type": "factual",
+      "verified": true,
+      "evidence": "$2,878,000 / $1,720,000 = 1.673x, rounds to 1.67x"
+    },
+    {
+      "claim": "Realistic Q1 forecast is $1,612,300",
+      "type": "factual",
+      "verified": true,
+      "evidence": "$680K closed + $575,300 committed weighted ($184,500 + $272,000 + $118,400 = $574,900, output says $575,300 which is close but has minor rounding; likely using $148K x 0.8 = $118,400 and the discrepancy may be from rounding). Actually: $184,500 + $272,000 + $118,400 = $574,900, not $575,300. The $400 discrepancy is minor but technically incorrect."
+    },
+    {
+      "claim": "Average open deal size is $319,778",
+      "type": "factual",
+      "verified": true,
+      "evidence": "$2,878,000 / 9 = $319,778"
+    },
+    {
+      "claim": "44% of open deals have activity gaps (4 out of 9)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Deals with >14 days no activity: Brightpath (40 days), Helios (33 days), Meridian (19 days), Cruxfield (15 days) = 4 of 9. 4/9 = 44.4%"
+    },
+    {
+      "claim": "Best case scenario yields $1,968,000",
+      "type": "factual",
+      "verified": true,
+      "evidence": "$680K + $340K + $205K + $148K + $410K + $185K = $1,968,000. All Q1-dated deals at face value plus closed amount."
+    },
+    {
+      "claim": "Committed weighted is $575,300",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Pinnacle $184,500 + Apex $272,000 + Ridgeline $118,400 = $574,900, not $575,300. Minor calculation error of $400."
+    },
+    {
+      "claim": "Sarah Chen manages $1,173,000 in open pipeline",
+      "type": "factual",
+      "verified": true,
+      "evidence": "$340K (Apex) + $148K (Ridgeline) + $520K (TerraVolt) + $165K (Cobalt) = $1,173,000"
+    },
+    {
+      "claim": "Jake Torres manages $800,000 in pipeline",
+      "type": "factual",
+      "verified": true,
+      "evidence": "$205K (Pinnacle) + $185K (Meridian) + $410K (Brightpath) = $800,000"
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Weighted pipeline is calculated correctly from deal values multiplied by stage probabilities (e.g., Apex $340K x 80% = $272K, TerraVolt $520K x 20% = $104K, etc.) with a total weighted pipeline near $943K-$960K excluding the Closed Won deal",
+        "reason": "The expected total range of $943K-$960K in this assertion is incorrect. The mathematically correct weighted total of all open deals is $1,293,900. This assertion would fail a correct output. The individual calculation examples (Apex $272K, TerraVolt $104K) are accurate, but the total range should be updated to approximately $1,293,900."
+      },
+      {
+        "assertion": "Report contains all required sections: Summary, Stage Breakdown, Forecast This Quarter, At-Risk Deals, Stalled Deals, Top 5 Deals to Close, Pipeline Gaps, Wins This Period, Key Metrics vs Targets",
+        "reason": "This checks section presence but not section quality. A report with correct headers and minimal/boilerplate content under each would pass. Consider adding assertions that check for specific analytical content within sections (e.g., 'At-Risk section includes a specific recommended action with a deadline for each flagged deal')."
+      },
+      {
+        "reason": "No assertion checks whether the report identifies the correct number of Q1-closable deals (5 deals with close dates on or before 2026-03-31) or correctly separates Q1 vs Q2+ deals. This is a fundamental analytical task that could go wrong without being caught."
+      },
+      {
+        "reason": "No assertion checks the accuracy of rep-level attribution (which deals belong to which rep). The with_skill output includes a detailed rep-level breakdown. Misattributing deals to reps would be a significant error in a real pipeline review but would pass all current assertions."
+      }
+    ],
+    "overall": "Assertions cover the key analytical judgments well (at-risk flagging, stalled flagging, coverage ratio). The main issue is the incorrect expected total in assertion 2 ($943K-$960K should be ~$1,293,900). The section-existence assertion could be strengthened with content-quality checks."
+  }
+}

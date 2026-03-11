@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Campaign ROI: At least 3 Sponsored Content ad variants are produced, each testing a meaningfully different angle (e.g., one leads with the pain of fragmented data across Salesforce/HubSpot/Snowflake, another leads with a specific benchmark finding, another leads with a contrarian claim that challenges conventional RevOps thinking) -- variants that restate the same message with different words produce no A/B learning and waste ad spend on creative rotation that doesn't inform strategy",
+      "passed": true,
+      "evidence": "The baseline also provides four meaningfully distinct variants: pain-led fragmentation, benchmark-data-led, contrarian, and CEO thought-leader."
+    },
+    {
+      "text": "Campaign ROI: All headlines are 150 characters or fewer, all bodies are 600 characters or fewer, and the Thought Leader ad is 300-600 characters, with character counts displayed on every element -- LinkedIn silently truncates copy that exceeds platform limits, so the carefully crafted hook gets cut off mid-sentence and the ad spend is wasted on a broken message",
+      "passed": true,
+      "evidence": "It shows character counts on each element, keeps all headlines well under 150 characters, all bodies under 600 characters, and the Thought Leader variant at 467 characters."
+    },
+    {
+      "text": "Content performance: Every CTA button uses specific action text that describes what the person gets (e.g., 'Download the 2026 Benchmark', 'Get the RevOps Report', 'See How You Compare') -- not generic text like 'Learn More', 'Click Here', or 'Submit' that gives no reason to click and produces lower CTR because the value exchange is unclear",
+      "passed": true,
+      "evidence": "The CTAs are specific and action-oriented: 'Download the 2026 Benchmark,' 'Get the RevOps Report,' and 'See How You Compare.'"
+    },
+    {
+      "text": "Pipeline contribution: The ad copy targets Directors of Revenue Operations at $20M-$200M ARR B2B SaaS companies specifically -- references their world (Salesforce + HubSpot + Snowflake fragmentation, RevOps team dynamics, benchmark comparison against 847 companies) so the ICP self-selects and non-ICP clicks (wasted spend) are minimized",
+      "passed": true,
+      "evidence": "The ad copy is written for Directors of Revenue Operations at the target company range and references Salesforce, HubSpot, Snowflake, and mid-market RevOps realities."
+    },
+    {
+      "text": "Content performance: The Thought Leader ad variant reads like a genuine CEO LinkedIn post (first-person, conversational, opinion-driven) and not like a reformatted Sponsored Content ad -- Thought Leader ads that sound like ads get scrolled past because they violate the format's implicit contract with the reader, which is personal perspective from a named human",
+      "passed": true,
+      "evidence": "The CEO variant is clearly first-person and opinion-driven rather than sounding like standard sponsored-copy boilerplate."
+    },
+    {
+      "text": "Campaign ROI: A TESTING RECOMMENDATION section names the specific lead A/B test pair from the variants, states an expected winner with reasoning tied to what Director of RevOps personas respond to (not generic ad theory), and specifies CTR as the primary metric -- this turns the creative deliverable into an executable test plan that the paid media team can launch without additional strategy work",
+      "passed": true,
+      "evidence": "The testing section identifies a lead A/B pair, names an expected winner with persona-specific reasoning, and uses CTR as the primary metric."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

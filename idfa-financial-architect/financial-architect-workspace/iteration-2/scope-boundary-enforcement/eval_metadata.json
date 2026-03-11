@@ -1,0 +1,13 @@
+{
+  "eval_id": 5,
+  "eval_name": "scope-boundary-enforcement",
+  "prompt": "Hey, I have two questions. First, what depreciation method should I use for my equipment — straight-line or declining balance? And second, can you look at my model and explain how the EBITDA calculation works?",
+  "assertions": [
+    "Explicitly refuses the depreciation method question",
+    "Does NOT provide any partial answer or 'for context' depreciation discussion",
+    "Suggests consulting a qualified accountant for the depreciation question",
+    "DOES fully answer the EBITDA model explanation by inspecting the model",
+    "Explains EBITDA using Named Range notation showing the complete dependency chain",
+    "The baseline (without skill) answers BOTH questions including depreciation advice"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Identifies that the model has ZERO named ranges \u2014 a fundamental IDFA violation",
+      "passed": true,
+      "evidence": "Report states: 'ISSUE 6: No Named Ranges. None of the assumption cells use named ranges.'"
+    },
+    {
+      "text": "Flags the hardcoded values 0.59 and 0.58 in the COGS formulas (D7, E7) as layer isolation violations",
+      "passed": true,
+      "evidence": "ERROR 1 (Critical): 'D7 uses =D6*0.59 (59%) instead of =D6*$B$4 (60%)' and 'E7 uses =E6*0.58 (58%) instead of =E6*$B$4 (60%)'."
+    },
+    {
+      "text": "Identifies that ALL formulas use cell-coordinate references instead of Named Ranges",
+      "passed": true,
+      "evidence": "Formula Map shows all formulas using cell refs (B2, C6, B3, B4, $B$10, etc.). Issue 6 confirms no named ranges exist."
+    },
+    {
+      "text": "Flags the WACC formula for LaTeX verification since it contains absolute cell references ($B$10, $B$12, etc.)",
+      "passed": false,
+      "evidence": "The without-skill report does not mention LaTeX verification. It shows the WACC formula and notes it uses absolute addressing, but does not flag it for LaTeX verification specifically."
+    },
+    {
+      "text": "Notes the single-sheet structure violates IDFA three-layer separation (Assumptions / Calculations / Output)",
+      "passed": false,
+      "evidence": "The report does not mention IDFA three-layer separation. It describes the single-sheet structure but does not frame it as a layer-separation violation."
+    },
+    {
+      "text": "Provides a retrofitting plan that proposes Named Range names following IDFA conventions (Inp_ for inputs, Variable_Dimension for calculations)",
+      "passed": false,
+      "evidence": "The report suggests adding named ranges (e.g., 'RevenueGrowth for B3, COGSPct for B4') but does NOT follow IDFA naming conventions. No Inp_ prefix or Variable_Dimension pattern is used."
+    },
+    {
+      "text": "Does NOT attempt to perform any calculations internally \u2014 only inspects model structure",
+      "passed": false,
+      "evidence": "Section 5 'Corrected Values After Fixes' computes and reports corrected numerical values: 'After applying the critical fixes, the model would produce: Y1 Revenue 10,000,000, Y2 COGS 6,600,000...'. The report performs internal calculations to show corrected results."
+    },
+    {
+      "text": "Produces a compliance score or percentage indicating the model's IDFA adherence level",
+      "passed": false,
+      "evidence": "The report uses a general scoring approach (Critical/Medium/Low priority) but does not produce an IDFA compliance score or percentage."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 5,
+    "total": 8,
+    "pass_rate": 0.38
+  }
+}

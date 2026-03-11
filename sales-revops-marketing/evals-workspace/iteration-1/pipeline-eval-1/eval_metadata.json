@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "pipeline-eval-1",
+  "prompt": "Hey, weekly pipeline review time. Here's the export from HubSpot as of 2026-03-09. Quota this quarter is $2.4M, we've closed $680K so far.\n\n| Deal | Company | Value | Stage | Prob% | Rep | Last Activi...",
+  "assertions": [
+    "Report contains all required sections: Summary, Stage Breakdown, Forecast This Quarter, At-Risk Deals, Stalled Deals, Top 5 Deals to Close, Pipeline Gaps, Wins This Period, Key Metrics vs Targets",
+    "Weighted pipeline is calculated correctly from deal values multiplied by stage probabilities (e.g., Apex $340K x 80% = $272K, TerraVolt $520K x 20% = $104K, etc.) with a total weighted pipeline near $943K-$960K excluding the Closed Won deal",
+    "Meridian Healthcare ($185K, Proposal Sent) is flagged as at-risk because last activity was 2026-02-18, which is 19 days before the report date, exceeding the 14-day no-activity threshold",
+    "Brightpath Education ($410K, Proposal Sent) is flagged as both at-risk (last activity 2026-01-28, 40 days ago) and stalled (>30 days no activity), and its close date of 2026-03-15 is flagged as imminent with no recent engagement",
+    "Helios Retail Group ($630K, Discovery) is flagged as stalled with 33 days since last activity (2026-02-04) and a specific recommended action is provided",
+    "Coverage ratio is calculated against remaining quota of $1.72M ($2.4M minus $680K closed) and pipeline gaps section addresses whether coverage meets the 3x threshold"
+  ]
+}

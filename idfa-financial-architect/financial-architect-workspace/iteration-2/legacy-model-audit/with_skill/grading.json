@@ -1,0 +1,38 @@
+{
+  "eval_id": 2,
+  "eval_name": "legacy-model-audit",
+  "configuration": "with_skill",
+  "pass_rate": 0.833,
+  "expectations": [
+    {
+      "text": "Discovers the hardcoded COGS percentages (0.59 in D7, 0.58 in E7) and explains the business impact",
+      "passed": true,
+      "evidence": "Issue #1 (lines 63-101) identifies 'Hardcoded COGS Percentages in Y2 and Y3' with D7=D6*0.59 and E7=E6*0.58. Explains business impact: 'If someone changes the COGS assumption in B4... only Year 1 will update. Years 2 and 3 will remain at 59% and 58% respectively, producing silently incorrect results.' Labeled as P0 priority."
+    },
+    {
+      "text": "Quantifies or flags the dollar impact of the COGS error (~$110K in Y2, ~$242K in Y3)",
+      "passed": false,
+      "evidence": "The audit identifies the COGS hardcoding as a P0 silent-breakage risk and explains what would go wrong conceptually, but does NOT quantify the specific dollar impact of the error (~$110K in Y2, ~$242K in Y3). No dollar amounts for the COGS deviation are computed or presented."
+    },
+    {
+      "text": "Identifies that the model has ZERO named ranges and ALL formulas use cell coordinates",
+      "passed": true,
+      "evidence": "Issue #2 (lines 105-172) states: 'Every formula in the model uses cell-coordinate references (A1 notation). There are zero Named Ranges defined anywhere in the workbook.' Provides complete formula inventory showing all 22 coordinate references across 10 formulas."
+    },
+    {
+      "text": "Flags the WACC formula for LaTeX verification",
+      "passed": true,
+      "evidence": "Issue #4 (lines 204-248) provides full LaTeX verification of the WACC formula including the standard WACC equation, numerical substitution, and a verification checklist (weights sum to 1.0, tax shield on debt only, consistent units). Concludes 'The math is correct.'"
+    },
+    {
+      "text": "Produces a compliance score or remediation priority list",
+      "passed": true,
+      "evidence": "Compliance Scorecard (lines 366-372) shows guardrail-by-guardrail scores (all 0%). Remediation Plan (lines 322-360) has 4 phases with P0/P1/P2 priority labels. Overall IDFA Compliance Score: 0/100 stated in Executive Summary."
+    },
+    {
+      "text": "Provides a retrofitting plan with proposed Named Range names following IDFA conventions",
+      "passed": true,
+      "evidence": "Issue #2 remediation (lines 139-171) provides complete Named Range proposals: 9 input ranges with Inp_ prefix (Inp_Rev_Y1, Inp_Rev_Growth, Inp_COGS_Pct_Y1, etc.) and 14 calculation ranges (Revenue_Y1..Y3, COGS_Y1..Y3, etc.) with proposed IDFA formulas for each."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline generation: the primary CTA across nearly all content pieces is whitepaper download that feeds into the ABM nurture, and the calendar explicitly shows how downloads flow into the nurture sequence -- connecting content output to pipeline entry rather than treating downloads as a terminal metric",
+      "passed": true,
+      "evidence": "Nearly every content piece has 'Download whitepaper' as CTA (some have 'Register for webinar' which also feeds the pipeline). The Download-to-Pipeline Flow section maps: 'Content piece > CTA: Download the whitepaper > Landing page form > Auto-enrolled in ABM nurture sequence (5-email drip over 21 days) > MQL handoff to BDR at engagement threshold > Demo booking'. Downloads are explicitly connected to pipeline via ABM nurture, not treated as terminal."
+    },
+    {
+      "text": "Content leverage: pillar-cluster model produces at least 8 derived cluster pieces from the single whitepaper, organized around its three sub-themes (predictive analytics adoption, real-time tracking maturity, supplier risk scoring) so each theme generates multiple pieces across different channels and formats -- demonstrating maximum content output from one 40-page research asset",
+      "passed": true,
+      "evidence": "Three cluster themes explicitly organized: Cluster Theme 1 (Predictive Analytics Adoption) produces 3 pieces, Cluster Theme 2 (Real-Time Tracking Maturity) produces 4 pieces, Cluster Theme 3 (Supplier Risk Scoring) produces 4 pieces, plus 2 Cross-Theme pieces. Total of 14 derived cluster pieces, well above the 8 minimum. Each theme generates blog posts, LinkedIn company posts, CEO LinkedIn posts, and email content across different channels."
+    },
+    {
+      "text": "Content leverage: the headline stat ('73% of supply chain leaders lack real-time visibility into Tier 2+ suppliers') is repurposed as a hook across multiple channels and formats -- LinkedIn posts, blog headlines, email subject lines, webinar promotion -- demonstrating how one data point gets repackaged to drive downloads from different audience touchpoints",
+      "passed": true,
+      "evidence": "Headline Stat Repurposing table shows the stat deployed across: LinkedIn company post Week 1 (graphic), Blog Week 2 (headline: '73% of Supply Chain Leaders Lack Tier 2+ Visibility'), Email subject line Week 2 ('73% of your peers can't see past Tier 1'), CEO LinkedIn Week 1 (personal anecdote opener), Webinar promo Week 3 ('We surveyed 500 logistics leaders. 73% lack Tier 2+ visibility'), LinkedIn company Week 4 (carousel slide 1), Email subject line Week 4 ('The 73% problem your supply chain can't afford to ignore')."
+    },
+    {
+      "text": "Alignment: every content piece is mapped to either the VP Supply Chain at enterprise manufacturers or the Director of Logistics at 3PL providers, with messaging tailored to each persona's distinct priorities -- so the content calendar produces persona-specific assets that sales can use in ABM account outreach",
+      "passed": true,
+      "evidence": "Persona Mapping table maps every content piece to a specific persona with distinct messaging angles: Blog 1 targets 'VP Supply Chain (manufacturers)' with 'Strategic investment timing -- your board is asking about this'. Blog 2 targets 'Director of Logistics (3PL)' with 'Operational gap -- your clients expect this visibility'. Email 1 targets 'Director of Logistics (3PL)' with 'Competitive pressure -- 3PLs that offer visibility win contracts'. Email 2 targets 'VP Supply Chain (manufacturers)' with 'Operational risk'. Calendar entries all have persona assignments."
+    },
+    {
+      "text": "Execution velocity: channel cadence matches sustainable defaults for all five committed channels (LinkedIn company page up to 3x/week, CEO LinkedIn up to 4-5x/week leveraging CEO quotes, blog 1-2x/week, email 1-2x across 6 weeks to the 8K list, exactly 1 webinar mid-campaign as a mid-funnel conversion event) and total weekly volume stays within 6-9 pieces for 1 writer with AI assistance",
+      "passed": true,
+      "evidence": "Capacity Summary: LinkedIn company 12 total (2x/week, within 3x ceiling), CEO LinkedIn 9 total (1-2x/week, within 4-5x ceiling), Blog 5 total (~1/week), Email 2 sends across 6 weeks, exactly 1 webinar in Week 4. Weekly totals: Week 1: 6, Week 2: 5, Week 3: 5, Week 4: 5+webinar, Week 5: 4, Week 6: 4. Cadence check confirms: 'LinkedIn company page: 2x/week (within 3x/week sustainable ceiling)' etc. Writer capacity: '1 writer with AI assistance can produce 12-20 hrs/week of content. Weekly volume stays within 6-9 pieces.'"
+    },
+    {
+      "text": "Pipeline generation: the webinar is structured as a mid-funnel conversion event built around a key whitepaper finding, with a registration CTA that funnels attendees to the whitepaper as a follow-up asset and into the ABM nurture -- not a standalone event disconnected from the download-to-pipeline motion",
+      "passed": true,
+      "evidence": "Webinar in Week 4 titled 'Closing the Visibility Gap: What 500 Logistics Leaders Revealed' built around the 73% Tier 2+ finding. Webinar structure: 'Built around the key finding that 73% lack Tier 2+ visibility. Post-webinar: all registrants receive whitepaper download link via email. Attendees auto-enrolled in ABM nurture. Non-attendees receive recording link + whitepaper CTA.' CTA during webinar: 'Whitepaper download (in-webinar CTA + follow-up email)'. Positioned mid-campaign as conversion event."
+    },
+    {
+      "text": "Execution velocity: production deadlines are set at least 5 business days before every publish date, and the 6-week sequence is ordered so high-leverage pieces (pillar derivatives, webinar promotion, email sends to 8K list) are front-loaded while lower-leverage channel fill is scheduled later -- ensuring the highest-impact content ships first",
+      "passed": false,
+      "evidence": "Production deadlines are NOT consistently set at 5 business days before publish. While Week 1 content shows 'Prior Wed (5 biz days prior)' for Monday content, many other pieces show shorter lead times: Week 2 blog due 'Prior Mon' (published Mon = same day or 0 days), Week 2 LinkedIn due 'Prior Tue' (published Tue = same day). Week 3 entries show 'Prior Mon/Tue/Wed/Thu/Fri' for content published that same week. The statement 'All content has a production deadline set at least 5 business days before publish date' is contradicted by the actual calendar entries which show deadlines only 0-4 business days before publish for most pieces. However, the front-loading principle is present: 'Highest-leverage pieces ship first: Week 1: Launch blog + email blast. Weeks 5-6: Post-webinar momentum + lower-leverage channel fill.'"
+    }
+  ],
+  "summary": {"passed": 6, "failed": 1, "total": 7, "pass_rate": 0.86}
+}

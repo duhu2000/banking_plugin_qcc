@@ -1,0 +1,38 @@
+{
+  "eval_id": 10,
+  "eval_name": "audit-legacy-with-violations",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Reports Guardrail 1 FAIL with specific coordinate-reference violations",
+      "passed": true,
+      "evidence": "Guardrail 1 section: 'Named Range Priority — FAIL. Violations: 10 of 10 formulas (100%)'. Lists all 10 formulas with their specific coordinate references (e.g., C6='=B2' uses B2, D6='=C6*(1+B3)' uses C6 and B3, B16 uses $B$10, $B$12, $B$13, etc.)."
+    },
+    {
+      "text": "Reports Guardrail 4 FAIL identifying the hardcoded 0.59 and 0.58 values",
+      "passed": true,
+      "evidence": "Guardrail 4 section: 'Layer Isolation — FAIL. Violations: 2 formulas with hardcoded constants.' Cell D7: '=D6*0.59' — 'COGS percentage for Y2 is hardcoded directly in the formula'. Cell E7: '=E6*0.58' — 'COGS percentage for Y3 is hardcoded directly in the formula. A third different value (0.58).'"
+    },
+    {
+      "text": "Reports Guardrail 3 FAIL with 0% intent note coverage",
+      "passed": true,
+      "evidence": "Guardrail 3 section: 'Intent Notes — FAIL. Violations: 10 of 10 formulas (0% coverage)'. Lists all 10 formula cells, each with 'Comment Present?: No'."
+    },
+    {
+      "text": "Reports overall FAIL with a low compliance score",
+      "passed": true,
+      "evidence": "Executive Summary: 'Overall Verdict: FAIL, Compliance Score: 0%, Guardrails Passed: 0 of 4, Total Violations: 30.' Score calculation section confirms: 'effective IDFA compliance score is 0%'."
+    },
+    {
+      "text": "Lists specific cells and their violations",
+      "passed": true,
+      "evidence": "Each guardrail section lists violations cell-by-cell: G1 lists cells C6, D6, E6, C7, D7, E7, C8, D8, E8, B16 with exact formulas and coordinate references. G4 lists cells D7 and E7 with hardcoded values. G3 lists all 10 cells with missing comments."
+    },
+    {
+      "text": "Differentiates between structural problems and intentional design choices",
+      "passed": true,
+      "evidence": "G4 analysis notes: 'COGS % assumption silently changes across years (0.60 -> 0.59 -> 0.58) with the values buried inside formulas... This is a classic phantom assumption.' Separate 'Structural Violation: No IDFA Layer Separation' section discusses the three-layer architecture absence. The output distinguishes scattered hardcoded values (dangerous structural problem) from the single-sheet layout (architectural design choice)."
+    }
+  ]
+}

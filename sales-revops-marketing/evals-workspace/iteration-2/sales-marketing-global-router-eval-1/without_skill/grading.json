@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Output routes through the outreach skill and contains a Five Laws compliance check section explicitly verifying all five laws (specific reference, lead with them, one ask, word count, banned language) -- wrong routing means no Five Laws check, no jurisdiction overlay, and a bad message that loses the deal",
+      "passed": false,
+      "evidence": "The baseline outputs only a plain cold email. There is no evidence of routing through the outreach skill and no Five Laws compliance check section at all."
+    },
+    {
+      "text": "Output explicitly flags Germany's UWG consent requirement for cold email to individual email addresses and recommends using a corporate or role-based email address (e.g. engineering@voltgrid.de or a team alias) instead of a personal firstname.lastname@ address -- missing this means the rep sends a cold email that violates German law, creating legal exposure and potential fines",
+      "passed": false,
+      "evidence": "The baseline does not mention Germany, UWG, consent, or the need to prefer a corporate/role-based address over a personal individual email address."
+    },
+    {
+      "text": "Output includes the mandatory output header at the top with TASK, ICP MATCH, CONFIGURATION, and VERIFY DATA fields -- missing the header breaks the structured workflow that RevOps teams rely on for tracking and QA across all agent outputs",
+      "passed": false,
+      "evidence": "There is no mandatory output header with TASK, ICP MATCH, CONFIGURATION, and VERIFY DATA."
+    },
+    {
+      "text": "The email body's first sentence references Dr. Bruckner's MLOps World talk on taming feature drift or his specific work -- it does not begin with 'We', 'I', 'Lattice AI', 'My company', or any sender-focused language -- violating Law 2 (lead with their problem) means the prospect deletes immediately",
+      "passed": true,
+      "evidence": "The first sentence is 'I watched your MLOps World talk on scaling model monitoring beyond Prometheus.' It references Dr. Bruckner's work directly and does not begin with sender-focused language."
+    },
+    {
+      "text": "Output includes GDPR-relevant guidance such as documenting legitimate interest for the outreach, including an opt-out mechanism, and noting data minimisation requirements from the EU overlay -- these are not optional footnotes but jurisdiction-mandated requirements that the router must surface when EU/Germany is detected",
+      "passed": false,
+      "evidence": "The baseline contains no GDPR/EU outreach guidance -- no legitimate-interest documentation, opt-out mechanism, or data-minimisation/right-to-object discussion."
+    },
+    {
+      "text": "Output ends with ALL OUTREACH OUTPUTS REQUIRE HUMAN REVIEW BEFORE SENDING -- this is the governance guardrail separating agent-drafted output from human-approved sends, and its absence means the rep may treat the draft as ready-to-send",
+      "passed": false,
+      "evidence": "The baseline does not end with the required human-review governance line."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 5,
+    "total": 6,
+    "pass_rate": 0.17
+  }
+}

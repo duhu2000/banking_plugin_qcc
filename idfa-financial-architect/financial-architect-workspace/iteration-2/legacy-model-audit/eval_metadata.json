@@ -1,0 +1,13 @@
+{
+  "eval_id": 2,
+  "eval_name": "legacy-model-audit",
+  "prompt": "I just inherited this financial model from someone who left the company. It's a total black box — I can't tell what any of the formulas are doing. Can you audit it and tell me what's wrong with it and how to fix it?",
+  "assertions": [
+    "Discovers the hardcoded COGS percentages (0.59 in D7, 0.58 in E7) and explains the business impact",
+    "Quantifies or flags the dollar impact of the COGS error (~$110K in Y2, ~$242K in Y3)",
+    "Identifies that the model has ZERO named ranges and ALL formulas use cell coordinates",
+    "Flags the WACC formula for LaTeX verification",
+    "Produces a compliance score or remediation priority list",
+    "Provides a retrofitting plan with proposed Named Range names following IDFA conventions"
+  ]
+}

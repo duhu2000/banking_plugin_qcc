@@ -1,0 +1,97 @@
+{
+  "expectations": [
+    {
+      "text": "Research brief contains all required sections: WHO IS [NAME] with career trajectory and role scope and activity and signal interpretation, WHAT IS [COMPANY] with business model and revenue estimate and headcount and tech stack and market position, WHAT IS HAPPENING NOW with HOT/WARM/WATCH classified signals, THE SPECIFIC PAIN, THE HOOK, PRODUCT FIT, and RECOMMENDED FIRST TOUCH",
+      "passed": true,
+      "evidence": "All required sections present: 'WHO IS KAVITHA RAMACHANDRAN?' covers career trajectory (Staff Engineer at Stripe to VP Engineering), role scope ('owns the full engineering org, likely 40-60 engineers'), activity ('No public activity found'), and signal interpretation ('new to the VP role (<18 months), that would normally be a HIGH receptivity signal'). 'WHAT IS TESSERA AI?' covers business model ('dev tools startup'), revenue ('Not available'), headcount ('~120 employees'), tech stack ('No job postings found'), and market position ('Dev tools / AI-ML space'). 'WHAT IS HAPPENING NOW' has HOT/WARM/WATCH classifications. 'THE SPECIFIC PAIN' section present. 'THE HOOK' section present. 'PRODUCT FIT' section present. 'RECOMMENDED FIRST TOUCH' section present with channel, tone, and goal."
+    },
+    {
+      "text": "Signal classification categorizes the Series B funding round (closed within 30 days) as a HOT signal with source attribution to the TechCrunch article and approximate date -- and identifies any additional signals from job postings or hiring surges in engineering as supporting HOT or WARM signals",
+      "passed": false,
+      "evidence": "The output does NOT classify the Series B as a HOT signal. Instead it states 'HOT: No verifiable hot signals found. No recent funding, contract wins, leadership announcements, or hiring surges could be confirmed.' The Series B is only mentioned under WATCH: 'If the $45M Series B is accurate and occurred ~8 months ago, the company would be in a scaling phase.' No source attribution to the TechCrunch article is provided. Note: the eval prompt says the Series B was '~three weeks ago' and led by Greylock/TechCrunch, but the output references '$45M' and 'Accel' and '~8 months ago' -- these are different details from the eval prompt (which says $38M Series B, Greylock, three weeks ago). The output appears to be working from different intake data than the eval prompt specifies."
+    },
+    {
+      "text": "At least one hook is identified that is specific and verifiable -- not a generic industry trend but something tied to Kavitha Ramachandran personally (a LinkedIn post, a conference talk, a career move) or to a specific Tessera AI event (the Series B terms, a specific job posting requirement, a named partnership or product launch)",
+      "passed": false,
+      "evidence": "The output explicitly states 'No verifiable hook could be identified.' It then lists 'Potential hooks if data is verified by the user' but labels these as hypothetical and conditional. The Stripe background hook and post-Series B scaling pressure hook are generic persona inferences, not tied to a specific verifiable artifact (no LinkedIn post, no conference talk, no specific job posting). The output itself acknowledges it fails this criterion: 'The skill protocol requires at least one hook based on verifiable information.'"
+    },
+    {
+      "text": "ICP match assessment evaluates Tessera AI against the stated criteria (Series A-C, developer tooling / AI-ML company, 50-500 headcount, US-based) and produces a STRONG / MODERATE / WEAK rating with reasoning for the rating rather than just stating it",
+      "passed": false,
+      "evidence": "The PRODUCT FIT section rates the match as 'POTENTIALLY STRONG -- pending verification' and states 'this prospect sits squarely in the ICP for BuildKite Pro.' However, the header of the brief rates ICP Match as 'UNVERIFIED' and the reasoning is minimal -- it just says if user-provided data is accurate, they fit. There is no systematic evaluation of each ICP criterion against evidence. The rating 'POTENTIALLY STRONG' with the caveat 'pending verification' is a conditional assessment rather than a definitive STRONG/MODERATE/WEAK rating with reasoning for each criterion. However, the output does identify the criteria and explain why they would match if verified. This is borderline -- the reasoning exists but is entirely contingent. Failing because the assertion asks for a rating 'with reasoning' and the output hedges with 'pending verification' rather than evaluating the available information."
+    },
+    {
+      "text": "Pain assessment connects the post-Series B situation (scaling pressure, engineering hiring, infrastructure strain from growth) specifically to CI/CD and deployment automation needs -- not generic 'they might need better tools' but a causal chain from their situation to the product category",
+      "passed": true,
+      "evidence": "The SPECIFIC PAIN section provides a clear causal chain: post-Series B dev tools startup with ~120 employees growing -> CI/CD scaling pain because 'traditional CI/CD pipelines become brittle and slow when ML workloads (large model training, GPU-dependent builds, data-heavy test suites) enter the picture' -> 'their own engineering team would be feeling this pain internally while also needing to ship faster to hit Series B milestones' -> VP of Engineering with Stripe-caliber infrastructure experience 'would have high standards for build reliability and pipeline performance, making them acutely aware of where their current CI/CD stack falls short.' This is a specific causal chain, not generic hand-waving."
+    },
+    {
+      "text": "Recommended first touch specifies channel (LinkedIn / Email / Phone with reasoning for why that channel suits this prospect), tone (peer-level / educational / ROI-focused), and goal (discovery call / referral / event / content share) -- and any factual claims in the brief about Kavitha's background or Tessera's business carry source attribution or are explicitly labeled as unverified",
+      "passed": true,
+      "evidence": "Channel specified: 'LinkedIn (recommended) -- a VP of Engineering at a startup is more likely to engage on LinkedIn than cold email. Her Stripe background suggests she is in strong tech networks where LinkedIn is the professional norm.' Tone: 'Peer-level / technical credibility -- she is a former Stripe Staff Engineer; generic sales messaging will be ignored. Lead with infrastructure-level insight.' Goal: 'Discovery call -- understand their current CI/CD stack, what is breaking at their scale, and whether BuildKite Pro addresses a live pain point.' Source attribution: The brief consistently labels unverified claims as '[USER-PROVIDED / UNVERIFIED]' throughout all sections. The CRITICAL DATA VERIFICATION NOTICE at the top and the RESEARCH METHODOLOGY & SOURCES section at the bottom document all searches conducted."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 3,
+    "total": 6,
+    "pass_rate": 0.50
+  },
+  "execution_metrics": {
+    "output_chars": 6893,
+    "transcript_chars": 0,
+    "note": "No transcript, metrics.json, or timing.json files were found for this execution."
+  },
+  "timing": {},
+  "claims": [
+    {
+      "claim": "Web research across LinkedIn, Crunchbase, PitchBook, company websites, job boards, and general news sources returned no verifiable results for Tessera AI or Kavitha Ramachandran",
+      "type": "process",
+      "verified": true,
+      "evidence": "The RESEARCH METHODOLOGY & SOURCES section lists specific searches conducted (LinkedIn people search, web searches, Crunchbase, Ashby/job boards) and documents what was found instead (Tessera Labs ERP, Tessera Labs XR, Tessera Therapeutics). This is consistent with the subject being a synthetic/fictional prospect used for eval purposes."
+    },
+    {
+      "claim": "Tessera Labs (tesseralabs.ai) is an enterprise AI company focused on ERP modernization with 34 open roles",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Cannot verify independently from available outputs, though this is a specific enough claim with URLs that it was likely found via web search. The detail '34 open roles' suggests real research was conducted."
+    },
+    {
+      "claim": "At this stage and headcount, a VP of Engineering typically owns the full engineering org (likely 40-60 engineers)",
+      "type": "quality",
+      "verified": true,
+      "evidence": "This is a reasonable industry inference. At ~120 total employees, engineering typically represents 40-50% of headcount at a dev tools company, yielding 48-60 engineers. The claim is within reasonable bounds."
+    },
+    {
+      "claim": "The output references $45M Series B from Accel approximately 8 months ago",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The eval prompt says '$38M Series B about three weeks ago led by Greylock' but the output says '$45M Series B from Accel approximately 8 months ago'. These are significantly different details -- different amount ($38M vs $45M), different lead investor (Greylock vs Accel), different timing (3 weeks vs 8 months). The output appears to have been generated from a different version of the prompt or the intake data was modified."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": [],
+    "note": "No user_notes.md file found."
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Research brief contains all required sections: WHO IS [NAME] with career trajectory and role scope and activity and signal interpretation, WHAT IS [COMPANY] with business model and revenue estimate and headcount and tech stack and market position, WHAT IS HAPPENING NOW with HOT/WARM/WATCH classified signals, THE SPECIFIC PAIN, THE HOOK, PRODUCT FIT, and RECOMMENDED FIRST TOUCH",
+        "reason": "This assertion checks for section headings but not content quality. The with_skill output passes because all sections exist, even though several contain only 'Not available' or 'No verifiable results.' A more discriminating assertion would require minimum substantive content in each section -- e.g., 'revenue estimate includes at least a range or methodology even when exact data is unavailable.'"
+      },
+      {
+        "assertion": "Signal classification categorizes the Series B funding round (closed within 30 days) as a HOT signal with source attribution to the TechCrunch article and approximate date",
+        "reason": "The eval prompt says '$38M Series B, three weeks ago, led by Greylock, TechCrunch article' but the with_skill output references '$45M Series B from Accel ~8 months ago.' This discrepancy suggests the output was generated from different input data than the eval_metadata prompt. This is a major confound -- the grading is evaluating output fidelity against a prompt that may not have been the actual input. The eval infrastructure should ensure the exact prompt from eval_metadata.json is what the executor receives."
+      },
+      {
+        "reason": "No assertion checks whether the output correctly uses the specific details from the eval prompt (amount, investor, timing). The with_skill output has $45M/Accel/8 months vs the prompt's $38M/Greylock/3 weeks -- a significant data fidelity issue that goes completely uncaught by the current assertions."
+      },
+      {
+        "reason": "No assertion checks for appropriate uncertainty handling or verification notices when web research cannot confirm prospect/company details. The with_skill output's strongest feature -- its detailed verification methodology and honest 'UNVERIFIED' labeling -- is not directly measured by any assertion. Adding an assertion like 'when research cannot verify prospect details, the brief explicitly flags unverified claims and documents research methodology' would reward this behavior."
+      }
+    ],
+    "overall": "The assertion set has a significant blind spot around data fidelity (whether the output correctly uses the prompt's specific details). The with_skill output appears to have been generated from different input data ($45M/Accel/8mo vs $38M/Greylock/3wk), which makes several assertions fail for the wrong reason -- not because the skill template is bad, but because the input data was different. The eval infrastructure needs to guarantee prompt fidelity before assertion grading is meaningful."
+  }
+}

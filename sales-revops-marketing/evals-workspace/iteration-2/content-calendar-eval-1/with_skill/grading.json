@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline generation: every content piece includes a CTA that maps to the campaign goal of demo requests -- pre-launch pieces drive toward waitlist/early access signups that feed the demo pipeline, post-launch pieces drive direct demo booking, and no piece exists without a conversion-oriented CTA tied to one of the two personas (VP Legal Ops or Head of Procurement)",
+      "passed": false,
+      "evidence": "Most content pieces have CTAs, but they are not consistently tied to the two named personas. The calendar targets 'Legal Ops Manager' and 'Legal Ops Director / GC' but never once mentions the 'Head of Procurement' persona. The prompt specified two personas: VP Legal Ops and Head of Procurement who cares about cost and compliance. The Head of Procurement is entirely absent from the calendar. Additionally, some CTAs are generic engagement asks rather than conversion-oriented (e.g., 'Comment with their biggest contract pain point,' 'Vote + comment,' 'Agree/disagree?', 'Follow for more'). Pre-launch CTAs do reference waitlist/early access and post-launch pieces reference 'Start free trial / Request demo,' but the missing persona is a clear gap."
+    },
+    {
+      "text": "Content leverage: pillar-cluster model is clearly visible with at least 2 cornerstone assets (one pre-launch, one post-launch) each generating 4-8 derived cluster pieces across blog, LinkedIn, and email -- demonstrating maximum content output from minimum production effort by a single writer",
+      "passed": true,
+      "evidence": "Two pillar assets are defined: Pillar 1 (Weeks 1-4, pre-launch): 'The State of Contract Management for Mid-Market Legal Teams' -- gated guide generating '6 pieces (3 blog posts, 2 LinkedIn posts, 1 newsletter feature).' Pillar 2 (Weeks 5-8, post-launch): 'AI-Native vs. AI-Added: Why Architecture Matters in Contract Analysis' -- ungated long-form blog + companion video generating '6 pieces (2 blog posts, 2 LinkedIn posts, 1 newsletter feature, 1 YouTube video).' Each pillar generates 6 derived cluster pieces across multiple channels."
+    },
+    {
+      "text": "Execution velocity: total weekly content volume stays within 6-9 pieces per week (1 full-time writer with AI multiplier), and any week approaching the ceiling is flagged with a recommendation to cut or defer lower-priority pieces -- prioritizing pillar content and demo-driving assets over channel fill",
+      "passed": false,
+      "evidence": "Weekly volumes range from 4-5 pieces for most weeks, which is within capacity but below the 6-9 range the expectation specifies as the target. More critically, Week 8 has 12 pieces ('12 across two sub-weeks'), which exceeds the ceiling. While the output does flag this ('This is the highest-volume week. The writer must have ALL launch week content finalized by Apr 1'), it does not recommend cutting or deferring lower-priority pieces -- it just says content must be done early. Additionally, the output references YouTube (2 videos) which is a channel not specified in the prompt (the prompt said 'LinkedIn company page, our CEO's personal LinkedIn, blog, and email newsletter' -- no YouTube)."
+    },
+    {
+      "text": "Execution velocity: every production deadline is set at least 5 business days before the corresponding publish date, and LegalTech Connect in week 3 has pre-event teasers, live coverage, and post-event recap content with deadlines that account for the event timeline -- ensuring the tentpole moment is not missed due to production delays",
+      "passed": false,
+      "evidence": "The 5 business day production deadlines are clearly set -- the Production Deadline Summary table shows each week's deadline 5 business days before publish. However, LegalTech Connect (the tentpole event in week 3) is completely absent from the calendar. The prompt states 'Our CEO is speaking at LegalTech Connect in week 3 -- that's a tentpole moment,' but the output makes no mention of LegalTech Connect anywhere. There are no pre-event teasers, no live coverage plans, and no post-event recap content. This is a significant miss of a major requirement."
+    },
+    {
+      "text": "Alignment: content is split between the two personas with messaging tailored to each buyer's priorities -- VP Legal Ops content emphasizes efficiency and risk reduction, Head of Procurement content emphasizes cost and compliance -- so the calendar produces assets the sales team can use in persona-specific outreach",
+      "passed": false,
+      "evidence": "The calendar overwhelmingly targets 'Legal Ops Manager' or 'Legal Ops Director / GC.' The Head of Procurement persona is never mentioned anywhere in the output. The prompt specified two personas: (1) VP Legal Ops who cares about efficiency and risk reduction, and (2) Head of Procurement who cares about cost and compliance. Only the VP Legal Ops persona is addressed. No content piece targets procurement-specific concerns of cost or compliance. The Persona column in the calendar tables only shows 'Legal Ops Manager,' 'Legal Ops Director / GC,' 'VP Legal / CFO,' and 'All personas' -- never 'Head of Procurement.'"
+    },
+    {
+      "text": "Content leverage: only the four committed channels appear (LinkedIn company page, CEO LinkedIn, blog, email newsletter) with NO webinar or paid social content planned, and channel cadence stays within sustainable defaults (LinkedIn company page up to 3x/week, CEO LinkedIn up to 4-5x/week, blog 1-2x/week, email 1-2x/month) -- preventing the team from overcommitting to channels they cannot sustain",
+      "passed": false,
+      "evidence": "The output includes YouTube as a fifth channel ('YouTube: 2 videos' in the Calendar Summary), which the prompt did not include. The prompt specified four channels: LinkedIn company page, CEO's personal LinkedIn, blog, and email newsletter. YouTube was not requested and was not among the committed channels. Additionally, email sends total 5 across 8 weeks (~2.5/month in some periods), which exceeds the 1-2x/month sustainable default. Furthermore, CEO LinkedIn posts are not tracked as a separate channel from the LinkedIn company page -- CEO posts appear within the LinkedIn (company) column, so the calendar doesn't properly distinguish between the two LinkedIn channels as specified."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 5,
+    "total": 6,
+    "pass_rate": 0.17
+  }
+}

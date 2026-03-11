@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Fit score is low (approximately 4-12 out of 40) reflecting clear mismatches on company size (95 vs. 200-1000), revenue ($12M vs. mid-market range), industry (textile manufacturing vs. B2B SaaS), and geography (UK vs. North America) \u2014 but the output does NOT dismiss or discard the lead based on poor fit alone, because doing so would violate the NEVER rule and potentially forfeit revenue from a company that is about to spend $40M scaling operations and may need exactly the kind of tooling being sold",
+      "passed": true,
+      "evidence": "Fit is scored at 8/40, which sits in the expected low range, and the recommendation explicitly says not to discard the lead despite weak fit."
+    },
+    {
+      "text": "Timing score is high (25-40 out of 40) awarding points for the NHS contract win (major new contract, up to 15 points), CEO LinkedIn post about the problem area (up to 8 points), IT project manager job postings (up to 4 points), and general growth signals \u2014 the NEVER rule 'never ignore a Timing signal because Fit is weak' is explicitly honoured, which prevents the most expensive lead-scoring failure: discarding a company entering a rapid buying cycle because it doesn't match a checkbox on an ICP spreadsheet",
+      "passed": true,
+      "evidence": "Timing is scored at the maximum 40/40, with points awarded for the NHS contract, CEO LinkedIn post, job postings, and general growth signals -- exactly the kind of strong timing the eval asked the skill not to ignore."
+    },
+    {
+      "text": "The output explicitly flags this as a wrong-fit/hot-timing edge case using language that matches or mirrors the NEVER rule: 'wrong-fit but hot timing; monitor for right-fit contact at company' \u2014 this is a skill-specific structure that a generic LLM response would not produce, and it creates a distinct action path (monitor/partner channel) instead of the binary keep/discard decision that loses these opportunities",
+      "passed": true,
+      "evidence": "The output explicitly labels the case 'Wrong-fit but hot timing' and recommends monitoring for the right-fit contact, mirroring the skill's edge-case handling rule."
+    },
+    {
+      "text": "Total score is the arithmetic sum of all three dimensions (Fit + Timing + Engagement), does not exceed 100, and the tier classification (HOT 80-100, WARM 60-79, CULTIVATE 40-59, NOT YET 0-39) correctly matches the computed total \u2014 misclassifying the tier means the lead gets routed to the wrong sales motion with the wrong SLA, which either wastes AE time on a lead that needs nurture or lets a hot lead cool in a marketing drip while the buying window closes",
+      "passed": true,
+      "evidence": "The arithmetic is correct: Fit 8 + Timing 40 + Engagement 5 = Total 53, and the output classifies that score as CULTIVATE, which matches the stated tier bands."
+    },
+    {
+      "text": "Score rationale explains the tension between weak ICP alignment and strong buying signals \u2014 specifically that the $40M NHS contract creates budget and operational urgency, the CEO is publicly signaling the exact problem the product solves, and the ops manager is engaging with marketing content \u2014 rather than either dismissing the lead as 'poor fit' or mechanically summing the numbers without addressing the strategic question of whether to pursue",
+      "passed": true,
+      "evidence": "The rationale directly explains the tension between weak ICP alignment and strong buying signals, citing the $40M contract, the CEO's public digitisation signal, and Marcus's engagement with content."
+    },
+    {
+      "text": "Recommended action does not discard the lead but specifies a concrete next step: monitoring for a better-fit contact at the company, exploring a partner or reseller channel for the UK market, or flagging for a discovery conversation scoped to the digitisation initiative \u2014 with a specific review timeline, not 'check back later,' because the NHS contract and CEO post indicate a buying cycle that is active NOW and will resolve (with or without this vendor) within weeks",
+      "passed": true,
+      "evidence": "The recommended actions are concrete and time-bound: investigate a UK partner/reseller path, identify the right senior stakeholder, scope a diagnostic discovery conversation, and review within 2 weeks."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

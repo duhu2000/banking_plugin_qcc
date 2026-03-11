@@ -1,0 +1,12 @@
+{
+  "eval_id": 6,
+  "eval_name": "create-new-named-range",
+  "prompt": "I need to add a new input to the model: a discount rate of 8% for future DCF analysis.",
+  "assertions": [
+    "Runs idfa_ops.py create-range to define the Named Range",
+    "Runs idfa_ops.py write to set the value to 0.08",
+    "Verifies the range was created correctly via read or inspect",
+    "Uses the IDFA naming convention (Inp_ prefix)",
+    "Does not use raw openpyxl"
+  ]
+}

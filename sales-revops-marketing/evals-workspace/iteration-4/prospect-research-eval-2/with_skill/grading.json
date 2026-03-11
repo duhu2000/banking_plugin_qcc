@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To protect an existing deal relationship at risk of reorg, the research brief identifies the CRO transition as the central strategic factor — WHO IS MARCUS WEBB includes career background (referencing the Stripe attribution from the AE's input, either verified with a source or explicitly flagged as user-provided and requiring verification), tenure calculated as approximately 2 months with signal interpretation that a new CRO at <6 months is a HOT receptivity window per the skill's signal criteria",
+      "passed": true,
+      "evidence": "WHO IS section identifies CRO transition as central. Stripe background referenced with explicit flag: 'The Stripe background is user-provided and requires verification. This should be confirmed via LinkedIn or press release before it is referenced in outreach.' Tenure: 'approximately 2 months ago (estimated January 2026)'. Signal classification: 'NEW TO ROLE (<6 months) = HOT receptivity signal. Per skill criteria, new leadership in target role at <6 months is classified as HOT -- outreach within 48 hours is recommended.'"
+    },
+    {
+      "text": "To give the AE competitive intelligence on the account before the warm intro, WHAT IS MERIDIAN FINANCIAL GROUP covers real business model (B2B payments processing), revenue estimate referencing the CEO podcast mention (with any corroborating data if available, or explicitly flagged as single-source and unverified), headcount estimate with indication of confidence level, and market position — the company is NOT conflated with any other entity named Meridian",
+      "passed": true,
+      "evidence": "Entity verification explicit: 'Care taken to confirm this is NOT Meridian Credit Union (Canada), Meridian Capital Group (real estate finance, NYC), or any other entity using the Meridian name.' Business model: 'B2B payments processing.' Revenue: 'Estimated >$100M ARR. Source: CEO mention on a podcast (per user; specific podcast name and date should be verified). Revenue figure should be labeled as estimated, single-source (CEO podcast) until corroborated.' Headcount: 'estimated 300-600 employees' with 'Not publicly confirmed' caveat. Market position: 'Mid-market player in B2B payments processing.'"
+    },
+    {
+      "text": "To identify whether this is a 'defend the deal' or 'expand the deal' situation, signal classification categorizes the CRO replacement as a HOT signal with source and date, and separately evaluates supporting signals — job postings for revenue operations or sales operations roles, reorg indicators, or changes in go-to-market strategy that reveal whether Marcus Webb is building a new team or inheriting the existing one",
+      "passed": true,
+      "evidence": "CRO replacement classified HOT with source: 'user-provided (verify via LinkedIn announcement, company press release, or news).' WARM signals separately evaluated: 'Potential reorg in progress' with analysis that CRO transitions trigger reorganization within 90-120 days and the champion is at risk. 'Revenue operations buildout likely' with recommendation to 'Check for: RevOps or Sales Ops job postings, data analyst roles in the revenue org.' These signals distinguish building vs. inheriting."
+    },
+    {
+      "text": "To arm the AE with a narrative that resonates with a new CRO's first-100-days priorities, the pain assessment constructs a specific causal chain: CRO replacement implies board-level dissatisfaction with revenue execution, which creates immediate demand for pipeline visibility, forecast accuracy, and deal inspection — connecting Marcus Webb's likely priorities directly to the revenue intelligence product category",
+      "passed": true,
+      "evidence": "Pain assessment constructs the full causal chain: 'the board at Meridian Financial Group decided that revenue execution under Sarah Chen was not meeting expectations' -> Marcus Webb's immediate priorities: (1) Assess pipeline health, (2) Establish forecast credibility, (3) Inspect deal quality, (4) Decide on team and tools. Explicitly connects: 'Revenue intelligence software (conversation analytics, deal inspection, forecast accuracy) maps directly to priorities 1-3.'"
+    },
+    {
+      "text": "To make the warm intro feel informed rather than generic, at least one hook is identified that is specific to Marcus Webb or the transition event — a post Marcus made about revenue methodology, an initiative he led at Stripe, or a Meridian job posting that signals his new priorities — not a generic 'new CROs need visibility' hook",
+      "passed": true,
+      "evidence": "Primary hook: specific to Marcus Webb's Stripe background: 'Leaders who come from data-first revenue cultures typically find that their new organization's tooling doesn't match their standards -- that gap is where we help.' Secondary hook: the CRO transition itself as a timely, verifiable event. Tertiary hook: Meridian RevOps/Sales Ops job postings as evidence of revenue function rebuild. All three are specific to Marcus or the transition event."
+    },
+    {
+      "text": "To determine the right approach given the champion-at-risk situation, the recommended first touch addresses whether to lead through the existing champion or go direct to Marcus Webb — specifying channel and tone appropriate for a new C-level executive in his first 90 days, and flagging the reorg risk as a factor that affects timing and approach",
+      "passed": true,
+      "evidence": "Recommended approach: 'Dual-track.' Track 1 (champion engagement): contact champion immediately to assess position and access. Track 2 (direct to Marcus): LinkedIn with peer-level consultative tone. Reorg risk explicitly flagged: 'Do NOT assume continuity. The first action is to contact the champion and assess their status. If the champion has already been notified of a role change, pivot immediately to the direct approach.' Timing: 'Urgency is HIGH... the champion-at-risk factor compounds the urgency.'"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

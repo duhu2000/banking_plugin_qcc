@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Output addresses ALL THREE requested tasks (CRM enrichment, lead re-scoring, follow-up email) in a single structured response -- missing any one of the three means the rep has to come back and ask again, breaking workflow continuity and risking a dropped ball on CRM hygiene or lead prioritisation",
+      "passed": true,
+      "evidence": "Output is structured into three sections: 'TASK 1: CRM RECORD ENRICHMENT', 'TASK 2: LEAD RE-SCORING', and 'TASK 3: FOLLOW-UP EMAIL', all in a single response."
+    },
+    {
+      "text": "Lead score reflects the discovery call completion as an Engagement signal AND the confirmed CTO meeting plus Q2 budget allocation as Timing signals for deal progression -- scoring without incorporating these new signals means the lead stays at its pre-call priority level, which could delay SLA-driven actions like senior AE involvement or executive sponsorship",
+      "passed": true,
+      "evidence": "Scoring table includes 'Engagement | Discovery call completed | +MAJOR' and 'Pain Validation | Confirmed pipeline visibility pain | +MAJOR', as well as 'Budget | Q2 budget allocated for tooling | +MAJOR (Timing)' and 'Next Steps | CTO technical eval next week | +MAJOR (Timing)'. Overall score labeled HOT."
+    },
+    {
+      "text": "Follow-up email references specific details from the discovery call -- Priya's pain around pipeline visibility, the 'flying blind on deal progression' language, Monday morning manual reporting, and the CTO technical eval next week -- a generic follow-up that doesn't mirror what the prospect actually said signals the rep wasn't listening, and the deal cools",
+      "passed": true,
+      "evidence": "Email contains: 'spending half of your Monday mornings manually pulling reports from three different systems', '\"Flying blind on deal progression\" is a phrase I hear from ops leaders', 'You mentioned you'd loop in Arjun Mehta for a technical eval next week'."
+    },
+    {
+      "text": "CRM enrichment section structures the new call intelligence into discrete fields (pain point: pipeline visibility, budget: Q2 allocated, next step: CTO technical eval, key quote, contact added: Arjun Mehta CTO) rather than dumping raw notes -- unstructured CRM data is lost data for the next rep, the manager, or the renewal team",
+      "passed": true,
+      "evidence": "Discovery Call Intelligence has structured fields: 'Primary Pain Point | Pipeline visibility -- team lacks deal progression visibility', 'Key Quote | Flying blind on deal progression', 'Budget Status | Q2 budget allocated', 'Next Step | CTO technical evaluation meeting -- next week', 'CTO Contact (NEW) | Arjun Mehta, CTO'. New Contact to Add section with structured fields for Arjun Mehta."
+    },
+    {
+      "text": "Output does NOT fabricate details about NovaTech Solutions that were not provided in the prompt -- no invented revenue figures, no made-up product details, no assumed tech stack -- fabricated data entering CRM destroys trust the moment the prospect or a colleague notices it",
+      "passed": true,
+      "evidence": "Note at bottom of CRM enrichment: 'No details have been fabricated. Only information explicitly provided during the discovery call is recorded. Revenue figures, tech stack, product details, and any other company specifics not mentioned in the call are left blank rather than assumed.'"
+    },
+    {
+      "text": "Output includes the mandatory output header with TASK description and ICP MATCH assessment -- this header is what drives whether the deal gets senior AE attention or sits in the queue, and its absence means RevOps has no structured signal to route on",
+      "passed": true,
+      "evidence": "Output begins with a header block containing 'TASK: CRM Enrichment + Lead Re-Score + Follow-Up Email -- NovaTech Solutions / Priya Sharma' and 'ICP MATCH: STRONG (Series C SaaS, 600 employees, Head of Ops with pipeline visibility pain, confirmed budget + next steps)' plus CONFIGURATION and VERIFY DATA fields."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

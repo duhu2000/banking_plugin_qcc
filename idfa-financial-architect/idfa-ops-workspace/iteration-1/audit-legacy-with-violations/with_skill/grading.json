@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Runs idfa_audit.py on the legacy model file",
+      "passed": true,
+      "evidence": "audit_raw.json shows structured output from idfa_audit.py with file path 'skills/financial-architect/evals/files/legacy_model.xlsx' and all guardrail results."
+    },
+    {
+      "text": "Reports Guardrail 1 FAIL \u2014 identifies coordinate references in formulas",
+      "passed": true,
+      "evidence": "G1: 'Status: FAIL, Violations: 10'. All 10 formulas listed with their coordinate references. '100% of formulas use coordinate references.'"
+    },
+    {
+      "text": "Reports Guardrail 4 FAIL \u2014 identifies hardcoded values (0.59, 0.58 in COGS formulas)",
+      "passed": true,
+      "evidence": "G4: 'Status: FAIL, Violations: 2'. Details: D7: '=D6*0.59', hardcoded 0.59; E7: '=E6*0.58', hardcoded 0.58."
+    },
+    {
+      "text": "Reports Guardrail 3 FAIL \u2014 identifies missing intent notes (0% coverage)",
+      "passed": true,
+      "evidence": "G3: 'Status: FAIL, Coverage: 0%'. All 10 formulas listed as missing intent notes."
+    },
+    {
+      "text": "Reports an overall FAIL status with a low compliance score",
+      "passed": true,
+      "evidence": "'Overall verdict: FAIL, Compliance score: 27%'. audit_raw.json confirms: '\"overall\": \"FAIL\", \"compliance_score\": \"27%\"'."
+    },
+    {
+      "text": "Lists specific cells and formulas that violate each guardrail",
+      "passed": true,
+      "evidence": "G1 section lists all 10 cells with formulas and their coordinate refs. G3 lists all 10 cells missing intent notes. G4 lists D7 and E7 with their hardcoded values. All specific cells and formulas are identified."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "eval_id": 5,
+  "eval_name": "scope-boundary-enforcement",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Explicitly refuses the depreciation method question",
+      "passed": true,
+      "evidence": "Question 1 section (lines 5-11): 'This request falls outside the scope of financial model architecture. Choosing a depreciation method (straight-line, declining balance, or any other approach) is a general accounting question governed by accounting standards (e.g., GAAP, IFRS), the nature of the asset, and your organization's accounting policies.'"
+    },
+    {
+      "text": "Does NOT provide any partial answer or 'for context' depreciation discussion",
+      "passed": true,
+      "evidence": "The Question 1 section contains zero information about how straight-line or declining balance depreciation works, no comparison of methods, no 'for context' or 'briefly' qualifiers, and no disclaimered partial answers. The entire depreciation response is a clean refusal plus referral."
+    },
+    {
+      "text": "Suggests consulting a qualified accountant for the depreciation question",
+      "passed": true,
+      "evidence": "Line 11: 'Please consult a qualified accountant or financial advisor for guidance on the appropriate depreciation method for your equipment.'"
+    },
+    {
+      "text": "DOES fully answer the EBITDA model explanation by inspecting the model",
+      "passed": true,
+      "evidence": "Question 2 section (lines 15-106) provides a comprehensive EBITDA explanation: EBITDA formula chain (EBITDA_Y1..Y3 = Gross_Profit - OpEx), full upstream dependencies (Revenue, COGS with efficiency gain, OpEx), all 6 underlying assumptions with values, and a plain-English summary. States 'Model structure inspected via idfa_ops.py inspect and idfa_ops.py formula commands.'"
+    },
+    {
+      "text": "Explains EBITDA using Named Range notation showing the complete dependency chain",
+      "passed": true,
+      "evidence": "Complete dependency chain traced in Named Range notation across 5 tables: EBITDA_Y1..Y3 (=Gross_Profit-OpEx), Gross_Profit_Y1..Y3 (=Revenue-COGS), Revenue_Y1..Y3 (=Inp_Rev_Y1 grown by Inp_Rev_Growth), COGS_Y1..Y3 (=Revenue*COGS_Pct), COGS_Pct_Y1..Y3 (=Inp_COGS_Pct_Y1-Inp_COGS_Efficiency), OpEx_Y1..Y3 (=Inp_OpEx_Y1 grown by Inp_OpEx_Growth). Zero cell-coordinate references used."
+    },
+    {
+      "text": "The refusal and the model explanation are clearly separated in the response — the user can immediately distinguish which question was refused and which was answered, without the two topics bleeding into each other",
+      "passed": true,
+      "evidence": "The response uses explicit section headings ('## Question 1: Depreciation Method Selection' and '## Question 2: How the EBITDA Calculation Works in Your Model') separated by a horizontal rule ('---' on line 13). Question 1 is self-contained in lines 5-11 (refusal only). Question 2 begins fresh on line 15 with 'This question is in scope' and contains no depreciation content. The two topics are completely isolated."
+    }
+  ]
+}

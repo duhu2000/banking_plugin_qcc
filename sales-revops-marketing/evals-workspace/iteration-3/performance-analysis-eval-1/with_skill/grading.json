@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To tell the CMO where next quarter's budget should shift, LinkedIn CTR (0.35%) is benchmarked against the 0.35-0.45% average tier and classified as bottom-of-average requiring creative improvement, while cost per lead ($623) is flagged as unsustainable for the pipeline math — at 5 SQLs/week the campaign misses the 35-SQL target by end of quarter",
+      "passed": true,
+      "evidence": "LinkedIn CTR explicitly benchmarked: '0.35% (benchmark: 0.35-0.45% average) -- AT RISK, bottom of average tier'. CPL flagged as unsustainable: 'LinkedIn CPL: $623 -- OFF TRACK, unsustainable for pipeline math'. Pipeline math detailed: 'each LinkedIn SQL costs ~$2,923' and SQL run rate analysis shows 4.7/week with 'zero margin for error'. The analysis correctly identifies the campaign is AT RISK for the 35-SQL target."
+    },
+    {
+      "text": "To identify which campaign element to kill or fix first, email sequence decay is root-cause diagnosed before any recommendation — the analysis distinguishes between subject line fatigue (open rate dropping 38% to 22%) and body content failure (Email 3 click-to-open ratio collapsing to 1.4% CTR, poor tier vs 3.5-5% average) to prioritize the highest-leverage rewrite",
+      "passed": true,
+      "evidence": "Layer 2 section '2. EMAIL SEQUENCE DECAY' explicitly separates the two causes: 'The open rate decay from 38% to 22% indicates subject line fatigue and list fatigue'. Then calculates CTOR for all three emails (13.7%, 6.8%, 6.4%) and concludes: 'the body content in Emails 2 and 3 is the primary problem, not just the subject lines. People who open are not finding compelling enough content to click.' This diagnosis comes before the Email 3 rewrite recommendation in Layer 3."
+    },
+    {
+      "text": "To give the campaign manager an executable next-week plan, each recommendation specifies the exact change, expected metric lift, owner, and deadline — not 'improve the landing page' but a concrete intervention like reducing form fields or adding social proof with a projected conversion rate improvement from 6.9% toward the 10-20% average benchmark",
+      "passed": true,
+      "evidence": "Landing page recommendation specifies: 'Reduce the demo request form from current fields to 4 fields: name, work email, company, job title. Add social proof directly above the form: 2-3 customer logos with a one-line outcome statement'. Owner: 'Marketing Ops / Web team'. Deadline: 'End of Week 5 (live by Monday Week 6)'. Expected lift: 'Conversion rate improvement from 6.9% to 12-15% (moving into average tier)'. All 5 recommendations follow this structure with specific changes, owners, deadlines, and projected lifts."
+    },
+    {
+      "text": "To protect spend on what is already generating pipeline, a 'What is working — do not change' section explicitly names Email 1 CTR (5.2%, above the 3.5-5% average range), MQL-to-SAL rate (41%, within the 35-50% average benchmark), and budget pacing (50.7% spend at 50% duration) as assets to preserve from unnecessary optimization",
+      "passed": true,
+      "evidence": "Dedicated section 'WHAT IS WORKING -- DO NOT CHANGE' with: '1. Email 1 Performance (5.2% CTR) -- ABOVE AVERAGE' with 'above the 3.5-5% average benchmark'. '2. MQL-to-SAL Rate (41%) -- WITHIN AVERAGE' with 'within the 35-50% average benchmark'. '3. Budget Pacing (50.7% at 50% Duration) -- ON TRACK'. Each includes explicit 'Do not' directives (e.g., 'Do not rewrite Email 1', 'Do not tighten MQL criteria', 'Do not reallocate budget')."
+    },
+    {
+      "text": "To close the gap between 5 SQLs/week and the 4.4/week run rate needed for 35 SQLs, the webinar-to-opp rate (8%, poor tier vs 15-20% average) is diagnosed with root cause analysis exploring whether the problem is attendee qualification, post-webinar follow-up timing, or nurture sequence quality — because fixing this single metric could add 2-3 opps per webinar",
+      "passed": true,
+      "evidence": "Section '4. WEBINAR MQL-TO-OPP AT 8% -- POOR TIER' explores all three root causes: '1. Attendee qualification problem' (webinar MQLs converting at less than half the rate of average MQLs), '2. Post-webinar follow-up timing' (same-day follow-up best practice), '3. Nurture sequence quality for webinar leads' (generic vs. webinar-specific sequence). Concludes 'Most likely root cause: Combination of (1) and (2)'. Recommendation states 'Fixing this could add 2-3 opps per webinar' and projects 'Webinar MQL-to-Opp improvement from 8% to 15-18%'."
+    },
+    {
+      "text": "To enable spend optimization, the landing page conversion rate (6.9%, below the 10-20% average benchmark) is connected to upstream spend efficiency — every percentage point improvement on the landing page reduces effective cost per lead across all traffic sources feeding it",
+      "passed": true,
+      "evidence": "Root cause section states: 'Every channel feeds this page. Improving conversion from 6.9% to even 12% (low-average) would increase demo requests from 34 to ~59 on the same traffic. That is 25 additional conversion events per week with zero additional spend.' Recommendation reinforces: 'making it the single highest-leverage fix in the campaign' and projects '+25 to +40 additional conversions/week with zero incremental spend'. The connection between landing page improvement and upstream spend efficiency is explicit."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

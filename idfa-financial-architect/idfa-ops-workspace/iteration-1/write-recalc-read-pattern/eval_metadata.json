@@ -1,0 +1,13 @@
+{
+  "eval_id": 4,
+  "eval_name": "write-recalc-read-pattern",
+  "prompt": "I want to see what happens to Net Income in both years if I increase the unit price from $100 to $150. Walk me through the full write-recalculate-read cycle.",
+  "assertions": [
+    "Runs idfa_ops.py write to set Inp_Price to 150",
+    "Runs recalc_bridge.py to trigger LibreOffice recalculation",
+    "Runs idfa_ops.py read to retrieve Net_Income_Y1 and Net_Income_Y2",
+    "Executes the three steps in the correct order: write THEN recalc THEN read",
+    "Reports the results as the model's deterministic output, not an internal calculation",
+    "If recalc fails due to LibreOffice not being installed, gracefully handles the error and informs the user"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "eval_id": 2,
+  "eval_name": "inspect-full-model-structure",
+  "prompt": "I want to understand the complete structure of this model — every named range, what sheet it's on, whether it has a formula or raw value, and whether there are intent notes.",
+  "assertions": [
+    "Runs idfa_ops.py inspect and discovers all 20 Named Ranges",
+    "Distinguishes Assumptions layer (6 Inp_ ranges) from Calculations layer (14 ranges with formulas)",
+    "Reports whether intent notes (comments) are present",
+    "Presents information organized by layer, not as raw JSON dump",
+    "Identifies the formula chain structure",
+    "Reports the model uses Named Range references exclusively"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "follow-up-eval-1",
+  "prompt": "Just got off a 40-min discovery call with Lisa Cheng, VP of Operations at Norwood Distribution. Need to send the follow-up ASAP before she goes into her next meeting.\n\nHere's my call notes:\n- They're ...",
+  "assertions": [
+    "Email is labeled as Type 1: Post-Discovery Follow-Up and follows the Type 1 structure (acknowledgement, 'What I heard' section, 'What we discussed' section, next step)",
+    "Subject line references a specific topic from the call (picking accuracy, fulfillment penalties, peak season ramp, or warehouse operations at Norwood Distribution) -- not a generic subject like 'Great meeting' or 'Our call today'",
+    "'What I heard' section contains at least 2 bullets that use Lisa's own language: must include at least two of 'bleeding margin on mis-picks', 'held together with duct tape and prayers', 'the thing keeping me up at night', or '$1.2M in Q4 fulfillment penalties'",
+    "Next step section confirms two specific commitments with dates: (1) sending the ProLog 3PL case study and ROI model by Thursday, and (2) the 30-minute CFO call on Tuesday at 2pm ET",
+    "Email does not contain any banned phrases: 'just checking in', 'circling back', 'bumping this up', 'touching base', or a generic 'great to meet you' without specifics",
+    "Timing recommendation is present and specifies sending within 2 hours or immediately after the call"
+  ]
+}

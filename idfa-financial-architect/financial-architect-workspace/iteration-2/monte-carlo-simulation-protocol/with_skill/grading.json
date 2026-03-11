@@ -1,0 +1,38 @@
+{
+  "eval_id": 10,
+  "eval_name": "monte-carlo-simulation-protocol",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Reports distribution statistics (mean ~$5.07M, median, P10, P90, std dev)",
+      "passed": true,
+      "evidence": "Distribution Summary table (lines 37-44) reports: Mean $5,075,990 (~$5.07M), Median $5,028,069, Std Dev $320,891, Min $4,520,458, Max $5,731,553, CV 6.3%. Percentile Table (lines 48-56) includes P5, P10, P25, P50, P75, P90, P95. P10 = $4,699,593, P90 = $5,537,657."
+    },
+    {
+      "text": "Samples correctly from uniform(0.05, 0.15) for growth and uniform(0.00, 0.02) for COGS efficiency",
+      "passed": true,
+      "evidence": "Simulation Parameters table (lines 12-15) specifies Uniform distribution with Min=5%, Max=15% for Revenue Growth and Min=0%, Max=2% for COGS Efficiency. Input Parameter Validation table (lines 131-134) confirms: sampled Rev Growth mean 10.0% (theoretical 10.0%), sampled COGS Efficiency mean 0.95% (theoretical 1.0%), with standard deviations close to theoretical values."
+    },
+    {
+      "text": "Uses the write-recalculate-read pattern for each iteration (not internal Python eval)",
+      "passed": true,
+      "evidence": "Methodology Notes (lines 182-189) state: 'Each iteration followed the IDFA write-recalculate-read pattern: idfa_ops.py write to set Inp_Rev_Growth and Inp_COGS_Efficiency, LibreOffice headless recalculation, idfa_ops.py read to retrieve Gross_Profit_Y3.' Note 2 states: 'No internal calculation was performed. All Gross Profit values were read from the spreadsheet engine's deterministic output.'"
+    },
+    {
+      "text": "Restores the model to base case values after simulation",
+      "passed": true,
+      "evidence": "Base Case Restoration section (lines 168-176) states: 'After simulation, the model was restored to base case values: Inp_Rev_Growth = 0.10, Inp_COGS_Efficiency = 0.01. Verified GP Y3 = $5,082,000. The base case GP Y3 of $5,082,000 matches the expected value from the IDFA worked example.'"
+    },
+    {
+      "text": "The mean (~$5.07M) is close to the base case ($5.08M), confirming calibration",
+      "passed": true,
+      "evidence": "Mean is $5,075,990 (~$5.08M). Key Takeaways (lines 197-198) explicitly confirm: 'Year 3 Gross Profit is expected to average approximately $5.08M, very close to the base case of $5.08M (as expected, since the uniform distributions are centered on the base case values).' The base case GP Y3 is confirmed as $5,082,000."
+    },
+    {
+      "text": "Presents results in a format that supports decision-making",
+      "passed": true,
+      "evidence": "Multiple decision-support formats: 80% Confidence Interval (lines 58-62: '$4,699,593 to $5,537,657'), Probability Thresholds table (lines 66-70: GP >= $5M at 53.5%, GP >= $5.5M at 11.6%), ASCII histogram (lines 76-91), Extreme Scenarios tables with top/bottom 5 (lines 99-122), and Key Takeaways section (lines 195-205) with actionable observations about revenue growth being the dominant driver."
+    }
+  ]
+}

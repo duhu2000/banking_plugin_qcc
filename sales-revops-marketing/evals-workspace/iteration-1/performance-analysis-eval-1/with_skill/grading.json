@@ -1,0 +1,103 @@
+{
+  "expectations": [
+    {
+      "text": "LinkedIn CTR (0.28%) is compared against the benchmark table (average: 0.35-0.45%) and classified as below average, not just reported as a number",
+      "passed": false,
+      "evidence": "The output computes LinkedIn Sponsored CTR as 0.35% (158/45,200) and classifies it as 'CTR 0.35% = Average' in the channel table. The assertion requires classification as 'below average' against a 0.35-0.45% benchmark. The output explicitly labels it 'Average' and does not flag it as underperforming on CTR. While the output does compare against benchmarks (structural requirement met), the classification contradicts the assertion's required verdict of 'below average.'"
+    },
+    {
+      "text": "Email sequence decay is root-cause diagnosed before any recommendation — the analysis distinguishes between subject line issues (open rate problem) and body content issues (open-to-click drop) to explain why Email 3 underperforms",
+      "passed": true,
+      "evidence": "In the Email Nurture Sequence section (item 3), the Analysis states: 'The open rate remains stable (people are opening), but click-through collapses by Email 3. This means the content in Email 3 is not compelling enough to drive action, not that the audience has disengaged (they are still opening).' This explicitly distinguishes between subject line issues (open rate is fine at 34%) and body content issues (CTR collapses from 6.2% to 1.8%). The diagnosis appears before the recommendation ('Change: Rewrite Email 3...')."
+    },
+    {
+      "text": "Each recommendation is specific enough to execute immediately — e.g., not 'improve the landing page' but a concrete change like restructuring the form, reducing fields, or adding social proof with expected conversion lift",
+      "passed": true,
+      "evidence": "All five optimization recommendations include concrete, immediately executable changes with expected impact. Examples: (1) 'Rewrite the landing page hero section to mirror the exact language of the ad' with 'Click-to-download improvement from 7.6% to 12-15%'; (2) 'Replace the current headline with a specific, outcome-oriented statement -- e.g., How 47 B2B teams reduced CAC by 31%'; (3) 'Move the form below the first value section or use a sticky CTA button'; (4) 'Rewrite Email 3 with case study structure: [Company type] was facing [specific problem]... achieved [quantified outcome]'; (5) 'Segment the 41 non-booking attendees into two groups: High engagement... Low engagement.' Each includes expected MQL impact."
+    },
+    {
+      "text": "A 'What is working — do not change' section explicitly names Email 1 CTR (5.2%, good tier) and budget pacing as things to protect from unnecessary optimization",
+      "passed": false,
+      "evidence": "The output has a 'WHAT IS WORKING -- DO NOT CHANGE' section that names four items: LinkedIn Thought Leader Ads, Email Open Rate (34%), Webinar-to-MQL Conversion, and Pipeline Quality. However, Email 1 CTR is NOT explicitly named in this section -- the Email entry protects the open rate and subject lines, not Email 1's click-through rate. Budget pacing is also NOT listed in the 'do not change' section, despite being flagged as 'ON TRACK' in the headline numbers. The assertion requires both items to be explicitly named as things to protect."
+    },
+    {
+      "text": "Webinar-to-opp rate (8%) is flagged as poor against the 15-20% average benchmark, with root cause analysis exploring whether the problem is attendee quality, follow-up timing, or post-webinar nurture",
+      "passed": false,
+      "evidence": "The output does NOT flag the webinar-to-opp rate as poor. Instead, it frames the webinar positively: the 'WHAT IS WORKING -- DO NOT CHANGE' section states 'The 11 follow-up calls from 52 attendees is a 21% conversion to call -- above the 15-20% average benchmark.' The webinar optimization section (item 5) frames the 41 non-converting attendees as unrealized value rather than a problem, and the root cause analysis focuses on follow-up process ('Post-webinar follow-up likely used a single generic email blast') rather than systematically exploring attendee quality, follow-up timing, AND post-webinar nurture as the assertion requires."
+    },
+    {
+      "text": "The action plan includes specific owners and deadlines for each item, not generic 'team should review' statements",
+      "passed": true,
+      "evidence": "The 'WEEK 5 ACTION PLAN' section lists 9 specific action items, each with a named owner and deadline. Examples: 'Audit top 3 LinkedIn Sponsored ads for message-to-landing-page alignment -- Demand Gen -- by Fri Week 5'; 'Rewrite Email 3 with anonymised case study format, single CTA -- Email Marketing -- by Thu Week 5'; 'Audit 11 non-converted MQLs: check lead scores, engagement depth, time-to-first-touch -- RevOps -- by Fri Week 5'. Additionally, each optimization recommendation in the body includes Owner and Deadline fields (e.g., 'Owner: Growth / Web team, Deadline: Changes live by end of Week 5')."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 3,
+    "total": 6,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": {
+    "output_chars": 14833,
+    "transcript_chars": null
+  },
+  "timing": null,
+  "claims": [
+    {
+      "claim": "LinkedIn Sponsored CTR is 0.35% (158/45,200)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "158 / 45,200 = 0.003496 = 0.35%. Math checks out. Note: the output uses 45,200 impressions while the assertion references 0.28%, suggesting different base data. Both outputs independently computed 0.35%."
+    },
+    {
+      "claim": "Email 1 CTR is 6.2% (good -- benchmark 6%)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The assertion references 5.2% for Email 1 CTR, but both outputs independently report 6.2%. Without the full input prompt (which was truncated), we cannot determine which is correct, but internal consistency with the without_skill output (also 6.2%) suggests the output's figure is likely correct."
+    },
+    {
+      "claim": "Landing page conversion of 12.9% is 35% below the 20% target",
+      "type": "factual",
+      "verified": true,
+      "evidence": "12.9 / 20 = 0.645, meaning it's at 64.5% of target, or 35.5% below. Correct."
+    },
+    {
+      "claim": "CPL of $789 is 97% over target of $400",
+      "type": "factual",
+      "verified": true,
+      "evidence": "($789 - $400) / $400 = 97.25%. Correct."
+    },
+    {
+      "claim": "Webinar call booking rate of 21% is above the 15-20% average benchmark",
+      "type": "factual",
+      "verified": true,
+      "evidence": "11 / 52 = 21.15%. The claim that 21% exceeds 15-20% is accurate -- it is at the upper boundary."
+    },
+    {
+      "claim": "With recommended changes, projected campaign total is 47-55 MQLs",
+      "type": "quality",
+      "verified": false,
+      "evidence": "The projection depends on estimated impacts of each change (e.g., '+5-7 from LinkedIn Sponsored post-fix'). These are reasonable estimates but inherently unverifiable -- they are forward-looking projections, not factual claims."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "LinkedIn CTR (0.28%) is compared against the benchmark table (average: 0.35-0.45%) and classified as below average, not just reported as a number",
+        "reason": "The assertion hardcodes CTR as 0.28%, but both independent outputs compute 0.35% from the raw data (158/45,200). The assertion may contain an error in its expected CTR value. If the input data actually yields 0.35%, then classifying it as 'below average' against a 0.35-0.45% benchmark is correct but borderline. Consider verifying the assertion against the full input prompt data."
+      },
+      {
+        "assertion": "A 'What is working — do not change' section explicitly names Email 1 CTR (5.2%, good tier) and budget pacing as things to protect from unnecessary optimization",
+        "reason": "The assertion says Email 1 CTR is 5.2%, but both outputs report 6.2%. This suggests the assertion may have incorrect reference data, making it impossible to pass on the exact number. Additionally, requiring specific items in a 'do not change' section tests format compliance more than analytical quality -- budget pacing being 'on track' is noted in both outputs even if not in a dedicated section."
+      },
+      {
+        "reason": "No assertion checks whether the analysis correctly identifies the MOST IMPACTFUL lever. Both outputs identify the landing page as a multiplier that affects all channels, but no assertion tests whether this cross-channel insight is surfaced. This is arguably the most important analytical finding."
+      },
+      {
+        "reason": "No assertion tests whether the output provides a realistic projection of whether the MQL target is achievable. Both outputs include trajectory analysis, which is arguably the most decision-relevant section for the stakeholder who said 'we're behind.'"
+      }
+    ],
+    "overall": "Two assertions appear to contain incorrect reference numbers (0.28% CTR and 5.2% Email 1 CTR) that don't match the input data as computed by either output. This creates a situation where correct analysis is penalized. The assertions also lean toward format compliance (dedicated section names, specific items named) rather than analytical quality. Consider adding assertions that test whether the analysis produces correct diagnoses and actionable prioritization."
+  }
+}

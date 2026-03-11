@@ -8,6 +8,19 @@ description: >
   NOT for: prospect research (use prospect-research), outreach drafting (use outreach), post-call follow-up (use follow-up), pipeline reporting (use pipeline).
 ---
 
+## DATA FIDELITY RULES
+
+- Build the brief ONLY from information provided in the input — do not
+  invent company details, technology stacks, org charts, or deal history
+  not explicitly stated
+- If the input says the prospect downloaded a whitepaper, the brief must
+  reference that whitepaper — not a webinar, demo request, or other
+  engagement type not mentioned
+- If specific names, titles, or company details are provided, use them
+  exactly as given — do not substitute or embellish
+- When information is unknown, say "UNKNOWN — establish during call"
+  rather than filling in plausible-sounding details
+
 ## BRIEF TYPES
 
 ### Type 1: Pre-Discovery Call Brief
@@ -34,23 +47,28 @@ Examples:
 - "Determine if budget is available this quarter"
   Be honest about what a successful call looks like.]
 
-DISCOVERY QUESTIONS -- USE IN THIS ORDER
+DISCOVERY QUESTIONS -- 5 MAXIMUM, IN THIS ORDER
 
-Opening (earn the right to ask questions):
-[One opening statement that references something specific from their
-situation and pivots to asking them to describe the problem.
+The total question count (opening + depth + qualification) must not
+exceed 5. Select the highest-priority questions for this specific
+prospect and situation. Reps who over-question make prospects feel
+interrogated.
+
+Opening (1 question — earn the right to ask):
+[One opening question that references something specific from their
+situation and invites them to describe the problem.
 NOT "Tell me about your business." Specific.]
 
-Depth questions (once top pain is identified):
-
+Depth (2-3 questions — once top pain is identified):
+Choose from:
 1. "How are you managing that today? What's the current workaround?"
 2. "What does that cost you -- in time, headcount, or margin?"
 3. "What have you already tried? What didn't work and why?"
 4. "Is this your personal priority, or is this coming from above?"
 5. "If you solved this in the next 6 months, what does success look like?"
 
-Qualification questions (must know before close):
-
+Qualification (1 question — must-know before close):
+Choose from:
 - "Who else would be involved in evaluating something like this?"
 - "Is there a budget cycle I should be aware of?"
 - "What's your timeline for addressing this?"
@@ -109,7 +127,8 @@ to advance this deal: next meeting, demo, reference call, proposal, etc.]
 ## NEVER DO THESE
 
 - NEVER produce a pre-call brief without the research brief loaded first
-- NEVER include more than 5 discovery questions in a brief --
+- NEVER include more than 5 discovery questions total (opening + depth +
+  qualification combined) -- this is a hard limit, not a guideline;
   reps who over-question make prospects feel interrogated
 - NEVER write discovery questions as statements the rep should make --
   questions invite prospects to talk; statements make reps talk

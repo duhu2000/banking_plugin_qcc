@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Writes Inp_Units_Y1 = 75000 via idfa_ops.py write",
+      "passed": false,
+      "evidence": "The with_skill outputs directory contains only ops_test_model.xlsx \u2014 no transcript or results markdown. Cannot verify whether idfa_ops.py write was used."
+    },
+    {
+      "text": "Writes Inp_Variable_Cost_Per_Unit = 35 via idfa_ops.py write",
+      "passed": false,
+      "evidence": "No transcript or results file to verify."
+    },
+    {
+      "text": "Writes Inp_Fixed_Costs = 800000 via idfa_ops.py write",
+      "passed": false,
+      "evidence": "No transcript or results file to verify."
+    },
+    {
+      "text": "Triggers recalculation via recalc_bridge.py (at least once after all writes)",
+      "passed": false,
+      "evidence": "No transcript or results file to verify."
+    },
+    {
+      "text": "Reads Net_Income_Y2 via idfa_ops.py read",
+      "passed": false,
+      "evidence": "No transcript or results file to verify."
+    },
+    {
+      "text": "Reports the result as the model's output, not an internal calculation",
+      "passed": false,
+      "evidence": "No results markdown was produced in with_skill/outputs/. Only the xlsx file exists."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 6,
+    "total": 6,
+    "pass_rate": 0.0
+  }
+}

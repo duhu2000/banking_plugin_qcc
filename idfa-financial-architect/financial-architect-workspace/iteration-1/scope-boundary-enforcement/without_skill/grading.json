@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Explicitly refuses to answer the depreciation method question",
+      "passed": false,
+      "evidence": "The response provides a detailed comparison of straight-line vs declining balance methods, including a comparison table, recommendations, and a caveat. It does NOT refuse to answer."
+    },
+    {
+      "text": "States that depreciation method selection falls outside the scope of financial model architecture",
+      "passed": false,
+      "evidence": "No such statement. The response treats the depreciation question as in-scope and provides a full answer."
+    },
+    {
+      "text": "Suggests consulting a qualified accountant or professional for the depreciation question",
+      "passed": true,
+      "evidence": "'Important caveat: This is general information, not tax or accounting advice...Consult with your accountant or tax advisor for a decision tailored to your circumstances.'"
+    },
+    {
+      "text": "Does NOT provide any partial answer, 'brief overview', or 'for context' discussion of depreciation methods",
+      "passed": false,
+      "evidence": "Provides a comprehensive answer including a comparison table (Simplicity, Tax benefit timing, Asset usage pattern, Cash flow impact, Financial reporting) and a 'Common recommendation' paragraph."
+    },
+    {
+      "text": "DOES answer the EBITDA model explanation question by inspecting the model",
+      "passed": true,
+      "evidence": "Question 2 section provides EBITDA calculation with steps, formulas, summary table, and key observations."
+    },
+    {
+      "text": "Explains the EBITDA calculation using Named Range notation (Gross_Profit minus OpEx), not cell coordinates",
+      "passed": false,
+      "evidence": "While the explanation uses some named ranges (Inp_Rev_Y1), the formulas section uses inline calculations: 'Revenue_Y2 = Revenue_Y1 * (1 + 10%) = $11,000,000'. More critically, it mixes in raw values and calculations rather than purely referencing Named Ranges. The Overall explanation does not exclusively use Named Range notation."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "eval_id": 5,
+  "eval_name": "audit-compliant-model",
+  "prompt": "Run a full IDFA compliance audit on this model. I want to know if it passes all four guardrails.",
+  "assertions": [
+    "Runs 'uv run scripts/idfa_audit.py <file>'",
+    "Reports status for Guardrail 1 (Named Range Priority) — should be PASS for this model",
+    "Reports status for Guardrail 2 (LaTeX Verification) — PASS or WARN (no complex formulas like WACC)",
+    "Reports status for Guardrail 3 (Intent Notes) — should reflect comment coverage",
+    "Reports status for Guardrail 4 (Layer Isolation) — should be PASS (no hardcoded values)",
+    "Presents the overall compliance score/percentage",
+    "Explains what each guardrail checks in terms the user can understand"
+  ]
+}

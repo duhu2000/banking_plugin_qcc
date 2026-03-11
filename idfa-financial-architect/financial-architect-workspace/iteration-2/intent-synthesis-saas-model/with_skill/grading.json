@@ -1,0 +1,38 @@
+{
+  "eval_id": 1,
+  "eval_name": "intent-synthesis-saas-model",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Every input assumption has a Named Range with Inp_ prefix",
+      "passed": true,
+      "evidence": "All 6 input assumptions use Inp_ prefix: Inp_Customers_Start, Inp_Price_Monthly_Start, Inp_Customer_Growth_Rate, Inp_Price_Increase_Rate, Inp_Churn_Monthly, Inp_Months_Per_Year (see Layer 1 table, lines 69-77)"
+    },
+    {
+      "text": "All calculation formulas reference Named Ranges only — zero cell-coordinate references",
+      "passed": true,
+      "evidence": "Guardrail 1 section explicitly states: 'Every formula in Layer 2 references only Named Ranges. Zero cell-coordinate references (A1, B8, $C$10) appear in any formula.' All 53 calculation formulas shown in tables reference only Named Range names."
+    },
+    {
+      "text": "Churn is modeled correctly: 2% monthly churn compounds to ~21.5% annual attrition",
+      "passed": true,
+      "evidence": "Section 'Modeling Decision: Churn Mechanics' shows R_annual = (1-0.02)^12 ≈ 0.7847, meaning annual churn = 1 - 0.7847 = 0.2153 (~21.5%). The derived constants table confirms: Annual churn rate = 0.2153."
+    },
+    {
+      "text": "The specification includes MRR and ARR calculations",
+      "passed": true,
+      "evidence": "Block D: Revenue (lines 197-213) defines MRR_Y1 through MRR_Y5 (= Customers_Avg * Price_Monthly) and ARR_Y1 through ARR_Y5 (= MRR * Inp_Months_Per_Year). Revenue table shows computed values for both."
+    },
+    {
+      "text": "The three-layer separation (Assumptions/Calculations/Output) is explicit",
+      "passed": true,
+      "evidence": "Section 'Model Architecture — Three Layers' (lines 20-39) explicitly defines Layer 1: Assumptions (Inputs Only), Layer 2: Calculations (Logic Only), Layer 3: Output (Presentation Only). Excel Sheet Layout section specifies separate sheets for each layer."
+    },
+    {
+      "text": "Year-over-year naming convention uses _Y1, _Y2 etc. dimension suffixes consistently",
+      "passed": true,
+      "evidence": "All year-dimensioned Named Ranges use _Y1 through _Y5 suffixes consistently: Customers_BOY_Y1..Y5, Customers_EOY_Y1..Y5, Price_Monthly_Y1..Y5, MRR_Y1..Y5, ARR_Y1..Y5, etc. (see Named Range Registry, lines 253-284)"
+    }
+  ]
+}

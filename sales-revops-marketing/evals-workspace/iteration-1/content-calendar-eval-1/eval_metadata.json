@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "content-calendar-eval-1",
+  "prompt": "I need an 8-week content calendar for our new B2B SaaS product launch -- we're releasing an AI-powered contract management platform called ClauseIQ targeted at mid-market legal ops teams (200-1000 emp...",
+  "assertions": [
+    "Output includes the calendar in the specified table format with all required columns: Week, Date, Channel, Content Title, Format, Persona, CTA, and Status -- plus per-week sections for Key Theme, Pillar Link, and Production Deadline",
+    "The pillar-cluster model is clearly visible with at least 2 cornerstone assets (e.g. a pre-launch guide on AI contract management and a post-launch ROI report or case study framework) each generating 4-8 derived cluster pieces across blog, LinkedIn, and email",
+    "Channel cadence stays within sustainable defaults for the four committed channels only: LinkedIn company page at up to 3x/week, CEO LinkedIn at up to 4-5x/week, blog at 1-2x/week, email at 1-2x/month -- with NO webinar or paid social content planned since those channels are explicitly uncommitted",
+    "Total weekly content volume does not exceed 6-9 pieces per week (1 full-time writer at 3-4 pieces/week with 2-3x AI multiplier), and if any week approaches or exceeds this ceiling the output flags it and recommends what to cut, prioritising pillar content over channel fill",
+    "Every production deadline is set at least 5 business days before the corresponding publish date, and the LegalTech Connect event in week 3 has content (pre-event teasers, live coverage, post-event recap) with deadlines that account for the event timeline",
+    "Every single content piece is anchored to one of the two personas (VP Legal Ops or Head of Procurement) and includes a specific CTA (e.g. 'Book a demo', 'Download the guide', 'Register for launch event') -- no piece exists without both a persona and a CTA"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "eval_id": 6,
+  "eval_name": "create-new-named-range",
+  "prompt": "I need to add a new input to the model: a discount rate of 8% for future DCF analysis. Create a Named Range called Inp_Discount_Rate on the Assumptions sheet, and put it in cell B8.",
+  "assertions": [
+    "Runs 'uv run scripts/idfa_ops.py create-range <file> Inp_Discount_Rate Assumptions B8'",
+    "Runs 'uv run scripts/idfa_ops.py write <file> Inp_Discount_Rate 0.08' to set the value",
+    "Verifies the range was created correctly (either via read or inspect)",
+    "Uses the correct IDFA naming convention (Inp_ prefix for an input assumption)",
+    "Does not manually edit the xlsx with openpyxl — uses the idfa_ops.py script"
+  ]
+}

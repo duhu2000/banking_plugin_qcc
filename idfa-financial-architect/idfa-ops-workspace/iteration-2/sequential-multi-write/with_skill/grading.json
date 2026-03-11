@@ -1,0 +1,38 @@
+{
+  "eval_id": 9,
+  "eval_name": "sequential-multi-write",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Writes all three assumptions via idfa_ops.py write",
+      "passed": true,
+      "evidence": "Step 2 shows three sequential writes: Inp_Units_Y1 75000 (status ok), Inp_Variable_Cost_Per_Unit 35 (status ok), Inp_Fixed_Costs 800000 (status ok) — all via idfa_ops.py write."
+    },
+    {
+      "text": "Triggers recalculation at least once after all writes",
+      "passed": true,
+      "evidence": "Step 3: 'LibreOffice headless recalculation triggered via --convert-to xlsx (deterministic formula evaluation).' EXIT: 0."
+    },
+    {
+      "text": "Reports Year 2 Net Income (~$3.36M, roughly +96% from baseline)",
+      "passed": true,
+      "evidence": "Net_Income_Y2: 3,364,375 (approximately $3.36M). Comparison table shows: '+$1,649,375 (+96.2%)' — matches the expected ~+96% from the $1,715,000 baseline."
+    },
+    {
+      "text": "Reads the result from the model via idfa_ops.py read",
+      "passed": true,
+      "evidence": "Step 4: 'uv run skills/idfa-ops/scripts/idfa_ops.py read ops_test_model.xlsx Net_Income_Y1 Net_Income_Y2 ...' with JSON output showing all recalculated values including Net_Income_Y2: 3364375."
+    },
+    {
+      "text": "Presents results with a clear before/after comparison",
+      "passed": true,
+      "evidence": "Step 5 contains a comprehensive before/after comparison table with columns: Metric, Baseline, Aggressive, Change, % Change — covering all inputs and all Y1/Y2 results."
+    },
+    {
+      "text": "The output file contains the complete scenario",
+      "passed": true,
+      "evidence": "The .md file contains: the task description, all three input changes, baseline values, recalculation step, post-change values, and a full before/after comparison with analysis — a complete scenario document."
+    }
+  ]
+}

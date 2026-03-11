@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Subject line references TerraForm Logistics's specific situation — the Maersk partnership, the 40-to-70 rep scale, or sales capacity during expansion (drives reply rate) — prospect-specific subject lines outperform generic ones ('Quick question', 'Introduction') by 2-3x on open rate in cold email",
+      "passed": true,
+      "evidence": "Subject line is: 'Scaling from 40 to 70 reps after the Maersk deal' — directly references both the Maersk partnership and the 40-to-70 rep scaling."
+    },
+    {
+      "text": "First sentence references the FreightWaves Maersk announcement or the careers page hiring ramp, not Quota OS or Priya (drives reply rate) — opening with a verifiable, timely event the prospect cares about signals research effort and earns the read past the first line",
+      "passed": true,
+      "evidence": "First sentence: 'Saw the FreightWaves piece on TerraForm's Maersk partnership for North American intermodal freight -- that is a significant capacity jump.' This references both FreightWaves and the Maersk announcement. No mention of Quota OS or Priya."
+    },
+    {
+      "text": "Email body is 150 words or fewer with exactly one CTA — a 20-minute demo — and no secondary asks, no 'or if you prefer a call', no vague 'thoughts?' (drives deal velocity) — single-CTA cold emails have significantly higher conversion to booked meetings than multi-option emails",
+      "passed": true,
+      "evidence": "Word count is stated as 128 words (under 150). The single CTA is: 'Would a 20-minute demo be worth your time this week?' No secondary asks, no alternatives, no 'thoughts?'"
+    },
+    {
+      "text": "Message avoids corporate jargon (leverage, synergy, best-in-class, seamless, robust, solution, game-changing, revolutionary, disruptive, holistic, end-to-end, cutting-edge, world-class, innovative, empower, unlock, transform) — messages with these words have measurably lower reply rates in B2B cold outreach",
+      "passed": true,
+      "evidence": "Five Laws Check confirms: 'Confirmed clean. No instances of: leverage, synergy, best-in-class, seamless, robust, solution, game-changing, revolutionary, disruptive, holistic, end-to-end, cutting-edge, world-class, innovative, empower, unlock, transform.' Verified by reading the email body."
+    },
+    {
+      "text": "Output includes a Five Laws compliance audit section verifying all 5 laws (specific reference, lead with them, one ask, word count, banned language) — this structured self-check reduces rep review time and catches messages that would get ignored before they're sent",
+      "passed": true,
+      "evidence": "The output includes a 'FIVE LAWS CHECK' section with all 5 laws explicitly verified: Law 1 (Specific reference), Law 2 (Lead with them), Law 3 (One ask), Law 4 (Word count: 128 words), Law 5 (No jargon: confirmed clean)."
+    },
+    {
+      "text": "Output includes a Day 3 follow-up using a different angle with new value (e.g., quota-setting challenges when onboarding 30 reps) and a Day 7 follow-up in single-question format (drives deal velocity) — a pre-built 3-touch sequence eliminates the rep needing to draft follow-ups from scratch, keeping cadence momentum without manual effort",
+      "passed": true,
+      "evidence": "Day 3 follow-up uses a different angle: 'Quota-setting when 30 reps are still ramping' — focuses on ramp-adjusted quotas vs. the primary email's partnership/scaling angle. Day 7 follow-up is a single question: 'Is ramping 30 new reps to quota this quarter something your team is actively planning around, or is capacity modelling not a priority right now?'"
+    },
+    {
+      "text": "Notes section includes the specific hooks used, a confidence rating tied to source quality (FreightWaves = published media, careers page = publicly verifiable), and tone classification (drives pipeline hygiene) — this metadata lets managers audit whether reps are sending outreach backed by real signals or fabricated personalization",
+      "passed": true,
+      "evidence": "Notes section includes: Hooks used (3 hooks listed with descriptions), Confidence rating: 'HIGH' with source quality details: 'FreightWaves article: published media source (verifiable)' and 'Careers page hiring data: publicly accessible company information (verifiable).' Tone classification: 'Peer-level -- Written as one sales professional to another, not vendor-to-buyer.'"
+    }
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}
+}

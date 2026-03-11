@@ -1,0 +1,97 @@
+{
+  "expectations": [
+    {
+      "text": "At least 8 subject line variants are produced, each labelled with its framework or angle",
+      "passed": true,
+      "evidence": "10 variants produced (8 primary + 2 bonus). Each is presented in a table with a 'Framework' column providing labels (e.g., 'Curiosity / open loop', 'Specificity / concrete number', 'Question / competitive comparison'). Variants are grouped under framework headings: 'Curiosity-Driven', 'Specificity-Driven', 'Question-Based'."
+    },
+    {
+      "text": "Every variant is 50 characters or fewer, with character count shown alongside each",
+      "passed": true,
+      "evidence": "All 10 variants are under 50 characters (verified: actual lengths range from 28 to 38 characters). Each variant has a 'Chars' column in the table showing the count. Character counts are more accurate than the with_skill output -- 6 of 10 are exact, and the remaining 4 are off by only 1-2 characters."
+    },
+    {
+      "text": "No variant contains banned jargon: leverage, synergy, best-in-class, seamless, robust, solution",
+      "passed": true,
+      "evidence": "Verified all 10 subject lines against the banned word list. None contain 'leverage', 'synergy', 'best-in-class', 'seamless', 'robust', or 'solution'."
+    },
+    {
+      "text": "Variants test at least 3 distinct angles from the test dimensions (e.g., pain vs gain, specific vs broad, question vs statement) -- not just synonym swaps of the same message",
+      "passed": true,
+      "evidence": "At least 3 distinct angles present: (1) Curiosity/open loop -- implying hidden information (Variants 1, 2, 10), (2) Specificity -- concrete numbers and direct offers (Variants 3, 4, 5, 9), (3) Question-based -- competitive comparison and self-assessment (Variants 6, 7, 8). The testing recommendation explicitly designs Phase 1 to 'isolate the framework effect' across these three categories. These are substantively different approaches, not synonym swaps."
+    },
+    {
+      "text": "A TESTING RECOMMENDATION section is present that names the lead test pair, states an expected winner with reasoning, specifies open rate as the metric, and includes a minimum sample size",
+      "passed": false,
+      "evidence": "Section titled 'A/B Testing Recommendation' is present. It names a lead test -- but it is a THREE-way test (#1 vs #3 vs #6), not a pair. The assertion specifies 'the lead test pair.' The section specifies open rate as the primary metric ('Primary metric -- subject line's sole job is to get the open'). Minimum sample size is provided: '~725 sends' per variant. However, there is NO expected winner stated. The section explains why those three variants were chosen and what each tests, but never predicts which one will win or provides reasoning for an expected winner. The assertion requires 'states an expected winner with reasoning' -- this is absent."
+    },
+    {
+      "text": "At least 2 different frameworks from the SKILL.md set (Specificity, Curiosity, Relevance, Urgency, Question) are represented across the variants",
+      "passed": true,
+      "evidence": "3 of the 5 SKILL.md frameworks are explicitly represented: Curiosity (Variants 1, 2, 10), Specificity (Variants 3, 4, 5, 9), and Question (Variants 6, 7, 8). Relevance and Urgency are not explicitly represented as named frameworks, but the assertion only requires 2."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  },
+  "execution_metrics": {},
+  "timing": {},
+  "claims": [
+    {
+      "claim": "Variant 2 character count is 37",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Actual count of 'What top 3PLs measure that you don't' is 36 characters. The apostrophe in 'don't' may be a smart quote in some renderings, which could explain the 1-char discrepancy."
+    },
+    {
+      "claim": "Variant 4 character count is 38",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Actual count of 'Benchmark your ops against 200+ 3PLs' is 36 characters, not 38."
+    },
+    {
+      "claim": "To detect a 5 percentage point lift at 95% confidence and 80% power requires ~725 sends per variant",
+      "type": "factual",
+      "verified": true,
+      "evidence": "This is approximately correct for a two-proportion z-test with baseline ~20%, detecting a 5pp lift. Standard power calculations yield roughly 700-800 per group depending on exact parameters."
+    },
+    {
+      "claim": "We scored 214 warehouse operations (Variant 9)",
+      "type": "factual",
+      "verified": false,
+      "evidence": "This claim in the subject line implies FlowOps has benchmarked 214 warehouse operations. This cannot be verified from available outputs and may be fabricated. No caveat or warning is provided, unlike the with_skill output which flagged unverifiable claims."
+    },
+    {
+      "claim": "Benchmark your ops against 200+ 3PLs (Variant 4)",
+      "type": "factual",
+      "verified": false,
+      "evidence": "This subject line implies FlowOps has data from 200+ 3PL companies. This cannot be verified and no caveat is provided about substantiating the claim before use."
+    },
+    {
+      "claim": "Tuesday or Wednesday, 7:00-8:30 AM recipient local time is optimal for VP-level logistics decision-makers",
+      "type": "quality",
+      "verified": false,
+      "evidence": "This is a reasonable best-practice claim but cannot be verified from available outputs. It is stated as fact without qualification."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "A TESTING RECOMMENDATION section is present that names the lead test pair, states an expected winner with reasoning, specifies open rate as the metric, and includes a minimum sample size",
+        "reason": "This assertion bundles four sub-requirements into one. The without_skill output passes on 3 of 4 (section present, open rate metric, sample size) but fails on expected winner. Consider splitting into separate assertions so partial compliance is visible in scoring -- right now it's a binary fail despite meeting most sub-requirements."
+      },
+      {
+        "reason": "No assertion checks whether subject lines contain unverifiable factual claims (e.g., '200+ 3PLs', 'scored 214 warehouse operations'). The with_skill output flagged these responsibly; the without_skill output did not. An assertion like 'Any subject line containing a specific statistic or claim includes a caveat about verification' would be discriminating between careful and careless outputs."
+      }
+    ],
+    "overall": "The assertions caught a genuine gap (no expected winner) in the without_skill output. The main missing coverage is around responsible handling of unverifiable claims in subject line copy -- the without_skill output contains fabricated-sounding numbers ('214 warehouse operations', '200+ 3PLs') with no caveats."
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Creates a new input assumption with Inp_ prefix for the depreciation rate (e.g., Inp_Depreciation_Pct = 0.10)",
+      "passed": true,
+      "evidence": "Layer 1 \u2014 Assumptions table: 'Cell B8, Label: Depreciation % of Revenue, Named Range: Inp_Depr_Pct, Value: 0.10'."
+    },
+    {
+      "text": "Creates calculation Named Ranges for Depreciation_Y1, Depreciation_Y2, Depreciation_Y3",
+      "passed": true,
+      "evidence": "Layer 2 table shows Named Ranges Depreciation_Yn with formulas: '=Revenue_Y1*Inp_Depr_Pct', '=Revenue_Y2*Inp_Depr_Pct', '=Revenue_Y3*Inp_Depr_Pct'."
+    },
+    {
+      "text": "Depreciation formulas use Named Ranges only (e.g., Depreciation_Y1 = Revenue_Y1 * Inp_Depreciation_Pct)",
+      "passed": true,
+      "evidence": "Formulas are '=Revenue_Y1*Inp_Depr_Pct', '=Revenue_Y2*Inp_Depr_Pct', '=Revenue_Y3*Inp_Depr_Pct' \u2014 all Named Range references, zero cell coordinates."
+    },
+    {
+      "text": "Updates existing EBITDA calculations to subtract depreciation (or creates new EBIT Named Ranges)",
+      "passed": true,
+      "evidence": "Report creates new EBIT_Yn Named Ranges: '=EBITDA_Y1-Depreciation_Y1'. States: 'Existing EBITDA row (row 7) preserved unchanged. EBIT sits below it in the waterfall.'"
+    },
+    {
+      "text": "Uses idfa-ops write/create-range commands for all model modifications",
+      "passed": true,
+      "evidence": "Report header: 'Tool: idfa-ops scripts (create-range, write, formula, inspect)'."
+    },
+    {
+      "text": "Verifies the updated model produces correct values via recalculate and read",
+      "passed": false,
+      "evidence": "IDFA Compliance Check notes: 'NOTE \u2014 no recalc engine available (LibreOffice not installed); formulas are structurally correct but cached values are not populated.' Expected values table is labeled 'for verification when opened in Excel', indicating values were computed internally, not read from recalculated model."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  }
+}

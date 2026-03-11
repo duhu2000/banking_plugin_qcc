@@ -1,0 +1,186 @@
+{
+  "status": "ok",
+  "named_ranges": [
+    {
+      "name": "Inp_Price",
+      "sheet": "Assumptions",
+      "cell": "B2",
+      "formula": null,
+      "value_raw": 100,
+      "cached_value": 100,
+      "intent_note": null
+    },
+    {
+      "name": "Inp_Units_Y1",
+      "sheet": "Assumptions",
+      "cell": "B3",
+      "formula": null,
+      "value_raw": 50000,
+      "cached_value": 50000,
+      "intent_note": null
+    },
+    {
+      "name": "Inp_Units_Growth",
+      "sheet": "Assumptions",
+      "cell": "B4",
+      "formula": null,
+      "value_raw": 0.15,
+      "cached_value": 0.15,
+      "intent_note": null
+    },
+    {
+      "name": "Inp_Variable_Cost_Per_Unit",
+      "sheet": "Assumptions",
+      "cell": "B5",
+      "formula": null,
+      "value_raw": 40,
+      "cached_value": 40,
+      "intent_note": null
+    },
+    {
+      "name": "Inp_Fixed_Costs",
+      "sheet": "Assumptions",
+      "cell": "B6",
+      "formula": null,
+      "value_raw": 1000000,
+      "cached_value": 1000000,
+      "intent_note": null
+    },
+    {
+      "name": "Inp_Tax_Rate",
+      "sheet": "Assumptions",
+      "cell": "B7",
+      "formula": null,
+      "value_raw": 0.3,
+      "cached_value": 0.3,
+      "intent_note": null
+    },
+    {
+      "name": "Units_Y1",
+      "sheet": "Calculations",
+      "cell": "B2",
+      "formula": "=Inp_Units_Y1",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 1 units from assumption input"
+    },
+    {
+      "name": "Units_Y2",
+      "sheet": "Calculations",
+      "cell": "C2",
+      "formula": "=Units_Y1*(1+Inp_Units_Growth)",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 2 units = prior year * (1 + growth)"
+    },
+    {
+      "name": "Revenue_Y1",
+      "sheet": "Calculations",
+      "cell": "B3",
+      "formula": "=Units_Y1*Inp_Price",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 1 revenue = units * price per unit"
+    },
+    {
+      "name": "Revenue_Y2",
+      "sheet": "Calculations",
+      "cell": "C3",
+      "formula": "=Units_Y2*Inp_Price",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 2 revenue = units * price per unit"
+    },
+    {
+      "name": "Variable_Costs_Y1",
+      "sheet": "Calculations",
+      "cell": "B4",
+      "formula": "=Units_Y1*Inp_Variable_Cost_Per_Unit",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 1 variable costs = units * cost per unit"
+    },
+    {
+      "name": "Variable_Costs_Y2",
+      "sheet": "Calculations",
+      "cell": "C4",
+      "formula": "=Units_Y2*Inp_Variable_Cost_Per_Unit",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 2 variable costs = units * cost per unit"
+    },
+    {
+      "name": "Contribution_Y1",
+      "sheet": "Calculations",
+      "cell": "B5",
+      "formula": "=Revenue_Y1-Variable_Costs_Y1",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 1 contribution = revenue minus variable costs"
+    },
+    {
+      "name": "Contribution_Y2",
+      "sheet": "Calculations",
+      "cell": "C5",
+      "formula": "=Revenue_Y2-Variable_Costs_Y2",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 2 contribution = revenue minus variable costs"
+    },
+    {
+      "name": "EBIT_Y1",
+      "sheet": "Calculations",
+      "cell": "B6",
+      "formula": "=Contribution_Y1-Inp_Fixed_Costs",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 1 EBIT = contribution minus fixed costs"
+    },
+    {
+      "name": "EBIT_Y2",
+      "sheet": "Calculations",
+      "cell": "C6",
+      "formula": "=Contribution_Y2-Inp_Fixed_Costs",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 2 EBIT = contribution minus fixed costs"
+    },
+    {
+      "name": "Tax_Y1",
+      "sheet": "Calculations",
+      "cell": "B7",
+      "formula": "=EBIT_Y1*Inp_Tax_Rate",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 1 tax = EBIT * tax rate"
+    },
+    {
+      "name": "Tax_Y2",
+      "sheet": "Calculations",
+      "cell": "C7",
+      "formula": "=EBIT_Y2*Inp_Tax_Rate",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 2 tax = EBIT * tax rate"
+    },
+    {
+      "name": "Net_Income_Y1",
+      "sheet": "Calculations",
+      "cell": "B8",
+      "formula": "=EBIT_Y1-Tax_Y1",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 1 net income = EBIT minus tax"
+    },
+    {
+      "name": "Net_Income_Y2",
+      "sheet": "Calculations",
+      "cell": "C8",
+      "formula": "=EBIT_Y2-Tax_Y2",
+      "value_raw": null,
+      "cached_value": null,
+      "intent_note": "Year 2 net income = EBIT minus tax"
+    }
+  ],
+  "count": 20
+}

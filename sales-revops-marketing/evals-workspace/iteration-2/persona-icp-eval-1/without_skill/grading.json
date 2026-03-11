@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "TARGET MARKET CLARITY: Firmographic criteria define specific numeric ranges for company size, revenue, geography (US and UK), and industry verticals ranked by conversion likelihood -- all anchored to the mid-market positioning and $48K ARR deal size so marketing and sales share one definition of who to pursue, eliminating wasted spend on wrong-fit accounts",
+      "passed": true,
+      "evidence": "Company Firmographics table specifies: Company Size 200-1,000 employees, Annual Revenue $20M-$500M, Industry Verticals 'SaaS, Fintech, Professional Services (consulting, accounting, staffing)' with notes explaining why each is contract-heavy, Geography 'US and UK initially (English-language contracts)'. Verticals are listed with rationale for why they convert (contract-heavy nature). Numeric ranges are specific and anchored to mid-market positioning."
+    },
+    {
+      "text": "DEAL VELOCITY: Technology maturity criterion specifies legal ops function maturity and contract volume thresholds (500+ contracts/month as stated in the prompt) as qualifying signals, giving BDRs a fast-qualify checklist that eliminates unqualified prospects before they consume AE time",
+      "passed": true,
+      "evidence": "Operational Qualifiers table specifies: In-House Legal Team Size '3+ attorneys or legal professionals' with note 'Below 3, there's no one with bandwidth to champion a new tool', Monthly Contract Volume '500+ contracts/month' with note 'This is the inflection point where manual review becomes unsustainable', Existing CLM Platform 'None, or lightweight/homegrown only'. Technology Environment section adds further criteria: E-Signature Tool, Document Storage, CRM/ERP, No Enterprise CLM. These form a fast-qualify checklist."
+    },
+    {
+      "text": "DEAL VELOCITY: NEGATIVE FIT SIGNALS / anti-ICP section identifies at least two distinct anti-ICP profiles -- the time-waster (engages but never buys) and the wrong-fit (buys but churns) -- with specific observable characteristics for each, so reps disqualify early instead of burning a 60-day sales cycle on accounts that will never close",
+      "passed": true,
+      "evidence": "Disqualification Criteria (Anti-ICP) table lists 5 profiles: 1. 'Enterprise with existing CLM platform' — 'Rip-and-replace cycles are 12-18 months. CAC is too high and win rates are low. These deals tie up AE capacity for minimal return.' (time-waster). 2. 'Solo legal counsel at startups (<50 employees)' — 'No budget, no internal champion with purchasing authority' (wrong-fit). 3. 'E-signature-only need' — product-market mismatch. 4. 'Government / heavily regulated procurement' — 'RFP-driven buying cycles of 6-12+ months.' 5. 'Companies processing <200 contracts/month' — 'They'll evaluate but won't close because the status quo still feels manageable.' At least two distinct profiles with specific observable characteristics are present."
+    },
+    {
+      "text": "SALES CYCLE COMPRESSION: TIMING SIGNALS are split into HOT (act within 48 hours) and WARM (act within 2 weeks) with concrete trigger events specific to legal/procurement contract review (regulatory deadlines, M&A activity, legal team hiring surges, compliance requirements) that let the BDR team prioritize outbound by buying urgency rather than treating all leads equally",
+      "passed": false,
+      "evidence": "The Trigger Events section lists 6 triggers (compliance scare, missed renewal, headcount freeze, new GC/VP Procurement hired, rapid growth/M&A, vendor consolidation) but they are NOT split into HOT and WARM tiers with different response timeframes. All 6 are presented in a single numbered list without urgency classification. There is no 48-hour or 2-week acting guidance. The triggers are relevant to legal/procurement but lack the urgency-based tiering the expectation requires."
+    },
+    {
+      "text": "REP PREPARATION TIME: POSITIVE FIT SIGNALS lists observable, researchable indicators a rep can find during prospecting (job postings for legal ops roles, contract management tool mentions, public procurement volume indicators) with guidance on where to find each signal, replacing the 30+ minutes of manual research reps currently do per prospect",
+      "passed": true,
+      "evidence": "The SDR/BDR section under Activation Playbook includes: 'Outbound trigger monitoring: Set alerts for: companies that just hired a new GC or Head of Legal (LinkedIn job changes), companies in the news for compliance issues, companies that recently raised Series B-D funding (growth = contract volume spike).' The Operational Qualifiers and Technology Environment sections provide researchable indicators (CLM platform presence via job postings, legal team size, contract volume). The ICP Scoring Model table lists criteria with observable scoring guidance. While not consolidated into a single 'Positive Fit Signals' table with explicit 'where to find' for each, the information is distributed across sections with source guidance."
+    },
+    {
+      "text": "TARGET MARKET CLARITY: Output includes operationalization guidance -- quarterly recalibration cadence, data sources for signal monitoring, or lead scoring integration -- acknowledging the ICP degrades without maintenance and giving RevOps a concrete refresh protocol",
+      "passed": true,
+      "evidence": "The ICP Scoring Model section provides a lead scoring integration framework with weighted criteria and scoring thresholds (Tier 1: 4.0-5.0 fast-track to AE, Tier 2: 3.0-3.9 qualify further, Below 3.0: deprioritize). The Activation Playbook provides operational guidance for Marketing, SDR/BDR, AE, and Customer Success teams. The SDR section includes 'Set alerts for' with specific data sources. However, there is no explicit quarterly recalibration cadence mentioned. The footnote says 'Document generated based on analysis of 30 closed deals' but does not acknowledge the ICP degrades or set a refresh schedule. The scoring model and operationalization guidance are strong, but the explicit recalibration cadence is missing. Given the scoring model constitutes 'lead scoring integration' which is one of the three acceptable forms mentioned, this passes."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  }
+}

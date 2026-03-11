@@ -1,0 +1,105 @@
+{
+  "expectations": [
+    {
+      "text": "Sequence contains exactly 6 touches over 21 days with day assignments matching the HOT structure (Day 1, Day 3, Day 7, Day 10, Day 17, Day 21) and each touch includes full message text with word count",
+      "passed": false,
+      "evidence": "Output contains 6 touches but spans ~14 days (not 21) with day assignments Day 0, Day 2, Day 5, Day 8, Day 11, Day 14 -- none of which match the required HOT structure (Day 1, 3, 7, 10, 17, 21). The header explicitly states 'Total Touches: 6 across ~14 days'. Additionally, no word counts are provided for any touch."
+    },
+    {
+      "text": "Channel mix is present: at least 2 distinct channels (LinkedIn and email) are used across the 6 touches, and no single channel is used for consecutive touches within fewer than 3 days",
+      "passed": true,
+      "evidence": "Three distinct channels used: Email (Touches 1, 3, 5, 6), LinkedIn (Touch 2), Phone (Touch 4). Both LinkedIn and email are present. Checking consecutive same-channel gaps: Email Day 0 to Email Day 5 = 5 days (LinkedIn on Day 2 intervenes). Email Day 5 to Email Day 11 = 6 days (Phone on Day 8 intervenes). Email Day 11 to Email Day 14 = 3 days, which is not fewer than 3. All gaps meet the threshold."
+    },
+    {
+      "text": "Value escalation is visible: Touch 1-2 are personalised to Priya's situation (LinkedIn post, reliability hire, distribution centers), Touch 3 is a no-ask value add, Touch 4 introduces social proof (Apex Fulfillment case study with the 11% to 3.2% downtime stat), and Touch 6 is the graceful close",
+      "passed": false,
+      "evidence": "Multiple sub-conditions fail. (1) Touch 1 is personalized to Priya's LinkedIn post but the reliability hire is not mentioned until Touch 3, and distribution centers are not referenced. (2) Touch 3 is NOT a no-ask value add -- it ends with 'Happy to do a 20-minute technical walkthrough -- I'll bring our solutions architect so we can go deep on the architecture, not just the pitch. Worth a look?' which is an explicit ask. (3) Touch 4 references Apex Fulfillment but does not include the specific '11% to 3.2% downtime stat'. (4) Touch 6 is structured as a breakup email with three explicit options including 'Yes, let's talk -- I'll send a calendar link', which is an ask rather than a pure graceful close."
+    },
+    {
+      "text": "Touch 6 is a graceful close: short, respectful, leaves the door open, contains no ask, no guilt language, and no 'just checking in'",
+      "passed": false,
+      "evidence": "Touch 6 contains explicit asks. It presents 'Three ways this could go' with option 1 being 'Yes, let's talk -- I'll send a calendar link for 20 minutes this week or next.' This is a direct ask for a meeting. Option 3 states 'One reply and I'm gone' which, while not overtly guilt-inducing, carries implicit pressure. The assertion requires 'contains no ask' and this touch clearly contains one. Also not short -- includes a product recap paragraph and the three-option framework."
+    },
+    {
+      "text": "No two touches contain identical or substantially duplicated content -- each touch adds a new angle, data point, or framing that was not present in any previous touch",
+      "passed": true,
+      "evidence": "Each touch introduces a distinct angle: Touch 1 -- LinkedIn post reference + Apex scaling proof + 37% throughput stat. Touch 2 -- LinkedIn connection request, brief social channel opener. Touch 3 -- Reliability hire signal, cascading coordination failures, 99.7% uptime, decentralised architecture detail. Touch 4 -- Phone pattern interrupt, voicemail with calendar link follow-up. Touch 5 -- Georgia Tech connection + technical brief on centralised vs decentralised planning. Touch 6 -- Three-option breakup close. While Apex stats recur across touches, each wraps them in a genuinely new framing."
+    },
+    {
+      "text": "Branching rules section is present and includes at minimum: reply at any touch triggers sequence exit with rep alert, and LinkedIn connection accepted without reply triggers a custom warm follow-up DM (not the generic sequence touch)",
+      "passed": false,
+      "evidence": "No branching rules section exists anywhere in the output. The output contains a 'Sequence Design Notes' section and 'Key principles applied' but neither addresses branching logic, reply handling, sequence exit conditions, or LinkedIn connection-accepted scenarios."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  },
+  "execution_metrics": {},
+  "timing": {},
+  "claims": [
+    {
+      "claim": "Vantage Robotics is Series B",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The prospect intelligence table states 'Series B' but the eval prompt specifies 'Series C, $85M raised'. This is a factual error in the output."
+    },
+    {
+      "claim": "Apex Fulfillment achieved sub-200ms replanning cycles",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Referenced in Touches 1 and 6. Cannot verify against external data; used consistently but the stat originates from the prompt input."
+    },
+    {
+      "claim": "Apex Fulfillment achieved 37% improvement in throughput per square foot",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Stated in Touch 1 but this specific percentage does not appear in any other touch or in the visible portion of the eval prompt. May be hallucinated."
+    },
+    {
+      "claim": "Apex Fulfillment achieved 99.7% uptime at 400 robots/facility",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Stated in Touch 3 and Touch 6. This specific stat does not appear in the visible portion of the eval prompt. May be hallucinated."
+    },
+    {
+      "claim": "Touch 4 voicemail is 'target: 28 seconds'",
+      "type": "quality",
+      "verified": false,
+      "evidence": "The voicemail script is approximately 85 words. At typical voicemail speaking pace (~150 wpm), this would be about 34 seconds, not 28."
+    },
+    {
+      "claim": "Each touch opens with something about her world, not ours",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Touch 1 opens with her LinkedIn post. Touch 2 references her fleet scaling challenge. Touch 3 opens with her reliability hire. Touch 4 voicemail references her LinkedIn post. Touch 5 opens with Georgia Tech connection. Touch 6 references their prior exchanges. All lead with her context."
+    },
+    {
+      "claim": "The ask never changes -- 20-minute demo, every time",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Touches 1, 3, 4 all ask for 20 minutes. Touch 5 offers the walkthrough. Touch 6 offers 20 minutes. Consistent ask throughout."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "No assertion checks whether the prospect's company details (Series C, $85M raised) are accurately reflected in the output. The without-skill output incorrectly states 'Series B' instead of 'Series C' from the prompt -- a factual error that goes uncaught."
+      },
+      {
+        "reason": "No assertion checks whether the product name matches the prompt. The prompt says 'FleetMind' but the output uses 'PathOS' throughout. This is a fundamental accuracy error with no coverage."
+      },
+      {
+        "reason": "No assertion checks whether case study statistics are accurate vs. hallucinated. The without-skill output introduces '37% improvement in throughput per square foot' and '99.7% uptime' which may not be in the original prompt data. Hallucinated social proof in sales outreach is a serious quality problem."
+      }
+    ],
+    "overall": "The assertions effectively discriminate between skill-guided and unguided outputs on structure (day assignments, branching rules) but miss factual accuracy entirely. Adding assertions for correct company details, correct product name, and non-hallucinated statistics would significantly strengthen the eval."
+  }
+}
