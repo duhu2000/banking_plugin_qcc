@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline generation: every content piece targets either the CISO or IT Director persona at financial services firms and includes a CTA that drives toward discovery calls (e.g., 'Schedule a security assessment', 'Book a 30-min consultation') -- no piece exists without both a persona assignment and a conversion-oriented CTA that feeds the inbound pipeline",
+      "passed": true,
+      "evidence": "Every content piece in the calendar has a persona (CISO or IT Director at financial services firms) and a CTA driving discovery calls. Examples: 'Schedule a security assessment' for CISO pieces, 'Book a 30-min consultation' for IT Director pieces. The output explicitly confirms: 'Every content piece targets either the CISO or IT Director persona at financial services firms and includes a CTA driving toward discovery calls. No piece exists without both a persona assignment and a conversion-oriented CTA.'"
+    },
+    {
+      "text": "Execution velocity: total content volume never exceeds 1-2 pieces in any single week, and the output includes a workload calculation confirming that 13-26 total pieces over the quarter is within part-time writer capacity -- with specific weeks flagged as lighter or buffer weeks to account for event logistics responsibilities",
+      "passed": true,
+      "evidence": "Workload Calculation section: '13 weeks x 1-2 pieces/week = 13-26 total pieces' and 'Planned total: 21 pieces (well within 13-26 range)'. Capacity summary shows no week exceeds 2 pieces. Buffer weeks explicitly flagged: Week 1 (1 piece, 'writer ramps into quarter'), Week 5 (1 piece, 'event logistics likely mid-quarter'), Week 9 (0 pieces, 'event logistics + catch-up week'), Week 13 (0 pieces, 'quarter close'). Validation: '14 pieces across 13 weeks = average 1.1 pieces/week. Peak weeks (2, 6, 11) hit 2 pieces. No week exceeds 2 pieces.'"
+    },
+    {
+      "text": "Content leverage: pillar-cluster model is adapted to the constraint with 2-3 pillar assets spaced every 4-6 weeks across the 13-week quarter, each generating a reduced cluster of 2-4 derived pieces rather than the full 4-8, with an explicit explanation of this tradeoff between ideal cadence and actual capacity -- maximizing discovery-call-driving output from minimum production",
+      "passed": true,
+      "evidence": "3 pillars spaced at Weeks 2, 6, and 11 (approximately every 4 weeks). Each generates 2-3 derivatives. Explicit tradeoff explanation: 'Standard model: 1 pillar per 4-6 weeks, each generating 4-8 derived pieces. Our adaptation: 3 pillars across 13 weeks (spaced ~4 weeks apart), each generating 2-4 derived LinkedIn posts. Tradeoff acknowledged: The standard pillar-cluster model calls for 4-8 derivative pieces per pillar asset. With a part-time writer also managing event logistics, we are running a reduced cluster of 2-4 derivatives per pillar.'"
+    },
+    {
+      "text": "Budget efficiency: only LinkedIn company page and blog are planned, with NO email newsletter, webinar, paid social, or CEO LinkedIn content -- and the plan explicitly acknowledges that email was dropped due to prior inability to sustain it, preventing resource waste on a channel the team has already proven they cannot maintain",
+      "passed": true,
+      "evidence": "Channel Decision Rationale table shows LinkedIn company page and Blog as YES, and Email newsletter as NO with reason: 'Dropped -- team proved unable to sustain it last year. Restarting would waste limited capacity on a channel with established failure history'. Webinar, paid social, and CEO LinkedIn also marked NO. Only LinkedIn company page and blog content appear in the calendar."
+    },
+    {
+      "text": "Alignment: content topics are specifically relevant to cybersecurity concerns at financial services firms (regulatory compliance, threat landscape for banks/insurance/fintech, vendor risk management) rather than generic cybersecurity thought leadership -- so the content positions the consultancy as a specialist that CISOs and IT Directors at these firms would want to talk to",
+      "passed": true,
+      "evidence": "Three pillars are all financial-services-specific: Pillar 1 'Regulatory Compliance & Cybersecurity in Financial Services' (compliance gaps in bank audits), Pillar 2 'Threat Landscape for Banks, Insurance, and Fintech' (ransomware targeting financial services), Pillar 3 'Vendor Risk Management for Financial Services'. Topic Alignment section explicitly lists 'GLBA, PCI-DSS, SOX', 'Ransomware targeting financial institutions', 'Third-party risk in banking ecosystems'. States 'These are not generic cybersecurity topics.'"
+    },
+    {
+      "text": "Execution velocity: production deadlines are set at least 5 business days before publish dates, and the calendar includes a content repurposing strategy that explains how each pillar asset gets broken into LinkedIn posts and blog derivatives -- so the part-time writer produces one asset and gets multiple channel outputs from it",
+      "passed": true,
+      "evidence": "Every content piece in the calendar has 'Production Deadline: 5 business days before publish'. The Content Repurposing Strategy section explains: 'Each pillar blog post (long-form, 1,200-1,800 words) gets broken into: LinkedIn post 1: Key finding or counterintuitive insight; LinkedIn post 2: Practical framework or checklist; LinkedIn post 3 (optional): Short case example. This means the writer produces ONE research-heavy asset and gets 3-4 channel outputs from it.'"
+    }
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}
+}

@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "Runs idfa_ops.py read with multiple names in a single command (e.g., 'read <file> Units_Y1 Revenue_Y1 Variable_Costs_Y1 Contribution_Y1 EBIT_Y1 Tax_Y1 Net_Income_Y1')",
+      "passed": true,
+      "evidence": "Batch Read Command shows: 'uv run skills/idfa-ops/scripts/idfa_ops.py read skills/idfa-ops/evals/files/ops_test_model.xlsx Units_Y1 Revenue_Y1 Variable_Costs_Y1 Contribution_Y1 EBIT_Y1 Tax_Y1 Net_Income_Y1'. All 7 names in a single command."
+    },
+    {
+      "text": "Returns values for all requested Named Ranges in one JSON response",
+      "passed": true,
+      "evidence": "Raw Output: {\"status\": \"ok\", \"values\": {\"Units_Y1\": null, \"Revenue_Y1\": null, \"Variable_Costs_Y1\": null, \"Contribution_Y1\": null, \"EBIT_Y1\": null, \"Tax_Y1\": null, \"Net_Income_Y1\": null}}. All 7 ranges returned in one JSON response (null because no recalc engine available)."
+    },
+    {
+      "text": "Presents the values in a clear, formatted summary for the user",
+      "passed": true,
+      "evidence": "Deterministic Results table presents all 7 values with Named Range, Formula, and Value columns. Values: Units_Y1 = 50,000, Revenue_Y1 = 5,000,000, etc."
+    },
+    {
+      "text": "Does not make 7 separate read calls when one batch call suffices",
+      "passed": true,
+      "evidence": "Single command shown: 'uv run ... read <file> Units_Y1 Revenue_Y1 Variable_Costs_Y1 Contribution_Y1 EBIT_Y1 Tax_Y1 Net_Income_Y1'. One call, not seven."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  }
+}

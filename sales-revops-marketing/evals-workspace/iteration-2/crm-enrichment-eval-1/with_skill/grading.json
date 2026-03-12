@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To prevent wasted outreach to a stale contact, the output flags David Hargreaves for potential role change (no LinkedIn updates in >12 months) rather than assuming he is still Head of Ops at Brightpath Consulting -- a wrong-title email tanks response rates",
+      "passed": true,
+      "evidence": "The output explicitly flags David Hargreaves for a potential role change. Under CONTACT-LEVEL ENRICHMENT, Current title field states: 'LIKELY CHANGED -- User reports David may have been promoted since last contact (~14 months ago). Title must be verified against LinkedIn.' The ROLE CHANGES DETECTED section further states: 'David Hargreaves -- likely changed from Head of Revenue Operations at Brightpath Consulting to [new title TBD -- verify on LinkedIn].' The Career change flag is set to 'LIKELY YES.' The output explicitly does not assume the old title is current."
+    },
+    {
+      "text": "To protect revenue on an active deal, the output does NOT overwrite the manually-entered direct phone number -- it explicitly flags it as a human-entered field and defers to Jess Moreno as record owner before any change, since reps trust CRM data they entered themselves",
+      "passed": true,
+      "evidence": "Under PRE-ENRICHMENT FLAGS: 'MANUALLY ENTERED FIELD -- MOBILE NUMBER. David Hargreaves' mobile phone number was manually entered by account owner Jess Moreno. Per policy: this field will NOT be overwritten. If a different mobile number is discovered during enrichment, it will be flagged below for Jess's manual review -- but the existing value will remain untouched in the CRM.' The mandatory fields table confirms: 'PROTECTED -- DO NOT OVERWRITE. This field was manually entered by the account owner. Human-entered data may be more current than web data. NO ACTION. Field locked from enrichment overwrite.'"
+    },
+    {
+      "text": "To protect the active nurture sequence from breaking, the output does NOT remove David Hargreaves from the sequence due to any email change -- instead it specifies pausing the sequence and alerting Jess Moreno to verify new contact details first, preventing a live prospect from going dark",
+      "passed": true,
+      "evidence": "Under PRE-ENRICHMENT FLAGS: 'ACTIVE NURTURE SEQUENCE -- DO NOT DISRUPT... If his email address has changed, the sequence must be PAUSED (not cancelled) and Jess Moreno must be alerted to verify the new email before the sequence resumes. No email field will be overwritten without this step.' The work email field action states: 'If email has changed, DO NOT overwrite -- pause nurture sequence first and alert Jess Moreno.' The NEW HOT SIGNALS section reinforces: 'Do NOT remove David from the sequence -- update the content within the existing sequence or create a new, more relevant sequence to transition him into after rep review.'"
+    },
+    {
+      "text": "To enable accurate segmentation and lead routing after the Series B, account-level enrichment addresses Brightpath Consulting headcount with a flag if the change exceeds 20%, plus the Series B funding captured as a news event -- these fields drive tier classification and ICP scoring",
+      "passed": true,
+      "evidence": "Headcount field states: 'UNABLE TO VERIFY -- Must be checked on LinkedIn company page. Series B companies typically hire aggressively post-close; flag if headcount has changed >20% since last enrichment.' The Series B is captured as a news event: 'SERIES B CLOSED -- User confirms Brightpath Consulting has recently closed a Series B funding round. This is a major financial event. Details required: (1) round size, (2) lead investor(s), (3) announced use of funds, (4) any leadership changes announced alongside funding. This is a HOT signal.' The timing signal recommends upgrade to HOT based on the convergence of funding event + leadership change."
+    },
+    {
+      "text": "To ensure the QBR uses reliable data, the output includes a DATA QUALITY SCORE as a percentage of enriched records now complete, plus a RECORDS WITH MISSING MANDATORY FIELDS section listing any fields still unfilled -- giving the rep a clear picture of what is verified vs. what still needs manual work",
+      "passed": true,
+      "evidence": "The output includes 'DATA QUALITY SCORE: 15% of enriched records now complete' with the explanation that the low score reflects no live verification was possible. The 'RECORDS WITH MISSING MANDATORY FIELDS' section lists specific unverified fields for both records: David Hargreaves (Current title: UNVERIFIED, Current company: UNVERIFIED, Work email: UNVERIFIED, LinkedIn URL: UNKNOWN) and Brightpath Consulting (Legal company name: UNVERIFIED, Revenue estimate: STALE, Headcount: STALE, Headquarters: UNVERIFIED, Website: UNVERIFIED)."
+    },
+    {
+      "text": "To drive accurate pipeline forecasting, the output covers all six contact-level mandatory fields (full name, current title, current company, work email, direct phone, LinkedIn URL) and all five account-level mandatory fields (legal name, revenue estimate, headcount, headquarters, website) -- incomplete records create routing errors and missed handoffs",
+      "passed": true,
+      "evidence": "All six contact-level mandatory fields are covered in the CONTACT-LEVEL ENRICHMENT table: Full name, Current title, Current company, Work email, Direct phone (mobile), LinkedIn URL. All five account-level mandatory fields are covered in the ACCOUNT-LEVEL ENRICHMENT table: Legal company name, Revenue estimate, Headcount, Headquarters, Website. Each field has a previous value column, enrichment finding, and action taken."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

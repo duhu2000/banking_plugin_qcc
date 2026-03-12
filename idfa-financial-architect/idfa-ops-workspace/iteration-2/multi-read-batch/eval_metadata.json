@@ -1,0 +1,11 @@
+{
+  "eval_id": 7,
+  "eval_name": "multi-read-batch",
+  "prompt": "Give me a quick snapshot of all the Year 1 results.",
+  "assertions": [
+    "Uses a SINGLE idfa_ops.py read command with multiple Named Range arguments",
+    "Returns values for all 7 Year 1 Named Ranges",
+    "Presents the values in a formatted summary",
+    "The values form a consistent P&L waterfall"
+  ]
+}

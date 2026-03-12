@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Lead score is computed as Fit (0-40) + Timing (0-40) + Engagement (0-20) = total out of 100, with per-criterion point breakdowns showing exactly how many points were awarded for each factor (e.g., company size match: +8, revenue range: +8, funding announcement: +15) — this three-dimension model prevents the routing error where a lead with strong fit but no timing signals gets expensive AE attention when it should be in marketing nurture, or where a demo-requesting prospect with weak fit gets deprioritized and a deal is lost",
+      "passed": true,
+      "evidence": "Score is computed as Fit (32/40) + Timing (34/40) + Engagement (16/20) = 82/100. Per-criterion breakdowns are shown in tables: Fit includes company size match +8/8, revenue range match +8/8, industry/vertical +4/8, technology maturity +4/8, geography +4/4, persona seniority +4/4. Timing includes funding announcement +15, rapid hiring +10, pricing page visits +6, referral +3. Engagement includes pricing page visits x2 +8, content download +8."
+    },
+    {
+      "text": "Timing score awards points for the Series D funding announcement within the last 30 days (up to 15 points) and rapid hiring of sales engineers (up to 10 points), with recency context cited — these timing signals are what distinguish a lead that should be contacted THIS WEEK from one that matches the ICP but has no active buying cycle, and scoring without them would produce a Fit-only score that violates the NEVER rule about always checking Timing via web search",
+      "passed": true,
+      "evidence": "Timing table awards +15 for 'Funding announcement (last 30 days)' with source 'User reports $120M Series D closed ~2 weeks ago (late February 2026)' and +10 for 'Rapid hiring in target department' with source 'User reports they are hiring a ton of sales engineers.' Recency context is cited for both signals."
+    },
+    {
+      "text": "Engagement score awards points for the two pricing page visits (up to 8 points) and the gated content download (up to 8 points), reflecting unprompted prospect-initiated actions — pricing page visits are the highest-intent digital signal short of a demo request because they indicate active vendor comparison, and a model that ignores them would underweight this lead relative to a competitor who is tracking the same signals",
+      "passed": true,
+      "evidence": "Engagement table shows 'Pricing page visit (unprompted) x2' at +8 points and 'Content download (gated asset)' at +8 points, totaling 16/20. The output notes these are 'user-reported' and describes them as unprompted prospect-initiated actions."
+    },
+    {
+      "text": "Total score falls in the 80-100 HOT range and the recommended action specifies the 24-hour SLA for first contact, a specific outreach channel (e.g., warm intro via investor network or direct email to Cassandra), and a positioning frame tied to TerraGrid's growth stage (Series D, scaling RevOps) — routing a HOT lead to a generic nurture sequence instead of a named AE with a 24-hour deadline is the single most common revenue leak in lead handoff, and this assertion verifies the skill produces the urgency signal that prevents it",
+      "passed": true,
+      "evidence": "Total score is 82/100 -- HOT -- Immediate. Recommended Action specifies: 'Outreach: Warm referral introduction via the investor contact... Follow up within 24 hours of the introduction.' Channel: 'If the investor can make a direct email introduction, that is the highest-conversion path.' Positioning: 'TerraGrid just raised $120M and is hiring aggressively in sales engineering -- they are building their GTM engine. The conversation should center on how RevOps automation reduces friction as sales teams scale rapidly.' SLA: '24 hours -- this is a HOT lead with fresh timing signals that will decay.'"
+    },
+    {
+      "text": "Score rationale is 2-3 sentences that explain WHY TerraGrid is buying-ready right now — connecting the $120M Series D to budget availability, the sales engineer hiring to operational scaling pain, and the pricing page visits to active vendor evaluation — rather than just restating 'Fit is 34, Timing is 38, Engagement is 16' which gives the AE no positioning advantage in the first conversation",
+      "passed": true,
+      "evidence": "Score Rationale section is a full paragraph that connects: 'a very recent $120M Series D means TerraGrid has fresh capital and likely a mandate to scale revenue infrastructure, which is exactly when companies invest in RevOps tooling. The hiring surge in sales engineering reinforces that they are building out their go-to-market engine right now. The Engagement score further validates readiness: unprompted pricing page visits combined with a gated content download signal active evaluation, not casual browsing.' This goes well beyond restating scores."
+    },
+    {
+      "text": "Next review date is set within days (not weeks or quarters), reflecting HOT-tier urgency — a review date set 30 days out on a HOT lead with active pricing-page engagement means the lead could complete its evaluation cycle with a competitor before the next check-in, converting a winnable deal into a silent loss",
+      "passed": true,
+      "evidence": "NEXT REVIEW: 2026-03-18 — 'Review in one week. If no response to first outreach by then, escalate channel (LinkedIn follow-up or ask investor contact to nudge).' One week (7 days) is within the 'days not weeks or quarters' requirement and reflects appropriate HOT-tier urgency."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

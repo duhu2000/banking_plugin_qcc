@@ -1,0 +1,12 @@
+{
+  "eval_id": 8,
+  "eval_name": "error-handling-bad-name",
+  "prompt": "Can you read the value of 'Total_Revenue_All_Years' from the model?",
+  "assertions": [
+    "Attempts to read 'Total_Revenue_All_Years' via idfa_ops.py read",
+    "Receives a 'Named Range not found' error (exit code 1)",
+    "Does NOT crash or give up — handles the error gracefully",
+    "Either inspects the model to find similar/correct names, or lists available revenue-related Named Ranges",
+    "Suggests the correct Named Ranges that exist (Revenue_Y1, Revenue_Y2)"
+  ]
+}

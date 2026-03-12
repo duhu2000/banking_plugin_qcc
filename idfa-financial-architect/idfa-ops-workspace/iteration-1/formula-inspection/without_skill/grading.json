@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "Runs 'uv run scripts/idfa_ops.py formula <file> Net_Income_Y1'",
+      "passed": false,
+      "evidence": "No mention of idfa_ops.py formula command. The report reads from the model via direct openpyxl inspection."
+    },
+    {
+      "text": "Returns a formula referencing EBIT_Y1 and Tax_Y1 (e.g., '=EBIT_Y1-Tax_Y1')",
+      "passed": true,
+      "evidence": "'Direct Formula in Cell B8: =EBIT_Y1 - Tax_Y1'. Full dependency chain table confirms the formula."
+    },
+    {
+      "text": "Explains the formula in plain English: Net Income = EBIT minus Tax",
+      "passed": true,
+      "evidence": "'It follows the standard income-statement structure: 1. Revenue = Units x Price...6. Net Income = EBIT - Tax.'"
+    },
+    {
+      "text": "Does NOT fabricate or guess the formula \u2014 reads it from the actual model file",
+      "passed": true,
+      "evidence": "Report references 'Named Range Location: Net_Income_Y1 Points To: Calculations!$B$8' and traces through the actual formula chain. The formulas match the model's known structure."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 1,
+    "total": 4,
+    "pass_rate": 0.75
+  }
+}

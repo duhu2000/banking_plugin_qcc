@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "DEAL VELOCITY: DEAL HEALTH ASSESSMENT classifies this as AT RISK (not HEALTHY despite 22 months remaining) with reasoning connecting at least three of: 84%-to-61% adoption drop, the P1 SLA breach (9 hours vs 4-hour SLA), Rachel Dunn's disengagement from the last 3 check-ins, the new CFO's vendor audit of contracts over $500K, and competitor ad targeting -- so the account team treats this as a save situation, not a routine QBR",
+      "passed": true,
+      "evidence": "Classified as 'AT RISK' with reasoning connecting all five factors: '1. Adoption decline (84% to 61%) is the strongest leading indicator of churn,' '2. Executive sponsor disengagement -- Rachel Dunn missing three consecutive check-ins,' '3. SLA breach -- the P1 incident at 9 hours (2.25x the 4-hour SLA),' '4. New CFO conducting vendor audit -- James Whitfield has no relationship with your team,' '5. Competitive targeting -- Sentinel Shield and CyberArch are not running generic ads; they are targeting Meridian specifically.' States: 'Any two of these factors together would warrant concern. All five together place this account firmly at risk.' Also: 'The 22-month runway to renewal is misleading -- the real decision window is the next 60-90 days while Whitfield's audit is active.'"
+    },
+    {
+      "text": "WIN RATE: KNOWN VS. UNKNOWN separates confirmed facts (adoption numbers, SLA breach details, stakeholder map, renewal timeline, competitor ad targeting) from critical unknowns (root cause of adoption decline, Rachel's current sentiment, James Whitfield's evaluation criteria and stance, whether competitors have made direct contact beyond ads) -- giving the rep a checklist of intelligence gaps to close during the QBR itself",
+      "passed": true,
+      "evidence": "KNOWN section lists: contract value/term, adoption drop (84% to 61%), P1 incident details (9-hour vs 4-hour SLA), Rachel Dunn's disengagement, Marcus Tillman as active contact, James Whitfield auditing contracts >$500K, competitor LinkedIn ads, CSM intelligence on contract audit. UNKNOWN section lists: 'Why adoption dropped -- is it a product issue, staffing change, competing tool deployment, or reduced threat surface?,' 'Why Rachel Dunn stopped attending,' 'James Whitfield's vendor evaluation criteria,' 'Whether Meridian has had conversations with Sentinel Shield or CyberArch,' 'Whether the P1 incident was formally closed,' 'Marcus Tillman's candid assessment,' 'Whether there is an internal champion actively defending your platform.'"
+    },
+    {
+      "text": "WIN RATE: RISK FACTORS identifies 2-3 threats grounded in the deal details -- such as the new CFO using the SLA miss and declining adoption as justification to renegotiate or RFP, Rachel's silence indicating she may no longer be championing internally, or competitor outreach converting interest while adoption declines -- each risk the rep can proactively address rather than react to",
+      "passed": true,
+      "evidence": "Three deal-specific risk factors: '1. The CFO audit is your most urgent threat -- James Whitfield has no relationship with you, no memory of the original value proposition, and is evaluating pure cost-to-value. If his audit concludes before you establish a relationship... you lose the ability to influence the outcome.' '2. Adoption decline without a diagnosed cause is undefendable... if the drop is because teams have started using a competing tool, the switch may already be underway.' '3. Loss of executive sponsor access makes recovery harder. Without Rachel Dunn in the room, you are navigating this through Marcus Tillman, who... does not control budget or strategic vendor decisions.'"
+    },
+    {
+      "text": "SALES CYCLE COMPRESSION: RECOMMENDED NEXT ACTION provides a specific QBR strategy -- such as leading with an adoption recovery plan before James raises it, requesting a 1:1 with Rachel before the QBR to re-establish executive alignment, or preparing a value realization report quantifying ROI in terms the CFO cares about -- not 'present a business review' but a concrete play designed to neutralize the biggest risk before it becomes a formal objection",
+      "passed": true,
+      "evidence": "Detailed QBR strategy with before/during structure. Before: 'Get the adoption data segmented,' 'Prepare a P1 incident retrospective,' 'Pre-brief with Marcus Tillman before the QBR' with specific questions, 'Research James Whitfield' background, 'Prepare a competitive comparison.' During: 'Open with accountability on the P1 incident -- Do not wait for it to be raised,' 'Present a usage recovery plan, not a usage report,' 'Introduce yourself to James Whitfield with a value narrative, not a product pitch' with specific framing, 'Directly address Rachel Dunn's absence.'"
+    },
+    {
+      "text": "DEAL VELOCITY: NEXT STEP TO BOOK identifies one specific post-QBR action (e.g., a dedicated session with James Whitfield to walk through contract value quantification, or an adoption workshop with Marcus's team to reverse the usage decline) -- a concrete next meeting that locks in momentum from the QBR rather than letting the account drift for another quarter",
+      "passed": true,
+      "evidence": "Two specific post-QBR actions: '1. A 30-minute meeting with James Whitfield within two weeks -- positioned as giving him data directly for his vendor review.' '2. A 20-minute executive check-in with Rachel Dunn within three weeks -- positioned through Marcus as sharing the 90-day usage recovery plan.' Final instruction: 'Do not leave the QBR without both of these on the calendar.'"
+    },
+    {
+      "text": "WIN RATE: The brief arms the rep for the CFO conversation specifically -- anticipating that James Whitfield will evaluate the $890K contract through a cost-reduction lens and preparing the rep with ROI framing, adoption recovery timeline, and SLA remediation evidence before they walk into a room with someone they've never met who controls budget",
+      "passed": true,
+      "evidence": "The during-QBR strategy includes: 'Introduce yourself to James Whitfield with a value narrative, not a product pitch. His frame is cost-to-value. Your opening with him should be: Here is the business case for our partnership in terms you can take back to your analysis: risk reduced, incidents prevented, compliance maintained, cost of replacement.' THINGS NOT TO DO: 'Do not ignore James Whitfield or treat him as a finance obstacle. He is a new decision-maker who will influence whether this contract renews.' Also: 'Do not present adoption data without a diagnosis and recovery plan.' Competitive responses prepared for Sentinel Shield (switching costs) and CyberArch (total cost of ownership)."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

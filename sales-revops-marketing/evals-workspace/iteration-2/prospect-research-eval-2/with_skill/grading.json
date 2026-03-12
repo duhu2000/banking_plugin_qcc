@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To protect an existing deal relationship at risk of reorg, the research brief identifies the CRO transition as the central strategic factor \u2014 WHO IS MARCUS WEBB includes verified career background (confirming or correcting the Stripe attribution with source), tenure calculated as approximately 2 months with signal interpretation that a new CRO at <6 months is a HOT receptivity window per the skill's signal criteria",
+      "passed": false,
+      "evidence": "WHO IS MARCUS WEBB correctly interprets the ~2-month CRO tenure as HOT, but it does not actually verify or correct the Stripe attribution with a source. It explicitly says the Stripe background is user-provided context that still requires verification."
+    },
+    {
+      "text": "To give the AE competitive intelligence on the account before the warm intro, WHAT IS MERIDIAN FINANCIAL GROUP covers real business model (B2B payments processing), revenue estimate sourced to the CEO podcast mention plus any corroborating data, headcount with trend direction, and market position \u2014 the company is NOT conflated with any other entity named Meridian",
+      "passed": false,
+      "evidence": "WHAT IS MERIDIAN FINANCIAL GROUP has the right business model and does not conflate the company, but key facts remain unverified or estimated: the revenue source is only the user-provided podcast mention, and headcount is estimated rather than sourced with a trend direction."
+    },
+    {
+      "text": "To identify whether this is a 'defend the deal' or 'expand the deal' situation, signal classification categorizes the CRO replacement as a HOT signal with source and date, and separately evaluates supporting signals \u2014 job postings for revenue operations or sales operations roles, reorg indicators, or changes in go-to-market strategy that reveal whether Marcus Webb is building a new team or inheriting the existing one",
+      "passed": true,
+      "evidence": "WHAT IS HAPPENING NOW formally classifies the CRO replacement as HOT and separately evaluates supporting WARM/WATCH signals like reorg risk and potential RevOps/SalesOps job postings."
+    },
+    {
+      "text": "To arm the AE with a narrative that resonates with a new CRO's first-100-days priorities, the pain assessment constructs a specific causal chain: CRO replacement implies board-level dissatisfaction with revenue execution, which creates immediate demand for pipeline visibility, forecast accuracy, and deal inspection \u2014 connecting Marcus Webb's likely priorities directly to the revenue intelligence product category",
+      "passed": true,
+      "evidence": "THE SPECIFIC PAIN builds the exact causal chain the eval asked for: board dissatisfaction -> CRO replacement -> need for pipeline visibility and forecast discipline -> direct relevance of revenue-intelligence tooling."
+    },
+    {
+      "text": "To make the warm intro feel informed rather than generic, at least one hook is identified that is specific to Marcus Webb or the transition event \u2014 a post Marcus made about revenue methodology, an initiative he led at Stripe, or a Meridian job posting that signals his new priorities \u2014 not a generic 'new CROs need visibility' hook",
+      "passed": true,
+      "evidence": "THE HOOK identifies specific hooks tied to Marcus Webb's transition, including the ex-Stripe angle if verified and the CRO-transition event itself as a concrete first-100-days narrative."
+    },
+    {
+      "text": "To determine the right approach given the champion-at-risk situation, the recommended first touch addresses whether to lead through the existing champion or go direct to Marcus Webb \u2014 specifying channel and tone appropriate for a new C-level executive in his first 90 days, and flagging the reorg risk as a factor that affects timing and approach",
+      "passed": true,
+      "evidence": "RECOMMENDED FIRST TOUCH directly addresses the champion-vs-direct decision, recommends a warm intro plus direct path, and specifies channel, tone, goal, timing, and the reorg-risk factor."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 2,
+    "total": 6,
+    "pass_rate": 0.67
+  }
+}

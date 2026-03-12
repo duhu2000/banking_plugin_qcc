@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Content performance: The opening line is a specific, scroll-stopping hook (a concrete stat, a named pain scenario like 'Your CFO found the data bug before your monitoring did', or a counterintuitive claim) -- not a generic opener like 'Data quality is important' or 'In today's world' that would get scrolled past in a LinkedIn feed",
+      "passed": true,
+      "evidence": "Opening line: '# Your CFO Found the Data Bug Before Your Monitoring Did' -- a specific, named pain scenario that is immediately attention-grabbing and counterintuitive (CFO finding data bugs instead of monitoring tools). Not generic."
+    },
+    {
+      "text": "Brand consistency: The article maintains a direct, opinionated brand voice throughout -- takes a clear position on what the fix looks like with specific recommendations, never hedges with 'it depends' or 'on the other hand', and contains zero banned words (leverage, synergy, best-in-class, seamless, robust, end-to-end, game-changing, revolutionary, disruptive, holistic, cutting-edge, world-class, innovative, empower, unlock, transform, solution, ecosystem, paradigm, circle back, reach out)",
+      "passed": true,
+      "evidence": "Voice is consistently direct: 'This is not a \"you need better dbt tests\" problem', 'The fix is architectural, not incremental', 'Your monitoring tools watched the warehouse. The problem started at the source.' Three specific fix recommendations given without hedging. No banned words found in the text."
+    },
+    {
+      "text": "Content performance: The article is written specifically for VP of Engineering at mid-market B2B SaaS personas -- references their specific world (monitoring stacks, dbt models, pipeline breakages, team size dynamics of 200-1,000 employee companies) rather than generic data quality advice that could target anyone",
+      "passed": true,
+      "evidence": "Article references: 'data team of 10-40 engineers at a SaaS company in the 200-1,000 employee range', 'dbt models', 'Fivetran or Airbyte connector', 'dbt tests, Great Expectations', 'schema change', 'pipeline breakages'. Explicitly contrasts mid-market with enterprise: 'Enterprise teams have dedicated data reliability engineers. At 200-1,000 employees, your data engineers are also your pipeline engineers...'"
+    },
+    {
+      "text": "Pipeline contribution: The CTA to follow Arcline Analytics for the 'Data Ops in Practice' series is woven naturally into the article's narrative (not bolted on as an afterthought) and gives a specific reason to follow -- this converts a one-time reader into a recurring audience member in the awareness funnel",
+      "passed": true,
+      "evidence": "CTA is woven into the closing section after the 'Stop Treating Symptoms' conclusion: 'Every week, we publish the \"Data Ops in Practice\" series on the Arcline Analytics company page -- tactical breakdowns of exactly how mid-market data teams are fixing pipeline reliability without hiring a dedicated reliability team. Follow Arcline Analytics to get them in your feed.' Gives a specific reason (tactical breakdowns for mid-market teams)."
+    },
+    {
+      "text": "Content performance: The article ends with a specific, debatable question designed to drive comments (e.g., 'What's the longest your dashboards were stale before someone noticed?' not 'What do you think?') -- comment-driving closers are the primary organic reach multiplier on LinkedIn",
+      "passed": true,
+      "evidence": "Final lines: 'What is the longest your dashboards served stale data before a human caught it -- and how did you find out? Drop the number in the comments. I suspect the answers will be uncomfortable.' This is specific, debatable, and designed to elicit concrete numeric responses."
+    },
+    {
+      "text": "Production efficiency: The article is between 600-1200 words, uses short paragraphs (2-4 sentences max) with bold key lines for scanning, and is ready to publish on LinkedIn without structural editing -- a marketing team member could copy-paste this directly, not treat it as a rough draft",
+      "passed": true,
+      "evidence": "Article is approximately 780 words. Paragraphs are consistently 2-4 sentences. Bold key lines throughout for scanning: 'Your monitoring tools watched the warehouse. The problem started at the source.', 'The gap between \"data broke\" and \"someone noticed\" is measured in hours.', etc. Structure is ready to publish with heading breaks, horizontal rules, and clean formatting."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

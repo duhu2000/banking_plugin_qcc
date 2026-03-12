@@ -1,0 +1,13 @@
+{
+  "eval_id": 4,
+  "eval_name": "write-recalc-read-pattern",
+  "prompt": "I want to see what happens to Net Income in both years if I increase the unit price from $100 to $150.",
+  "assertions": [
+    "Executes idfa_ops.py write, recalc_bridge.py, and idfa_ops.py read in that order",
+    "Reports Net Income results for both years",
+    "If recalc fails, handles it gracefully",
+    "Frames the results as the MODEL's output, not the agent's calculation",
+    "Shows the full before/after impact",
+    "The three-step pattern is explicitly documented in the output"
+  ]
+}

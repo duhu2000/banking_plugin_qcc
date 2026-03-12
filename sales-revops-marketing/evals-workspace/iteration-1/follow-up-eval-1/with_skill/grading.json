@@ -1,0 +1,92 @@
+{
+  "expectations": [
+    {
+      "text": "Email is labeled as Type 1: Post-Discovery Follow-Up and follows the Type 1 structure (acknowledgement, 'What I heard' section, 'What we discussed' section, next step)",
+      "passed": true,
+      "evidence": "The output header reads 'FOLLOW-UP EMAIL -- Post-Discovery Call | Lisa Cheng / Norwood Distribution'. The email follows the Type 1 structure: acknowledgement ('Thanks for the conversation this morning'), a '**What I heard:**' section with 3 bullets, a '**What we discussed:**' section summarizing the solution approach, and a '**Next steps:**' section with two numbered items. While the output does not use the literal phrase 'Type 1', the task header 'TASK: Follow-Up -- Post-Discovery Call' and the structure clearly correspond to a post-discovery follow-up pattern."
+    },
+    {
+      "text": "Subject line references a specific topic from the call (picking accuracy, fulfillment penalties, peak season ramp, or warehouse operations at Norwood Distribution) -- not a generic subject like 'Great meeting' or 'Our call today'",
+      "passed": true,
+      "evidence": "Subject line is 'Re: pick accuracy at Norwood -- path from 94% to 98%+', which references picking accuracy and Norwood Distribution specifically. This is highly specific and not generic."
+    },
+    {
+      "text": "'What I heard' section contains at least 2 bullets that use Lisa's own language: must include at least two of 'bleeding margin on mis-picks', 'held together with duct tape and prayers', 'the thing keeping me up at night', or '$1.2M in Q4 fulfillment penalties'",
+      "passed": true,
+      "evidence": "The 'What I heard' section contains: (1) 'Mis-picks are bleeding margin today' -- closely mirrors 'bleeding margin on mis-picks'. (2) 'Your legacy Oracle WMS is \"held together with duct tape and prayers\"' -- exact match in quotes. That is 2 of the 4 required phrases. Note: '$1.2M in Q4 fulfillment penalties' and 'the thing keeping me up at night' are not present."
+    },
+    {
+      "text": "Next step section confirms two specific commitments with dates: (1) sending the ProLog 3PL case study and ROI model by Thursday, and (2) the 30-minute CFO call on Tuesday at 2pm ET",
+      "passed": false,
+      "evidence": "The next steps section includes: (1) The ProLog case study is mentioned as attached ('I've attached the ProLog Fulfillment case study as promised') but there is no mention of an ROI model, and no commitment to send by Thursday -- it is presented as already attached. (2) The Tuesday 2:00 PM ET meeting is confirmed but it is described as a 'technical session with you, Raj, and our solutions engineer' -- NOT a CFO call. There is no mention of a 30-minute CFO call. The assertion requires both a case study + ROI model by Thursday AND a 30-minute CFO call on Tuesday at 2pm ET; neither commitment matches exactly."
+    },
+    {
+      "text": "Email does not contain any banned phrases: 'just checking in', 'circling back', 'bumping this up', 'touching base', or a generic 'great to meet you' without specifics",
+      "passed": true,
+      "evidence": "Searched the full email text. None of the banned phrases appear: no 'just checking in', no 'circling back', no 'bumping this up', no 'touching base', no 'great to meet you'. The greeting is 'Thanks for the conversation this morning' which is specific, not generic."
+    },
+    {
+      "text": "Timing recommendation is present and specifies sending within 2 hours or immediately after the call",
+      "passed": true,
+      "evidence": "The output includes 'TIMING: Send immediately (within the hour of call ending)' which satisfies the requirement of specifying sending immediately after the call."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 1,
+    "total": 6,
+    "pass_rate": 0.83
+  },
+  "execution_metrics": {},
+  "timing": {},
+  "claims": [
+    {
+      "claim": "ProLog Fulfillment moved from 93% to 99.1% accuracy within four months",
+      "type": "factual",
+      "verified": true,
+      "evidence": "This data point is consistent across both outputs and the eval prompt context, appearing to come from the original call notes."
+    },
+    {
+      "claim": "Lisa's pick accuracy is at 94.2% and needs to reach 98%+",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Consistent with call notes data referenced in both outputs."
+    },
+    {
+      "claim": "The case study is attached to the email",
+      "type": "process",
+      "verified": false,
+      "evidence": "The email says 'I've attached the ProLog Fulfillment case study as promised' but the NEXT ACTION section says '(1) Attach the ProLog Fulfillment case study to the email before sending' -- these contradict each other. The email claims it is attached but the instructions say it still needs to be attached."
+    },
+    {
+      "claim": "ICP match is UNVERIFIED",
+      "type": "process",
+      "verified": true,
+      "evidence": "Output header explicitly states 'ICP MATCH: UNVERIFIED' and 'VERIFY DATA: All prospect data should be verified before outreach', showing appropriate caution."
+    },
+    {
+      "claim": "The Tuesday meeting is a technical deep-dive, not a CFO call",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The email describes Tuesday March 18 at 2:00 PM ET as 'a technical session with you, Raj, and our solutions engineer' -- this diverges from the assertion's expectation of a '30-minute CFO call'. The output's NEXT ACTION notes that 'CFO David Morales is the final sign-off' as a separate future milestone."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Next step section confirms two specific commitments with dates: (1) sending the ProLog 3PL case study and ROI model by Thursday, and (2) the 30-minute CFO call on Tuesday at 2pm ET",
+        "reason": "This assertion may contain details (ROI model by Thursday, 30-minute CFO call) that are not clearly established in the truncated eval prompt. If the call notes actually say the Tuesday meeting is a technical deep-dive with Raj (not a CFO call), then this assertion tests for incorrect content. The eval prompt in eval_metadata.json is truncated at 'They're ...' making it impossible to verify whether the assertion accurately reflects the source material."
+      },
+      {
+        "assertion": "Email is labeled as Type 1: Post-Discovery Follow-Up and follows the Type 1 structure",
+        "reason": "The with_skill output does not literally say 'Type 1' anywhere. It follows the structure and labels itself as 'Post-Discovery Call' follow-up. If the assertion requires the literal label 'Type 1', this should be clarified. I passed it because the structure matches, but a stricter reading could fail it."
+      }
+    ],
+    "overall": "The truncated eval prompt makes it difficult to verify whether assertion 4 (specific commitments with dates) accurately represents the call notes. Both outputs describe the Tuesday meeting as a technical deep-dive, not a CFO call, which suggests the assertion may be testing for something the original notes don't support. Consider verifying the full prompt and adjusting the assertion if needed."
+  }
+}

@@ -91,6 +91,11 @@ CHANNEL MIX WITH BUDGET ALLOCATION
 Purpose: [what this channel does in the campaign architecture]
 Format: [specific ad type, content type, or activity]
 Target: [specific metric for this channel]
+Rationale: [why this channel earns this allocation -- connect to
+what has worked / what has not worked from the brief inputs.
+Channels with historical evidence of ROI earn more budget.
+Channels that failed previously are excluded or minimized with
+explicit reference to why.]
 
 LEAD MAGNET
 [What the target audience gets in exchange for their contact details]

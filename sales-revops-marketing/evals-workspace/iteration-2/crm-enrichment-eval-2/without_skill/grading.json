@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "To stop wasting outreach on bounced contacts, the ROLE CHANGES DETECTED section specifically flags Tom Brierly at NexaFreight, the Cargoline Solutions contact, and Maria Escobar at PeakPort with old-to-new role transitions and marks each for rep review and re-routing -- every bounced email in an active sequence burns sender reputation",
+      "passed": true,
+      "evidence": "The 'ROLE CHANGES DETECTED' section lists all three: '1. Tom Brierly -- NexaFreight' with role change detected, sequence pause, and rep review actions; '2. Unknown Contact -- Cargoline Solutions' with bounce detected and actions to identify the contact; '3. Maria Escobar -- PeakPort' with suspected role change and rep review actions. All are marked for re-routing with specific next steps."
+    },
+    {
+      "text": "To protect two deals at proposal stage from data disruption, the output explicitly states that Amir Khalil is notified before any record updates are applied to NexaFreight and PeakPort -- silently changing contact data on a deal at proposal stage can derail a close",
+      "passed": true,
+      "evidence": "A 'DEAL PROTECTION NOTICE' section at the top states: 'No record updates will be applied to NexaFreight or PeakPort contacts until Amir Khalil has been notified and has approved the changes. Silently updating contact data on proposal-stage deals risks derailing active closes.' Both accounts shown in a table with 'HOLD -- Awaiting Amir's approval before any CRM updates'."
+    },
+    {
+      "text": "To prevent false confidence in contact data, bounced email addresses are NOT marked as verified without an actual deliverability check -- the output distinguishes between emails that have been checked vs. those pending verification, because sending to an unverified 'updated' email is worse than knowing it bounces",
+      "passed": true,
+      "evidence": "Each bounced contact entry explicitly states 'Email status: BOUNCED -- not verified. New email address has NOT been confirmed via deliverability check.' The 'Email Verification Protocol' section states: 'Bounced email addresses are flagged as UNVERIFIED. Any replacement email addresses discovered through research are marked as PENDING VERIFICATION until a deliverability check... confirms the address is valid. Sending to an unverified \"updated\" email is worse than knowing it bounces.'"
+    },
+    {
+      "text": "To create pipeline for the API integration product pitch, account-level intelligence includes hiring signals specifically in engineering/IT departments with reference to recent job postings, plus tech stack changes visible in those postings -- these are the buying signals that justify moving an account to active outreach",
+      "passed": false,
+      "evidence": "The 'NEW HOT SIGNALS IDENTIFIED' section includes an 'Engineering/IT Hiring Signals' table but it uses placeholder data ('[Account 1 -- from research]', '[Account 2 -- from research]') rather than specific account names. It mentions job posting signal types and tech stack mentions (REST API, microservices, middleware platforms) but notes 'Actual data population requires access to these sources.' The framework is present but lacks the specificity of applying it to the actual 12 accounts."
+    },
+    {
+      "text": "To give the sales standup actionable next steps, the output ends with a DATA QUALITY SCORE percentage and provides specific next steps for each flagged record (who to contact, what to verify, which sequences to pause) rather than generic recommendations",
+      "passed": true,
+      "evidence": "DATA QUALITY SCORE is 72% with a dimensional breakdown (email deliverability 65%, title/role accuracy 70%, account completeness 80%, contact coverage 75%). NEXT STEPS section has Immediate (3 items: notify Amir, pause sequences, run deliverability check), This Week (3 items: research role changes, identify Cargoline contact, hiring signal deep-dive), and Before Next Standup (3 items: update CRM, re-segment, brief Amir). Each is specific with named contacts and actions."
+    },
+    {
+      "text": "To enable accurate segment-level pipeline reporting, the enrichment report scope reflects both the ~40 contacts and ~12 accounts in the HOT logistics vertical, with structured sections for CHANGES MADE, ROLE CHANGES DETECTED, NEW HOT SIGNALS IDENTIFIED, and RECORDS WITH MISSING MANDATORY FIELDS",
+      "passed": true,
+      "evidence": "Report scope states '~40 contacts across ~12 accounts, HOT segment, Logistics vertical'. All four sections present: 'CHANGES MADE' (table with account/contact/change type/old/new/status), 'ROLE CHANGES DETECTED' (3 flagged contacts), 'NEW HOT SIGNALS IDENTIFIED' (engineering/IT hiring signals section), 'RECORDS WITH MISSING MANDATORY FIELDS' (table with account/contact/missing fields/priority)."
+    }
+  ],
+  "summary": {"passed": 5, "failed": 1, "total": 6, "pass_rate": 0.83}
+}

@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "write-read-roundtrip",
+  "prompt": "I need to update the price assumption in my model from $100 to $125 and then verify the change took effect.",
+  "assertions": [
+    "Runs idfa_ops.py write to set Inp_Price to 125",
+    "Runs idfa_ops.py read to verify the value is 125",
+    "Both commands produce JSON output with status 'ok'",
+    "The operation preserves all existing Named Ranges and formulas",
+    "Does not use raw openpyxl or manual cell editing"
+  ]
+}

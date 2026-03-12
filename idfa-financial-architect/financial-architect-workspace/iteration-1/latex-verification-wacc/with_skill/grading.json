@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Reads the WACC formula from the model (cell B16 or via inspection)",
+      "passed": true,
+      "evidence": "'The WACC formula was read from cell B16 of the legacy model using idfa_ops.py inspect: =($B$10/$B$12)*$B$13+($B$11/$B$12)*$B$14*(1-$B$15)'"
+    },
+    {
+      "text": "Presents the LaTeX-notation equivalent of the WACC formula",
+      "passed": true,
+      "evidence": "Section 2 shows: 'WACC = E/(E+D) * Ke + D/(E+D) * Kd * (1-T)' in LaTeX notation."
+    },
+    {
+      "text": "Verifies that equity weight + debt weight equals 1.0",
+      "passed": true,
+      "evidence": "Check 1: 'w_e = 0.625, w_d = 0.375, w_e + w_d = 0.625 + 0.375 = 1.000. PASS.'"
+    },
+    {
+      "text": "Verifies that only the debt term is multiplied by (1 - Tax Rate)",
+      "passed": true,
+      "evidence": "Check 2: 'Equity term: ($B$10/$B$12)*$B$13 \u2014 no (1-$B$15) factor. Correct. Debt term: ($B$11/$B$12)*$B$14*(1-$B$15) \u2014 (1-$B$15) applied. Correct. PASS.'"
+    },
+    {
+      "text": "Verifies cost of equity and cost of debt are in the same units (both decimals or both percentages)",
+      "passed": true,
+      "evidence": "Check 3: 'Cost of Equity B13: 0.12 Decimal. Cost of Debt B14: 0.06 Decimal. Both are expressed as decimals (not percentages). No unit mismatch. PASS.'"
+    },
+    {
+      "text": "Identifies the formula uses cell references ($B$10, $B$12, etc.) and flags this as an IDFA violation requiring Named Ranges",
+      "passed": true,
+      "evidence": "Section 6: 'Guardrail 1 violation: The formula uses cell coordinates ($B$10, $B$12, etc.) instead of Named Ranges. No Named Ranges are defined in the workbook.'"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

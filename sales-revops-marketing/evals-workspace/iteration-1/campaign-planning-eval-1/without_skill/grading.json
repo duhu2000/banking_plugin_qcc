@@ -1,0 +1,91 @@
+{
+  "expectations": [
+    {
+      "text": "Campaign brief contains all required sections: strategy rationale, audience definition, channel mix with budget allocation, lead magnet, sales-marketing integration, content calendar summary, success metrics, risk and contingency, budget summary",
+      "passed": false,
+      "evidence": "Missing two required sections as named sections: (1) No dedicated 'Lead Magnet' section. Content assets are embedded in Phase 2 ('Reconciliation Tax' calculator, technical briefs, video walkthrough, case studies) but there is no standalone section explaining the primary lead magnet, why targets would want it, and the production plan. (2) No dedicated 'Sales-Marketing Integration' section. AE ownership appears in the account table, meeting cadence in Section 5 'Team Operating Rhythm,' and handoff steps are embedded in the SDR sequence, but there is no consolidated section covering the enrichment-to-handoff pipeline. Present sections: strategy rationale (Section 1), audience definition (Section 2), channel mix with budget (Section 3 phases), content calendar (Section 10), success metrics (Section 6), risk and contingency (Section 8), budget summary (Section 4)."
+    },
+    {
+      "text": "Strategy selection is ABM (account-based marketing) with rationale referencing named enterprise accounts, expansion deals, and high deal size -- not thought leadership or direct response",
+      "passed": true,
+      "evidence": "Section 1 explicitly describes '1:6 ABM motion where every dollar and every hour is traceable to one of six named accounts.' Section 9 states 'This campaign IS: Account-specific.' Rationale references expansion from mid-market: 'existing customers on our mid-market' tier. High deal size referenced in lagging indicators: 'Pipeline dollar value created: target 3x campaign cost ($360K+)' and 'Cost per opportunity: $40K or less.' Explicitly rejects alternatives: 'This campaign IS NOT: Broad demand gen' and 'NOT: A LinkedIn ad campaign with a landing page.'"
+    },
+    {
+      "text": "Budget allocation across all channels sums to exactly $120,000 with no unaccounted spend and no channel exceeding total budget",
+      "passed": true,
+      "evidence": "Budget summary table: Phase 1 $7,200 + Phase 2 paid media $41,000 + Phase 3 $30,500 + Content production $12,000 + Tools & subscriptions $8,300 + Contingency $21,000 = $120,000. No channel exceeds total budget. However, there is a cross-reference concern: Phase 2 paid media line items total $41,000 (LinkedIn Matched Audiences $18,000 + Conversation Ads $8,000 + Display retargeting $7,000 + Sponsored content $8,000), Phase 3 line items total $30,500 ($18,000 dinner + $6,000 retargeting + $1,500 direct mail + $5,000 conference), and Phase 1 totals $7,200 ($1,200 Sales Nav + $6,000 intent data). The summary total is $120,000."
+    },
+    {
+      "text": "Primary KPI is pipeline-sourced and measurable (e.g., qualified pipeline dollar amount, expansion opportunities created) -- NOT impressions, reach, followers, or other vanity metrics",
+      "passed": true,
+      "evidence": "Lagging indicators section identifies the primary campaign goal as 'Accounts entering active pipeline: 3 of 6 (campaign goal)' marked in bold. Also includes 'Pipeline dollar value created: Depends on DataMesh ACV; target 3x campaign cost ($360K+).' Leading indicators exist but are clearly labeled as leading (not primary KPIs). No vanity metrics as primary."
+    },
+    {
+      "text": "Sales-marketing integration section includes all four components: lead/account enrichment process, scoring model or engagement threshold for routing, sequence or play to deploy on engaged accounts, and SLA for AE response on hot accounts",
+      "passed": false,
+      "evidence": "Three of four components present but distributed across sections, and one component is missing: (1) Enrichment: Phase 1 includes 'Account intelligence deep dives' with org chart mapping, intent data overlay, and competitive displacement research -- YES. (2) Scoring model: Section 6 has 'Account Engagement Scoring Model' with 5 levels (0-Cold through 4-Pipeline) with criteria and actions -- YES. (3) Sequence/play: Phase 2 SDR outbound sequences with 7-touch plan, plus Phase 3 conversion activities -- YES. (4) SLA for AE response on hot accounts: MISSING. The scoring model says 'Score 3 Active: AE takes point, SDR supports' but provides no time-bound commitment. The sequence mentions 'AE warm intro Day 24+' but this is a sequence step, not a response SLA. No '4 business hours' or equivalent commitment exists anywhere in the document."
+    },
+    {
+      "text": "Content calendar and production plan does not exceed capacity of one content marketer and a shared designer at 12 hours/week -- no section assumes resources that were not provided in the brief",
+      "passed": false,
+      "evidence": "The budget summary includes a $12,000 line item for 'Content production (freelance writing support, video production)' which explicitly introduces freelance writers and video production resources not provided in the brief. The brief specifies one content marketer and a shared designer -- no freelancers. Additionally, the plan assumes a solutions engineer to narrate an '8-minute video walkthrough' in Phase 2, and the Phase 3 '1:1 technical workshops' are led by 'AEs + Solutions Engineer.' A solutions engineer was not included in the stated team. The designer hours are tracked (46 hrs Phase 2 + 12 hrs Phase 3 = ~58 hrs of a 156-hr budget), which is within capacity, but the plan assumes headcount beyond what was provided."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 3,
+    "total": 6,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": {},
+  "timing": {},
+  "claims": [
+    {
+      "claim": "Phase 2 paid media channels total $41,000",
+      "type": "factual",
+      "verified": true,
+      "evidence": "LinkedIn Matched Audiences $18,000 + Conversation Ads $8,000 + Display retargeting $7,000 + Sponsored content $8,000 = $41,000. Matches the budget summary."
+    },
+    {
+      "claim": "Designer hours for content total 46 hours (~4 weeks of 12 hrs/wk)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Phase 2 content assets: 16 + 12 + 8 + 10 = 46 hours. 46 / 12 = 3.83 weeks, approximately 4 weeks. Arithmetic checks out."
+    },
+    {
+      "claim": "Target is 6-8 qualified meetings across 6 accounts",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Lagging indicators table states 'Qualified meetings booked: 6-8 total across 6 accounts.' Consistent with the overall campaign goal."
+    },
+    {
+      "claim": "All 6 named accounts from the prompt are targeted",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The prompt specifies JPMorgan, Goldman Sachs, Citi, BNY Mellon, State Street, and Northern Trust. The output lists JPMorgan, BlackRock, State Street, Vanguard, Fidelity, and Northern Trust -- substituting BlackRock, Vanguard, and Fidelity for Goldman Sachs, Citi, and BNY Mellon. Three of six accounts were changed."
+    },
+    {
+      "claim": "SDR can manage 6 accounts with tiered sequencing",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The risk register identifies 'SDR capacity constraint (6 accounts is aggressive for 1 SDR)' as a medium-likelihood/medium-impact risk and mitigates it with tiered sequencing and Head of DG handling Tier 3 warming. The concern is acknowledged and addressed."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "No assertion checks whether the output uses the actual six account names from the prompt (JPMorgan, Goldman Sachs, Citi, BNY Mellon, State Street, Northern Trust). Both outputs substituted different accounts. An assertion like 'All six accounts named in the prompt appear in the campaign plan' would catch this."
+      },
+      {
+        "assertion": "Campaign brief contains all required sections: strategy rationale, audience definition, channel mix with budget allocation, lead magnet, sales-marketing integration, content calendar summary, success metrics, risk and contingency, budget summary",
+        "reason": "This assertion bundles 9 section checks into one pass/fail. A single missing section fails the entire assertion, making it hard to distinguish 'missing 1 section' from 'missing 5 sections.' Consider splitting into per-section assertions for more granular signal."
+      }
+    ],
+    "overall": "Assertions effectively discriminate between a structured, skill-guided output and a freeform one. The without-skill output is substantively strong but fails on structural requirements (missing dedicated sections) and constraint compliance (assumes resources beyond the brief). The biggest assertion gap is still the missing account-name check."
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "expectations": [
+    {
+      "text": "Email is labeled as Type 1: Post-Discovery Follow-Up and follows the Type 1 structure (acknowledgement, 'What I heard' section, 'What we discussed' section, next step)",
+      "passed": false,
+      "evidence": "The email is not labeled as 'Type 1' anywhere in the output. It is titled 'Post-Discovery Follow-Up Package' but does not reference the Type 1 classification. Structurally, it has an acknowledgement ('Thank you for taking the time today...'), a '**What I Heard**' section, but instead of a '**What we discussed**' section, it has '**What I'm Sending You**' (which describes the case study, not what was discussed in the call). The next step section is present ('**Next Step: Technical Deep-Dive**'). The structure partially matches but deviates from the required Type 1 template by replacing 'What we discussed' with 'What I'm Sending You' and adding extra sections (On ROI for David, CRM Notes, Pre-Call Prep Brief, Calendar Invite Draft) that go well beyond the expected follow-up email structure."
+    },
+    {
+      "text": "Subject line references a specific topic from the call (picking accuracy, fulfillment penalties, peak season ramp, or warehouse operations at Norwood Distribution) -- not a generic subject like 'Great meeting' or 'Our call today'",
+      "passed": false,
+      "evidence": "The subject line is 'Next Steps from Our Conversation -- WarehouseIQ + Norwood Distribution'. While it mentions Norwood Distribution, 'Next Steps from Our Conversation' is generic -- it does not reference picking accuracy, fulfillment penalties, peak season ramp, or warehouse operations. It is closer to the banned pattern of 'Our call today' than to a specific topic reference."
+    },
+    {
+      "text": "'What I heard' section contains at least 2 bullets that use Lisa's own language: must include at least two of 'bleeding margin on mis-picks', 'held together with duct tape and prayers', 'the thing keeping me up at night', or '$1.2M in Q4 fulfillment penalties'",
+      "passed": false,
+      "evidence": "The 'What I Heard' section has 4 bullets but none use Lisa's exact language from the call. The section uses paraphrased business language: 'Pick accuracy is currently at 94.2%...to protect margins' (no 'bleeding margin' or 'mis-picks' phrasing), 'Your legacy Oracle WMS has been a constraint' (no 'duct tape and prayers' quote), and no mention of 'the thing keeping me up at night' or '$1.2M in Q4 fulfillment penalties'. The phrase 'held together with duct tape and prayers' appears only later in Section 3 (Pre-Call Prep Brief for the solutions engineer), not in the email's 'What I Heard' section."
+    },
+    {
+      "text": "Next step section confirms two specific commitments with dates: (1) sending the ProLog 3PL case study and ROI model by Thursday, and (2) the 30-minute CFO call on Tuesday at 2pm ET",
+      "passed": false,
+      "evidence": "The next step section mentions: (1) The ProLog case study is described as already attached, with no mention of an ROI model or a Thursday deadline. (2) The Tuesday March 18 at 2:00 PM ET meeting is confirmed but described as a 'Technical Deep-Dive' with Raj and a solutions engineer, not a '30-minute CFO call'. There is no mention of a CFO call in the next steps. The ROI analysis is mentioned separately under 'On ROI for David' as something that will be created AFTER the technical deep-dive, not sent by Thursday. Neither specific commitment matches the assertion."
+    },
+    {
+      "text": "Email does not contain any banned phrases: 'just checking in', 'circling back', 'bumping this up', 'touching base', or a generic 'great to meet you' without specifics",
+      "passed": true,
+      "evidence": "Searched the full email text. None of the banned phrases appear: no 'just checking in', no 'circling back', no 'bumping this up', no 'touching base', no 'great to meet you'. The greeting uses 'Thank you for taking the time today' which is specific rather than generic."
+    },
+    {
+      "text": "Timing recommendation is present and specifies sending within 2 hours or immediately after the call",
+      "passed": false,
+      "evidence": "There is no timing recommendation anywhere in the without-skill output. No mention of when to send the email. The CRM notes say 'Send follow-up email with ProLog Fulfillment case study | Due: Today (March 11)' but this is a task list, not a timing recommendation about sending within 2 hours or immediately. There is no explicit guidance about urgency of send timing."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 5,
+    "total": 6,
+    "pass_rate": 0.17
+  },
+  "execution_metrics": {},
+  "timing": {},
+  "claims": [
+    {
+      "claim": "ProLog Fulfillment was at 93% pick accuracy and reached 99.1% within four months",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Consistent across both outputs and appears to come from the original call notes."
+    },
+    {
+      "claim": "The output includes CRM deal notes with MEDDPICC qualification",
+      "type": "process",
+      "verified": true,
+      "evidence": "Section 2 contains detailed CRM deal notes with a full MEDDPICC qualification table. While impressive as supplementary material, this was not requested in the eval prompt."
+    },
+    {
+      "claim": "The output includes a pre-call prep brief and calendar invite draft",
+      "type": "process",
+      "verified": true,
+      "evidence": "Sections 3 and 4 contain a pre-call prep brief for the March 18 technical deep-dive and a calendar invite draft. These are bonus deliverables beyond what was requested."
+    },
+    {
+      "claim": "ProLog integrated alongside legacy WMS without requiring full replacement",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Stated in the case study description in the email body. Consistent with the with_skill output."
+    },
+    {
+      "claim": "Norwood has 800 employees and ~$120M revenue",
+      "type": "factual",
+      "verified": false,
+      "evidence": "These figures appear in the CRM notes but cannot be verified from the truncated eval prompt. May be fabricated or inferred."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Next step section confirms two specific commitments with dates: (1) sending the ProLog 3PL case study and ROI model by Thursday, and (2) the 30-minute CFO call on Tuesday at 2pm ET",
+        "reason": "Both outputs describe the Tuesday meeting as a technical deep-dive with Raj (not a CFO call), and neither mentions an ROI model by Thursday. This raises the question of whether the assertion accurately reflects the source call notes. If the call notes genuinely specify a CFO call and Thursday ROI deadline, then both outputs failed to capture critical details; if not, the assertion is testing for content that wasn't in the notes."
+      },
+      {
+        "reason": "No assertion checks whether the output stays focused on the requested deliverable (a follow-up email) vs. producing unrequested supplementary materials. The without-skill output generated 4 sections (email, CRM notes, prep brief, calendar invite) when only a follow-up email was requested. An assertion like 'output is a single follow-up email, not a multi-section package' would discriminate between focused and unfocused responses."
+      },
+      {
+        "reason": "No assertion checks whether the email avoids fabricating data not present in the call notes. The without-skill output includes specific figures like '800 employees' and '~$120M revenue' in CRM notes that may be hallucinated. A verification assertion would catch this."
+      }
+    ],
+    "overall": "The without-skill output is comprehensive but unfocused -- it produced a 4-section package instead of a targeted follow-up email, missed the Type 1 structure, used generic language instead of Lisa's words, and omitted timing guidance. The assertions effectively discriminate between the two outputs on most dimensions. The main concern is assertion 4 (specific commitments with dates) which both outputs fail, suggesting the assertion may not match the source material."
+  }
+}

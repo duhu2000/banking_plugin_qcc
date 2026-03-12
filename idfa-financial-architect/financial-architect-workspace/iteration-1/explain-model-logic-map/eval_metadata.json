@@ -1,0 +1,13 @@
+{
+  "eval_id": 8,
+  "eval_name": "explain-model-logic-map",
+  "prompt": "I need to hand this model off to a colleague who has never seen it. Can you produce a complete Logic Map so they can understand every business rule without opening the spreadsheet?",
+  "assertions": [
+    "Inspects the model via idfa-ops to discover all Named Ranges and their formulas",
+    "Produces a Logic Map listing every Named Range with its business rule in plain English",
+    "Shows the dependency chain — which inputs feed which calculations",
+    "Groups the map by layer (Assumptions → Calculations → Output)",
+    "Each formula description is understandable without Excel knowledge (e.g., 'Year 2 Revenue = Year 1 Revenue grown by the annual growth rate')",
+    "Does NOT include cell coordinate references in the Logic Map — only Named Range names"
+  ]
+}

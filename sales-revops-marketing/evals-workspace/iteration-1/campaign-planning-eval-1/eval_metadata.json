@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "campaign-planning-eval-1",
+  "prompt": "We're going after six named enterprise accounts in financial services -- JPMorgan, Goldman Sachs, Citi, BNY Mellon, State Street, and Northern Trust. These are all existing customers on our mid-market...",
+  "assertions": [
+    "Campaign brief contains all required sections: strategy rationale, audience definition, channel mix with budget allocation, lead magnet, sales-marketing integration, content calendar summary, success metrics, risk and contingency, budget summary",
+    "Strategy selection is ABM (account-based marketing) with rationale referencing named enterprise accounts, expansion deals, and high deal size -- not thought leadership or direct response",
+    "Budget allocation across all channels sums to exactly $120,000 with no unaccounted spend and no channel exceeding total budget",
+    "Primary KPI is pipeline-sourced and measurable (e.g., qualified pipeline dollar amount, expansion opportunities created) -- NOT impressions, reach, followers, or other vanity metrics",
+    "Sales-marketing integration section includes all four components: lead/account enrichment process, scoring model or engagement threshold for routing, sequence or play to deploy on engaged accounts, and SLA for AE response on hot accounts",
+    "Content calendar and production plan does not exceed capacity of one content marketer and a shared designer at 12 hours/week -- no section assumes resources that were not provided in the brief"
+  ]
+}

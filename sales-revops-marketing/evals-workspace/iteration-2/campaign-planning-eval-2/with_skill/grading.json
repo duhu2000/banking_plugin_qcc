@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline generation: primary KPI is 400 net-new MQLs with an implied CPL target at or below $187.50 ($75K/400) -- the plan benchmarks against the historical $180 CPL from the benchmark report campaign and explains how channel allocation will hit or beat that efficiency",
+      "passed": true,
+      "evidence": "SUCCESS METRICS sets the primary KPI at 400 net-new MQLs and a target CPL of $187.50 or below, explicitly benchmarked against the historical $180 CPL from the prior benchmark report campaign."
+    },
+    {
+      "text": "Budget efficiency: channel mix allocates $75,000 with per-channel line items, excludes paid search and events as instructed, and weights spend toward the research-driven content format that historically produced 280 MQLs -- not toward blog content which was explicitly called out as ineffective",
+      "passed": true,
+      "evidence": "The budget table allocates the full $75,000 across channels, explicitly excludes paid search and events, and concentrates spend on research-led formats while noting that blog content alone has never worked."
+    },
+    {
+      "text": "Content leverage: lead magnet is anchored in original research (benchmark report, state-of-industry survey, or similar data-driven asset) that builds on the proven benchmark report format, with a clear plan to derive webinar topics, LinkedIn content, email nurture sequences, and syndication assets from that single research pillar",
+      "passed": true,
+      "evidence": "The plan is anchored in an original research benchmark report and explicitly derives webinar content, LinkedIn promotion, email nurture, and syndication from that research pillar."
+    },
+    {
+      "text": "Alignment: sales-marketing integration defines a specific MQL scoring threshold that triggers Salesforce routing to the six mid-market AEs, specifies the Outreach sequence for MQL follow-up, and sets a measurable speed-to-lead SLA -- connecting marketing's 400-MQL target to AE pipeline activity",
+      "passed": true,
+      "evidence": "SALES-MARKETING INTEGRATION defines the MQL criteria, Salesforce routing, a concrete Outreach follow-up sequence, and measurable SLAs for hot leads and standard MQLs."
+    },
+    {
+      "text": "Execution velocity: content calendar fits within the capacity of two content marketers and a half-time designer without overcommitting -- production milestones are sequenced so the research asset is complete before derivative content begins, and no week exceeds feasible output",
+      "passed": true,
+      "evidence": "The content calendar and production-capacity note show the report is completed before derivative content ramps, with work split realistically across two content marketers, one demand gen specialist, and a half-time designer."
+    },
+    {
+      "text": "Budget efficiency: risk and contingency section includes a time-bound decision gate with a specific MQL pace threshold (e.g., below 100 MQLs by Week 4), a named metric to evaluate, and a prescribed budget reallocation from underperforming to outperforming channels -- preventing quarter-end scramble on a $75K spend",
+      "passed": true,
+      "evidence": "RISK AND CONTINGENCY includes a Week 4 decision gate below 100 MQLs, the metrics to evaluate, and explicit budget reallocation actions from underperforming to outperforming channels."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

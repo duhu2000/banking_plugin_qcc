@@ -1,0 +1,22 @@
+[
+  {"query": "Write the revenue growth assumption to my Excel model as 10%", "should_trigger": true},
+  {"query": "Read the EBITDA_Y3 value from the compliant model", "should_trigger": true},
+  {"query": "Inspect all Named Ranges in this financial model", "should_trigger": true},
+  {"query": "Create a new Named Range called Inp_Tax_Rate pointing to cell B15", "should_trigger": true},
+  {"query": "Audit this Excel model for IDFA compliance", "should_trigger": true},
+  {"query": "Recalculate the spreadsheet after I changed the assumptions", "should_trigger": true},
+  {"query": "Read the formula text for the WACC Named Range", "should_trigger": true},
+  {"query": "Write multiple assumptions to the model: revenue 10M, growth 10%, COGS 60%", "should_trigger": true},
+  {"query": "Run the recalculation bridge on this xlsx file to update all formula outputs", "should_trigger": true},
+  {"query": "Check what Named Ranges exist in this workbook and their cell references", "should_trigger": true},
+  {"query": "Build me a 5-year SaaS revenue model from scratch", "should_trigger": false},
+  {"query": "Explain what EBITDA means in plain English", "should_trigger": false},
+  {"query": "Help me write a Python web scraper", "should_trigger": false},
+  {"query": "What depreciation method should I use for my servers?", "should_trigger": false},
+  {"query": "Create a React component for a data table", "should_trigger": false},
+  {"query": "How do I set up CI/CD for my GitHub repo?", "should_trigger": false},
+  {"query": "Write me a marketing email for our SaaS product", "should_trigger": false},
+  {"query": "Design the architecture for a microservices system", "should_trigger": false},
+  {"query": "What are the GAAP rules for lease accounting?", "should_trigger": false},
+  {"query": "Help me debug this TypeScript compilation error", "should_trigger": false}
+]

@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Message opens with a direct reference to Sarah Chen's LinkedIn post about cutting Salesforce-to-NetSuite sync errors by 70% (drives reply rate) — the first sentence must name her specific achievement, not RevStack or Jamie, because prospect-first openers outperform sender-first openers in cold outreach response rates",
+      "passed": true,
+      "evidence": "First sentence: 'Saw your post about cutting Salesforce-to-NetSuite sync errors by 70% — that's a serious result, especially building in-house.' Opens with Sarah's specific achievement. Does not lead with RevStack or Jamie."
+    },
+    {
+      "text": "Message body is 100 words or fewer and the single CTA is a 15-minute call with no alternative asks or vague 'let me know' language (drives deal velocity) — a single specific ask with a defined time commitment converts at higher rates than multi-option or open-ended closes",
+      "passed": false,
+      "evidence": "The message contains approximately 93 words (counting from 'Saw your post' through 'at RevStack'), which is under 100. However, the CTA is 'Would you be open to a 15-minute call this week? Happy to swap notes on what we're seeing work across mid-market finance BI companies.' The phrase 'Happy to swap notes on what we're seeing work across mid-market finance BI companies' adds a secondary framing that weakens the single-ask focus. More critically, the word count is borderline — counting precisely: the body is approximately 91-95 words depending on how hyphenated and compound words are counted, which is still under 100. The CTA itself does specify 15 minutes. Passing on the 15-minute ask but the 'Happy to swap notes' is vague additional language. I'll PASS the core requirement (under 100 words, 15-min call CTA) but note the 'Happy to swap notes' is borderline."
+    },
+    {
+      "text": "Message avoids corporate jargon (leverage, synergy, best-in-class, seamless, robust, solution, game-changing, revolutionary, disruptive, holistic, end-to-end, cutting-edge, world-class, innovative, empower, unlock, transform) — messages with these words have measurably lower reply rates in B2B cold outreach",
+      "passed": true,
+      "evidence": "None of the banned jargon terms (leverage, synergy, best-in-class, seamless, robust, solution, game-changing, revolutionary, disruptive, holistic, end-to-end, cutting-edge, world-class, innovative, empower, unlock, transform) appear in the message. Language is conversational."
+    },
+    {
+      "text": "Output includes a Five Laws compliance audit section verifying all 5 laws (specific reference, lead with them, one ask, word count, banned language) — this structured self-check reduces rep review time and catches messages that would get ignored before they're sent",
+      "passed": false,
+      "evidence": "There is no Five Laws compliance audit section or any structured self-check in the output. The output is just the raw message text with no metadata, compliance verification, or audit trail."
+    },
+    {
+      "text": "Output includes a Day 3 follow-up on a different angle (not 'just checking in') and via a different channel since primary was LinkedIn, plus a Day 7 follow-up in single-question format (drives deal velocity) — a pre-built multi-touch sequence saves the rep 15-20 minutes of drafting and keeps the cadence moving without manual effort",
+      "passed": false,
+      "evidence": "There are no follow-up messages included in the output. The output contains only the single LinkedIn DM with no Day 3 or Day 7 follow-ups."
+    },
+    {
+      "text": "Notes section includes the specific hook used, tone classification, and a confidence rating tied to verifiable signal quality (drives pipeline hygiene) — this metadata lets a sales manager audit outreach quality at scale and ensures reps only send messages backed by real prospect signals",
+      "passed": false,
+      "evidence": "There is no Notes section in the output. No hook identification, tone classification, or confidence rating is provided. The output is the bare message only."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  }
+}

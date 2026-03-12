@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline generation: primary KPI is a dollar-denominated pipeline target derived from the six named accounts and $850K average deal size (e.g., $X in qualified expansion pipeline) -- NOT impressions, engagement scores, or any metric that cannot be tied to revenue",
+      "passed": true,
+      "evidence": "Primary KPI is explicitly stated as 'Pipeline created from target accounts. Target: $5.1M (6 accounts x $850K ARR).' in the SUCCESS METRICS section. The brief input table also states 'Primary: pipeline created ($5.1M, i.e. 6 x $850K).' Impressions are not used as primary KPI."
+    },
+    {
+      "text": "Budget efficiency: budget allocation includes per-channel line items summing to exactly $120,000, with rationale for why each channel earns its allocation based on the stated constraint that personalized ABM worked and generic webinars did not -- channels with no historical evidence of ROI for this motion are excluded or deprioritized",
+      "passed": false,
+      "evidence": "The budget summary table includes per-channel line items that sum to $120,000 (including a $17,000 contingency reserve). However, the brief input table states 'What has worked before: Not provided -- assume existing relationship and product usage data are the strongest assets' and 'What has not worked: Not provided -- plan conservatively.' The skill failed to incorporate the user's stated constraint that personalized ABM landing pages worked and generic webinars did not. Furthermore, a webinar/executive briefing is allocated $12,000 despite the user explicitly saying generic webinars did not work. While the output calls it a 'roundtable' and positions it as 'invite-only,' there is no rationale connecting channel allocation to the stated historical ABM success."
+    },
+    {
+      "text": "Alignment: sales-marketing integration section maps each of the four AEs to specific named accounts, defines MQA-to-SAL scoring criteria that trigger AE engagement, specifies a Salesloft/HubSpot sequence for engaged contacts, and sets a measurable SLA for AE response time on hot accounts",
+      "passed": true,
+      "evidence": "The sales-marketing integration section maps AEs to accounts: '4 AEs, 6 accounts = 2 AEs own 2 accounts each, 2 AEs own 1 account each.' Account scoring criteria are defined with specific point values (e.g., +20 for downloaded report, +40 for meeting request). A routing threshold is set: 'Account score >= 80 = HOT.' AE email sequences via HubSpot are specified starting Day 15. SLAs are measurable: 'AE responds to any reply within 4 business hours,' 'AE schedules expansion review meeting within 5 business days of HOT status,' 'AE delivers expansion proposal within 10 business days of first expansion meeting.'"
+    },
+    {
+      "text": "Execution velocity: content calendar and production plan stays within the capacity of one content marketer and 12 hrs/week shared design -- each week's deliverables are listed, and no single week exceeds what one writer can produce while maintaining quality on high-value ABM assets",
+      "passed": true,
+      "evidence": "The content calendar summary lists deliverables by timeframe with owner and designer hours. Total designer hours consumed: ~53 hours across 90 days vs. 156 available hours (12 hrs/week x 13 weeks), showing sufficient capacity with ~103 hours buffer. The output notes 'Content marketer utilisation: Heavy in Days 1-14 (foundation sprint). Sustainable cadence in Phase 2-3. One person can handle this if the benchmark report is the only long-form asset and the Impact Briefs follow a repeatable template.'"
+    },
+    {
+      "text": "Pipeline generation: campaign brief includes a structured campaign brief with all sections required to brief an execution team -- strategy rationale, audience definition with buyer personas per account, channel mix, lead magnet, sales-marketing integration, content calendar, success metrics, risk/contingency, and budget summary",
+      "passed": true,
+      "evidence": "The brief includes all required sections: STRATEGY: ABM (rationale), AUDIENCE DEFINITION (3 personas: Technical Champion, Economic Buyer, Influencer/End User), CHANNEL MIX WITH BUDGET ALLOCATION (13 numbered channels across 3 phases), LEAD MAGNET (FS Data Observability Benchmark Report + ROI Calculator), SALES-MARKETING INTEGRATION (account assignment, lead flow, SLAs, weekly sync), CONTENT CALENDAR SUMMARY (table), SUCCESS METRICS (primary + secondary KPIs table), RISK AND CONTINGENCY (3 risks + decision gates), BUDGET SUMMARY (line-item table summing to $120K)."
+    },
+    {
+      "text": "Alignment: lead magnet is tailored to financial services expansion buyers (e.g., custom ROI analysis showing platform-wide value vs. current mid-market plan, maturity assessment, or peer benchmarking) -- not a generic ebook or industry-agnostic asset",
+      "passed": true,
+      "evidence": "Two lead magnets are defined, both tailored to financial services. Primary: 'Financial Services Data Observability Benchmark Report' -- 'FS data leaders are starved for peer benchmarks... This report lets them compare their organisation's maturity to peers.' Secondary: 'ROI Calculator / Business Case Template' -- 'An interactive tool that lets the champion plug in their current DataLens usage metrics and see the projected ROI of platform-wide expansion.' Both are specifically designed for FS expansion buyers, not generic assets."
+    },
+    {
+      "text": "Budget efficiency: risk and contingency section includes a time-bound decision gate with a named metric, a specific week-number threshold, and a prescribed budget reallocation action (e.g., if fewer than 3 accounts showing engagement by Week 4, shift spend to highest-responding accounts) -- protecting the $120K from being spent on an underperforming motion",
+      "passed": true,
+      "evidence": "The Decision Gates section includes three time-bound gates with named metrics and prescribed reallocation actions: (1) 'If pipeline created < $1.7M (2 accounts) by Day 45 --> reallocate $15,000 from LinkedIn to 1:1 executive dinners or in-person meetings with top 3 accounts,' (2) 'If 0 expansion proposals delivered by Day 60 --> emergency review: audit account engagement data, interview AEs, reassess,' (3) 'If webinar attendance < 2 accounts by Day 32 --> pivot to 1:1 format.' Each has a metric, time threshold, and specific action."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 1,
+    "total": 7,
+    "pass_rate": 0.86
+  }
+}

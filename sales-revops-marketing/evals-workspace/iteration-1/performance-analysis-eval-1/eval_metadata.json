@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "performance-analysis-eval-1",
+  "prompt": "Here's our weekly campaign numbers for the Q1 ABM push \u2014 Week 4 of 8. Target is 35 SQLs by end of quarter (so ~4.4/week run rate). We're behind.\n\nLinkedIn Sponsored:\n  Impressions: 42,300\n  Clicks: 11...",
+  "assertions": [
+    "LinkedIn CTR (0.28%) is compared against the benchmark table (average: 0.35-0.45%) and classified as below average, not just reported as a number",
+    "Email sequence decay is root-cause diagnosed before any recommendation \u2014 the analysis distinguishes between subject line issues (open rate problem) and body content issues (open-to-click drop) to explain why Email 3 underperforms",
+    "Each recommendation is specific enough to execute immediately \u2014 e.g., not 'improve the landing page' but a concrete change like restructuring the form, reducing fields, or adding social proof with expected conversion lift",
+    "A 'What is working \u2014 do not change' section explicitly names Email 1 CTR (5.2%, good tier) and budget pacing as things to protect from unnecessary optimization",
+    "Webinar-to-opp rate (8%) is flagged as poor against the 15-20% average benchmark, with root cause analysis exploring whether the problem is attendee quality, follow-up timing, or post-webinar nurture",
+    "The action plan includes specific owners and deadlines for each item, not generic 'team should review' statements"
+  ]
+}

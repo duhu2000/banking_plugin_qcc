@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline generation: primary KPI is a dollar-denominated pipeline target derived from the six named accounts and $850K average deal size (e.g., $X in qualified expansion pipeline) -- NOT impressions, engagement scores, or any metric that cannot be tied to revenue",
+      "passed": true,
+      "evidence": "The Campaign Overview table states 'Total Pipeline Target: $5.1M ARR (6 accounts x $850K).' Section 9.2 Lagging Indicators includes 'Pipeline Created: $5.1M (6 deals x $850K avg)' measured via 'HubSpot deal pipeline.' The Campaign ROI Tracker targets '40:1 pipeline-to-spend ratio ($120K spend : $5.1M pipeline).' Primary KPI is clearly dollar-denominated pipeline."
+    },
+    {
+      "text": "Budget efficiency: budget allocation includes per-channel line items summing to exactly $120,000, with rationale for why each channel earns its allocation based on the stated constraint that personalized ABM worked and generic webinars did not -- channels with no historical evidence of ROI for this motion are excluded or deprioritized",
+      "passed": false,
+      "evidence": "The budget summary in Section 4 shows line items summing to $120,000 ($72,500 subtotal + $7,250 contingency + $15,000 AE Travel + $5,250 misc + $20,000 reserve). However, there is no rationale tying channel allocation to the stated constraint that personalized ABM landing pages worked and generic webinars did not. In fact, the output includes an Executive Dinner Event at $25,000 and a Technical Workshop Series at $2,000 and a Closed-Door Roundtable at $3,000, but also includes personalized landing pages ($3,000) -- yet no explanation references the historical ABM success or webinar failure. The output does not acknowledge or apply the user's historical performance data."
+    },
+    {
+      "text": "Alignment: sales-marketing integration section maps each of the four AEs to specific named accounts, defines MQA-to-SAL scoring criteria that trigger AE engagement, specifies a Salesloft/HubSpot sequence for engaged contacts, and sets a measurable SLA for AE response time on hot accounts",
+      "passed": true,
+      "evidence": "Section 5 maps AEs to accounts: AE 1 -> JPMorgan, AE 2 -> Goldman Sachs, AE 3 -> Citi + BNY Mellon, AE 4 -> State Street + Northern Trust. Section 6.3 Workflows defines scoring triggers (email opens, clicks, downloads, events). A 'Meeting Booked Alert' and 'Stalled Deal Alert' (>14 days without activity) trigger notifications. HubSpot sequences are used for email outreach. However, there is no explicitly named SLA with a specific time threshold for AE response. Section 6.3 has 'Stalled Deal Alert' at 14 days but no response-time SLA like '4 hours' or '24 hours.' This is borderline -- the scoring and engagement triggers are defined but a measurable SLA for AE response time on hot accounts is not explicitly stated."
+    },
+    {
+      "text": "Execution velocity: content calendar and production plan stays within the capacity of one content marketer and 12 hrs/week shared design -- each week's deliverables are listed, and no single week exceeds what one writer can produce while maintaining quality on high-value ABM assets",
+      "passed": false,
+      "evidence": "Section 5 provides a week-by-week execution calendar. However, the designer allocation table shows '~62 hrs' total vs. 52 hours available (12 hrs/week x ~4.3 weeks x 3 months). The output itself flags this: 'Designer is over-allocated by ~10 hours.' This means the plan exceeds the shared designer's 12 hrs/week constraint. Additionally, the Content Marketer is at 80-90% capacity throughout with Phase 2 at ~90%, raising questions about feasibility for a single writer. The plan acknowledges exceeding capacity rather than staying within it."
+    },
+    {
+      "text": "Pipeline generation: campaign brief includes a structured campaign brief with all sections required to brief an execution team -- strategy rationale, audience definition with buyer personas per account, channel mix, lead magnet, sales-marketing integration, content calendar, success metrics, risk/contingency, and budget summary",
+      "passed": true,
+      "evidence": "The output includes: Account Intelligence & Segmentation (Section 1, with tiering rationale), Buying Committee Mapping (Section 2, with 6 persona types), Channel Strategy (Section 8, with channel mix and sequencing), Lead magnets (Section 12, with gated content assets: checklist, one-pager, benchmark report, ROI calculator), Campaign Phases with sales-marketing integration (Sections 3-5 with AE assignments), Week-by-week execution calendar (Section 11), Success Metrics (Section 9 with leading and lagging indicators), Risk Register (Section 10), Budget Summary (Section 4). All required sections are present."
+    },
+    {
+      "text": "Alignment: lead magnet is tailored to financial services expansion buyers (e.g., custom ROI analysis showing platform-wide value vs. current mid-market plan, maturity assessment, or peer benchmarking) -- not a generic ebook or industry-agnostic asset",
+      "passed": true,
+      "evidence": "Multiple tailored lead magnets are defined: 'Financial Services Data Observability Report' (Section 3, Phase 1 -- '8-10 page gated report: The State of Data Observability in Financial Services 2026 -- benchmarks, maturity model, regulatory drivers'), 'Account-Specific One-Pagers (x6)' showing 'current usage, expansion opportunity, projected ROI,' 'ROI Calculator / Business Case Template' tailored to financial services, and a 'Regulatory Compliance Brief' covering SOX, OCC, BCBS 239, DORA. All are clearly tailored to FS expansion buyers."
+    },
+    {
+      "text": "Budget efficiency: risk and contingency section includes a time-bound decision gate with a named metric, a specific week-number threshold, and a prescribed budget reallocation action (e.g., if fewer than 3 accounts showing engagement by Week 4, shift spend to highest-responding accounts) -- protecting the $120K from being spent on an underperforming motion",
+      "passed": false,
+      "evidence": "Section 10 (Risk Register & Mitigations) lists 8 risks with mitigations, but none include a time-bound decision gate with all three required elements (named metric, specific week threshold, prescribed budget reallocation). The mitigations are qualitative (e.g., 'Multi-thread from Day 1,' 'Start invitations 6+ weeks out,' 'Templatize aggressively'). The closest is 'Procurement delays push deals past 90 days' with 'Plan for 180-day close horizon for 50% of deals' but this is not a budget reallocation decision gate. No metric-driven decision gate specifies when to reallocate the $120K budget."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 3,
+    "total": 7,
+    "pass_rate": 0.57
+  }
+}

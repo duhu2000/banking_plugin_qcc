@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Runs 'uv run scripts/idfa_ops.py write <file> Inp_Price 125' (or equivalent path)",
+      "passed": false,
+      "evidence": "Method states: 'Used openpyxl directly (no skill files referenced)'. No idfa_ops.py script was used."
+    },
+    {
+      "text": "Runs 'uv run scripts/idfa_ops.py read <file> Inp_Price' to verify the write",
+      "passed": false,
+      "evidence": "Verification used openpyxl directly: 'Reopened workbook and read back the value to confirm'. No idfa_ops.py read command."
+    },
+    {
+      "text": "The read command returns the updated value 125 (not the original 100)",
+      "passed": true,
+      "evidence": "'Reload confirms value is 125: PASS'. The value was verified as 125 after the write."
+    },
+    {
+      "text": "Both commands produce JSON output with status 'ok'",
+      "passed": false,
+      "evidence": "No JSON output produced. The verification was done via openpyxl reload, not via idfa_ops.py JSON output."
+    },
+    {
+      "text": "Does not modify the file manually via openpyxl or other means \u2014 uses the idfa_ops.py script exclusively",
+      "passed": false,
+      "evidence": "Method explicitly states: 'Used openpyxl directly (no skill files referenced)'. The file was modified via openpyxl, not idfa_ops.py."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 4,
+    "total": 5,
+    "pass_rate": 0.2
+  }
+}

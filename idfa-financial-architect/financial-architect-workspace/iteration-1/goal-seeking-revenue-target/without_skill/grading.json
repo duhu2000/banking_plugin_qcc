@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Iterates using the write \u2192 recalculate \u2192 read pattern multiple times to converge on the answer",
+      "passed": false,
+      "evidence": "The report uses an analytical formula to solve directly: 'Rev_Y1 = (Target_EBITDA_Y3 + $2,205,000) / (1.21 * 0.42)'. No iteration or write-recalculate-read pattern was used."
+    },
+    {
+      "text": "Writes Inp_Rev_Y1 values via idfa-ops write command (not manual cell edits)",
+      "passed": false,
+      "evidence": "No mention of idfa-ops write command. The solution is computed analytically."
+    },
+    {
+      "text": "Reads EBITDA_Y3 via idfa-ops read command after each recalculation",
+      "passed": false,
+      "evidence": "No idfa-ops read command used. EBITDA_Y3 was computed analytically."
+    },
+    {
+      "text": "Converges to a solution within 1% tolerance of the $3,500,000 target",
+      "passed": true,
+      "evidence": "The analytical solution produces exactly $3,500,000 EBITDA_Y3 (shown in verification table), which is within 1% tolerance by definition."
+    },
+    {
+      "text": "Leaves the final solved value written in the model (does NOT revert to the original 10M)",
+      "passed": false,
+      "evidence": "The report shows the analytical result but there is no evidence the value was written to the model. It says the xlsx exists but doesn't confirm the value was persisted."
+    },
+    {
+      "text": "Reports the required Inp_Rev_Y1 value and the resulting EBITDA_Y3, both read from the model",
+      "passed": false,
+      "evidence": "Reports required Inp_Rev_Y1 = $11,225,895.32 and resulting EBITDA_Y3 = $3,500,000, but these come from analytical calculation, not model reads."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 5,
+    "total": 6,
+    "pass_rate": 0.17
+  }
+}

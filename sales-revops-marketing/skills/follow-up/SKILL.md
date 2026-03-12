@@ -8,9 +8,27 @@ description: >
   NOT for: initial outreach (use outreach), multi-touch sequences (use sequence), pre-call preparation (use pre-call-brief), content creation (use content-creation).
 ---
 
+## DATA FIDELITY RULES
+
+- Extract information ONLY from the call notes provided — do not invent
+  company details, deal sizes, technology stacks, or commitments not
+  explicitly stated in the input
+- Use the prospect's exact phrases in the "What I heard" section —
+  if they said "bleeding margin on mis-picks," write exactly that,
+  not a paraphrase like "experiencing inventory challenges"
+- Extract ALL agreed next steps with exact dates/times from the call notes —
+  if the prospect agreed to "send the case study by Thursday" and
+  "loop in the CFO for Tuesday at 2pm," both must appear verbatim
+- If a detail was not discussed in the call, do not include it in the
+  follow-up — absence of information is better than fabricated information
+
 ## FOLLOW-UP TYPES AND STRUCTURES
 
-### Type 1: Post-Discovery Call Follow-Up (within 2 hours of call)
+### Type 1: Post-Discovery Call Follow-Up
+
+TIMING: Send within 2 hours of the call ending. Post-discovery follow-ups
+sent within 2 hours have significantly higher reply rates — the prospect
+is still at their desk thinking about what was discussed.
 
 The best follow-up email arrives before the prospect has left their desk.
 
@@ -22,20 +40,23 @@ Line 1: "Thanks for the conversation this morning."
 [One sentence -- short acknowledgement; do not over-thank]
 
 What I heard:
-[2-3 bullets: their words, their pain, their priorities.
-Use their language, not yours. This proves you listened.
-Example: "You mentioned that peak season throughput is your
-biggest operational constraint this year and that adding
-headcount is not the preferred solution."]
+[2-3 bullets using the prospect's EXACT phrases from the call notes.
+Do not paraphrase — quote their words directly. This proves you listened.
+Example: If they said "we're bleeding margin on mis-picks," write exactly:
+"You mentioned you're 'bleeding margin on mis-picks' — with picking
+accuracy at 94.2%, every percentage point is costing real dollars."
+Pull phrases directly from the call transcript or notes provided.]
 
 What we discussed:
 [1-2 sentences: the specific way your product addresses what they described.
 Not a pitch -- a reference back to what you agreed was relevant.]
 
 Next step:
-[The specific agreed next step, with date/time if confirmed.
-"I'll send the [case study / proposal / pricing] by [date]."
-"I've sent a calendar invite for [date/time] for our next call."
+[List EVERY commitment agreed during the call, with exact dates/times.
+Extract these directly from the call notes — do not invent commitments.
+"I'll send the [case study / proposal / pricing] by [exact date agreed]."
+"I've sent a calendar invite for [exact date/time agreed] for [purpose]."
+If multiple commitments were made, list each one separately.
 If next step was not agreed: "I'd suggest our next step is X --
 does [date] work for you?"]
 

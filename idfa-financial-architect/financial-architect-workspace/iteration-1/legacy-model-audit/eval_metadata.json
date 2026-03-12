@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "legacy-model-audit",
+  "prompt": "I just inherited this financial model from someone who left the company. It's a total black box — I can't tell what any of the formulas are doing. Can you audit it and tell me what's wrong with it and how to fix it?",
+  "assertions": [
+    "Identifies that the model has ZERO named ranges — a fundamental IDFA violation",
+    "Flags the hardcoded values 0.59 and 0.58 in the COGS formulas (D7, E7) as layer isolation violations",
+    "Identifies that ALL formulas use cell-coordinate references instead of Named Ranges",
+    "Flags the WACC formula for LaTeX verification since it contains absolute cell references ($B$10, $B$12, etc.)",
+    "Notes the single-sheet structure violates IDFA three-layer separation (Assumptions / Calculations / Output)",
+    "Provides a retrofitting plan that proposes Named Range names following IDFA conventions (Inp_ for inputs, Variable_Dimension for calculations)",
+    "Does NOT attempt to perform any calculations internally — only inspects model structure",
+    "Produces a compliance score or percentage indicating the model's IDFA adherence level"
+  ]
+}

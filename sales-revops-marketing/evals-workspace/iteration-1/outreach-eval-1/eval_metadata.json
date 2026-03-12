@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "outreach-eval-1",
+  "prompt": "I need a LinkedIn DM to Sarah Chen, VP of Revenue Operations at Datawise Analytics (Series B, 180 employees, sells a BI platform to mid-market finance teams). She posted on LinkedIn two days ago about...",
+  "assertions": [
+    "Output contains a Five Laws check section with all five laws explicitly verified: specific reference, lead with them, one ask, word count, and banned language",
+    "Message body is 100 words or fewer (LinkedIn DM channel limit)",
+    "First sentence of the message body references Sarah Chen's LinkedIn post or her team's achievement -- does not begin with 'We', 'I', 'My company', 'RevStack', or any sender-focused language",
+    "Message contains exactly one CTA: a 15-minute call -- no alternative asks, no vague 'let me know if interested', no multiple options",
+    "Message body contains none of the banned words: leverage, synergy, best-in-class, seamless, robust, solution, game-changing, revolutionary, disruptive, holistic, end-to-end, cutting-edge, world-class, innovative, empower, unlock, transform",
+    "Output includes both a Day 3 follow-up variant (different angle, not 'just checking in') and a Day 7 follow-up variant (shorter, single question format)"
+  ]
+}

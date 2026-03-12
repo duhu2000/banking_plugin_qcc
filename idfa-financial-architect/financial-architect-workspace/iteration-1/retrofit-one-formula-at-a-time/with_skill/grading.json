@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Creates Named Ranges for input cells FIRST before rewriting any formulas (dependency ordering)",
+      "passed": true,
+      "evidence": "Report shows 'Layer 1 \u2014 Inputs (Tier 0)' created first: Inp_Rev_Y1, Inp_Rev_Growth, Inp_COGS_Pct_Y1. Then formulas retrofitted in dependency order (Tier 1: Revenue_Y1, Tier 2: COGS_Y1, Revenue_Y2)."
+    },
+    {
+      "text": "Proposes Named Range names following IDFA convention (Inp_ prefix for inputs)",
+      "passed": true,
+      "evidence": "Input Named Ranges: Inp_Rev_Y1, Inp_Rev_Growth, Inp_COGS_Pct_Y1 \u2014 all using Inp_ prefix. Calculations: Revenue_Y1, COGS_Y1, Revenue_Y2."
+    },
+    {
+      "text": "Rewrites formulas ONE at a time, not all at once",
+      "passed": true,
+      "evidence": "Three separate formula sections: 'Formula 1: Revenue_Y1 (C6) \u2014 Tier 1', 'Formula 2: COGS_Y1 (C7) \u2014 Tier 2', 'Formula 3: Revenue_Y2 (D6) \u2014 Tier 2'. Each is individually documented."
+    },
+    {
+      "text": "Validates that outputs match the original values after each formula rewrite",
+      "passed": true,
+      "evidence": "Each formula has a Validation section: 'Result: MATCH \u2014 10,000,000 = 10,000,000', 'Result: MATCH \u2014 6,000,000 = 6,000,000', 'Result: MATCH \u2014 11,000,000 = 11,000,000'."
+    },
+    {
+      "text": "Does NOT delete and rebuild the model from scratch \u2014 retrofits in place",
+      "passed": true,
+      "evidence": "Report shows current state: 'Retrofitted (3): C6, C7, D6 \u2014 zero coordinate references. Legacy (7): E6, D7, E7, C8, D8, E8, B16 \u2014 still coordinate-based.' The model is partially retrofitted, not rebuilt."
+    },
+    {
+      "text": "Uses the idfa-ops create-range command to create Named Ranges programmatically",
+      "passed": true,
+      "evidence": "Tools Used section: 'idfa_ops.py create-range \u2014 created 6 Named Ranges (3 inputs, 3 calculations)'."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

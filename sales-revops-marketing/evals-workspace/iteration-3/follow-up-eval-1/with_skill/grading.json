@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Subject line references a specific pain from the call — picking accuracy, fulfillment penalties, or peak season ramp time at Norwood Distribution (drives reply rate) — a subject line that mirrors the prospect's own language gets opened because it signals 'I was listening', not 'here's my template'",
+      "passed": true,
+      "evidence": "Subject line is 'Re: the fulfillment penalty problem at Norwood Distribution' — directly references the fulfillment penalty pain point and names the company."
+    },
+    {
+      "text": "'What I heard' section contains at least 2 of Lisa's exact phrases: 'bleeding margin on mis-picks', 'held together with duct tape and prayers', 'the thing keeping me up at night', or '$1.2M in Q4 fulfillment penalties' (drives deal velocity) — mirroring the prospect's own words in the recap builds trust that you understood the problem, which is the #1 factor in whether they show up to the next call",
+      "passed": true,
+      "evidence": "The 'What I heard' section uses all three of Lisa's exact phrases in quotes: 'bleeding margin on mis-picks', 'held together with duct tape and prayers', and 'the thing keeping me up at night'. Also references $1.2M in Q4 fulfillment penalties."
+    },
+    {
+      "text": "Next step section confirms two specific commitments with dates: (1) ProLog 3PL case study and ROI model by Thursday, and (2) the 30-minute CFO call on Tuesday at 2pm ET (drives deal velocity) — a follow-up without explicit dated next steps lets the deal stall; locking in deliverables + a calendar hold with the economic buyer keeps the deal moving toward close",
+      "passed": true,
+      "evidence": "Next steps section states: '1. I'll send over the ProLog 3PL case study and a rough ROI model by Thursday. 2. I've sent a calendar invite for Tuesday at 2:00 PM ET -- a 30-minute call with your CFO.' Both commitments with dates are confirmed."
+    },
+    {
+      "text": "Email structures content into distinct 'What I heard' and 'What we discussed' sections with the prospect's pain leading before any product mention (drives reply rate) — this separation proves the rep listened before pitching, and gives the prospect something to forward to the CFO that frames the problem in their own language",
+      "passed": true,
+      "evidence": "Email has clearly labeled bold sections: '**What I heard:**' (three bullets of prospect pain using Lisa's own language) followed by '**What we discussed:**' (guided picking and ramp time). Pain leads before any product mention."
+    },
+    {
+      "text": "Email avoids all banned follow-up phrases: 'just checking in', 'circling back', 'bumping this up', 'touching base', and does not open with a generic 'great to meet you' without specifics (drives reply rate) — these phrases signal a template and train buyers to ignore future emails from the rep",
+      "passed": true,
+      "evidence": "No banned phrases appear anywhere in the email. The opener is 'Thanks for the conversation this morning, Lisa' — specific and personal, not generic."
+    },
+    {
+      "text": "Timing recommendation specifies sending within 2 hours of the call (drives deal velocity) — post-discovery follow-ups sent within 2 hours have significantly higher open and reply rates than those sent next-day, because the conversation is still top-of-mind and the prospect hasn't context-switched",
+      "passed": true,
+      "evidence": "TIMING section states: 'Send within 2 hours of the call ending -- post-discovery follow-ups sent within 2 hours have significantly higher reply rates because the conversation is still top-of-mind and Lisa hasn't context-switched into her next meeting.'"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

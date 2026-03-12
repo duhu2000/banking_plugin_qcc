@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "copywriting-eval-1",
+  "prompt": "We're launching a cold email campaign for FlowOps (workflow automation platform for mid-market logistics companies, 200-2000 employees). Target persona: VP Operations at 3PL companies who are struggli...",
+  "assertions": [
+    "At least 8 subject line variants are produced, each labelled with its framework or angle",
+    "Every variant is 50 characters or fewer, with character count shown alongside each",
+    "No variant contains banned jargon: leverage, synergy, best-in-class, seamless, robust, solution",
+    "Variants test at least 3 distinct angles from the test dimensions (e.g., pain vs gain, specific vs broad, question vs statement) -- not just synonym swaps of the same message",
+    "A TESTING RECOMMENDATION section is present that names the lead test pair, states an expected winner with reasoning, specifies open rate as the metric, and includes a minimum sample size",
+    "At least 2 different frameworks from the SKILL.md set (Specificity, Curiosity, Relevance, Urgency, Question) are represented across the variants"
+  ]
+}

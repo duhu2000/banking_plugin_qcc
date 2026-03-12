@@ -133,6 +133,25 @@ Exit codes: `0` = success, `1` = Named Range not found, `2` = file/usage error.
 
 ---
 
+## Output Best Practices
+
+Every task that modifies or analyses a model MUST produce a **Markdown results
+file** saved to the output directory. The xlsx file alone is insufficient — a
+text artifact is needed for review, grading, and audit trail.
+
+For multi-step operations (what-if, goal-seeking, multi-write scenarios):
+
+1. Document each step: what command was run, what was returned
+2. Include a summary table with before/after values
+3. State the methodology: "All values obtained via write-recalculate-read pattern"
+   or "Computed via formula tracing (LibreOffice unavailable)"
+4. Save as `<task>_results.md` alongside the modified xlsx
+
+This is not optional — the results file IS the deliverable. The xlsx is the
+artifact that proves it.
+
+---
+
 ## Error Handling
 
 | Error                     | Exit Code | Agent Action                                            |

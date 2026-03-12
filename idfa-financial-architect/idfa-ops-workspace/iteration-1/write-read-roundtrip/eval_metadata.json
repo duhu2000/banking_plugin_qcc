@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "write-read-roundtrip",
+  "prompt": "I need to update the price assumption in my model from $100 to $125 and then verify the change took effect. Use the idfa-ops scripts to write the new value and read it back.",
+  "assertions": [
+    "Runs 'uv run scripts/idfa_ops.py write <file> Inp_Price 125' (or equivalent path)",
+    "Runs 'uv run scripts/idfa_ops.py read <file> Inp_Price' to verify the write",
+    "The read command returns the updated value 125 (not the original 100)",
+    "Both commands produce JSON output with status 'ok'",
+    "Does not modify the file manually via openpyxl or other means — uses the idfa_ops.py script exclusively"
+  ]
+}

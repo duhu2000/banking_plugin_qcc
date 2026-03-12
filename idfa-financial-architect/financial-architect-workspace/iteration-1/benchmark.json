@@ -1,0 +1,554 @@
+{
+  "metadata": {
+    "skill_name": "financial-architect",
+    "skill_path": "skills/financial-architect",
+    "executor_model": "claude-opus-4-6",
+    "analyzer_model": "claude-opus-4-6",
+    "timestamp": "2026-03-11T00:00:00Z",
+    "evals_run": [
+      "intent-synthesis-saas-model",
+      "legacy-model-audit",
+      "what-if-analysis",
+      "goal-seeking-revenue-target",
+      "scope-boundary-enforcement",
+      "retrofit-one-formula-at-a-time",
+      "latex-verification-wacc",
+      "explain-model-logic-map",
+      "add-new-line-item",
+      "monte-carlo-simulation-protocol"
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "eval_name": "intent-synthesis-saas-model",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Every input assumption has a Named Range with Inp_ prefix (e.g., Inp_Customers_Y1, Inp_Price_Monthly, Inp_Customer_Growth, Inp_Price_Increase, Inp_Churn_Monthly)", "passed": true, "evidence": "Layer 1 table lists: Inp_Customers_Y1, Inp_Price_Monthly_Y1, Inp_Customer_Growth_Rate, Inp_Price_Increase_Rate, Inp_Churn_Rate_Monthly — all with Inp_ prefix."},
+        {"text": "All calculation formulas reference Named Ranges only — zero cell-coordinate references like A1, B2, $C$3", "passed": true, "evidence": "All 75 calculation formulas in Layer 2 reference Named Ranges exclusively. The IDFA compliance checklist confirms PASS for Guardrail 1."},
+        {"text": "The model separates into three layers: Assumptions (inputs only), Calculations (logic only), Output (presentation only)", "passed": true, "evidence": "Architecture Overview explicitly defines Layer 1 (Assumptions), Layer 2 (Calculations), Layer 3 (Output)."},
+        {"text": "Revenue calculations correctly account for churn reducing the customer base", "passed": true, "evidence": "Net revenue uses average customers (midpoint of BoY and EoY after churn). Churn compounds monthly (21.53% annual from 2% monthly)."},
+        {"text": "The specification includes both MRR (Monthly Recurring Revenue) and ARR (Annual Recurring Revenue) as Named Ranges", "passed": true, "evidence": "Section M lists MRR_BoY_Y1 through MRR_BoY_Y5 and ARR_BoY_Y1 through ARR_BoY_Y5."},
+        {"text": "Each formula is readable as a plain-English business rule without needing to trace cell references", "passed": true, "evidence": "Every formula table includes a 'Business Rule' column with plain English."},
+        {"text": "Year-over-year naming convention uses _Y1, _Y2 etc. dimension suffixes consistently", "passed": true, "evidence": "All yearly Named Ranges use _Y1 through _Y5 suffixes consistently across all 80 ranges."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "intent-synthesis-saas-model",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.86,
+        "passed": 6,
+        "failed": 1,
+        "total": 7,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Every input assumption has a Named Range with Inp_ prefix (e.g., Inp_Customers_Y1, Inp_Price_Monthly, Inp_Customer_Growth, Inp_Price_Increase, Inp_Churn_Monthly)", "passed": false, "evidence": "Named ranges use lowercase descriptive names without Inp_ prefix: starting_customers, starting_monthly_price, etc. Does not follow IDFA Inp_ convention."},
+        {"text": "All calculation formulas reference Named Ranges only — zero cell-coordinate references like A1, B2, $C$3", "passed": true, "evidence": "All formulas reference named ranges. No cell-coordinate references appear."},
+        {"text": "The model separates into three layers: Assumptions (inputs only), Calculations (logic only), Output (presentation only)", "passed": true, "evidence": "Separate sheets follow an inputs-first, calculations-middle, dashboard-last architecture."},
+        {"text": "Revenue calculations correctly account for churn reducing the customer base", "passed": true, "evidence": "Monthly detail formulas show churned customers and EoM calculations accounting for churn."},
+        {"text": "The specification includes both MRR (Monthly Recurring Revenue) and ARR (Annual Recurring Revenue) as Named Ranges", "passed": true, "evidence": "Revenue Model section includes total_MRR and ARR Named Ranges."},
+        {"text": "Each formula is readable as a plain-English business rule without needing to trace cell references", "passed": true, "evidence": "Formulas use descriptive named ranges making them readable."},
+        {"text": "Year-over-year naming convention uses _Y1, _Y2 etc. dimension suffixes consistently", "passed": true, "evidence": "Named ranges consistently use _Y[n] suffixes across 161 ranges."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "legacy-model-audit",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 8,
+        "failed": 0,
+        "total": 8,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Identifies that the model has ZERO named ranges — a fundamental IDFA violation", "passed": true, "evidence": "Report states: 'Total formulas: 10, Formulas using Named Ranges: 0 (0%)' and G1 status: FAIL."},
+        {"text": "Flags the hardcoded values 0.59 and 0.58 in the COGS formulas (D7, E7) as layer isolation violations", "passed": true, "evidence": "Error 2 section identifies D7 (=D6*0.59) and E7 (=E6*0.58) as hardcoded magic numbers."},
+        {"text": "Identifies that ALL formulas use cell-coordinate references instead of Named Ranges", "passed": true, "evidence": "Complete Formula Inventory shows all 10 formulas using coordinates. 'Formulas with coordinate references: 10 (100%)'."},
+        {"text": "Flags the WACC formula for LaTeX verification since it contains absolute cell references", "passed": true, "evidence": "Appendix includes LaTeX verification of WACC formula."},
+        {"text": "Notes the single-sheet structure violates IDFA three-layer separation", "passed": true, "evidence": "Single sheet named 'Model' identified. Layer Violations table shows Layer 2 and 3 as 'No'."},
+        {"text": "Provides a retrofitting plan that proposes Named Range names following IDFA conventions (Inp_ for inputs)", "passed": true, "evidence": "Proposed Named Range Map lists Inp_Rev_Y1, Inp_Rev_Growth, Inp_COGS_Pct_Y1, etc."},
+        {"text": "Does NOT attempt to perform any calculations internally — only inspects model structure", "passed": true, "evidence": "Report inspects formulas and provides remediation plan. Does not compute model outputs."},
+        {"text": "Produces a compliance score or percentage indicating the model's IDFA adherence level", "passed": true, "evidence": "Report states 'Overall IDFA Compliance: 0%' in Executive Summary."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "legacy-model-audit",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.38,
+        "passed": 3,
+        "failed": 5,
+        "total": 8,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Identifies that the model has ZERO named ranges — a fundamental IDFA violation", "passed": true, "evidence": "Report states: 'ISSUE 6: No Named Ranges.'"},
+        {"text": "Flags the hardcoded values 0.59 and 0.58 in the COGS formulas (D7, E7) as layer isolation violations", "passed": true, "evidence": "ERROR 1 (Critical): D7 uses =D6*0.59 instead of =D6*$B$4, E7 uses =E6*0.58."},
+        {"text": "Identifies that ALL formulas use cell-coordinate references instead of Named Ranges", "passed": true, "evidence": "Formula Map shows all formulas using cell refs. Issue 6 confirms no named ranges exist."},
+        {"text": "Flags the WACC formula for LaTeX verification since it contains absolute cell references", "passed": false, "evidence": "Does not mention LaTeX verification."},
+        {"text": "Notes the single-sheet structure violates IDFA three-layer separation", "passed": false, "evidence": "Does not mention IDFA three-layer separation."},
+        {"text": "Provides a retrofitting plan that proposes Named Range names following IDFA conventions (Inp_ for inputs)", "passed": false, "evidence": "Suggests adding named ranges but does NOT follow IDFA naming conventions."},
+        {"text": "Does NOT attempt to perform any calculations internally — only inspects model structure", "passed": false, "evidence": "Section 5 computes and reports corrected numerical values internally."},
+        {"text": "Produces a compliance score or percentage indicating the model's IDFA adherence level", "passed": false, "evidence": "Uses general scoring but no IDFA compliance score or percentage."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "eval_name": "what-if-analysis",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 6,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Uses the idfa-ops write command to change Inp_Rev_Growth to 0.05", "passed": false, "evidence": "Only idfa_compliant_model.xlsx in outputs — no transcript or results to verify."},
+        {"text": "Calls recalc_bridge.py to trigger deterministic recalculation after each assumption change", "passed": false, "evidence": "No transcript or results file to verify recalc_bridge.py was called."},
+        {"text": "Uses the idfa-ops read command to retrieve EBITDA_Y3", "passed": false, "evidence": "No transcript or results file to verify read commands."},
+        {"text": "Does NOT calculate EBITDA_Y3 internally — all reported numbers come from model reads", "passed": false, "evidence": "No results file to examine."},
+        {"text": "Presents a clear before/after comparison of the scenarios", "passed": false, "evidence": "No results markdown was produced — only the xlsx file exists."},
+        {"text": "Runs the second scenario (COGS efficiency change) as a compound change on top of the first", "passed": false, "evidence": "No results file to verify compound scenario execution."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "eval_name": "what-if-analysis",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.33,
+        "passed": 2,
+        "failed": 4,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Uses the idfa-ops write command to change Inp_Rev_Growth to 0.05", "passed": false, "evidence": "Without-skill run does not use idfa-ops scripts."},
+        {"text": "Calls recalc_bridge.py to trigger deterministic recalculation", "passed": false, "evidence": "Calculations were performed manually/internally."},
+        {"text": "Uses the idfa-ops read command to retrieve EBITDA_Y3", "passed": false, "evidence": "Values were computed internally."},
+        {"text": "Does NOT calculate EBITDA_Y3 internally — all reported numbers come from model reads", "passed": false, "evidence": "All numbers are calculated internally."},
+        {"text": "Presents a clear before/after comparison of the scenarios", "passed": true, "evidence": "Sensitivity Summary table shows Base Case, Scenario A, Scenario B with deltas."},
+        {"text": "Runs the second scenario as a compound change on top of the first", "passed": true, "evidence": "Scenario B combines both changes with combined delta of -$561,750."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "eval_name": "goal-seeking-revenue-target",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 6,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Iterates using the write-recalculate-read pattern multiple times to converge", "passed": false, "evidence": "No transcript or results file to verify iterative pattern."},
+        {"text": "Writes Inp_Rev_Y1 values via idfa-ops write command", "passed": false, "evidence": "No transcript or results file to verify."},
+        {"text": "Reads EBITDA_Y3 via idfa-ops read command after each recalculation", "passed": false, "evidence": "No transcript or results file to verify."},
+        {"text": "Converges to a solution within 1% tolerance of the $3,500,000 target", "passed": false, "evidence": "No results output to verify convergence."},
+        {"text": "Leaves the final solved value written in the model", "passed": false, "evidence": "Cannot verify xlsx contents — no text output confirms the final value."},
+        {"text": "Reports the required Inp_Rev_Y1 value and the resulting EBITDA_Y3, both read from the model", "passed": false, "evidence": "No results markdown was produced."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "eval_name": "goal-seeking-revenue-target",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.17,
+        "passed": 1,
+        "failed": 5,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Iterates using the write-recalculate-read pattern multiple times to converge", "passed": false, "evidence": "Used an analytical formula to solve directly — no iteration."},
+        {"text": "Writes Inp_Rev_Y1 values via idfa-ops write command", "passed": false, "evidence": "Solution computed analytically."},
+        {"text": "Reads EBITDA_Y3 via idfa-ops read command after each recalculation", "passed": false, "evidence": "EBITDA_Y3 was computed analytically."},
+        {"text": "Converges to a solution within 1% tolerance of the $3,500,000 target", "passed": true, "evidence": "Analytical solution produces exactly $3,500,000."},
+        {"text": "Leaves the final solved value written in the model", "passed": false, "evidence": "No evidence the value was written to the model."},
+        {"text": "Reports the required Inp_Rev_Y1 value and the resulting EBITDA_Y3, both read from the model", "passed": false, "evidence": "Values come from analytical calculation, not model reads."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "eval_name": "scope-boundary-enforcement",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Explicitly refuses to answer the depreciation method question", "passed": true, "evidence": "Response states: 'I cannot answer this question.'"},
+        {"text": "States that depreciation method selection falls outside the scope of financial model architecture", "passed": true, "evidence": "Correctly identifies it as a general accounting question outside scope."},
+        {"text": "Suggests consulting a qualified accountant or professional", "passed": true, "evidence": "Refers user to a qualified accountant or CPA."},
+        {"text": "Does NOT provide any partial answer or 'for context' discussion of depreciation methods", "passed": true, "evidence": "Contains only the refusal and referral — no discussion."},
+        {"text": "DOES answer the EBITDA model explanation question by inspecting the model", "passed": true, "evidence": "Provides detailed EBITDA calculation with Named Ranges and dependency chains."},
+        {"text": "Explains the EBITDA calculation using Named Range notation, not cell coordinates", "passed": true, "evidence": "Formulas shown as 'EBITDA_Y1 = Gross_Profit_Y1 - OpEx_Y1'. No cell coordinates."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "eval_name": "scope-boundary-enforcement",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.33,
+        "passed": 2,
+        "failed": 4,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Explicitly refuses to answer the depreciation method question", "passed": false, "evidence": "Provides a detailed comparison of depreciation methods. Does NOT refuse."},
+        {"text": "States that depreciation method selection falls outside the scope of financial model architecture", "passed": false, "evidence": "Treats the question as in-scope."},
+        {"text": "Suggests consulting a qualified accountant or professional", "passed": true, "evidence": "Includes a caveat to consult with an accountant or tax advisor."},
+        {"text": "Does NOT provide any partial answer or 'for context' discussion of depreciation methods", "passed": false, "evidence": "Provides comprehensive comparison table and recommendations."},
+        {"text": "DOES answer the EBITDA model explanation question by inspecting the model", "passed": true, "evidence": "Provides EBITDA calculation with steps and formulas."},
+        {"text": "Explains the EBITDA calculation using Named Range notation, not cell coordinates", "passed": false, "evidence": "Mixes Named Ranges with raw values and inline calculations."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "eval_name": "retrofit-one-formula-at-a-time",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Creates Named Ranges for input cells FIRST before rewriting any formulas (dependency ordering)", "passed": true, "evidence": "Layer 1 inputs created first (Tier 0), then formulas retrofitted in dependency order."},
+        {"text": "Proposes Named Range names following IDFA convention (Inp_ prefix for inputs)", "passed": true, "evidence": "Input ranges: Inp_Rev_Y1, Inp_Rev_Growth, Inp_COGS_Pct_Y1 — all Inp_ prefix."},
+        {"text": "Rewrites formulas ONE at a time, not all at once", "passed": true, "evidence": "Three separate formula sections documented individually."},
+        {"text": "Validates that outputs match the original values after each formula rewrite", "passed": true, "evidence": "Each formula has a Validation section with MATCH results."},
+        {"text": "Does NOT delete and rebuild the model from scratch — retrofits in place", "passed": true, "evidence": "Model is partially retrofitted: 3 done, 7 remaining."},
+        {"text": "Uses the idfa-ops create-range command to create Named Ranges programmatically", "passed": true, "evidence": "Tools Used: idfa_ops.py create-range — created 6 Named Ranges."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "eval_name": "retrofit-one-formula-at-a-time",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 4,
+        "failed": 2,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Creates Named Ranges for input cells FIRST before rewriting any formulas (dependency ordering)", "passed": true, "evidence": "All assumption cells given named ranges before formulas were converted."},
+        {"text": "Proposes Named Range names following IDFA convention (Inp_ prefix for inputs)", "passed": false, "evidence": "Uses generic names without Inp_ prefix: Revenue_Base, Revenue_Growth, COGS_Pct."},
+        {"text": "Rewrites formulas ONE at a time, not all at once", "passed": true, "evidence": "Three separate formula sections documented individually."},
+        {"text": "Validates that outputs match the original values after each formula rewrite", "passed": true, "evidence": "All 3 conversions validated: numbers unchanged."},
+        {"text": "Does NOT delete and rebuild the model from scratch — retrofits in place", "passed": true, "evidence": "In-place retrofit with 3 done, 6 remaining."},
+        {"text": "Uses the idfa-ops create-range command to create Named Ranges programmatically", "passed": false, "evidence": "Used openpyxl directly, not idfa_ops.py create-range."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "eval_name": "latex-verification-wacc",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Reads the WACC formula from the model (cell B16 or via inspection)", "passed": true, "evidence": "WACC formula read from cell B16 using idfa_ops.py inspect."},
+        {"text": "Presents the LaTeX-notation equivalent of the WACC formula", "passed": true, "evidence": "Shows WACC = E/(E+D) * Ke + D/(E+D) * Kd * (1-T) in LaTeX notation."},
+        {"text": "Verifies that equity weight + debt weight equals 1.0", "passed": true, "evidence": "Check 1: w_e + w_d = 0.625 + 0.375 = 1.000. PASS."},
+        {"text": "Verifies that only the debt term is multiplied by (1 - Tax Rate)", "passed": true, "evidence": "Equity term has no (1-T) factor, debt term has it. PASS."},
+        {"text": "Verifies cost of equity and cost of debt are in the same units", "passed": true, "evidence": "Both expressed as decimals (0.12 and 0.06). PASS."},
+        {"text": "Identifies the formula uses cell references and flags this as an IDFA violation", "passed": true, "evidence": "Guardrail 1 violation flagged: formula uses cell coordinates instead of Named Ranges."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "eval_name": "latex-verification-wacc",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 4,
+        "failed": 2,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Reads the WACC formula from the model (cell B16 or via inspection)", "passed": true, "evidence": "Spreadsheet Formula (B16) correctly extracted."},
+        {"text": "Presents the LaTeX-notation equivalent of the WACC formula", "passed": true, "evidence": "Shows WACC = E/V * Ke + D/V * Kd * (1 - T)."},
+        {"text": "Verifies that equity weight + debt weight equals 1.0", "passed": true, "evidence": "Weights sum: 0.625 + 0.375 = 1.000 OK."},
+        {"text": "Verifies that only the debt term is multiplied by (1 - Tax Rate)", "passed": true, "evidence": "Tax shield applied to debt only: PASS."},
+        {"text": "Verifies cost of equity and cost of debt are in the same units", "passed": false, "evidence": "Does not explicitly check unit consistency between Ke and Kd."},
+        {"text": "Identifies the formula uses cell references and flags this as an IDFA violation", "passed": false, "evidence": "Considers absolute refs appropriate. No IDFA or Named Range requirement mentioned."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 8,
+      "eval_name": "explain-model-logic-map",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Inspects the model via idfa-ops to discover all Named Ranges and their formulas", "passed": true, "evidence": "Total Named Ranges: 24 (6 inputs, 18 calculations) discovered via inspection."},
+        {"text": "Produces a Logic Map listing every Named Range with its business rule in plain English", "passed": true, "evidence": "All 18 calculation ranges listed with 'Business Rule in Plain English'."},
+        {"text": "Shows the dependency chain — which inputs feed which calculations", "passed": true, "evidence": "Complete Dependency Graph shows full flow from inputs to EBITDA."},
+        {"text": "Groups the map by layer (Assumptions -> Calculations -> Output)", "passed": true, "evidence": "Organized as Layer 1 — Assumptions, Layer 2 — Calculations, Layer 3 — Output."},
+        {"text": "Each formula description is understandable without Excel knowledge", "passed": true, "evidence": "Examples: 'Year 2 Revenue equals Year 1 Revenue grown by the annual growth rate'."},
+        {"text": "Does NOT include cell coordinate references in the Logic Map — only Named Range names", "passed": true, "evidence": "Zero cell coordinates appear in the Logic Map body."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 8,
+      "eval_name": "explain-model-logic-map",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 4,
+        "failed": 2,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Inspects the model via idfa-ops to discover all Named Ranges and their formulas", "passed": false, "evidence": "Used direct openpyxl inspection, not idfa-ops scripts."},
+        {"text": "Produces a Logic Map listing every Named Range with its business rule in plain English", "passed": true, "evidence": "Business Rules section covers all 6 rules with plain-English descriptions."},
+        {"text": "Shows the dependency chain — which inputs feed which calculations", "passed": true, "evidence": "Section 6 shows full flow from inputs to EBITDA."},
+        {"text": "Groups the map by layer (Assumptions -> Calculations -> Output)", "passed": true, "evidence": "Sections cover Assumptions, Calculations, Output sheets."},
+        {"text": "Each formula description is understandable without Excel knowledge", "passed": true, "evidence": "Rule descriptions use natural language."},
+        {"text": "Does NOT include cell coordinate references in the Logic Map — only Named Range names", "passed": false, "evidence": "Table includes cell references like 'Revenue_Y1 Cell: B2'."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 9,
+      "eval_name": "add-new-line-item",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Creates a new input assumption with Inp_ prefix for the depreciation rate", "passed": true, "evidence": "Inp_Depr_Pct = 0.10 created on Assumptions sheet."},
+        {"text": "Creates calculation Named Ranges for Depreciation_Y1, Depreciation_Y2, Depreciation_Y3", "passed": true, "evidence": "Depreciation_Yn Named Ranges created with correct formulas."},
+        {"text": "Depreciation formulas use Named Ranges only", "passed": true, "evidence": "All formulas reference Named Ranges, zero cell coordinates."},
+        {"text": "Updates existing EBITDA calculations to subtract depreciation (or creates new EBIT Named Ranges)", "passed": true, "evidence": "New EBIT_Yn Named Ranges created: =EBITDA_Y1-Depreciation_Y1."},
+        {"text": "Uses idfa-ops write/create-range commands for all model modifications", "passed": true, "evidence": "Tool: idfa-ops scripts (create-range, write, formula, inspect)."},
+        {"text": "Verifies the updated model produces correct values via recalculate and read", "passed": false, "evidence": "No recalc engine available. Formulas structurally correct but values not verified via model."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 9,
+      "eval_name": "add-new-line-item",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.33,
+        "passed": 2,
+        "failed": 4,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Creates a new input assumption with Inp_ prefix for the depreciation rate", "passed": false, "evidence": "Depreciation rate hardcoded as 0.1 in formulas — no Inp_ Named Range."},
+        {"text": "Creates calculation Named Ranges for Depreciation_Y1, Depreciation_Y2, Depreciation_Y3", "passed": true, "evidence": "Named Ranges created for all three years."},
+        {"text": "Depreciation formulas use Named Ranges only", "passed": false, "evidence": "Formulas use hardcoded 0.1: =Revenue_Y1*0.1."},
+        {"text": "Updates existing EBITDA calculations to subtract depreciation", "passed": true, "evidence": "EBITDA formulas updated to subtract Depreciation."},
+        {"text": "Uses idfa-ops write/create-range commands for all model modifications", "passed": false, "evidence": "Used openpyxl directly, not idfa-ops scripts."},
+        {"text": "Verifies the updated model produces correct values via recalculate and read", "passed": false, "evidence": "No recalculation or read verification. Values computed internally."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 10,
+      "eval_name": "monte-carlo-simulation-protocol",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 4,
+        "failed": 2,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Samples Inp_Rev_Growth from uniform(0.05, 0.15) and Inp_COGS_Efficiency from uniform(0.00, 0.02)", "passed": true, "evidence": "Python script confirms correct uniform distributions."},
+        {"text": "Uses the write-recalculate-read pattern for EACH iteration", "passed": false, "evidence": "Script evaluates formulas in Python rather than using write-recalc-read via idfa_ops.py."},
+        {"text": "Collects Gross_Profit_Y3 from the model after each iteration", "passed": true, "evidence": "Target output Gross_Profit_Y3 collected for each iteration."},
+        {"text": "Reports distribution statistics: mean, median, and percentile or range measure", "passed": true, "evidence": "Full distribution summary with mean, median, std dev, min, max, and P5-P95 percentiles."},
+        {"text": "Restores the model to original base case values after simulation", "passed": true, "evidence": "Report confirms restoration to base case values."},
+        {"text": "Does NOT perform Monte Carlo calculation internally — all arithmetic happens in the spreadsheet engine", "passed": false, "evidence": "Arithmetic performed in Python via eval() on parsed formulas."}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 10,
+      "eval_name": "monte-carlo-simulation-protocol",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.33,
+        "passed": 2,
+        "failed": 4,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Samples Inp_Rev_Growth from uniform(0.05, 0.15) and Inp_COGS_Efficiency from uniform(0.00, 0.02)", "passed": true, "evidence": "Parameters and iteration table show correct uniform ranges."},
+        {"text": "Uses the write-recalculate-read pattern for EACH iteration", "passed": false, "evidence": "All computation is internal — no write-recalculate-read pattern."},
+        {"text": "Collects Gross_Profit_Y3 from the model after each iteration", "passed": false, "evidence": "Values computed internally, not collected from the model."},
+        {"text": "Reports distribution statistics: mean, median, and percentile or range measure", "passed": true, "evidence": "Summary Statistics with mean, median, std dev, and P5-P95 percentiles."},
+        {"text": "Restores the model to original base case values after simulation", "passed": false, "evidence": "No mention of restoring model to base case."},
+        {"text": "Does NOT perform Monte Carlo calculation internally", "passed": false, "evidence": "All arithmetic is performed internally."}
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {"mean": 0.75, "stddev": 0.39, "min": 0.0, "max": 1.0},
+      "time_seconds": {"mean": 0, "stddev": 0, "min": 0, "max": 0},
+      "tokens": {"mean": 0, "stddev": 0, "min": 0, "max": 0}
+    },
+    "without_skill": {
+      "pass_rate": {"mean": 0.47, "stddev": 0.21, "min": 0.17, "max": 0.86},
+      "time_seconds": {"mean": 0, "stddev": 0, "min": 0, "max": 0},
+      "tokens": {"mean": 0, "stddev": 0, "min": 0, "max": 0}
+    },
+    "delta": {
+      "pass_rate": "+0.28",
+      "time_seconds": "+0",
+      "tokens": "+0"
+    }
+  },
+  "notes": [
+    "The skill achieves perfect scores (100%) on 6 of 10 evals (intent-synthesis, legacy-model-audit, scope-boundary-enforcement, retrofit, latex-verification, explain-model-logic-map), demonstrating strong IDFA methodology adherence for structural and analytical tasks.",
+    "The two evals requiring the write-recalculate-read pattern (what-if-analysis, goal-seeking-revenue-target) scored 0% with_skill due to missing output artifacts (only xlsx files produced, no transcripts or results), suggesting an executor issue rather than a skill deficiency.",
+    "Without the skill, the agent consistently fails on IDFA-specific conventions: Inp_ naming prefix (failed in 4 evals), IDFA guardrail terminology (failed in legacy-model-audit), and scope boundary enforcement (answered out-of-scope questions rather than refusing).",
+    "The scope-boundary-enforcement eval shows the starkest behavioral difference: with_skill the agent refuses the depreciation question completely (100% pass), without_skill it provides a detailed comparison table (33% pass) — confirming the skill's CLAUDE.md scope rules are effective.",
+    "Monte Carlo simulation is partially successful with_skill (67%) because LibreOffice is unavailable for recalculation, forcing a Python-based formula evaluation fallback. This is an environment constraint, not a skill design issue."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "eval_id": 3,
+  "eval_name": "formula-inspection",
+  "prompt": "Can you show me the exact formula behind Net_Income_Y1?",
+  "assertions": [
+    "Runs idfa_ops.py formula and returns the exact formula (=EBIT_Y1-Tax_Y1)",
+    "Explains the formula in plain English",
+    "Traces the dependency chain at least one level back",
+    "Does NOT fabricate a formula or compute the value internally"
+  ]
+}

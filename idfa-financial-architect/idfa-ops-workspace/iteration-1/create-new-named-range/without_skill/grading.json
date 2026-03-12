@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Runs 'uv run scripts/idfa_ops.py create-range <file> Inp_Discount_Rate Assumptions B8'",
+      "passed": false,
+      "evidence": "Method: 'Used openpyxl directly (no skill file referenced)'. Created range via openpyxl, not idfa_ops.py."
+    },
+    {
+      "text": "Runs 'uv run scripts/idfa_ops.py write <file> Inp_Discount_Rate 0.08' to set the value",
+      "passed": false,
+      "evidence": "Value written directly via openpyxl: 'Wrote 0.08 to cell B8'. No idfa_ops.py write command used."
+    },
+    {
+      "text": "Verifies the range was created correctly (either via read or inspect)",
+      "passed": true,
+      "evidence": "Verification table shows: 'Named range Inp_Discount_Rate exists: Pass', 'Named range points to Assumptions!$B$8: Pass', 'B8 contains 0.08: Pass'. File was saved and re-opened to verify."
+    },
+    {
+      "text": "Uses the correct IDFA naming convention (Inp_ prefix for an input assumption)",
+      "passed": true,
+      "evidence": "Named Range created as 'Inp_Discount_Rate' with Inp_ prefix."
+    },
+    {
+      "text": "Does not manually edit the xlsx with openpyxl \u2014 uses the idfa_ops.py script",
+      "passed": false,
+      "evidence": "Explicitly uses openpyxl directly: 'Used openpyxl directly (no skill file referenced).'"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "pass_rate": 0.4
+  }
+}

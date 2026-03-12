@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Subject line references a specific pain from the call — picking accuracy, fulfillment penalties, or peak season ramp time at Norwood Distribution (drives reply rate) — a subject line that mirrors the prospect's own language gets opened because it signals 'I was listening', not 'here's my template'",
+      "passed": false,
+      "evidence": "Subject line is 'Great Connecting Today — Unified Inventory Visibility for Norwood Distribution'. This does not reference picking accuracy, fulfillment penalties, or peak season ramp time. It references 'Unified Inventory Visibility' which is not a pain point from the actual call notes. The output appears to have fabricated an entirely different discovery call scenario (four WMS platforms, 14 locations, $2M Target contract) rather than using the actual call notes about 14,000 SKUs, 94.2% picking accuracy, and $1.2M in Q4 fulfillment penalties."
+    },
+    {
+      "text": "'What I heard' section contains at least 2 of Lisa's exact phrases: 'bleeding margin on mis-picks', 'held together with duct tape and prayers', 'the thing keeping me up at night', or '$1.2M in Q4 fulfillment penalties' (drives deal velocity) — mirroring the prospect's own words in the recap builds trust that you understood the problem, which is the #1 factor in whether they show up to the next call",
+      "passed": false,
+      "evidence": "There is no 'What I heard' section with that exact label. The output uses 'The core problem:' as its recap section. None of Lisa's exact phrases appear anywhere in the output. The content references fabricated details: 'Four disparate WMS systems inherited through acquisitions', '$2M contract with Target', '14 warehouses'. The four required phrases are completely absent."
+    },
+    {
+      "text": "Next step section confirms two specific commitments with dates: (1) ProLog 3PL case study and ROI model by Thursday, and (2) the 30-minute CFO call on Tuesday at 2pm ET (drives deal velocity) — a follow-up without explicit dated next steps lets the deal stall; locking in deliverables + a calendar hold with the economic buyer keeps the deal moving toward close",
+      "passed": false,
+      "evidence": "The 'What I owe you' section mentions a 3PL case study 'by end of week' (not specifically Thursday), a 'Technical deep-dive with Marcus Webb' week of March 24 (not a CFO call on Tuesday at 2pm ET), and an 'ROI framework for your CFO business case'. The ProLog name is not mentioned, the Thursday deadline is replaced with 'end of week', and the specific Tuesday at 2pm ET 30-minute CFO call commitment is entirely missing — replaced by a fabricated technical deep-dive with a CTO named Marcus Webb."
+    },
+    {
+      "text": "Email structures content into distinct 'What I heard' and 'What we discussed' sections with the prospect's pain leading before any product mention (drives reply rate) — this separation proves the rep listened before pitching, and gives the prospect something to forward to the CFO that frames the problem in their own language",
+      "passed": false,
+      "evidence": "The email does not use 'What I heard' and 'What we discussed' as section headers. Instead it uses 'The core problem:', 'Where WarehouseOS fits:', and 'What I owe you:'. While the general flow does lead with pain before product, the specific structural expectation of distinct 'What I heard' and 'What we discussed' sections is not met."
+    },
+    {
+      "text": "Email avoids all banned follow-up phrases: 'just checking in', 'circling back', 'bumping this up', 'touching base', and does not open with a generic 'great to meet you' without specifics (drives reply rate) — these phrases signal a template and train buyers to ignore future emails from the rep",
+      "passed": true,
+      "evidence": "None of the banned phrases ('just checking in', 'circling back', 'bumping this up', 'touching base') appear in the email. The opening is 'Thank you for taking the time to walk me through what's happening at Norwood Distribution today' which is specific rather than generic. It does not use 'great to meet you'."
+    },
+    {
+      "text": "Timing recommendation specifies sending within 2 hours of the call (drives deal velocity) — post-discovery follow-ups sent within 2 hours have significantly higher open and reply rates than those sent next-day, because the conversation is still top-of-mind and the prospect hasn't context-switched",
+      "passed": false,
+      "evidence": "There is no timing recommendation anywhere in the output. The output is just the email body with no metadata, notes, or timing guidance."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 5,
+    "total": 6,
+    "pass_rate": 0.17
+  }
+}

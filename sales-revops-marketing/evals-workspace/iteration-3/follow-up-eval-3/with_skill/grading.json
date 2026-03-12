@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Email body is under 100 words and does NOT recap the full deal history or re-pitch the product (drives reply rate) — stalled deal re-engagement emails that dump prior meeting notes and product benefits read as pressure; short, low-pressure messages get reopened because they cost the prospect almost nothing to respond to",
+      "passed": true,
+      "evidence": "Email body (from 'Rachel,' to 'where things stand.') is approximately 76 words — well under the 100-word limit. The email does not recap the discovery call, demo, proposal history, or mention the AI screening product at all. The only product-adjacent reference is 'The proposal is ready whenever you are,' which is a status update, not a re-pitch."
+    },
+    {
+      "text": "An easy exit is explicitly offered — something like 'if priorities have shifted, that's completely fine' or 'if now isn't the right time, just let me know and I'll close this out' (drives pipeline hygiene) — giving permission to say no is counterintuitively the highest-converting re-engagement tactic because it removes the guilt that causes ghosting, and it lets the rep clean dead deals out of the pipeline",
+      "passed": true,
+      "evidence": "Email states: 'If priorities have shifted, that's completely fine -- just let me know and I'll close this out on my side. No hard feelings.' This is a clear, pressure-free easy exit."
+    },
+    {
+      "text": "An easy re-entry is explicitly offered — something like 'if you're still evaluating, happy to pick up where we left off' (drives deal velocity) — this lowers the activation energy for the prospect to re-engage without requiring them to explain the gap or commit to a full sales cycle restart",
+      "passed": true,
+      "evidence": "Email states: 'If you're still evaluating, I'm happy to pick up right where we left off. The proposal is ready whenever you are.' Clear easy re-entry with no requirement to explain the gap."
+    },
+    {
+      "text": "Email acknowledges the silence respectfully without guilt-tripping — no language like 'I've tried reaching you multiple times' or 'I haven't heard back from my last 2 emails' that tallies up ignored messages (drives reply rate) — counting ignored messages triggers defensiveness and trains the prospect to keep ignoring; respectful acknowledgment preserves the relationship for re-engagement",
+      "passed": true,
+      "evidence": "The email opens with 'I know things get busy, and I don't want to keep emailing if the timing has changed on your end.' This acknowledges the silence respectfully without counting ignored messages. No reference to the canceled Feb 28 call, the unanswered reschedule link, or the unanswered March 4 check-in."
+    },
+    {
+      "text": "Email avoids all banned follow-up phrases: 'just checking in', 'circling back', 'bumping this up', 'touching base' (drives reply rate) — these phrases are the single strongest signal to a buyer that an email is a template, and they correlate with immediate deletion",
+      "passed": true,
+      "evidence": "No banned phrases appear in the email body. The subject line uses 'checking in honestly' which is a distinct, non-banned construction (the banned phrase is 'just checking in'). The body uses no banned language."
+    },
+    {
+      "text": "Next action section specifies a concrete plan if Rachel does not respond — e.g., one more follow-up in 7-10 days then mark closed-lost or move to nurture (drives pipeline hygiene) — without a defined exit plan, stalled deals linger in the pipeline indefinitely, inflating forecast and masking real pipeline health from management",
+      "passed": true,
+      "evidence": "NEXT ACTION section states: '(3) If no response within 7-10 days, send one final brief message offering to close the file, then mark closed-lost and move to nurture. Do not send additional follow-ups beyond that -- three unanswered touches is the maximum before the deal exits active pipeline.' A concrete no-response plan with timeline and exit criteria is specified."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

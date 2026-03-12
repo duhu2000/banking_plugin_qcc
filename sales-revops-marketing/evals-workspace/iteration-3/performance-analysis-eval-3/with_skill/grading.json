@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "To reframe the team's decision around pipeline impact rather than conversion vanity metrics, effective MQL yield per visitor is calculated for both variants (A: 8.98% x 34% = 3.05% = ~79 MQLs/month; B: 15.80% x 19% = 3.00% = ~78 MQLs/month) — exposing that the raw conversion lift produces zero net gain in qualified pipeline",
+      "passed": true,
+      "evidence": "Under 'THE NUMBER THAT ACTUALLY MATTERS: MQL YIELD PER VISITOR': 'Variant A: 8.98% conversion x 34% MQL rate = 3.05% effective MQL yield = ~79 MQLs/month at 2,600 visitors. Variant B: 15.80% conversion x 19% MQL rate = 3.00% effective MQL yield = ~78 MQLs/month at 2,600 visitors.' Concludes: 'Neither variant hits the 80 MQL/month target. The raw conversion lift in Variant B produces zero net gain in qualified pipeline. The team is debating which winner to ship from two losing options.'"
+    },
+    {
+      "text": "To tell the CMO whether this page can hit the 80 MQL/month target, both variants are assessed against the target and both are found insufficient — the analysis frames this as 'neither variant solves the business problem' rather than picking a winner from two losing options",
+      "passed": true,
+      "evidence": "Layer 1 MQL Target section: 'Variant A projection: 2,600 visitors x 8.98% x 34% = 79.4 MQLs/month -- AT RISK' and 'Variant B projection: 2,600 visitors x 15.80% x 19% = 78.2 MQLs/month -- AT RISK'. Decision Framework states: 'The team is asking the wrong question. \"Which variant should we ship?\" assumes one of the two options is the answer. Neither is.' Decision Recommendation: 'Do not ship either Variant A or Variant B. Neither hits the 80 MQL/month target.'"
+    },
+    {
+      "text": "To diagnose why the MQL rate dropped so the team can fix it, root cause analysis identifies that removing company size and use case fields eliminated the qualification signal — the form reduction increased volume but removed the data that separates qualified from unqualified leads",
+      "passed": true,
+      "evidence": "Layer 2 section '1. WHY DID VARIANT B'S MQL RATE DROP FROM 34% TO 19%' identifies all three removed fields. Company size: 'This field directly maps to ICP fit... Without this field, all company sizes convert equally, and the MQL scoring system loses a critical input.' Use case: 'This field revealed intent quality. A prospect who writes \"just researching\" or \"academic project\" is qualitatively different from one who writes \"evaluating vendors for Q2 implementation.\"' Phone: 'acted as a friction-based quality filter.' Core insight: 'Variant A's lower conversion rate was partly a feature, not a bug. The form friction was doing qualification work.'"
+    },
+    {
+      "text": "To generate a recommendation that actually hits the 80 MQL target, the analysis proposes a specific Variant C: Variant B's 4-field form with progressive profiling on the thank-you page or backend enrichment via Clearbit/ZoomInfo to recover qualification data without adding form friction — with projected MQL yield math",
+      "passed": true,
+      "evidence": "Recommendation '1. BUILD VARIANT C: VARIANT B'S DESIGN + PROGRESSIVE PROFILING' specifies: front-end 4-field form (same as Variant B), post-submission progressive profiling on thank-you page with company size dropdown and use case dropdown, plus backend enrichment via 'Clearbit Reveal, ZoomInfo, or equivalent'. Projected math: 'Expected: 14.5% conversion x 30% MQL = 4.35% yield = ~113 MQLs/month' and 'Even at conservative estimates (13% conversion x 26% MQL rate = 3.38% yield = ~88 MQLs/month), Variant C exceeds target with margin.'"
+    },
+    {
+      "text": "To benchmark both variants against industry standards, conversion rates are compared to the skill's landing page benchmark (average 10-20%) — Variant A (8.98%) classified as below average, Variant B (15.80%) classified as average-to-good — contextualizing the UX improvement as real even though MQL yield is flat",
+      "passed": true,
+      "evidence": "Layer 1 Conversion Rate vs. Benchmark: 'Variant A (8.98%): Below average tier. Benchmark: 10-20% average. Variant A sits below the average floor and is approaching the <5% poor tier.' And 'Variant B (15.80%): Average-to-good tier. Benchmark: 10-20% average, 25% good. Variant B sits solidly within the average range, approaching good tier.' Classification: 'Variant B is a real improvement on conversion rate, moving the page from below-average to mid-average. This is not a vanity metric improvement -- it reflects genuine UX gains.'"
+    },
+    {
+      "text": "To protect the UX gains worth preserving regardless of which variant ships, the analysis identifies Variant B's lower bounce rate (44% vs 61%) and higher time-on-page (2:18 vs 1:42) as engagement improvements that indicate better page design — these should carry forward into any Variant C",
+      "passed": true,
+      "evidence": "Layer 2 section '2. WHY IS VARIANT B'S BOUNCE RATE LOWER AND TIME-ON-PAGE HIGHER?' identifies genuine UX improvements (better visual hierarchy, compelling above-the-fold content, clearer value proposition). Concludes: 'These are real engagement improvements. The Variant B design is objectively better at capturing and holding visitor attention. This is worth preserving regardless of which form configuration we choose.' The 'What is working' section reinforces: '1. Variant B's Page Design and UX -- PRESERVE IN ANY FUTURE VARIANT' with 'Do not revert to Variant A's page design. The UX improvements are real and measurable.'"
+    },
+    {
+      "text": "To ensure the analysis follows the structured performance report format, the output must open with the mandatory output header (TASK, ICP MATCH, CONFIGURATION, VERIFY DATA) and benchmark both conversion rates against the skill's landing page reference table (average: 10-20%) with explicit tier classification — a general-purpose analysis might use benchmarks but would not apply the specific benchmark table from the skill",
+      "passed": true,
+      "evidence": "Output opens with mandatory header: 'TASK: Performance Analysis -- Landing Page A/B Test Results (2-Week Test) / ICP MATCH: UNVERIFIED / CONFIGURATION: Not configured / VERIFY DATA: All prospect data should be verified before outreach'. The headline numbers table includes 'Benchmark' column showing '10-20% average' for conversion rate. Layer 1 applies explicit tier classification: Variant A '8.98%: Below average tier. Benchmark: 10-20% average' and Variant B '15.80%: Average-to-good tier. Benchmark: 10-20% average, 25% good'. The 4-layer framework (ARE WE ON TRACK, WHY, WHAT TO DO, WHAT IS WORKING) is present with labeled sections."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

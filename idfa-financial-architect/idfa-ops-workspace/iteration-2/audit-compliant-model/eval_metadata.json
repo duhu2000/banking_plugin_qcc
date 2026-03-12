@@ -1,0 +1,13 @@
+{
+  "eval_id": 5,
+  "eval_name": "audit-compliant-model",
+  "prompt": "Run a full IDFA compliance audit on this model.",
+  "assertions": [
+    "Runs idfa_audit.py and reports all four guardrails",
+    "Reports Guardrail 1 PASS (zero coordinate references)",
+    "Reports Guardrail 3 status on Intent Notes",
+    "Reports Guardrail 4 PASS (no hardcoded constants)",
+    "Presents the overall compliance score",
+    "Explains what each guardrail protects against in business terms"
+  ]
+}

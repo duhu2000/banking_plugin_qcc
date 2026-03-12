@@ -1,0 +1,13 @@
+{
+  "eval_id": 4,
+  "eval_name": "goal-seeking-revenue-target",
+  "prompt": "Using the compliant model, I need Year 3 EBITDA to be at least $3,500,000. What does the Year 1 revenue need to be to hit that target? Find the exact input value.",
+  "assertions": [
+    "Iterates using the write → recalculate → read pattern multiple times to converge on the answer",
+    "Writes Inp_Rev_Y1 values via idfa-ops write command (not manual cell edits)",
+    "Reads EBITDA_Y3 via idfa-ops read command after each recalculation",
+    "Converges to a solution within 1% tolerance of the $3,500,000 target",
+    "Leaves the final solved value written in the model (does NOT revert to the original 10M)",
+    "Reports the required Inp_Rev_Y1 value and the resulting EBITDA_Y3, both read from the model"
+  ]
+}

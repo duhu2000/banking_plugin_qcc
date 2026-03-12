@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "crm-enrichment-eval-1",
+  "prompt": "hey can you enrich our record for Brightpath Consulting? they're a Tier 1 account but the data is embarassingly stale -- last touched maybe 14 months ago. Main contact is David Hargreaves, he was Head...",
+  "assertions": [
+    "Output includes the enrichment report header format with Date, Scope description mentioning Brightpath Consulting, and Total records processed count",
+    "Contact enrichment covers all six mandatory fields (full name, current title, current company, work email, direct phone, LinkedIn URL) and flags David Hargreaves for potential role change since no LinkedIn updates in >12 months rather than assuming he is still Head of Ops at Brightpath",
+    "The manually-entered direct phone number is NOT overwritten -- the output explicitly flags it as a human-entered field and defers to Jess Moreno as record owner before any change",
+    "Account-level enrichment addresses Brightpath Consulting mandatory fields (legal name, revenue estimate, headcount, headquarters, website) and intelligence fields including the Series B funding as a news event and any headcount change flagged if >20%",
+    "Output includes a DATA QUALITY SCORE as a percentage of enriched records now complete, plus a RECORDS WITH MISSING MANDATORY FIELDS section listing any fields still unfilled after enrichment",
+    "Because the contact is in an active nurture sequence, the output does NOT remove the contact from the sequence due to any email change -- instead it specifies pausing the sequence and alerting Jess Moreno to verify new contact details first"
+  ]
+}

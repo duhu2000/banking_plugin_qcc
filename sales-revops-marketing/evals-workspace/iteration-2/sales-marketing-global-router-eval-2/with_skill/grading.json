@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Output addresses ALL THREE requested tasks (CRM enrichment, lead re-scoring, follow-up email) in a single structured response -- missing any one of the three means the rep has to come back and ask again, breaking workflow continuity and risking a dropped ball on CRM hygiene or lead prioritisation",
+      "passed": true,
+      "evidence": "Output is structured into three clearly labeled sections: 'PART 1: CRM ENRICHMENT', 'PART 2: LEAD RE-SCORING', and 'PART 3: FOLLOW-UP EMAIL', all in a single response."
+    },
+    {
+      "text": "Lead score reflects the discovery call completion as an Engagement signal AND the confirmed CTO meeting plus Q2 budget allocation as Timing signals for deal progression -- scoring without incorporating these new signals means the lead stays at its pre-call priority level, which could delay SLA-driven actions like senior AE involvement or executive sponsorship",
+      "passed": true,
+      "evidence": "DIMENSION 2 (Engagement) lists 'Discovery call completed | March 11, 2026 with AE Carlos Reyes | Major positive | NEW -- first substantive engagement' and 'Next step confirmed | CTO technical eval next week, initiated by prospect | Major positive | NEW'. DIMENSION 3 (Timing) lists 'Budget confirmed | Q2 allocated for tooling decisions | Major positive | NEW' and 'CTO eval scheduled | Next week | Major positive | NEW'. Overall lead score upgraded from WARM to HOT."
+    },
+    {
+      "text": "Follow-up email references specific details from the discovery call -- Priya's pain around pipeline visibility, the 'flying blind on deal progression' language, Monday morning manual reporting, and the CTO technical eval next week -- a generic follow-up that doesn't mirror what the prospect actually said signals the rep wasn't listening, and the deal cools",
+      "passed": true,
+      "evidence": "Email body includes: 'Your team is spending half of every Monday morning manually pulling pipeline reports from three separate systems', 'You described the current situation as \"flying blind on deal progression\"', 'You have Q2 budget allocated to solve this', and 'You mentioned you would loop in your CTO, Arjun Mehta, for a technical evaluation next week'."
+    },
+    {
+      "text": "CRM enrichment section structures the new call intelligence into discrete fields (pain point: pipeline visibility, budget: Q2 allocated, next step: CTO technical eval, key quote, contact added: Arjun Mehta CTO) rather than dumping raw notes -- unstructured CRM data is lost data for the next rep, the manager, or the renewal team",
+      "passed": true,
+      "evidence": "Discovery Call Intelligence Fields table contains discrete fields: 'Primary pain point | Pipeline visibility', 'Key quote | Flying blind on deal progression', 'Budget status | Q2 budget allocated', 'Next step | CTO technical eval next week -- Priya to loop in Arjun Mehta'. New Contact Record section adds Arjun Mehta as CTO with structured fields."
+    },
+    {
+      "text": "Output does NOT fabricate details about NovaTech Solutions that were not provided in the prompt -- no invented revenue figures, no made-up product details, no assumed tech stack -- fabricated data entering CRM destroys trust the moment the prospect or a colleague notices it",
+      "passed": true,
+      "evidence": "Revenue field explicitly states 'Not provided -- do not fabricate'. Tech stack field states 'Not discussed -- do not fabricate'. Note at bottom: 'No revenue figures, specific product details, or tech stack information were provided during the discovery call. These fields are left blank rather than fabricated.'"
+    },
+    {
+      "text": "Output includes the mandatory output header with TASK description and ICP MATCH assessment -- this header is what drives whether the deal gets senior AE attention or sits in the queue, and its absence means RevOps has no structured signal to route on",
+      "passed": true,
+      "evidence": "Output begins with 'TASK: Multi-Task: CRM Enrichment + Lead Re-Scoring + Follow-Up Email -- NovaTech Solutions (Priya Sharma)' and 'ICP MATCH: STRONG (Head of Ops at Series C SaaS, 600 employees, confirmed pain around pipeline visibility, budget allocated Q2, CTO eval next week)' plus CONFIGURATION and VERIFY DATA fields."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

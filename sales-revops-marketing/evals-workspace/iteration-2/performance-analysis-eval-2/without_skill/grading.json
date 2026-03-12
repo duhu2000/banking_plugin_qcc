@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "To prevent a budget cut that would destroy $378K in pipeline from $11K in spend (34:1 ratio), the analysis explicitly refuses to recommend cutting LinkedIn without first testing creative and audience changes — directly applying the skill's NEVER rule about pausing channels before testing creative",
+      "passed": true,
+      "evidence": "Executive Summary states 'Do not cut LinkedIn' and 'Cutting LinkedIn before testing creative and audience changes would destroy a pipeline source that is converting at above-average rates downstream.' The recommendation section outlines a 2-week test plan before any budget decision. However, there is no explicit reference to the skill's NEVER rule (expected since this is without_skill), though the behavioral principle is present."
+    },
+    {
+      "text": "To diagnose the real spend optimization opportunity, week-over-week CTR decline (Sponsored: 0.55% to 0.25%; Thought Leader: 1.2% to 0.64%) is identified as creative fatigue or audience saturation — a fixable execution problem, not a channel-level failure that warrants budget reallocation",
+      "passed": true,
+      "evidence": "Section 'The Decline Is Real -- But It's Creative Fatigue, Not Channel Failure' includes a table showing CTR decline (Sponsored: -55%, Thought Leader: -47%) and explicitly states 'This pattern is textbook creative fatigue' and 'This is a fixable execution problem, not a channel-level failure that warrants budget reallocation.'"
+    },
+    {
+      "text": "To prove LinkedIn generates pipeline-ready leads worth protecting, downstream conversion quality (55% lead-to-MQL, 58% MQL-to-SAL, 50% SAL-to-opp) is benchmarked against the skill's reference table — MQL-to-SAL at 41% average benchmark makes 55% above-average, validating that the channel attracts ICP-fit prospects even as volume declines",
+      "passed": true,
+      "evidence": "Section '2. Downstream Lead Quality Is Excellent' benchmarks: 55% lead-to-MQL vs ~40-45% average ('above typical B2B benchmarks'), 58% MQL-to-SAL vs ~35-45% average, 50% SAL-to-Opp vs ~30-40% average. All classified as above benchmark. Benchmarks are reasonable B2B ranges though not identical to the skill's specific reference table."
+    },
+    {
+      "text": "To show leadership the difference between volume decline and ROI decline, pipeline-to-spend ratio (34:1) and average deal size ($42K) are positioned as the primary decision metrics — not impressions or CTR — reframing the cut-or-keep decision around revenue outcomes rather than vanity metrics",
+      "passed": true,
+      "evidence": "Section '3. Pipeline-to-Spend Ratio Is Outstanding' states '34:1 pipeline-to-spend ratio means every dollar spent on LinkedIn generates $34 in pipeline... cutting it means cutting $378K in pipeline to save $11K.' The 'What to Tell Leadership' section frames the argument around pipeline ROI. Average deal size of $42K is cited."
+    },
+    {
+      "text": "To give the marketing team an executable save-the-channel plan, specific creative refresh recommendations are provided — new ad variants to test, audience segment expansion beyond current targeting, or format mix shifts toward Thought Leader ads — with expected CTR recovery targets and a 2-week test timeline before any budget decision",
+      "passed": true,
+      "evidence": "Recommendation section includes a table with 4 specific actions: (1) Refresh Sponsored creative with 3 new variants and specific copy angles, expected CTR recovery to 0.40-0.50%. (2) Expand audience targeting to adjacent segments. (3) Shift budget toward Thought Leader. (4) Test format mix with carousel/document ads. Success criteria include CTR >0.40%, 15+ leads/week, CPL <$275. 2-week timeline stated."
+    },
+    {
+      "text": "To protect what is generating revenue, the 'What is working' section explicitly names Thought Leader ad format (higher CTR trajectory even while declining) and downstream lead quality as assets that a blanket budget cut would destroy alongside the underperforming Sponsored creative",
+      "passed": true,
+      "evidence": "Section 'What Is Working' names: (1) 'Thought Leader Ads Outperform Sponsored at Every Stage' — even at Week 4 decline 0.64% was higher than Sponsored Week 1 at 0.55%. (2) 'Downstream Lead Quality Is Excellent' — all conversion rates above benchmark. The summary table also lists these as 'Protect -- do not cut' and 'Protect -- these are ICP-fit leads.'"
+    }
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}
+}

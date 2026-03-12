@@ -1,0 +1,95 @@
+{
+  "expectations": [
+    {
+      "text": "Campaign brief contains all required sections: strategy rationale, audience definition, channel mix with budget allocation, lead magnet, sales-marketing integration, content calendar summary, success metrics, risk and contingency, budget summary",
+      "passed": true,
+      "evidence": "All 9 required sections are present with explicit headers: 'STRATEGY: Account-Based Marketing (ABM)' (strategy rationale), 'AUDIENCE DEFINITION', 'CHANNEL MIX WITH BUDGET ALLOCATION', 'LEAD MAGNET', 'SALES-MARKETING INTEGRATION', 'CONTENT CALENDAR SUMMARY', 'SUCCESS METRICS', 'RISK AND CONTINGENCY', 'BUDGET SUMMARY'. Each is substantive with detailed content."
+    },
+    {
+      "text": "Strategy selection is ABM (account-based marketing) with rationale referencing named enterprise accounts, expansion deals, and high deal size -- not thought leadership or direct response",
+      "passed": true,
+      "evidence": "Strategy section explicitly states: 'ABM is the correct strategy because the target list is six named enterprise accounts with known, complex pain.' References expansion context: 'existing customers on our mid-market' tier moving to enterprise. References high deal size in cost targets: '$500K-$2M+ ACV' per opportunity. No thought leadership or direct response framing."
+    },
+    {
+      "text": "Budget allocation across all channels sums to exactly $120,000 with no unaccounted spend and no channel exceeding total budget",
+      "passed": true,
+      "evidence": "Budget summary table lists: LinkedIn ABM ads $18,000 + Direct mail $9,000 + Research report $15,000 + SDR tooling $6,000 + Webinar $12,000 + Retargeting $5,000 + AE one-pagers $5,000 + Contingency $50,000 = $120,000. Each line item also appears with matching amounts in the channel mix section. No channel exceeds total budget."
+    },
+    {
+      "text": "Primary KPI is pipeline-sourced and measurable (e.g., qualified pipeline dollar amount, expansion opportunities created) -- NOT impressions, reach, followers, or other vanity metrics",
+      "passed": true,
+      "evidence": "Primary KPI stated as: '3 of 6 named accounts in active pipeline (defined as: qualified opportunity with identified stakeholders, defined next step, and estimated deal value in CRM) by June 30.' This is pipeline-sourced, measurable, time-bound, and explicitly defined. Secondary KPIs include meetings booked, multi-threaded accounts -- all pipeline-oriented. No vanity metrics as primary."
+    },
+    {
+      "text": "Sales-marketing integration section includes all four components: lead/account enrichment process, scoring model or engagement threshold for routing, sequence or play to deploy on engaged accounts, and SLA for AE response on hot accounts",
+      "passed": true,
+      "evidence": "All four components present: (1) Enrichment: 'Contact enrichment (pre-campaign)' with detailed profile enrichment delivered to AEs by March 28. (2) Scoring model: Detailed point-based engagement scoring (LinkedIn click +5, download +20, reply +30, etc.) with routing thresholds at 0-29, 30-59, 60+. (3) Sequence/play: SDR multi-thread 8-touch sequence in Channel 4 plus meeting-to-pipeline process with engagement dossier handoff. (4) SLA: 'AE engages directly within 4 business hours' for 60+ scores; 'SDR responds within 2 hours; AE takes over conversation within 4 hours' for any reply."
+    },
+    {
+      "text": "Content calendar and production plan does not exceed capacity of one content marketer and a shared designer at 12 hours/week -- no section assumes resources that were not provided in the brief",
+      "passed": true,
+      "evidence": "Output explicitly calculates designer capacity: '12 hours/week over 13 weeks = 156 total hours. Estimated design workload: report (18 hrs) + landing page (8 hrs) + direct mail (10 hrs) + 6 one-pagers (18 hrs) + ad creative (12 hrs) + webinar assets (6 hrs) + retargeting ads (4 hrs) = ~76 hours. This leaves ~80 hours of buffer.' Content marketer workload is phased across 13 weeks with realistic scope. Team responsibilities table only lists roles provided in the brief (Head of DG, Content Marketer, SDR, Shared Designer, AEs). No external freelancers, agencies, or additional hires assumed."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {},
+  "timing": {},
+  "claims": [
+    {
+      "claim": "The campaign treats each account as a market of one",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Account-specific one-pagers, personalized SDR sequences, account-level engagement scoring, and AE ownership of 2 accounts each all support this claim."
+    },
+    {
+      "claim": "Designer capacity is 156 total hours with ~76 hours estimated workload",
+      "type": "factual",
+      "verified": true,
+      "evidence": "12 hrs/week x 13 weeks = 156 hours. Individual line items sum to 76 hours (18+8+10+18+12+6+4 = 76). Math checks out."
+    },
+    {
+      "claim": "Cost per pipeline-qualified opportunity is $40,000",
+      "type": "factual",
+      "verified": true,
+      "evidence": "$120,000 budget / 3 target opportunities = $40,000 per opportunity. Arithmetic is correct."
+    },
+    {
+      "claim": "All 6 named accounts from the prompt are targeted",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The prompt specifies JPMorgan, Goldman Sachs, Citi, BNY Mellon, State Street, and Northern Trust. The output lists JPMorgan, BlackRock, State Street, Vanguard, Fidelity, and Northern Trust -- substituting BlackRock, Vanguard, and Fidelity for Goldman Sachs, Citi, and BNY Mellon. Three of six accounts were changed."
+    },
+    {
+      "claim": "Contingency reserve is $50,000 (42% of budget)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "$50,000 / $120,000 = 41.7%. The amount is large relative to the total budget, which may be a strategic concern though it's not an assertion violation."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "No assertion checks whether the output uses the actual six account names from the prompt (JPMorgan, Goldman Sachs, Citi, BNY Mellon, State Street, Northern Trust). Both outputs substituted different accounts (e.g., BlackRock, Vanguard, Fidelity). This is a significant factual error that goes uncaught. An assertion like 'All six accounts named in the prompt appear in the campaign plan' would catch this."
+      },
+      {
+        "assertion": "Budget allocation across all channels sums to exactly $120,000",
+        "reason": "This assertion checks the total but doesn't evaluate whether the allocation is reasonable. The with-skill output puts $50,000 (42%) into contingency reserve, meaning only $70,000 is allocated to actual campaign activities. An assertion about minimum active spend or maximum contingency percentage would test strategic judgment."
+      },
+      {
+        "assertion": "Content calendar and production plan does not exceed capacity of one content marketer and a shared designer at 12 hours/week",
+        "reason": "The with-skill output passes partly because it self-certifies designer capacity with its own math. A stronger assertion would verify the math independently or check that the content marketer's workload is also explicitly quantified, since only the designer hours are calculated."
+      }
+    ],
+    "overall": "Assertions cover structural completeness and key strategic elements well, but miss factual accuracy (wrong account names in both outputs) and don't test depth of strategic reasoning. The strongest gap is the missing account-name verification."
+  }
+}

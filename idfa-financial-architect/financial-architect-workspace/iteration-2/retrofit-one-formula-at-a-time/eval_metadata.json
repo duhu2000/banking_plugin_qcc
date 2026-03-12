@@ -1,0 +1,13 @@
+{
+  "eval_id": 6,
+  "eval_name": "retrofit-one-formula-at-a-time",
+  "prompt": "I want to convert this legacy model to IDFA compliance. Start the retrofit — but I want to validate at each step that the numbers don't change. Show me the first 3 formulas being converted.",
+  "assertions": [
+    "Creates Named Ranges for input cells FIRST before rewriting formulas",
+    "Validates that outputs match the original values after EACH formula rewrite",
+    "Proposes Named Range names following IDFA convention (Inp_ prefix for inputs)",
+    "Retrofits in place rather than rebuilding from scratch",
+    "Uses idfa-ops create-range command for programmatic Named Range creation",
+    "Identifies the hardcoded COGS values (0.59, 0.58) as a pre-existing error"
+  ]
+}

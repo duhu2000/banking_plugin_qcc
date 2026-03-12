@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Content performance: The opening line is a specific, scroll-stopping hook (a concrete stat, a named pain scenario like 'Your CFO found the data bug before your monitoring did', or a counterintuitive claim) -- not a generic opener like 'Data quality is important' or 'In today's world' that would get scrolled past in a LinkedIn feed",
+      "passed": true,
+      "evidence": "The title is 'Your Monitoring Dashboard Says Everything Is Fine. Your Data Disagrees.' -- a counterintuitive claim. The opening paragraph starts with a specific named pain scenario: 'Last quarter, a former colleague at a Series C fintech spent three weeks tracking down a revenue reconciliation bug. Dashboards were green. Alerts were silent. Every system health metric looked pristine.' This is a concrete scenario with specific details (Series C fintech, three weeks, revenue reconciliation bug) that functions as a scroll-stopping hook."
+    },
+    {
+      "text": "Brand consistency: The article maintains a direct, opinionated brand voice throughout -- takes a clear position on what the fix looks like with specific recommendations, never hedges with 'it depends' or 'on the other hand', and contains zero banned words (leverage, synergy, best-in-class, seamless, robust, end-to-end, game-changing, revolutionary, disruptive, holistic, cutting-edge, world-class, innovative, empower, unlock, transform, solution, ecosystem, paradigm, circle back, reach out)",
+      "passed": false,
+      "evidence": "The article contains multiple banned words. 'solutions' appears in the author bio ('building data observability solutions'). 'reach out' appears in the closing: 'reach our team at arclineanalytics.com.' Additionally, the tone hedges with language like 'I would wager,' 'I would welcome a conversation,' and uses softer, less direct phrasing throughout compared to the prompt's requirement of 'direct, opinionated, no hedging.' The article also uses 'on the other hand' style equivocation: 'There is a technical architecture argument here, but there is also an organizational one that matters more.'"
+    },
+    {
+      "text": "Content performance: The article is written specifically for VP of Engineering at mid-market B2B SaaS personas -- references their specific world (monitoring stacks, dbt models, pipeline breakages, team size dynamics of 200-1000 employee companies) rather than generic data quality advice that could target anyone",
+      "passed": true,
+      "evidence": "The article directly addresses the mid-market scale: 'At 200 to 1000 employees, that tight loop is gone.' It references specific VP Engineering concerns: monitoring stacks, pipeline health checks, schema drift, orchestrator DAGs, dbt models, CI/CD, APM tools. The 50-person vs. 200-1000 comparison directly addresses team size dynamics. References to 'data engineers,' 'SREs,' 'orchestrator DAGs,' and 'dbt models' place this squarely in the VP Engineering world."
+    },
+    {
+      "text": "Pipeline contribution: The CTA to follow Arcline Analytics for the 'Data Ops in Practice' series is woven naturally into the article's narrative (not bolted on as an afterthought) and gives a specific reason to follow -- this converts a one-time reader into a recurring audience member in the awareness funnel",
+      "passed": false,
+      "evidence": "The article does NOT include a CTA to follow Arcline Analytics' company page or reference the 'Data Ops in Practice' series. The prompt explicitly requested: 'Include a specific CTA to follow our company page for the weekly Data Ops in Practice series.' Instead, the closing says 'I would welcome a conversation about what we are seeing across the industry' and 'You can find me on LinkedIn or reach our team at arclineanalytics.com.' The 'Data Ops in Practice' weekly series is completely absent."
+    },
+    {
+      "text": "Content performance: The article ends with a specific, debatable question designed to drive comments (e.g., 'What's the longest your dashboards were stale before someone noticed?' not 'What do you think?') -- comment-driving closers are the primary organic reach multiplier on LinkedIn",
+      "passed": false,
+      "evidence": "The article does not end with a comment-driving question. It ends with an author bio: 'Danielle Kwon is Head of Engineering at Arcline Analytics, where she leads the team building data observability solutions...' The closing section before the bio says 'I would welcome a conversation' and provides a link -- this is a contact CTA, not a debatable question designed to drive comments. There is no engagement-driving question anywhere near the end."
+    },
+    {
+      "text": "Production efficiency: The article is between 600-1200 words, uses short paragraphs (2-4 sentences max) with bold key lines for scanning, and is ready to publish on LinkedIn without structural editing -- a marketing team member could copy-paste this directly, not treat it as a rough draft",
+      "passed": false,
+      "evidence": "The article is approximately 1,350 words, exceeding the 1200-word maximum. Additionally, while it uses short paragraphs, it relies heavily on bold section headers rather than bold key lines within paragraphs for scanning. Paragraphs are generally 2-4 sentences, which meets that criterion. However, the word count alone puts it outside the specified range. The bulleted lists under 'What traditional monitoring detects well' and 'What it routinely misses' are effective for scanning, but the article overall is too long for the stated requirement."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Content performance: The opening line is a specific, scroll-stopping hook (a concrete stat, a named pain scenario like 'Your CFO found the data bug before your monitoring did', or a counterintuitive claim) -- not a generic opener like 'Data quality is important' or 'In today's world' that would get scrolled past in a LinkedIn feed",
+      "passed": true,
+      "evidence": "The title is 'Your Monitoring Dashboard Says Everything Is Fine. Your Data Says Otherwise.' -- a counterintuitive claim. The opening paragraph starts with a specific scenario: 'Last quarter, one of our design partners -- a mid-market SaaS company with about 400 engineers -- shipped a pricing change to 12,000 accounts based on a dashboard that looked perfect. The dashboard was wrong.' This is a concrete, named pain scenario with specific details (400 engineers, 12,000 accounts, pricing change) that would stop scrolling."
+    },
+    {
+      "text": "Brand consistency: The article maintains a direct, opinionated brand voice throughout -- takes a clear position on what the fix looks like with specific recommendations, never hedges with 'it depends' or 'on the other hand', and contains zero banned words (leverage, synergy, best-in-class, seamless, robust, end-to-end, game-changing, revolutionary, disruptive, holistic, cutting-edge, world-class, innovative, empower, unlock, transform, solution, ecosystem, paradigm, circle back, reach out)",
+      "passed": false,
+      "evidence": "The article maintains a direct, opinionated tone throughout and takes clear positions (e.g., 'That's the core problem with traditional monitoring: it only catches what you already know to look for'). However, the article contains the banned word 'solution' in the line 'data observability solutions for mid-market SaaS companies' in the author bio at the end. While this is in a bio rather than the article body, the expectation says 'contains zero banned words' without limiting to body text."
+    },
+    {
+      "text": "Content performance: The article is written specifically for VP of Engineering at mid-market B2B SaaS personas -- references their specific world (monitoring stacks, dbt models, pipeline breakages, team size dynamics of 200-1000 employee companies) rather than generic data quality advice that could target anyone",
+      "passed": true,
+      "evidence": "The article references specific VP Engineering concerns: 'monitoring stacks' (CPU spikes, latency thresholds, error rates), pipeline-level health checks, column-level profiling, data lineage, API contracts, CI/CD integration, on-call rotations. It references mid-market dynamics: 'a mid-market SaaS company with about 400 engineers.' The section 'Where to Start' directly addresses 'If you're a VP or Head of Engineering.' Specific technical references include NULL rates, schema changes, statistical profiling, and threshold alerting. However, 'dbt models' is not explicitly mentioned."
+    },
+    {
+      "text": "Pipeline contribution: The CTA to follow Arcline Analytics for the 'Data Ops in Practice' series is woven naturally into the article's narrative (not bolted on as an afterthought) and gives a specific reason to follow -- this converts a one-time reader into a recurring audience member in the awareness funnel",
+      "passed": false,
+      "evidence": "The article does NOT include a CTA to follow Arcline Analytics' company page or reference the 'Data Ops in Practice' series at all. The prompt explicitly requested: 'Include a specific CTA to follow our company page for the weekly Data Ops in Practice series.' Instead, the article ends with a CTA for a 'Data Observability Maturity Assessment' at arcline.io/maturity. The 'Data Ops in Practice' series is completely absent from the output."
+    },
+    {
+      "text": "Content performance: The article ends with a specific, debatable question designed to drive comments (e.g., 'What's the longest your dashboards were stale before someone noticed?' not 'What do you think?') -- comment-driving closers are the primary organic reach multiplier on LinkedIn",
+      "passed": true,
+      "evidence": "The article closes with: 'What's the worst data quality failure your team caught late -- and how did it finally surface? I'd genuinely like to hear the war stories. Drop them in the comments.' This is a specific, debatable question that invites concrete stories rather than a generic 'What do you think?' It targets a relatable experience (late-caught data failures) that VP Engineering personas would have personal examples of."
+    },
+    {
+      "text": "Production efficiency: The article is between 600-1200 words, uses short paragraphs (2-4 sentences max) with bold key lines for scanning, and is ready to publish on LinkedIn without structural editing -- a marketing team member could copy-paste this directly, not treat it as a rough draft",
+      "passed": true,
+      "evidence": "The article is approximately 950 words (within the 600-1200 range). It uses short paragraphs (mostly 2-3 sentences), bold key lines for scanning throughout (e.g., 'That's the core problem with traditional monitoring...', 'Traditional monitoring answers... Data observability answers...', 'The cost of drift isn't the data fix. It's the decision debt.'). It includes proper heading structure (H1, H2), numbered lists for scanning, and a clean byline. The article is structurally ready for LinkedIn publication."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 2,
+    "total": 6,
+    "pass_rate": 0.67
+  }
+}

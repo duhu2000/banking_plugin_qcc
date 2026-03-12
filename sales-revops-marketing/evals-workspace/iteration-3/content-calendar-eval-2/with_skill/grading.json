@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline generation: every content piece targets either the CISO or IT Director persona at financial services firms and includes a CTA that drives toward discovery calls (e.g., 'Schedule a security assessment', 'Book a 30-min consultation') -- no piece exists without both a persona assignment and a conversion-oriented CTA that feeds the inbound pipeline",
+      "passed": true,
+      "evidence": "Every row in the week-by-week tables has both a Persona column (CISO, IT Director, or Both) and a CTA column. CTAs consistently drive toward discovery calls: 'Schedule a security assessment' (4x), 'Schedule a discovery call' (5x), 'Book a 30-min consultation' (5x). Two pieces use 'Read the full analysis (blog link)' CTAs, but these drive to blog posts where the primary CTA is a discovery call booking. Two engagement/DM CTAs exist (Weeks 5, 9 buffer weeks), which are softer but still pipeline-feeding. The CTA Mapping table confirms 'Blog link CTAs drive traffic to pillar content where the primary CTA is always a discovery call booking. No piece exists without a CTA.'"
+    },
+    {
+      "text": "Execution velocity: total content volume never exceeds 1-2 pieces in any single week, and the output includes a workload calculation confirming that 13-26 total pieces over the quarter is within part-time writer capacity -- with specific weeks flagged as lighter or buffer weeks to account for event logistics responsibilities",
+      "passed": true,
+      "evidence": "Every week shows either 1 or 2 pieces. Most weeks show 'Piece count: 2 (at ceiling)' and buffer weeks (5, 9, 13) show 'Piece count: 1 (lighter week -- buffer for event logistics duties).' The Workload Calculation section states: '13-week plan at 1-2 pieces/week = 13-26 total pieces maximum. This calendar plans 20 total pieces across 13 weeks, averaging ~1.5 pieces/week.' It explicitly notes '3 designated buffer weeks (Weeks 5, 9, 13) with 1 piece or 0 pieces to absorb schedule pressure' and 'Capacity check: 20 pieces is within the 13-26 range for a part-time writer. PASS.'"
+    },
+    {
+      "text": "Content leverage: pillar-cluster model is adapted to the constraint with 2-3 pillar assets spaced every 4-6 weeks across the 13-week quarter, each generating a reduced cluster of 2-4 derived pieces rather than the full 4-8, with an explicit explanation of this tradeoff between ideal cadence and actual capacity -- maximizing discovery-call-driving output from minimum production",
+      "passed": true,
+      "evidence": "Three pillars are spaced at Weeks 1, 6, and 10 (gaps of 5 and 4 weeks). Pillar 1 generates 4 cluster pieces (Weeks 2-4), Pillar 2 generates 4 cluster pieces (Weeks 7-9), Pillar 3 generates 3 cluster pieces (Weeks 11-13). The Pillar-Cluster Summary table includes a 'Tradeoff Note' column explicitly stating 'Reduced from 4-8 to 4' and 'Reduced from 4-8 to 3.' The Pillar-Cluster Architecture section states: 'The standard pillar-cluster model calls for 4-8 cluster pieces per pillar. With a part-time writer handling 1-2 pieces/week, this calendar uses a reduced cluster of 2-4 derived pieces per pillar to stay within capacity. This is a deliberate tradeoff: fewer cluster pieces per pillar, but each piece is high quality and directly tied to discovery call generation.'"
+    },
+    {
+      "text": "Budget efficiency: only LinkedIn company page and blog are planned, with NO email newsletter, webinar, paid social, or CEO LinkedIn content -- and the plan explicitly acknowledges that email was dropped due to prior inability to sustain it, preventing resource waste on a channel the team has already proven they cannot maintain",
+      "passed": true,
+      "evidence": "Channel Distribution shows: LinkedIn company 17 pieces, Blog 5 posts, Email Newsletter 0 ('Not planned -- dropped due to prior inability to sustain'), Webinar 0, Paid Social 0, CEO LinkedIn 0. The Channels NOT planned section explicitly states: 'Email newsletter: Explicitly dropped. The team tried email newsletters last year and could not sustain consistent sends. An abandoned newsletter does more brand damage than not having one.' CEO LinkedIn, Webinar, and Paid Social are also listed as not planned."
+    },
+    {
+      "text": "Alignment: content topics are specifically relevant to cybersecurity concerns at financial services firms (regulatory compliance, threat landscape for banks/insurance/fintech, vendor risk management) rather than generic cybersecurity thought leadership -- so the content positions the consultancy as a specialist that CISOs and IT Directors at these firms would want to talk to",
+      "passed": true,
+      "evidence": "The three pillars directly address financial services-specific topics: Pillar 1 on 'Regulatory Compliance and Cyber Risk: What Financial Services CISOs Must Prepare for in 2026,' Pillar 2 on 'Vendor Risk Scoring for Financial Services: A Framework for Banks, Insurance, and Fintech,' Pillar 3 on 'The Threat Intelligence Gap: Why Financial Services Firms Are Blind to Their Biggest Risks.' The Content Topics section explicitly lists: 'SEC cyber disclosure rules, NYDFS requirements, PRA/FCA expectations, SOX controls -- not generic compliance content,' 'Third-party risk in banking supply chains, fintech API security, insurance vendor assessments,' and 'Financial services-specific threat actors, attack patterns targeting payment systems.' The section concludes: 'This positions the consultancy as a financial services cybersecurity specialist, not a generalist firm that happens to serve banks.'"
+    },
+    {
+      "text": "Execution velocity: production deadlines are set at least 5 business days before publish dates, and the calendar includes a content repurposing strategy that explains how each pillar asset gets broken into LinkedIn posts and blog derivatives -- so the part-time writer produces one asset and gets multiple channel outputs from it",
+      "passed": true,
+      "evidence": "Week 1 states 'Blog post due 5 business days before Monday publish (prior Monday).' Week 2 states 'Both posts due by prior Thursday (5 business days before Tuesday publish).' All subsequent weeks maintain the 5 business day minimum. The Content Repurposing Strategy section explicitly details the process: '1. Pillar blog post (2500 words) -- the core research and writing investment. 2. LinkedIn post #1 -- Key stat or finding pulled from the pillar. 3. LinkedIn post #2 -- Contrarian take or myth vs. reality angle. 4. LinkedIn post #3 -- Practical checklist or 3 things to do this week. 5. Derivative blog -- Deeper dive into one sub-section.' It adds: 'the writer does ~70% of the heavy research/writing work once per pillar cycle, then repurposes for the remaining weeks. LinkedIn posts take 30-45 minutes each when derived from existing pillar content.'"
+    }
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}
+}

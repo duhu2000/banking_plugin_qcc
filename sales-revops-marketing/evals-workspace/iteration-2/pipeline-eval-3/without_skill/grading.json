@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "Every one of the 8 deals is explicitly categorized as at-risk or stalled using specific criteria from the risk framework — including days since last activity vs. the 14-day and 30-day thresholds, days in stage vs. the provided average stage durations (Discovery 18d, Qualification 14d, Proposal Sent 12d, Negotiation 10d) expressed as a multiple (e.g., 'Helios: 47 days in Discovery = 2.6x the 18-day average'), and whether close date has passed — this level of specificity is what separates actionable deal review from a generic CRM dashboard that any manager could pull themselves",
+      "passed": true,
+      "evidence": "All 8 deals are explicitly categorized (Helios: STALLED, Cruxfield: AT-RISK, Brightpath: STALLED, Solstice: AT-RISK, Orion: AT-RISK -- URGENT, Cobalt: AT-RISK (EARLY WARNING), Zenith: STALLED, Cascade: STALLED -- CHAMPION DEPARTURE). Each deal includes days since last activity vs. thresholds and days in stage as a multiple of the average (Helios '2.6x the 18-day Discovery average', Cruxfield '2.2x the 14-day average', Brightpath '3.5x the 12-day Proposal Sent average', Solstice '1.2x the 12-day Proposal Sent average', Orion '2.2x the 10-day Negotiation average', Cobalt '1.4x the average', Zenith '3.1x the 18-day Discovery average', Cascade '2.1x the 14-day Qualification average'). Close date status noted for Brightpath and Orion as passed."
+    },
+    {
+      "text": "Brightpath Education ($410K) is flagged with compounding risk factors: close date 2026-03-15 has already passed, 42 days in Proposal Sent is 3.5x the 12-day average stage duration, no next step logged, and contact went dark — the recommended action addresses whether to attempt a final break-up email to force a response or move to close-lost with a logged loss reason, because $410K sitting in 'Proposal Sent' for 42 days with a passed close date is not pipeline, it is fiction that inflates the forecast",
+      "passed": true,
+      "evidence": "Brightpath classified as 'STALLED -- RECOMMEND CLOSE-LOST OR FINAL BREAK-UP ATTEMPT' with all compounding factors listed: '42 days in Proposal Sent is 3.5x the 12-day average,' '42 days since last activity,' 'Close date has passed (March 15 is effectively today),' 'Contact has gone completely dark -- 3 voicemails with zero response,' 'No next step logged.' Explicitly states: '$410K sitting in Proposal Sent for 42 days with a passed close date is not pipeline -- it is fiction that inflates the forecast.' Action plan includes break-up email and close-lost with logged loss reason."
+    },
+    {
+      "text": "Orion Fleet Analytics ($310K) is flagged for both close date passed (2026-02-28, 11 days overdue) and 20 days without activity (exceeding the 14-day threshold), and the specific action addresses the unanswered 15% discount request — the rep has left money on the table by not responding with a counter-offer, and the action plan specifies that Sarah Chen should present a structured counter (e.g., 'offer 8% with annual commit, deadline Friday') rather than just 'respond to discount request'",
+      "passed": true,
+      "evidence": "Orion classified as 'AT-RISK -- URGENT' with: 'Close date passed 11 days ago -- this deal is overdue,' '20 days since last activity with a pending discount request,' '22 days in Negotiation is 2.2x the 10-day average.' Action plan: 'Today: Send a counter-offer email. Proposed structure: 8% off the annual contract value ($285,200 vs. $310,000) with an annual commitment. This pricing is valid through Friday, March 14. Include a 48-hour expiration on the counter to create urgency.' Also addresses the significance: 'leaving money on the table AND signaling disinterest to the prospect.'"
+    },
+    {
+      "text": "Cascade Media Corp ($145K) is flagged for champion departure as a distinct risk criterion separate from the 29-day activity gap — the recommended action addresses the immediate need to identify a new champion or power sponsor at the account before any other outreach, because continuing to work a deal where your internal advocate has left the company without finding a replacement is the fastest path to a silent loss",
+      "passed": true,
+      "evidence": "Cascade classified as 'STALLED -- CHAMPION DEPARTURE (CRITICAL RISK)' with the explicit statement: 'Champion left the company. This is a distinct and critical risk factor independent of the 29-day activity gap. The internal advocate who was sponsoring this deal is gone.' Action plan step 1: 'Priority 1: Identify a new champion or power sponsor before any other outreach.' Also suggests checking where former champion went as a new prospect opportunity."
+    },
+    {
+      "text": "Zenith Warehouse Automation ($88K, Discovery, 55 days stalled with no next step) or Brightpath ($410K with passed close date and dark contact) includes an explicit recommendation to close-lost or move to nurture, with the requirement to log a loss reason before removal — this enforces the NEVER rule that deals must not be removed without a loss reason, because loss-reason data is what prevents the team from repeating the same qualification mistakes next quarter",
+      "passed": true,
+      "evidence": "Both deals include close-lost/nurture recommendations with logged loss reasons. Zenith: 'move to closed-lost. Log loss reason: Prospect unresponsive after initial demo -- 55 days with no contact or next step. Move contact to quarterly nurture.' Brightpath: 'move to closed-lost. Log loss reason: Prospect went dark after proposal -- VP Ed unresponsive after 3 voicemails and 42 days of silence.'"
+    },
+    {
+      "text": "Each of the 8 deals has a concrete action plan that names the responsible rep, specifies the exact action to take (not 'follow up' but a particular move like 'send a break-up email referencing the January proposal,' 'call the partner who made the referral to re-engage the champion,' or 'present a counter-offer at 8% discount with a 48-hour expiration'), and sets a deadline within the current week — vague actions are operationally useless because reps will deprioritize them in favor of deals where they know what to do",
+      "passed": true,
+      "evidence": "All 8 deals have named reps with specific actions and deadlines: Helios (Dana, March 14 -- email contact referencing original conversation), Cruxfield (Dana, March 14 -- send specific ask for exec intro), Brightpath (Jake, March 12 -- send break-up email with example framing), Solstice (Jake, March 13 -- send specific email requesting legal contact), Orion (Sarah, end of day March 11 -- send counter-offer at 8% with 48-hour expiration), Cobalt (Sarah, March 14 -- offer 20-minute technical call), Zenith (Dana, March 12 -- send re-engagement email), Cascade (Dana, March 13 -- search LinkedIn for replacement champion). All actions are specific, not generic 'follow up.'"
+    },
+    {
+      "text": "The total dollar value at risk across all 8 deals is quantified (approximately $2.22M) and contextualized against quota or pipeline — this gives the sales leader the answer to the only question that matters in the Monday meeting: 'how much of our pipeline is real and how much is at risk of evaporating,' which determines whether the team needs an emergency pipeline generation sprint or targeted deal rescue",
+      "passed": true,
+      "evidence": "Summary states 'Total Dollar Value at Risk: $2,218,000' with categorization: 'Likely close-lost (forecast should exclude): Brightpath ($410K) + Zenith ($88K) = $498,000,' 'Critical risk (may close-lost within 2 weeks): Helios ($630K) + Cascade ($145K) + Orion ($310K) = $1,085,000,' 'Recoverable with action this week: Cruxfield ($275K) + Solstice ($195K) + Cobalt ($165K) = $635,000.' Contextualized with: 'If this represents a significant portion of the team's quarterly target, an emergency pipeline generation sprint should be considered.'"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

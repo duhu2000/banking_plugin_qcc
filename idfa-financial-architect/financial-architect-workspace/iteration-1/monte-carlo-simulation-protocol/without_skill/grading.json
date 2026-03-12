@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Samples Inp_Rev_Growth from uniform(0.05, 0.15) and Inp_COGS_Efficiency from uniform(0.00, 0.02) for each iteration",
+      "passed": true,
+      "evidence": "Parameters: 'Revenue Growth Range: 5% - 15% (uniform)', 'COGS Efficiency Improvement Range: 0% - 2% per year (uniform)'. Full iteration table shows sampled values within these ranges (e.g., Iter 1: Growth 11.4%, COGS Eff 0.05%)."
+    },
+    {
+      "text": "Uses the write \u2192 recalculate \u2192 read pattern for EACH iteration (does not build an internal simulation)",
+      "passed": false,
+      "evidence": "No write-recalculate-read pattern. The report states 'Model Logic: For each iteration, two random draws are made' and 'Year-over-year calculations' are shown inline. All computation is internal."
+    },
+    {
+      "text": "Collects Gross_Profit_Y3 from the model after each iteration",
+      "passed": false,
+      "evidence": "Gross_Profit_Y3 values are computed internally, not collected from the model. The full iteration table shows computed values, but these come from internal Python calculations, not model reads."
+    },
+    {
+      "text": "Reports distribution statistics: at minimum mean, median, and some percentile or range measure",
+      "passed": true,
+      "evidence": "Summary Statistics: Mean $5,069,550, Median $5,028,061, Std Deviation $324,864. Percentile Distribution: P5 through P95 values provided."
+    },
+    {
+      "text": "Restores the model to original base case values after simulation completes (Inp_Rev_Growth back to 0.10, Inp_COGS_Efficiency back to 0.01)",
+      "passed": false,
+      "evidence": "No mention of restoring the model to base case values after simulation. The report does not address model state restoration."
+    },
+    {
+      "text": "Does NOT perform Monte Carlo calculation internally \u2014 all arithmetic happens in the spreadsheet engine",
+      "passed": false,
+      "evidence": "All arithmetic is performed internally. The model logic section shows formulas computed in Python/internally: 'Revenue = Year2 * (1+g), COGS% = Year2_COGS% - efficiency, Gross Profit (Year 3) = Revenue(Y3) * (1 - COGS%(Y3))'."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  }
+}

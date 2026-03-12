@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To earn a response from a WARM lead with no prior interaction, early touches (1-2) reference David Chen's specific situation -- the Top 50 Healthtech list, his move from Salesforce 5 months ago, the SDR and Marketing Ops hiring signals, or his engagement with the VP Marketing CRM data hygiene post -- rather than leading with DataBridge or generic healthtech pain points",
+      "passed": true,
+      "evidence": "Touch 1 (Day 1, Email) references: 'Congrats on the Top 50 Healthtech recognition', 'you joined Lumen about 5 months ago from Salesforce', 'the careers page shows you are hiring 3 SDRs and a Marketing Ops Manager'. Touch 2 (Day 7, LinkedIn) references: 'saw you liked [VP Marketing Name]'s post about CRM data hygiene last month' and 'you are 5 months into a new RevOps role'. DataBridge is not mentioned in Touch 1 or Touch 2."
+    },
+    {
+      "text": "To build credibility before asking, Touch 3 introduces a problem insight relevant to David's situation (scaling RevOps data across a growing team, forecast accuracy with multiple data sources) with no pitch and no ask -- WARM leads who receive value before the ask convert to meetings at higher rates than those who get pitched early",
+      "passed": true,
+      "evidence": "Touch 3 (Day 14, Email) is explicitly labeled 'problem insight, no pitch, no ask'. It discusses forecast accuracy dropping 15-25% when teams add 3-4 new pipeline sources in a single quarter, and how forecast models stop being accurate. Ends with 'Thought this might be relevant given where Lumen is right now' -- no DataBridge mention, no ask."
+    },
+    {
+      "text": "To deploy social proof at peak impact, the MedSync case study (4 data sources consolidated, 34% forecast accuracy improvement, similar healthtech ARR) appears in Touch 4 rather than Touch 1 -- same-vertical proof points land harder after the prospect has context on the problem being solved",
+      "passed": true,
+      "evidence": "Touch 4 (Day 28, Email) introduces the MedSync case study: 'MedSync -- a healthtech company similar in size to Lumen -- was dealing with forecast accuracy problems after their pipeline data was spread across 4 different systems... 34% improvement in forecast accuracy within one quarter.' MedSync is not mentioned in any earlier touch."
+    },
+    {
+      "text": "To protect the relationship for future re-engagement, Touch 5 is a graceful close that is short, respectful, leaves the door open, contains no ask, and does not use 'just checking in' or pressuring language -- a WARM lead who gets a respectful close is 3x more likely to respond to a re-engagement sequence 90 days later",
+      "passed": true,
+      "evidence": "Touch 5 (Day 35, LinkedIn) is 54 words: 'If the timing is not right or this is not a priority, completely understood. If it becomes relevant down the road, I am here. Wishing you and the Lumen team continued success -- the Top 50 recognition was well earned.' No ask, no 'just checking in', no pressure. Channel rationale confirms: 'Graceful close: short, respectful, leaves the door open, contains no ask, no pressure language, no just checking in.'"
+    },
+    {
+      "text": "To prevent channel fatigue over the 35-day WARM cadence, touches use at least 2 distinct channels (email and LinkedIn) and no channel is used for consecutive touches within a 3-day window -- WARM sequences have longer spacing, making channel variety even more important for staying visible without being annoying",
+      "passed": true,
+      "evidence": "Channel map shows: Touch 1 (Day 1, Email), Touch 2 (Day 7, LinkedIn), Touch 3 (Day 14, Email), Touch 4 (Day 28, Email), Touch 5 (Day 35, LinkedIn). Two distinct channels used. No consecutive same-channel touches within 3 days. Email: Day 1 -> Day 14 (13-day gap), Day 14 -> Day 28 (14-day gap). LinkedIn: Day 7 -> Day 35 (28-day gap). Note: Touches 3 and 4 are both email, but spaced 14 days apart, well outside the 3-day window."
+    },
+    {
+      "text": "To prevent a responding prospect from receiving automated follow-ups that destroy trust, branching rules include a reply-exit rule (any reply at any touch exits the sequence and alerts the rep), and the sequence completion section includes moving non-responders to a cultivate nurture cadence with CRM logging",
+      "passed": true,
+      "evidence": "Branching rules: 'Reply received at any touch -> EXIT SEQUENCE immediately. Alert rep. All subsequent communication is human-led, not automated.' Sequence Completion: 'Move David Chen to CULTIVATE nurture cadence (quarterly touchpoints, low-frequency, high-value content)' and 'Log in CRM: WARM sequence completed -- April 15, 2026 (est.) -- no response. 5 touches / 35 days / Email x3 + LinkedIn x2.'"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

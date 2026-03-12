@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "To reframe the team's decision around pipeline impact rather than conversion vanity metrics, effective MQL yield per visitor is calculated for both variants (A: 8.98% x 34% = 3.05% = ~79 MQLs/month; B: 15.80% x 19% = 3.00% = ~78 MQLs/month) — exposing that the raw conversion lift produces zero net gain in qualified pipeline",
+      "passed": true,
+      "evidence": "Section '1. The Metric That Matters: Effective MQL Yield' calculates: Variant A: 8.98% x 34% = 3.05%, ~79 MQLs; Variant B: 15.80% x 19% = 3.00%, ~78 MQLs. States: 'The raw conversion lift of +76% (8.98% to 15.80%) produces zero net gain in qualified pipeline.'"
+    },
+    {
+      "text": "To tell the CMO whether this page can hit the 80 MQL/month target, both variants are assessed against the target and both are found insufficient — the analysis frames this as 'neither variant solves the business problem' rather than picking a winner from two losing options",
+      "passed": true,
+      "evidence": "Section '2. Target Assessment: Neither Variant Hits 80 MQLs/Month' shows Variant A at ~79 (-1 gap) and Variant B at ~78 (-2 gap). States: 'Neither variant solves the business problem.' and 'The decision should not be \"A or B?\" It should be: \"How do we build something that actually hits 80?\"'"
+    },
+    {
+      "text": "To diagnose why the MQL rate dropped so the team can fix it, root cause analysis identifies that removing company size and use case fields eliminated the qualification signal — the form reduction increased volume but removed the data that separates qualified from unqualified leads",
+      "passed": true,
+      "evidence": "Section '3. Root Cause Analysis' states: 'Company size and use case are the two fields that carry the strongest qualification signal. Without them: Leads that would have self-disqualified by revealing they're too small or outside ICP now submit freely; The MQL scoring model loses two of its most predictive inputs.' Also: 'The form reduction increased volume but removed the data that separates qualified from unqualified leads.'"
+    },
+    {
+      "text": "To generate a recommendation that actually hits the 80 MQL target, the analysis proposes a specific Variant C: Variant B's 4-field form with progressive profiling on the thank-you page or backend enrichment via Clearbit/ZoomInfo to recover qualification data without adding form friction — with projected MQL yield math",
+      "passed": true,
+      "evidence": "Section '6. Recommendation: Build Variant C' proposes two options: (1) Progressive profiling on thank-you page with projected MQL yield of 4.19% = ~109 MQLs/month. (2) Backend enrichment via Clearbit/ZoomInfo/Apollo with projected MQL yield of 4.54% = ~118 MQLs/month. Both include detailed math showing they exceed the 80 MQL target. Recommends combining both approaches."
+    },
+    {
+      "text": "To benchmark both variants against industry standards, conversion rates are compared to the skill's landing page benchmark (average 10-20%) — Variant A (8.98%) classified as below average, Variant B (15.80%) classified as average-to-good — contextualizing the UX improvement as real even though MQL yield is flat",
+      "passed": true,
+      "evidence": "Section '4. Industry Benchmark Context' states: 'Landing page conversion rate benchmarks (B2B lead gen): 10-20% is average to good.' Table classifies Variant A (8.98%) as 'Below average -- underperforming the 10% floor' and Variant B (15.80%) as 'Average to good -- solid performance within the benchmark range.' States: 'the problem is not the conversion rate, it's the loss of qualification data.'"
+    },
+    {
+      "text": "To protect the UX gains worth preserving regardless of which variant ships, the analysis identifies Variant B's lower bounce rate (44% vs 61%) and higher time-on-page (2:18 vs 1:42) as engagement improvements that indicate better page design — these should carry forward into any Variant C",
+      "passed": true,
+      "evidence": "Section '5. UX Gains Worth Preserving' identifies: 'Lower bounce rate (44% vs. 61%): More visitors are engaging with the page' and 'Higher time on page (2:18 vs. 1:42): Visitors are spending more time reading and considering the offer.' States: 'These UX improvements are real design wins and should be preserved in any future variant.'"
+    }
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}
+}

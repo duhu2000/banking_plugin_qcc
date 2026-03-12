@@ -1,0 +1,760 @@
+{
+  "iteration": 3,
+  "total_evals": 90,
+  "note": "4 skills re-evaluated (content-calendar, follow-up, pre-call-brief, performance-analysis). 11 unchanged skills carry iter-2 scores.",
+  "skills": {
+    "campaign-planning": {
+      "with_skill": {
+        "passed": 19,
+        "total": 20,
+        "pass_rate": 0.95,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 6,
+            "total": 7,
+            "pass_rate": 0.86
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 7,
+            "total": 7,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "without_skill": {
+        "passed": 17,
+        "total": 20,
+        "pass_rate": 0.85,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 4,
+            "total": 7,
+            "pass_rate": 0.57
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 7,
+            "total": 7,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "delta": 0.1,
+      "iteration_updated": 2
+    },
+    "content-calendar": {
+      "with_skill": {
+        "passed": 19,
+        "total": 19,
+        "pass_rate": 1.0
+      },
+      "without_skill": {
+        "passed": 13,
+        "total": 19,
+        "pass_rate": 0.6842,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 1,
+            "total": 6,
+            "pass_rate": 0.17
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 7,
+            "pass_rate": 0.86
+          }
+        ]
+      },
+      "delta": 0.3158,
+      "iteration_updated": 3
+    },
+    "content-creation": {
+      "with_skill": {
+        "passed": 17,
+        "total": 19,
+        "pass_rate": 0.8947,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 4,
+            "total": 6,
+            "pass_rate": 0.67
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 7,
+            "total": 7,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "without_skill": {
+        "passed": 15,
+        "total": 19,
+        "pass_rate": 0.7895,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 2,
+            "total": 6,
+            "pass_rate": 0.33
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 7,
+            "total": 7,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "delta": 0.1053,
+      "iteration_updated": 2
+    },
+    "copywriting": {
+      "with_skill": {
+        "passed": 18,
+        "total": 18,
+        "pass_rate": 1.0,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "without_skill": {
+        "passed": 14,
+        "total": 18,
+        "pass_rate": 0.7778,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 2,
+            "total": 6,
+            "pass_rate": 0.33
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "delta": 0.2222,
+      "iteration_updated": 2
+    },
+    "crm-enrichment": {
+      "with_skill": {
+        "passed": 18,
+        "total": 18,
+        "pass_rate": 1.0,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "without_skill": {
+        "passed": 17,
+        "total": 18,
+        "pass_rate": 0.9444,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 2,
+            "passed": 5,
+            "total": 6,
+            "pass_rate": 0.83
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "delta": 0.0556,
+      "iteration_updated": 2
+    },
+    "follow-up": {
+      "with_skill": {
+        "passed": 18,
+        "total": 18,
+        "pass_rate": 1.0
+      },
+      "without_skill": {
+        "passed": 12,
+        "total": 18,
+        "pass_rate": 0.6667,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 1,
+            "total": 6,
+            "pass_rate": 0.17
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 5,
+            "total": 6,
+            "pass_rate": 0.83
+          }
+        ]
+      },
+      "delta": 0.3333,
+      "iteration_updated": 3
+    },
+    "lead-scoring": {
+      "with_skill": {
+        "passed": 18,
+        "total": 18,
+        "pass_rate": 1.0,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "without_skill": {
+        "passed": 14,
+        "total": 18,
+        "pass_rate": 0.7778,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 2,
+            "total": 6,
+            "pass_rate": 0.33
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "delta": 0.2222,
+      "iteration_updated": 2
+    },
+    "outreach": {
+      "with_skill": {
+        "passed": 20,
+        "total": 20,
+        "pass_rate": 1.0,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 2,
+            "passed": 7,
+            "total": 7,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 7,
+            "total": 7,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "without_skill": {
+        "passed": 16,
+        "total": 20,
+        "pass_rate": 0.8,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 2,
+            "total": 6,
+            "pass_rate": 0.33
+          },
+          {
+            "eval_id": 2,
+            "passed": 7,
+            "total": 7,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 7,
+            "total": 7,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "delta": 0.2,
+      "iteration_updated": 2
+    },
+    "performance-analysis": {
+      "with_skill": {
+        "passed": 20,
+        "total": 20,
+        "pass_rate": 1.0
+      },
+      "without_skill": {
+        "passed": 15,
+        "total": 18,
+        "pass_rate": 0.8333,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 3,
+            "total": 6,
+            "pass_rate": 0.5
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "delta": 0.1667,
+      "iteration_updated": 3
+    },
+    "persona-icp": {
+      "with_skill": {
+        "passed": 18,
+        "total": 18,
+        "pass_rate": 1.0,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "without_skill": {
+        "passed": 17,
+        "total": 18,
+        "pass_rate": 0.9444,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 5,
+            "total": 6,
+            "pass_rate": 0.83
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "delta": 0.0556,
+      "iteration_updated": 2
+    },
+    "pipeline": {
+      "with_skill": {
+        "passed": 18,
+        "total": 20,
+        "pass_rate": 0.9,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 5,
+            "total": 7,
+            "pass_rate": 0.71
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 7,
+            "total": 7,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "without_skill": {
+        "passed": 15,
+        "total": 20,
+        "pass_rate": 0.75,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 2,
+            "total": 7,
+            "pass_rate": 0.29
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 7,
+            "total": 7,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "delta": 0.15,
+      "iteration_updated": 2
+    },
+    "pre-call-brief": {
+      "with_skill": {
+        "passed": 18,
+        "total": 18,
+        "pass_rate": 1.0
+      },
+      "without_skill": {
+        "passed": 12,
+        "total": 18,
+        "pass_rate": 0.6667,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 0,
+            "total": 6,
+            "pass_rate": 0.0
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "delta": 0.3333,
+      "iteration_updated": 3
+    },
+    "prospect-research": {
+      "with_skill": {
+        "passed": 16,
+        "total": 18,
+        "pass_rate": 0.8889,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 2,
+            "passed": 4,
+            "total": 6,
+            "pass_rate": 0.67
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "without_skill": {
+        "passed": 6,
+        "total": 18,
+        "pass_rate": 0.3333,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 2,
+            "total": 6,
+            "pass_rate": 0.33
+          },
+          {
+            "eval_id": 2,
+            "passed": 2,
+            "total": 6,
+            "pass_rate": 0.33
+          },
+          {
+            "eval_id": 3,
+            "passed": 2,
+            "total": 6,
+            "pass_rate": 0.33
+          }
+        ]
+      },
+      "delta": 0.5556,
+      "iteration_updated": 2
+    },
+    "sales-marketing-global-router": {
+      "with_skill": {
+        "passed": 18,
+        "total": 18,
+        "pass_rate": 1.0,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "without_skill": {
+        "passed": 9,
+        "total": 18,
+        "pass_rate": 0.5,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 1,
+            "total": 6,
+            "pass_rate": 0.17
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 2,
+            "total": 6,
+            "pass_rate": 0.33
+          }
+        ]
+      },
+      "delta": 0.5,
+      "iteration_updated": 2
+    },
+    "sequence": {
+      "with_skill": {
+        "passed": 16,
+        "total": 18,
+        "pass_rate": 0.8889,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 4,
+            "total": 6,
+            "pass_rate": 0.67
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          }
+        ]
+      },
+      "without_skill": {
+        "passed": 10,
+        "total": 18,
+        "pass_rate": 0.5556,
+        "evals": [
+          {
+            "eval_id": 1,
+            "passed": 2,
+            "total": 6,
+            "pass_rate": 0.33
+          },
+          {
+            "eval_id": 2,
+            "passed": 6,
+            "total": 6,
+            "pass_rate": 1.0
+          },
+          {
+            "eval_id": 3,
+            "passed": 2,
+            "total": 6,
+            "pass_rate": 0.33
+          }
+        ]
+      },
+      "delta": 0.3333,
+      "iteration_updated": 2
+    }
+  },
+  "summary": {
+    "avg_with_skill": 0.9682,
+    "avg_without_skill": 0.7249,
+    "avg_delta": 0.2433,
+    "zero_delta_skills": [],
+    "positive_delta_skills": [
+      "campaign-planning",
+      "content-calendar",
+      "content-creation",
+      "copywriting",
+      "crm-enrichment",
+      "follow-up",
+      "lead-scoring",
+      "outreach",
+      "performance-analysis",
+      "persona-icp",
+      "pipeline",
+      "pre-call-brief",
+      "prospect-research",
+      "sales-marketing-global-router",
+      "sequence"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "REP PREPARATION TIME: QUICK CONTEXT is concise enough for a 2-minute pre-call read (3-5 sentences), references Natalie's whitepaper download, the cold call intel about manual spreadsheet tracking with 2-3 hours lost per dispatcher per day, the Oracle WMS detail, and the lost retail contract as a pain-amplifying trigger -- giving the rep complete situational awareness without any additional research",
+      "passed": false,
+      "evidence": "The output has no concise QUICK CONTEXT section and uses the wrong inputs: demo request/webinar, SAP + Blue Yonder, fill-rate misses, and a new CDO. It does not reference the whitepaper download, cold-call spreadsheet intel, Oracle WMS, or the lost retail contract from the eval prompt."
+    },
+    {
+      "text": "WIN RATE: YOUR GOAL FOR THIS CALL states a specific, singular call outcome -- not 'learn about their needs' but a concrete qualifying objective like confirming the pain around exception tracking is budget-worthy, identifying other stakeholders in the buying process, and surfacing whether the lost contract creates executive urgency -- so the rep advances the deal in one call instead of needing a second discovery",
+      "passed": false,
+      "evidence": "There is no dedicated 'YOUR GOAL FOR THIS CALL' section with a singular call objective. The brief contains broad hypotheses and a recommended structure, but not a concrete one-call qualification outcome."
+    },
+    {
+      "text": "WIN RATE: Discovery questions total 5 or fewer, each phrased as a question ending in a question mark, ordered from opening (build rapport on the whitepaper download) to depth (quantify the dispatcher time loss and SLA impact) to qualification (budget, authority, timeline) -- structured so the rep uncovers decision criteria and deal blockers within the 30-minute window",
+      "passed": false,
+      "evidence": "The recommended call structure includes well over 5 questions across discovery and qualification. The expectation requires 5 or fewer total questions."
+    },
+    {
+      "text": "WIN RATE: ANTICIPATED OBJECTIONS includes at least 2 objections with the prospect's likely exact words and responses that validate before reframing -- specifically addressing predictable pushback like Oracle WMS integration concerns or 'we're handling it fine with spreadsheets' -- so the rep handles resistance in real-time instead of losing momentum",
+      "passed": false,
+      "evidence": "There is no ANTICIPATED OBJECTIONS section at all. The brief does not provide 2+ likely objections with validate-then-reframe responses."
+    },
+    {
+      "text": "SALES CYCLE COMPRESSION: CALL SUCCESS CRITERIA defines primary, secondary, and minimum outcomes (e.g., primary: book a technical demo with the full buying committee; secondary: confirm budget and timeline; minimum: identify the other decision-makers) giving the rep a fallback plan that still advances the deal even if the call goes sideways",
+      "passed": false,
+      "evidence": "There is no CALL SUCCESS CRITERIA section with primary, secondary, and minimum outcomes. The output gives a generic call structure but no fallback outcome ladder."
+    },
+    {
+      "text": "WIN RATE: THINGS NOT TO DO section contains 3-5 warnings specific to this call -- such as do not demo on a discovery call, do not trash Oracle WMS (it may have internal champions), do not assume the lost contract means automatic urgency -- preventing the rep from making credibility-killing mistakes that would stall or lose the opportunity",
+      "passed": false,
+      "evidence": "The output does not include a THINGS NOT TO DO section with 3-5 rep warnings. It has red flags and reminders, but not the explicit mistake-prevention section required by the eval."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 6,
+    "total": 6,
+    "pass_rate": 0.0
+  }
+}

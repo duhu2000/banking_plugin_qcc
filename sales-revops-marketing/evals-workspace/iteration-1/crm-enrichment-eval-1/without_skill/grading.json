@@ -1,0 +1,97 @@
+{
+  "expectations": [
+    {
+      "text": "Output includes the enrichment report header format with Date, Scope description mentioning Brightpath Consulting, and Total records processed count",
+      "passed": false,
+      "evidence": "The output includes a report date ('Report Date: 2026-03-11') and mentions Brightpath Consulting prominently, but it does NOT include a 'Total records processed count' anywhere in the header or body. The header format is a general 'CRM Enrichment Report: Brightpath Consulting' with metadata fields (Account Tier, Deal Stage, etc.) rather than the structured enrichment report header format with Date/Scope/Total. The date and company name are present, but the specific 'Total records processed' count required by the assertion is absent."
+    },
+    {
+      "text": "Contact enrichment covers all six mandatory fields (full name, current title, current company, work email, direct phone, LinkedIn URL) and flags David Hargreaves for potential role change since no LinkedIn updates in >12 months rather than assuming he is still Head of Ops at Brightpath",
+      "passed": false,
+      "evidence": "The output covers contact verification for 'Gemma Hargreaves' (not 'David Hargreaves' as required by the assertion). It addresses name, title, company, and phone, and discusses LinkedIn profiles found. However: (1) the contact name is wrong — 'Gemma Hargreaves' throughout, not 'David Hargreaves'; (2) work email is not explicitly addressed as a mandatory field in a structured format; (3) the six fields are discussed narratively rather than in a structured mandatory-fields format. The output does flag the contact as 'UNVERIFIED -- Could not confirm she is still at Brightpath Consulting' which is the right behavior, but for the wrong person."
+    },
+    {
+      "text": "The manually-entered direct phone number is NOT overwritten -- the output explicitly flags it as a human-entered field and defers to Jess Moreno as record owner before any change",
+      "passed": false,
+      "evidence": "The output states 'Per user instruction: DO NOT overwrite Marcus's phone number' and the recommended actions include 'DO NOT: Overwrite or modify the phone number without consulting Marcus first.' The phone is protected. However, the assertion requires deferring to 'Jess Moreno as record owner' — this name does not appear in the output. The output defers to Marcus (the BDR who entered it) and Priya (the assigned rep), not Jess Moreno."
+    },
+    {
+      "text": "Account-level enrichment addresses Brightpath Consulting mandatory fields (legal name, revenue estimate, headcount, headquarters, website) and intelligence fields including the Series B funding as a news event and any headcount change flagged if >20%",
+      "passed": false,
+      "evidence": "The output addresses company verification with a Companies House table covering legal name, incorporation dates, SIC codes, and status. It notes none match the ~200 employee profile. However: (1) revenue estimate is not addressed — there is no revenue data or discussion of revenue; (2) headcount discrepancy is noted (LinkedIn shows 11-50 vs CRM ~200) but not explicitly flagged with a >20% threshold; (3) headquarters is discussed indirectly through registered addresses; (4) website investigation found brightpathconsulting.co.uk (transport sector, wrong); (5) 'Series B funding' is not mentioned anywhere — the output does not surface any funding events. The industry context section discusses UK fintech investment trends generically but not a Brightpath-specific Series B."
+    },
+    {
+      "text": "Output includes a DATA QUALITY SCORE as a percentage of enriched records now complete, plus a RECORDS WITH MISSING MANDATORY FIELDS section listing any fields still unfilled after enrichment",
+      "passed": false,
+      "evidence": "The output includes a 'Data Quality Scorecard' table with verification status and confidence ratings per field, and an 'Overall Record Health: POOR' summary. However, it does NOT include a 'DATA QUALITY SCORE as a percentage' (no percentage figure for records completeness). It also does NOT include a 'RECORDS WITH MISSING MANDATORY FIELDS' section — while the scorecard shows what is unverified, there is no dedicated section listing fields still unfilled after enrichment. The output uses a different format (confidence ratings per field) rather than the specific format requested."
+    },
+    {
+      "text": "Because the contact is in an active nurture sequence, the output does NOT remove the contact from the sequence due to any email change -- instead it specifies pausing the sequence and alerting Jess Moreno to verify new contact details first",
+      "passed": false,
+      "evidence": "The output does not mention a 'nurture sequence' anywhere. It references 'Proposal Sent' as the deal stage. There is no discussion of pausing a sequence, and 'Jess Moreno' does not appear in the output. The specific scenario described in the assertion (active nurture sequence, email change, pause + alert workflow) is entirely absent."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 6,
+    "total": 6,
+    "pass_rate": 0.0
+  },
+  "execution_metrics": null,
+  "timing": null,
+  "claims": [
+    {
+      "claim": "Two UK-based LinkedIn profiles exist for 'Gemma Hargreaves'",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The output lists two specific LinkedIn profiles: one at The Bicester Collection and one at Diddu, with details consistent with real LinkedIn data."
+    },
+    {
+      "claim": "Four Companies House entities found matching Brightpath Consulting variants",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The output lists four entities with specific company numbers (10783072, 15993318, 11123058, 11910292), SIC codes, and incorporation dates. The without_skill output found one more entity (Brightpath Consultancy Limited, 11123058) than the with_skill output."
+    },
+    {
+      "claim": "UK fintech investment declined/slumped in 2025",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Sourced to Computer Weekly article with a specific URL. This is a verifiable published claim."
+    },
+    {
+      "claim": "UK mobile numbers beginning with 077 are legitimate and follow 07XXX XXXXXX format",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Standard UK telephone numbering knowledge. The output correctly identifies the format and notes number portability."
+    },
+    {
+      "claim": "brightpathconsulting.co.uk is a transport sector consultancy",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The output attributes this to web research. The with_skill output also found this domain returned non-fintech results (coach/bus sector), corroborating the claim."
+    },
+    {
+      "claim": "NatWest opened its 2026 Fintech Programme applications in Dec 2025",
+      "type": "factual",
+      "verified": false,
+      "evidence": "No source URL provided for this specific claim. Cannot verify from available information."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "CRITICAL (same as with_skill): The eval_metadata.json prompt references 'David Hargreaves' and 'Jess Moreno', but the output uses 'Gemma Hargreaves' and 'Priya'. Either the actual prompt differed from what eval_metadata records, or both executors received a modified prompt. All six assertions fail for the without_skill output, but at least 3-4 failures are partly attributable to name mismatches rather than genuine skill deficiencies. The eval cannot produce valid comparative signal until this is resolved."
+      },
+      {
+        "assertion": "Output includes a DATA QUALITY SCORE as a percentage of enriched records now complete, plus a RECORDS WITH MISSING MANDATORY FIELDS section listing any fields still unfilled after enrichment",
+        "reason": "This assertion is a genuine discriminator between with_skill and without_skill. The with_skill output produced both a percentage score and a missing-fields section exactly as specified. The without_skill output produced a qualitative scorecard but missed the specific format. This is the kind of structural assertion that tests whether the skill's template was followed."
+      },
+      {
+        "assertion": "Output includes the enrichment report header format with Date, Scope description mentioning Brightpath Consulting, and Total records processed count",
+        "reason": "Another good discriminator. The with_skill output nails the exact header format. The without_skill output uses a different header structure. This tests skill-specific output formatting."
+      }
+    ],
+    "overall": "The without_skill output is a competent, thorough CRM research report but does not follow the structured enrichment report format that the skill presumably defines. It lacks: the specific header format, the DATA QUALITY SCORE percentage, the RECORDS WITH MISSING MANDATORY FIELDS section, and the structured six-mandatory-fields contact enrichment table. The name mismatch issue (Gemma vs David, Priya vs Jess) affects both outputs equally, suggesting the actual prompt differed from eval_metadata. The 2 assertions that the with_skill output passes and the without_skill output fails (header format, data quality score) are the most discriminating — they test adherence to skill-defined output structure."
+  }
+}

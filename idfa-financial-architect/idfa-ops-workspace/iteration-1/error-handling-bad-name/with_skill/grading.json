@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Attempts to read 'Total_Revenue_All_Years' via idfa_ops.py read",
+      "passed": true,
+      "evidence": "Step 1: 'uv run scripts/idfa_ops.py read ops_test_model.xlsx Total_Revenue_All_Years'. Result: {\"error\": \"Named Range not found: Total_Revenue_All_Years\"}."
+    },
+    {
+      "text": "Receives a 'Named Range not found' error (exit code 1)",
+      "passed": true,
+      "evidence": "Result: {\"error\": \"Named Range not found: Total_Revenue_All_Years\"}. Exit code: 1."
+    },
+    {
+      "text": "Does NOT crash or give up \u2014 handles the error gracefully",
+      "passed": true,
+      "evidence": "After the error, the agent continues to Step 2 (inspect) and Step 3 (diagnosis). Report concludes with actionable alternatives. No crash or abandonment."
+    },
+    {
+      "text": "Either inspects the model to find similar/correct names, or lists available revenue-related Named Ranges",
+      "passed": true,
+      "evidence": "Step 2: 'uv run scripts/idfa_ops.py inspect ops_test_model.xlsx'. Revenue-related ranges identified: Inp_Price, Revenue_Y1, Revenue_Y2."
+    },
+    {
+      "text": "Suggests the correct Named Ranges that exist (Revenue_Y1, Revenue_Y2)",
+      "passed": true,
+      "evidence": "Suggested alternatives table: 'Year 1 revenue: Revenue_Y1', 'Year 2 revenue: Revenue_Y2', 'Both years in one call: Revenue_Y1 Revenue_Y2'. Also provides instructions for creating a cross-year total."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  }
+}

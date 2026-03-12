@@ -1,0 +1,38 @@
+{
+  "eval_id": 2,
+  "eval_name": "legacy-model-audit",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Discovers the hardcoded COGS percentages (0.59 in D7, 0.58 in E7) and explains the business impact",
+      "passed": true,
+      "evidence": "Finding #1 (lines 121-158) identifies 'Year 2 (D7): Uses hardcoded 0.59 (59%) instead of referencing B4' and 'Year 3 (E7): Uses hardcoded 0.58 (58%) instead of referencing B4'. Business impact explained: 'Changing the COGS % assumption in B4 has no effect on Year 2 or Year 3. A user who updates B4 to 55% would see Y1 update but Y2 and Y3 remain unchanged -- a silent, dangerous inconsistency.'"
+    },
+    {
+      "text": "Quantifies or flags the dollar impact of the COGS error (~$110K in Y2, ~$242K in Y3)",
+      "passed": true,
+      "evidence": "Dollar Impact Quantification table (lines 136-148) shows: Y2 COGS understated by $110,000, Y3 COGS understated by $242,000, Gross Profit overstated by $110,000 (Y2) and $242,000 (Y3). 'Cumulative Gross Profit overstatement: $352,000'. Also: '2.5% overstatement in Y2 and a 5.0% overstatement in Y3 relative to what the stated assumption would produce.'"
+    },
+    {
+      "text": "Identifies that the model has ZERO named ranges and ALL formulas use cell coordinates",
+      "passed": true,
+      "evidence": "Guardrail 1 section (lines 53-58): 'The model contains zero Named Ranges. All 10 formulas use exclusively coordinate references (B2, C6, B3, B4, $B$10, etc.). No formula in this model can be understood without clicking through to the referenced cells. Violations: 10 of 10 formulas (100%)'"
+    },
+    {
+      "text": "Flags the WACC formula for LaTeX verification",
+      "passed": true,
+      "evidence": "Guardrail 2 section (lines 76-99) performs full LaTeX verification: presents the correct WACC formula in LaTeX notation ($$WACC = \\frac{E}{E+D} \\times K_e + \\frac{D}{E+D} \\times K_d \\times (1-T)$$), translates the model formula, verifies weights sum to 1.0, confirms only debt term has tax shield, and computes WACC = 9.19%."
+    },
+    {
+      "text": "Produces a compliance score or remediation priority list",
+      "passed": true,
+      "evidence": "Executive Summary (line 15): 'IDFA Compliance Score: 0% (0 of 4 guardrails pass)'. Compliance Summary table (lines 250-256) shows all guardrails FAIL. Remediation Plan (lines 199-243) is structured by priority: Priority 1 (Fix Hardcoded COGS), Priority 2 (Fix Total Capital Formula), Priority 3 (Full IDFA Retrofit)."
+    },
+    {
+      "text": "Provides a retrofitting plan with proposed Named Range names following IDFA conventions",
+      "passed": true,
+      "evidence": "Priority 3 section (lines 222-243) proposes all Named Ranges: 7 inputs with Inp_ prefix (Inp_Rev_Y1, Inp_Rev_Growth, Inp_COGS_Pct_Y1, Inp_Equity, Inp_Debt, Inp_Cost_Equity, Inp_Cost_Debt, Inp_Tax_Rate) and 10+ calculation ranges (Revenue_Y1..Y3, COGS_Y1..Y3, Gross_Profit_Y1..Y3, Total_Capital, WACC). Also proposes rewriting every formula to reference Named Ranges only."
+    }
+  ]
+}

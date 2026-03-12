@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline contribution: The headline leads with the specific quantified outcome ('How Meridian Logistics Cut Pipeline Detection Time from 6 Hours to 8 Minutes' pattern) -- not a generic title like 'Meridian Logistics Case Study' or 'How Arcline Helped Meridian' -- because outcome-first headlines are what get a sales rep's email opened when they send this to a prospect",
+      "passed": true,
+      "evidence": "Headline: 'How Meridian Logistics Cut Pipeline Breakage Detection from 6 Hours to 8 Minutes During an ERP Migration' -- leads with the specific quantified outcome (6 hours to 8 minutes) and includes the context (ERP migration) that makes it relevant to the target persona."
+    },
+    {
+      "text": "Campaign ROI: The 'Why They Chose You' section names Monte Carlo and Bigeye by name and states the specific technical differentiator (source-connector-level schema monitoring before data enters the warehouse) -- this is the section prospects actually read to decide if a sales call is worth taking, and vague competitive positioning ('we were the best fit') provides zero decision-support value",
+      "passed": true,
+      "evidence": "Section heading: 'Why They Chose Arcline Over Monte Carlo and Bigeye'. Names both competitors. States: 'Arcline was the only tool that could monitor schema changes at the source connector level -- before data entered the warehouse.' Explains specifically why Monte Carlo and Bigeye fell short: 'both monitored data quality at the warehouse layer... warehouse-level monitoring was always reactive.'"
+    },
+    {
+      "text": "Pipeline contribution: The case study is written for Directors of Data Engineering at companies doing ERP migrations specifically -- the Challenge section frames the problem in ERP migration language (upstream schema changes, dbt model breakage, connector-level monitoring) so a prospect in that exact situation sees themselves in the story",
+      "passed": true,
+      "evidence": "Challenge section explicitly frames the problem in ERP migration context: 'multi-phase ERP migration -- the kind of project where upstream schemas change weekly', 'schema changes from the ERP migration were silently breaking their dbt models', 'Upstream ERP schema changes -- column renames, type coercions, dropped fields'. The Next Steps section directly addresses 'Directors of Data Engineering Managing ERP Migrations'."
+    },
+    {
+      "text": "Campaign ROI: The Results section presents all three quantified metrics (6 hours to 8 minutes detection time, 4% false positive rate, zero stale-dashboard incidents in 90 days) with before/after framing that a sales rep can quote in a discovery call or a prospect can use to build an internal business case",
+      "passed": true,
+      "evidence": "Results section presents all three metrics in a before/after table: Detection time 6 hours -> 8 minutes, False positive rate N/A -> 4%, Stale-dashboard incidents 'Multiple per month' -> 'Zero'. Includes '97.8%' detection time reduction. Clear before/after framing throughout."
+    },
+    {
+      "text": "Production efficiency: The case study follows the complete mandated structure in order (outcome-first headline, Challenge, Why They Chose You, Implementation, Results, Quote, Next Steps) and is between 600-1200 words -- a sales enablement team can upload this directly to their content library without restructuring",
+      "passed": true,
+      "evidence": "Structure follows exact order: outcome-first headline ('How Meridian Logistics Cut...'), 'The Challenge', 'Why They Chose Arcline Over Monte Carlo and Bigeye', 'Implementation', 'Results', 'In Their Words' (quote section), 'Next Steps'. Approximately 850 words. Ready for direct upload."
+    },
+    {
+      "text": "Content performance: The CFO quote is placed for maximum impact (not buried in the middle of the Implementation section) and the Next Steps section includes a specific CTA targeted at Directors of Data Engineering doing ERP migrations -- not a generic 'contact us' that gives no reason to act now",
+      "passed": true,
+      "evidence": "CFO quote ('I used to start every Monday checking whether the numbers were real. Now I just read them.') is placed in its own section 'In Their Words' after the Results section -- maximum impact placement. Next Steps CTA: 'Arcline runs a 30-minute technical assessment for data engineering teams mid-migration. We will map your current Fivetran or Airbyte connector topology, identify which source systems are generating the most schema drift, and show you the blast radius of unmonitored changes.' Specifically targeted at ERP migration teams."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "eval_id": 7,
+  "eval_name": "multi-read-batch",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Uses a SINGLE idfa_ops.py read command with multiple Named Range arguments",
+      "passed": true,
+      "evidence": "Command Log shows: 'uv run scripts/idfa_ops.py read ops_test_model.xlsx Units_Y1 Revenue_Y1 Variable_Costs_Y1 Contribution_Y1 EBIT_Y1 Tax_Y1 Net_Income_Y1' — a single read command with 7 Named Range arguments."
+    },
+    {
+      "text": "Returns values for all 7 Year 1 Named Ranges",
+      "passed": true,
+      "evidence": "JSON response contains all 7: Units_Y1: 50000, Revenue_Y1: 5000000, Variable_Costs_Y1: 2000000, Contribution_Y1: 3000000, EBIT_Y1: 2000000, Tax_Y1: 600000, Net_Income_Y1: 1400000."
+    },
+    {
+      "text": "Presents the values in a formatted summary",
+      "passed": true,
+      "evidence": "Year 1 Results table with columns for Line Item, Named Range, and Value. Input Assumptions are shown separately. Clean P&L-style presentation with parentheses for costs."
+    },
+    {
+      "text": "The values form a consistent P&L waterfall",
+      "passed": true,
+      "evidence": "Revenue 5,000,000 - Variable Costs 2,000,000 = Contribution 3,000,000 - Fixed Costs 1,000,000 = EBIT 2,000,000 - Tax 600,000 = Net Income 1,400,000. All values cascade correctly."
+    }
+  ]
+}

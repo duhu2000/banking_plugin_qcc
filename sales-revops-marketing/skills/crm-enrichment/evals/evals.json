@@ -1,0 +1,47 @@
+{
+  "skill_name": "crm-enrichment",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "hey can you enrich our record for Brightpath Consulting? they're a Tier 1 account but the data is embarassingly stale -- last touched maybe 14 months ago. Main contact is David Hargreaves, he was Head of Ops when we last spoke but I think hes moved. Also pretty sure their headcount jumped after that Series B last year. Their rep is Jess Moreno and they're in an active nurture sequence right now. Oh and Jess manually entered the direct phone number herself from a conference badge so dont mess with that. Need this cleaned up before our QBR Thursday.",
+      "expected_output": "A CRM enrichment report covering both contact-level and account-level fields for Brightpath Consulting and David Hargreaves, with proper handling of the manually-entered phone field, the stale LinkedIn concern, the active sequence, and rep notification for Jess Moreno.",
+      "files": [],
+      "expectations": [
+        "To prevent wasted outreach to a stale contact, the output flags David Hargreaves for potential role change (no LinkedIn updates in >12 months) rather than assuming he is still Head of Ops at Brightpath Consulting -- a wrong-title email tanks response rates",
+        "To protect revenue on an active deal, the output does NOT overwrite the manually-entered direct phone number -- it explicitly flags it as a human-entered field and defers to Jess Moreno as record owner before any change, since reps trust CRM data they entered themselves",
+        "To protect the active nurture sequence from breaking, the output does NOT remove David Hargreaves from the sequence due to any email change -- instead it specifies pausing the sequence and alerting Jess Moreno to verify new contact details first, preventing a live prospect from going dark",
+        "To enable accurate segmentation and lead routing after the Series B, account-level enrichment addresses Brightpath Consulting headcount with a flag if the change exceeds 20%, plus the Series B funding captured as a news event -- these fields drive tier classification and ICP scoring",
+        "To ensure the QBR uses reliable data, the output includes a DATA QUALITY SCORE as a percentage of enriched records now complete, plus a RECORDS WITH MISSING MANDATORY FIELDS section listing any fields still unfilled -- giving the rep a clear picture of what is verified vs. what still needs manual work",
+        "To drive accurate pipeline forecasting, the output covers all six contact-level mandatory fields (full name, current title, current company, work email, direct phone, LinkedIn URL) and all five account-level mandatory fields (legal name, revenue estimate, headcount, headquarters, website) -- incomplete records create routing errors and missed handoffs"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We need a bulk enrichment across all our HOT leads in the logistics vertical -- about 40 contacts across 12 accounts. Specifically I want to catch anyone who changed roles in the last 90 days because we've been getting bounced emails from at least 3 of them (Tom Brierly at NexaFreight, someone at Cargoline Solutions, and I think Maria Escobar at PeakPort). Two of those accounts -- NexaFreight and PeakPort -- have active deals at proposal stage with our rep Amir Khalil so be careful with those. Also pull any new hiring signals in their engineering/IT departments because we're pitching our API integration product. I need this by end of day ideally, formatting for our weekly sales standup tmrw morning.",
+      "expected_output": "A bulk CRM enrichment report across the HOT logistics segment covering 40 contacts / 12 accounts, with career change detection, bounced email resolution, hiring signal intelligence, and special handling for the two active-deal accounts.",
+      "files": [],
+      "expectations": [
+        "To stop wasting outreach on bounced contacts, the ROLE CHANGES DETECTED section specifically flags Tom Brierly at NexaFreight, the Cargoline Solutions contact, and Maria Escobar at PeakPort with old-to-new role transitions and marks each for rep review and re-routing -- every bounced email in an active sequence burns sender reputation",
+        "To protect two deals at proposal stage from data disruption, the output explicitly states that Amir Khalil is notified before any record updates are applied to NexaFreight and PeakPort -- silently changing contact data on a deal at proposal stage can derail a close",
+        "To prevent false confidence in contact data, bounced email addresses are NOT marked as verified without an actual deliverability check -- the output distinguishes between emails that have been checked vs. those pending verification, because sending to an unverified 'updated' email is worse than knowing it bounces",
+        "To create pipeline for the API integration product pitch, account-level intelligence includes hiring signals specifically in engineering/IT departments with reference to recent job postings, plus tech stack changes visible in those postings -- these are the buying signals that justify moving an account to active outreach",
+        "To give the sales standup actionable next steps, the output ends with a DATA QUALITY SCORE percentage and provides specific next steps for each flagged record (who to contact, what to verify, which sequences to pause) rather than generic recommendations",
+        "To enable accurate segment-level pipeline reporting, the enrichment report scope reflects both the ~40 contacts and ~12 accounts in the HOT logistics vertical, with structured sections for CHANGES MADE, ROLE CHANGES DETECTED, NEW HOT SIGNALS IDENTIFIED, and RECORDS WITH MISSING MANDATORY FIELDS"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "trigger enrichment -- we just got a content download notification from someone at Vantage Health Systems, they grabbed our whitepaper on clinical workflow automation. The form submission says: Priya Nandakumar, Clinical Operations Director, priya.n@vantagehealth.co.uk, no phone given. We've never had them in the CRM before so this is net-new. I want full contact enrichment plus account enrichment on Vantage Health Systems. Check if they're a fit -- we target mid-market healthcare orgs 200-2000 headcount in UK. Also see if there's anyone else at Vantage we should be talking to in IT or procurement. This should feed into lead scoring after.",
+      "expected_output": "A trigger-based CRM enrichment report for the net-new contact Priya Nandakumar and account Vantage Health Systems, with full mandatory and intelligence field population, ICP fit assessment against mid-market UK healthcare criteria, and multi-threading recommendations.",
+      "files": [],
+      "expectations": [
+        "To prevent pipeline leakage from slow follow-up on inbound intent, the output identifies this as trigger-based enrichment from a content download event and references the 24-hour trigger-based enrichment SLA -- a whitepaper download is a buying signal that decays fast",
+        "To ensure outreach goes to a valid address, the work email priya.n@vantagehealth.co.uk is listed but NOT marked as verified without a deliverability check, and the missing direct phone is flagged for manual addition -- sending a personalised sequence to a bad email wastes the entire effort",
+        "To qualify or disqualify before investing rep time, the account-level enrichment for Vantage Health Systems includes headcount assessed against the 200-2000 mid-market target range and headquarters verified as UK -- these are the two ICP gates that determine whether this lead gets routed to a rep or deprioritised",
+        "To enable multi-threading into the buying committee, the report recommends additional contacts at Vantage Health Systems in IT or procurement departments -- single-threaded deals close at half the rate of multi-threaded ones, and enrichment is where thread targets are identified",
+        "To create a complete lead record that scores accurately, the output includes a DATA QUALITY SCORE percentage and a RECORDS WITH MISSING MANDATORY FIELDS section listing the missing phone and any other unfilled fields -- lead scoring models that run on incomplete data produce misleading scores",
+        "To capture buying intent timing, intelligence fields include the content download as a timing signal, career change flag for Priya Nandakumar (new role vs. established position), and account-level signals (news events, hiring signals, financial signals) with a timing classification of HOT/WARM/WATCH -- these fields drive whether the lead enters a fast or slow sequence"
+      ]
+    }
+  ]
+}

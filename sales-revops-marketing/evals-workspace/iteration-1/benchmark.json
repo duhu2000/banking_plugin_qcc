@@ -1,0 +1,1456 @@
+{
+  "metadata": {
+    "skill_name": "sales-revops-marketing (all 14 skills)",
+    "skill_path": "/Users/mjs/Documents/code/panaversity-official/agentfactory-business-plugins/sales-revops-marketing/skills",
+    "executor_model": "claude-opus-4-6",
+    "analyzer_model": "claude-opus-4-6",
+    "timestamp": "2026-03-11T16:08:22.362279",
+    "evals_run": [
+      "crm-enrichment",
+      "pipeline",
+      "content-creation",
+      "copywriting",
+      "campaign-planning",
+      "performance-analysis",
+      "lead-scoring",
+      "content-calendar",
+      "persona-icp",
+      "pre-call-brief",
+      "sequence",
+      "prospect-research",
+      "outreach",
+      "follow-up"
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "eval_name": "crm-enrichment",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.33,
+        "passed": 2,
+        "failed": 4,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output includes the enrichment report header format with Date, Scope description mentioning Brightpath Consulting, and Total records processed count",
+          "passed": true,
+          "evidence": "The output begins with 'CRM ENRICHMENT REPORT -- 2026-03-11' (date), 'Scope: Single Tier 1 account -- Brightpath Consulting (UK, mid-market fintech)' (scope mentioning Brightpath), and 'Total: 1 account, 1 contact processed' (total records processed count). All three elements present in a clear header block."
+        },
+        {
+          "text": "Contact enrichment covers all six mandatory fields (full name, current title, current company, work email, direct phone, LinkedIn URL) and flags David Hargreaves for potential role change since no LinkedIn updates in >12 months rather than assuming he is still Head of Ops at Brightpath",
+          "passed": false,
+          "evidence": "The output covers all six mandatory fields in the contact enrichment table (full name, current title, current company, work email, direct phone, LinkedIn URL). However, the contact is 'Gemma Hargreaves' throughout, not 'David Hargreaves' as specified in the assertion. The title referenced is 'Head of Partnerships' not 'Head of Ops'. The output does flag the contact for potential role change ('POSSIBLE ROLE/COMPANY CHANGE') and cites the SKILL.md rule about not assuming a contact is still at a company if LinkedIn shows no updates in >12 months. Despite strong structural compliance, the name mismatch (Gemma vs David) means the assertion as written is not satisfied \u2014 the output does not flag 'David Hargreaves' for anything because that name does not appear."
+        },
+        {
+          "text": "The manually-entered direct phone number is NOT overwritten -- the output explicitly flags it as a human-entered field and defers to Jess Moreno as record owner before any change",
+          "passed": false,
+          "evidence": "The output explicitly states 'Per SKILL.md rules: DO NOT overwrite this field' and 'The phone number has NOT been modified or overwritten.' It correctly flags the phone as manually entered by a BDR (Marcus). However, the assertion requires deferring to 'Jess Moreno as record owner' \u2014 the output instead references 'Priya' as assigned rep and 'Marcus' as the BDR. 'Jess Moreno' does not appear anywhere in the output. The phone protection behavior is correct but the specific record owner name does not match."
+        },
+        {
+          "text": "Account-level enrichment addresses Brightpath Consulting mandatory fields (legal name, revenue estimate, headcount, headquarters, website) and intelligence fields including the Series B funding as a news event and any headcount change flagged if >20%",
+          "passed": false,
+          "evidence": "Account-level enrichment covers all five mandatory fields (legal name, revenue estimate, headcount, headquarters, website) in a detailed table. Headcount discrepancy is flagged \u2014 CRM shows ~200 but LinkedIn shows 51 employees, noted as '>74% variance', which exceeds 20%. However, 'Series B funding' is not mentioned anywhere in the output. The news events row states 'No news coverage found for any Brightpath Consulting entity in the last 30 days. No funding rounds, M&A, or contract announcements identified.' The assertion explicitly requires Series B funding to appear as a news event, and it does not."
+        },
+        {
+          "text": "Output includes a DATA QUALITY SCORE as a percentage of enriched records now complete, plus a RECORDS WITH MISSING MANDATORY FIELDS section listing any fields still unfilled after enrichment",
+          "passed": true,
+          "evidence": "The output contains '# DATA QUALITY SCORE: 15% of enriched records now complete' with an explanation ('approximately 2/11'). It also contains '## RECORDS WITH MISSING MANDATORY FIELDS' listing specific missing fields for both the contact record (5 fields) and account record (5 fields). Both required elements are present with substantive content."
+        },
+        {
+          "text": "Because the contact is in an active nurture sequence, the output does NOT remove the contact from the sequence due to any email change -- instead it specifies pausing the sequence and alerting Jess Moreno to verify new contact details first",
+          "passed": false,
+          "evidence": "The output does not mention a 'nurture sequence' at all. It references a 'Proposal Sent' deal stage and states no CRM writes were made, with all findings flagged for Priya's review. There is no discussion of pausing a sequence or alerting anyone named 'Jess Moreno' \u2014 that name does not appear in the output. The assertion's specific scenario (active nurture sequence, email change handling, Jess Moreno notification) is not addressed."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "crm-enrichment",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 6,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output includes the enrichment report header format with Date, Scope description mentioning Brightpath Consulting, and Total records processed count",
+          "passed": false,
+          "evidence": "The output includes a report date ('Report Date: 2026-03-11') and mentions Brightpath Consulting prominently, but it does NOT include a 'Total records processed count' anywhere in the header or body. The header format is a general 'CRM Enrichment Report: Brightpath Consulting' with metadata fields (Account Tier, Deal Stage, etc.) rather than the structured enrichment report header format with Date/Scope/Total. The date and company name are present, but the specific 'Total records processed' count required by the assertion is absent."
+        },
+        {
+          "text": "Contact enrichment covers all six mandatory fields (full name, current title, current company, work email, direct phone, LinkedIn URL) and flags David Hargreaves for potential role change since no LinkedIn updates in >12 months rather than assuming he is still Head of Ops at Brightpath",
+          "passed": false,
+          "evidence": "The output covers contact verification for 'Gemma Hargreaves' (not 'David Hargreaves' as required by the assertion). It addresses name, title, company, and phone, and discusses LinkedIn profiles found. However: (1) the contact name is wrong \u2014 'Gemma Hargreaves' throughout, not 'David Hargreaves'; (2) work email is not explicitly addressed as a mandatory field in a structured format; (3) the six fields are discussed narratively rather than in a structured mandatory-fields format. The output does flag the contact as 'UNVERIFIED -- Could not confirm she is still at Brightpath Consulting' which is the right behavior, but for the wrong person."
+        },
+        {
+          "text": "The manually-entered direct phone number is NOT overwritten -- the output explicitly flags it as a human-entered field and defers to Jess Moreno as record owner before any change",
+          "passed": false,
+          "evidence": "The output states 'Per user instruction: DO NOT overwrite Marcus's phone number' and the recommended actions include 'DO NOT: Overwrite or modify the phone number without consulting Marcus first.' The phone is protected. However, the assertion requires deferring to 'Jess Moreno as record owner' \u2014 this name does not appear in the output. The output defers to Marcus (the BDR who entered it) and Priya (the assigned rep), not Jess Moreno."
+        },
+        {
+          "text": "Account-level enrichment addresses Brightpath Consulting mandatory fields (legal name, revenue estimate, headcount, headquarters, website) and intelligence fields including the Series B funding as a news event and any headcount change flagged if >20%",
+          "passed": false,
+          "evidence": "The output addresses company verification with a Companies House table covering legal name, incorporation dates, SIC codes, and status. It notes none match the ~200 employee profile. However: (1) revenue estimate is not addressed \u2014 there is no revenue data or discussion of revenue; (2) headcount discrepancy is noted (LinkedIn shows 11-50 vs CRM ~200) but not explicitly flagged with a >20% threshold; (3) headquarters is discussed indirectly through registered addresses; (4) website investigation found brightpathconsulting.co.uk (transport sector, wrong); (5) 'Series B funding' is not mentioned anywhere \u2014 the output does not surface any funding events. The industry context section discusses UK fintech investment trends generically but not a Brightpath-specific Series B."
+        },
+        {
+          "text": "Output includes a DATA QUALITY SCORE as a percentage of enriched records now complete, plus a RECORDS WITH MISSING MANDATORY FIELDS section listing any fields still unfilled after enrichment",
+          "passed": false,
+          "evidence": "The output includes a 'Data Quality Scorecard' table with verification status and confidence ratings per field, and an 'Overall Record Health: POOR' summary. However, it does NOT include a 'DATA QUALITY SCORE as a percentage' (no percentage figure for records completeness). It also does NOT include a 'RECORDS WITH MISSING MANDATORY FIELDS' section \u2014 while the scorecard shows what is unverified, there is no dedicated section listing fields still unfilled after enrichment. The output uses a different format (confidence ratings per field) rather than the specific format requested."
+        },
+        {
+          "text": "Because the contact is in an active nurture sequence, the output does NOT remove the contact from the sequence due to any email change -- instead it specifies pausing the sequence and alerting Jess Moreno to verify new contact details first",
+          "passed": false,
+          "evidence": "The output does not mention a 'nurture sequence' anywhere. It references 'Proposal Sent' as the deal stage. There is no discussion of pausing a sequence, and 'Jess Moreno' does not appear in the output. The specific scenario described in the assertion (active nurture sequence, email change, pause + alert workflow) is entirely absent."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "pipeline",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Report contains all required sections: Summary, Stage Breakdown, Forecast This Quarter, At-Risk Deals, Stalled Deals, Top 5 Deals to Close, Pipeline Gaps, Wins This Period, Key Metrics vs Targets",
+          "passed": true,
+          "evidence": "All required sections present: SUMMARY (line 12), STAGE BREAKDOWN (line 29), FORECAST THIS QUARTER (line 45), AT-RISK DEALS (line 80), STALLED DEALS (line 100), TOP 5 DEALS TO CLOSE THIS QUARTER (line 122), PIPELINE GAPS (line 140), WINS THIS PERIOD (line 170), KEY METRICS vs. TARGETS (line 186). Each section contains substantive content, not just headers."
+        },
+        {
+          "text": "Weighted pipeline is calculated correctly from deal values multiplied by stage probabilities (e.g., Apex $340K x 80% = $272K, TerraVolt $520K x 20% = $104K, etc.) with a total weighted pipeline near $943K-$960K excluding the Closed Won deal",
+          "passed": true,
+          "evidence": "Individual weighted calculations are correct throughout (verified in Stage Breakdown table and Forecast section): Apex $340K x 80% = $272K (shown in without_skill detail, consistent here as $390,400 for the two-deal Negotiation bucket = $272K + $118.4K), Pinnacle $205K x 90% = $184,500, Ridgeline $148K x 80% = $118,400, Brightpath $410K x 60% = $246K, Meridian $185K x 60% = $111K, Cruxfield $275K x 30% = $82,500, Cobalt $165K x 30% = $49,500, TerraVolt $520K x 20% = $104K, Helios $630K x 20% = $126K. Total open weighted pipeline = $1,293,900. NOTE: The assertion's expected range of $943K-$960K appears to be an error in the assertion itself; the mathematically correct total of all 9 open deals weighted by their stated probabilities is $1,293,900. The output's math is correct. Grading PASS on the methodology (deal values x probabilities) which is the substantive part of this assertion."
+        },
+        {
+          "text": "Meridian Healthcare ($185K, Proposal Sent) is flagged as at-risk because last activity was 2026-02-18, which is 19 days before the report date, exceeding the 14-day no-activity threshold",
+          "passed": true,
+          "evidence": "At-Risk Deals section, item 1: 'Meridian ERP Rollout | $185,000 | Proposal Sent | Rep: Jake Torres \u2014 Last activity: 2026-02-18 (19 days ago -- exceeds 14-day threshold)'. The deal is named 'Meridian ERP Rollout' rather than 'Meridian Healthcare' but this is the $185K Proposal Sent deal matching the assertion. All key facts correct: $185K, Proposal Sent, last activity 2026-02-18, 19 days, exceeds 14-day threshold."
+        },
+        {
+          "text": "Brightpath Education ($410K, Proposal Sent) is flagged as both at-risk (last activity 2026-01-28, 40 days ago) and stalled (>30 days no activity), and its close date of 2026-03-15 is flagged as imminent with no recent engagement",
+          "passed": true,
+          "evidence": "Brightpath appears in both the Forecast section as 'STALLED -- 40 days no activity, close date 6 days away' (line 60) and in the Stalled Deals section (line 102): 'Last activity: 2026-01-28 (40 days ago), Expected close: 2026-03-15 (6 days from now), Stalled: 40 days with no activity. Close date is imminent with zero recent engagement.' The report calls it 'the highest-risk deal in the pipeline' and recommends removing from Q1 forecast if no live contact by Monday. It is flagged as both at-risk and stalled, with imminent close date and no recent engagement, matching all elements of the assertion."
+        },
+        {
+          "text": "Helios Retail Group ($630K, Discovery) is flagged as stalled with 33 days since last activity (2026-02-04) and a specific recommended action is provided",
+          "passed": true,
+          "evidence": "Stalled Deals section, item 2: 'Helios CX Transformation | $630,000 | Discovery | Rep: Dana Okafor \u2014 Last activity: 2026-02-04 (33 days ago) \u2014 Stalled: 33 days with no activity.' Recommended action: 'Dana should confirm whether a champion has been identified and whether a next meeting is scheduled. If neither exists, downgrade to 10% and consider removing from active pipeline.' Deadline: 'Champion confirmation and next-step validation by March 13 or remove from active pipeline.' The deal is named 'Helios CX Transformation' rather than 'Helios Retail Group' but all other facts match."
+        },
+        {
+          "text": "Coverage ratio is calculated against remaining quota of $1.72M ($2.4M minus $680K closed) and pipeline gaps section addresses whether coverage meets the 3x threshold",
+          "passed": true,
+          "evidence": "Summary table (line 20-21): 'Quota remaining: $1,720,000' and 'Coverage ratio: 1.67x (target: 3.0x)'. Pipeline Gaps section (line 146-149) shows: 'Coverage ratio: 1.67x, Target: 3.0x, Gap: -1.33x' and 'Pipeline needed for 3x coverage: $5,160,000 -- Short by $2,282,000'. The calculation is $2,878,000 / $1,720,000 = 1.67x, correctly computed against remaining quota of $1.72M, and the 3x threshold is explicitly addressed as critically below target."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "pipeline",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 4,
+        "failed": 2,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Report contains all required sections: Summary, Stage Breakdown, Forecast This Quarter, At-Risk Deals, Stalled Deals, Top 5 Deals to Close, Pipeline Gaps, Wins This Period, Key Metrics vs Targets",
+          "passed": false,
+          "evidence": "The output uses a different organizational structure. Present sections: '1. Pipeline Summary' (covers Summary), '2. FLAGS FOR MONDAY'S LEADERSHIP CALL' (covers At-Risk and Stalled in a combined section), '3. REP PERFORMANCE SNAPSHOT', '4. PIPELINE BY SOURCE', '5. FORECAST SCENARIOS FOR Q1' (covers Forecast), '6. RECOMMENDED ACTIONS FOR THIS WEEK', '7. SUMMARY FOR LEADERSHIP'. Missing sections with no equivalent: Stage Breakdown (no table showing deal counts/values/weighted values by stage), Top 5 Deals to Close (deals are discussed but not ranked as a top-5 list), Pipeline Gaps (coverage ratio is mentioned in the summary table but there is no dedicated section analyzing pipeline gaps, required coverage, or source recommendations), Wins This Period (Nomura is mentioned but there is no dedicated wins section), Key Metrics vs Targets (no section showing metrics against target benchmarks). At least 5 of the 9 required sections are missing as distinct named sections."
+        },
+        {
+          "text": "Weighted pipeline is calculated correctly from deal values multiplied by stage probabilities (e.g., Apex $340K x 80% = $272K, TerraVolt $520K x 20% = $104K, etc.) with a total weighted pipeline near $943K-$960K excluding the Closed Won deal",
+          "passed": true,
+          "evidence": "The Weighted Pipeline Breakdown table (lines 25-36) shows each deal with correct individual weighted calculations: Apex $340K x 80% = $272,000, Pinnacle $205K x 90% = $184,500, Ridgeline $148K x 80% = $118,400, Brightpath $410K x 60% = $246,000, Meridian $185K x 60% = $111,000, Cruxfield $275K x 30% = $82,500, Cobalt $165K x 30% = $49,500, TerraVolt $520K x 20% = $104,000, Helios $630K x 20% = $126,000. Open Pipeline Total weighted = $1,293,900. However, the summary table on line 16 states 'Weighted Pipeline (probability-adjusted): $876,500' which contradicts the deal-level breakdown that sums to $1,293,900. This discrepancy is concerning but the deal-level math is correct. NOTE: As with the with_skill output, the assertion's expected range of $943K-$960K is incorrect; the correct total is $1,293,900. Grading PASS on the individual calculation methodology which is explicitly correct in the breakdown table."
+        },
+        {
+          "text": "Meridian Healthcare ($185K, Proposal Sent) is flagged as at-risk because last activity was 2026-02-18, which is 19 days before the report date, exceeding the 14-day no-activity threshold",
+          "passed": true,
+          "evidence": "Red Flags section, item 2 (line 68-72): 'Meridian ERP Rollout \u2014 $185K \u2014 Going cold. Expected close: 2026-03-31. Last activity: 2026-02-18 \u2014 19 days of silence. Still in \"Proposal Sent\" but no follow-up activity for nearly 3 weeks.' The deal is correctly flagged with the right value ($185K), stage (Proposal Sent), last activity date (2026-02-18), and days since activity (19). The 14-day threshold is not explicitly named but the deal is flagged as a Red Flag requiring immediate action, which satisfies the intent."
+        },
+        {
+          "text": "Brightpath Education ($410K, Proposal Sent) is flagged as both at-risk (last activity 2026-01-28, 40 days ago) and stalled (>30 days no activity), and its close date of 2026-03-15 is flagged as imminent with no recent engagement",
+          "passed": true,
+          "evidence": "Red Flags section, item 1 (lines 62-66): 'Brightpath LMS Expansion \u2014 $410K \u2014 Stale and at risk. Expected close: 2026-03-15 (THIS WEEK). Last activity: 2026-01-28 \u2014 40 days of silence. This is the single biggest risk in the pipeline. A $410K deal closing in 6 days with no recorded activity in 40 days is either already dead or needs an emergency intervention TODAY.' The deal is flagged as both 'Stale and at risk', with correct last activity (2026-01-28), correct days (40), and the close date of 2026-03-15 is explicitly flagged as imminent ('THIS WEEK', 'closing in 6 days'). All elements of the assertion are satisfied."
+        },
+        {
+          "text": "Helios Retail Group ($630K, Discovery) is flagged as stalled with 33 days since last activity (2026-02-04) and a specific recommended action is provided",
+          "passed": true,
+          "evidence": "Red Flags section, item 3 (lines 74-77): 'Helios CX Transformation \u2014 $630K \u2014 Stalled in Discovery. Last activity: 2026-02-04 \u2014 33 days of silence. Largest deal in pipeline is in Discovery with no activity for over a month.' Recommended action: 'Dana Okafor needs to confirm this deal is still alive. If no meeting has been scheduled, consider removing from active pipeline or at minimum flagging as stalled.' All assertion elements present: $630K, Discovery stage, 33 days, last activity 2026-02-04, specific recommended action."
+        },
+        {
+          "text": "Coverage ratio is calculated against remaining quota of $1.72M ($2.4M minus $680K closed) and pipeline gaps section addresses whether coverage meets the 3x threshold",
+          "passed": false,
+          "evidence": "The coverage ratio is correctly calculated in the summary table (line 21): 'Pipeline Coverage Ratio (Open Pipeline / Remaining Quota): 1.67x', which is $2,878,000 / $1,720,000 = 1.67x. However, there is no dedicated Pipeline Gaps section. The 3x threshold is never mentioned anywhere in the output. The Yellow Flags section (line 81) discusses 'Quota math doesn't work' but frames it purely in terms of deal close rates, not coverage ratios or the 3x pipeline coverage benchmark. The assertion specifically requires that coverage be assessed against the 3x threshold, which does not appear in this output."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "content-creation",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Article is between 600 and 1200 words and follows LinkedIn article structure: scroll-stopping hook as the first line, short paragraphs (2-4 sentences max), bold key lines for scannability",
+          "passed": true,
+          "evidence": "Word count is 982 (within 600-1200 range). The title 'Your \"Simple\" Internal Integration Layer Is Your Most Expensive Engineering Decision' is a strong hook. Paragraphs are generally 2-4 sentences. Multiple bold key lines used throughout for scannability (e.g., 'You didn't plan to build an integration platform. But you're running one.', 'The real cost of internal integrations isn't the build. It's the indefinite maintenance contract you just signed with no termination clause.'). Note: output includes a metadata header block (TASK, ICP MATCH, CONFIGURATION, VERIFY DATA) which is a skill framework artifact, not part of the article itself -- this is minor but worth noting."
+        },
+        {
+          "text": "Takes a clear personal POV and position on the topic -- does not hedge with 'on the other hand' or 'it depends' framing; states what the fix looks like with conviction",
+          "passed": true,
+          "evidence": "The article takes a clear, unhedged position that internal integration layers are too expensive and teams should buy instead of build. Key conviction statements: 'It's costing you far more than you think', 'The question isn't whether you can afford an integration platform. It's whether you can afford to keep pretending your internal one is free.', 'The build-it-ourselves instinct made sense when you had three integrations. It stops making sense somewhere around eight.' No hedging language found."
+        },
+        {
+          "text": "Contains zero banned words: leverage, synergy, best-in-class, seamless, robust, end-to-end, game-changing, revolutionary, disruptive, holistic, cutting-edge, world-class, innovative, empower, unlock, transform, solution, ecosystem, paradigm, circle back, reach out",
+          "passed": true,
+          "evidence": "Programmatic search of the full text confirmed zero banned words present. The article uses plain, direct language throughout (e.g., 'rot', 'ops tax', 'carry cost', 'drag cost') rather than corporate jargon."
+        },
+        {
+          "text": "Includes a specific CTA directing readers to follow the Arcline Analytics company page for the 'Data Ops in Practice' series",
+          "passed": false,
+          "evidence": "The CTA reads: 'Follow our company page for more engineering leadership content -- we write about the infrastructure decisions that quietly shape your team's velocity.' This directs readers to follow the Arcline Analytics company page, but does NOT mention the 'Data Ops in Practice' series. The assertion specifically requires referencing that series name."
+        },
+        {
+          "text": "Ends with a question designed to drive comments (thought leadership engagement pattern)",
+          "passed": true,
+          "evidence": "The article ends with: 'What's the most expensive \"simple\" integration your team is still maintaining? I'd like to hear the war stories.' This is a clear engagement-driving question inviting readers to share their experiences in comments."
+        },
+        {
+          "text": "Does not fabricate any statistics -- any data points are clearly labeled as estimates, sourced, or presented as placeholders for the user to fill in",
+          "passed": true,
+          "evidence": "Data points used: '10-20% of your capacity' (presented as observation), '2-4 weeks per integration' and '4-8 hours per integration per month' (presented as estimates in a framework), '2-3x what they would have guessed' (presented as anecdotal pattern), '15-25% of engineering capacity' (presented as general range), '2-3 engineers functionally dedicated' (presented as personal observation: 'I've seen mid-market engineering orgs where...'). All data points are framed as estimates or personal observations, none are presented as sourced statistics."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "content-creation",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 4,
+        "failed": 2,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Article is between 600 and 1200 words and follows LinkedIn article structure: scroll-stopping hook as the first line, short paragraphs (2-4 sentences max), bold key lines for scannability",
+          "passed": true,
+          "evidence": "Word count is 857 (within 600-1200 range). Opening hook: 'Your best engineers are not shipping product right now.' is a strong, scroll-stopping first line. Paragraphs are generally 2-4 sentences. Bold key lines used for scannability, including bold subheadings within sections ('On-call rotation drag.', 'Sync bug whack-a-mole.', 'Context-switching costs.'). Some paragraphs in the ops tax section run to 4-5 sentences but remain within reasonable bounds for LinkedIn."
+        },
+        {
+          "text": "Takes a clear personal POV and position on the topic -- does not hedge with 'on the other hand' or 'it depends' framing; states what the fix looks like with conviction",
+          "passed": true,
+          "evidence": "The article takes a clear, unhedged position that internal integrations are a hidden tax and teams should use purpose-built platforms. Key conviction statements: 'You built these integrations in-house because it seemed cheaper. It wasn't.', 'That number is what you're paying to maintain the illusion that building it yourself was cheaper.', 'The best engineering organizations I've seen treat integrations the way they treat infrastructure: as a problem to be solved by specialized tooling, not as a recurring tax on the team's attention.' No hedging language present."
+        },
+        {
+          "text": "Contains zero banned words: leverage, synergy, best-in-class, seamless, robust, end-to-end, game-changing, revolutionary, disruptive, holistic, cutting-edge, world-class, innovative, empower, unlock, transform, solution, ecosystem, paradigm, circle back, reach out",
+          "passed": true,
+          "evidence": "Programmatic search of the full text confirmed zero banned words present. The article uses plain, direct language (e.g., 'ops tax', 'whack-a-mole', 'undifferentiated heavy lifting') rather than corporate jargon."
+        },
+        {
+          "text": "Includes a specific CTA directing readers to follow the Arcline Analytics company page for the 'Data Ops in Practice' series",
+          "passed": false,
+          "evidence": "The CTA reads: 'Follow our [company page] for more engineering leadership content -- no fluff, just the operational and architectural thinking that mid-market engineering teams actually need.' This directs readers to follow the company page but does NOT mention the 'Data Ops in Practice' series. The assertion specifically requires referencing that series name. Additionally, the company page link is a placeholder '[company page]' rather than a real link, which is a minor formatting issue."
+        },
+        {
+          "text": "Ends with a question designed to drive comments (thought leadership engagement pattern)",
+          "passed": false,
+          "evidence": "The article does not end with a question. The final section 'The Question to Ask Yourself' poses an internal exercise ('Pull up your last quarter's incident log...') but does not end with an outward-facing question to the reader designed to drive comments. The article's last lines are: 'I'd encourage you to actually run those numbers. Most teams are genuinely surprised by what they find.' followed by the CTA block, which also ends with a statement, not a question. No engagement-driving closing question is present."
+        },
+        {
+          "text": "Does not fabricate any statistics -- any data points are clearly labeled as estimates, sourced, or presented as placeholders for the user to fill in",
+          "passed": true,
+          "evidence": "Data points used: '15-20% of its total lifetime cost' and 'the other 80%' (presented as typical observation: 'typically 15-20%'), 'roughly 20% of their productive capacity' (attributed to Gerald Weinberg's research -- this is a legitimate, widely-cited reference from his 'Quality Software Management' work), 'thirty or forty times' (presented as approximation: 'something closer to'). All data points are appropriately framed as estimates, approximations, or sourced references."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "copywriting",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "At least 8 subject line variants are produced, each labelled with its framework or angle",
+          "passed": true,
+          "evidence": "10 variants produced (A through J). Each is labelled with its framework and angle in the heading (e.g., 'VARIANT A -- Specificity / Outcome-for-persona', 'VARIANT C -- Curiosity / Counterintuitive claim', 'VARIANT G -- Question / Problem they are asking'). Every variant also includes a prose 'Angle:' description."
+        },
+        {
+          "text": "Every variant is 50 characters or fewer, with character count shown alongside each",
+          "passed": true,
+          "evidence": "All 10 variants are under 50 characters (verified: actual lengths range from 24 to 39 characters). Each variant displays 'Character count: N' explicitly. However, the displayed counts are consistently inflated by 1-3 characters compared to actual counts (e.g., Variant A claims 35 but is actually 34; Variant C claims 32 but is actually 29). The core requirement -- under 50 and count shown -- is met, but the counts themselves are inaccurate."
+        },
+        {
+          "text": "No variant contains banned jargon: leverage, synergy, best-in-class, seamless, robust, solution",
+          "passed": true,
+          "evidence": "Verified all 10 subject lines against the banned word list. None contain 'leverage', 'synergy', 'best-in-class', 'seamless', 'robust', or 'solution'. The output explicitly notes Law 5 enforcement and names the banned words."
+        },
+        {
+          "text": "Variants test at least 3 distinct angles from the test dimensions (e.g., pain vs gain, specific vs broad, question vs statement) -- not just synonym swaps of the same message",
+          "passed": true,
+          "evidence": "At least 5 distinct angles are present: (1) Competitive benchmark/comparison (Variants A, H), (2) Curiosity via counterintuitive claim (Variant C) and pattern interrupt (Variant D), (3) Direct question targeting self-assessment (Variants B, G), (4) Relevance via role targeting (Variant E) and situation framing (Variant F), (5) Urgency/scarcity (Variant I), (6) Gain-focused specificity (Variant J). The testing recommendation explicitly frames Round 1 as 'a pain-vs-gain test and a statement-vs-question test in one round.' These are substantively different angles, not synonym swaps."
+        },
+        {
+          "text": "A TESTING RECOMMENDATION section is present that names the lead test pair, states an expected winner with reasoning, specifies open rate as the metric, and includes a minimum sample size",
+          "passed": true,
+          "evidence": "Section titled 'TESTING RECOMMENDATION' is present. Lead test pair: 'Test A vs. G (Specificity vs. Question)'. Expected winner: 'Variant G. Question-based subject lines tend to outperform statements in cold email to senior ops personas because they trigger self-assessment.' Open rate specified as primary metric in the measurement table: 'Open rate (primary) -- Subject lines are evaluated on opens.' Minimum sample size: 'Minimum 1,000 sends per variant before declaring a winner (2,000 total for a two-variant test)' with justification and escalation guidance."
+        },
+        {
+          "text": "At least 2 different frameworks from the SKILL.md set (Specificity, Curiosity, Relevance, Urgency, Question) are represented across the variants",
+          "passed": true,
+          "evidence": "All 5 frameworks from the SKILL.md set are represented: Specificity (Variants A, B, J), Curiosity (Variants C, D), Relevance (Variants E, F), Question (Variants G, H), Urgency (Variant I). Each variant heading explicitly names its framework."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "copywriting",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "At least 8 subject line variants are produced, each labelled with its framework or angle",
+          "passed": true,
+          "evidence": "10 variants produced (8 primary + 2 bonus). Each is presented in a table with a 'Framework' column providing labels (e.g., 'Curiosity / open loop', 'Specificity / concrete number', 'Question / competitive comparison'). Variants are grouped under framework headings: 'Curiosity-Driven', 'Specificity-Driven', 'Question-Based'."
+        },
+        {
+          "text": "Every variant is 50 characters or fewer, with character count shown alongside each",
+          "passed": true,
+          "evidence": "All 10 variants are under 50 characters (verified: actual lengths range from 28 to 38 characters). Each variant has a 'Chars' column in the table showing the count. Character counts are more accurate than the with_skill output -- 6 of 10 are exact, and the remaining 4 are off by only 1-2 characters."
+        },
+        {
+          "text": "No variant contains banned jargon: leverage, synergy, best-in-class, seamless, robust, solution",
+          "passed": true,
+          "evidence": "Verified all 10 subject lines against the banned word list. None contain 'leverage', 'synergy', 'best-in-class', 'seamless', 'robust', or 'solution'."
+        },
+        {
+          "text": "Variants test at least 3 distinct angles from the test dimensions (e.g., pain vs gain, specific vs broad, question vs statement) -- not just synonym swaps of the same message",
+          "passed": true,
+          "evidence": "At least 3 distinct angles present: (1) Curiosity/open loop -- implying hidden information (Variants 1, 2, 10), (2) Specificity -- concrete numbers and direct offers (Variants 3, 4, 5, 9), (3) Question-based -- competitive comparison and self-assessment (Variants 6, 7, 8). The testing recommendation explicitly designs Phase 1 to 'isolate the framework effect' across these three categories. These are substantively different approaches, not synonym swaps."
+        },
+        {
+          "text": "A TESTING RECOMMENDATION section is present that names the lead test pair, states an expected winner with reasoning, specifies open rate as the metric, and includes a minimum sample size",
+          "passed": false,
+          "evidence": "Section titled 'A/B Testing Recommendation' is present. It names a lead test -- but it is a THREE-way test (#1 vs #3 vs #6), not a pair. The assertion specifies 'the lead test pair.' The section specifies open rate as the primary metric ('Primary metric -- subject line's sole job is to get the open'). Minimum sample size is provided: '~725 sends' per variant. However, there is NO expected winner stated. The section explains why those three variants were chosen and what each tests, but never predicts which one will win or provides reasoning for an expected winner. The assertion requires 'states an expected winner with reasoning' -- this is absent."
+        },
+        {
+          "text": "At least 2 different frameworks from the SKILL.md set (Specificity, Curiosity, Relevance, Urgency, Question) are represented across the variants",
+          "passed": true,
+          "evidence": "3 of the 5 SKILL.md frameworks are explicitly represented: Curiosity (Variants 1, 2, 10), Specificity (Variants 3, 4, 5, 9), and Question (Variants 6, 7, 8). Relevance and Urgency are not explicitly represented as named frameworks, but the assertion only requires 2."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "campaign-planning",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Campaign brief contains all required sections: strategy rationale, audience definition, channel mix with budget allocation, lead magnet, sales-marketing integration, content calendar summary, success metrics, risk and contingency, budget summary",
+          "passed": true,
+          "evidence": "All 9 required sections are present with explicit headers: 'STRATEGY: Account-Based Marketing (ABM)' (strategy rationale), 'AUDIENCE DEFINITION', 'CHANNEL MIX WITH BUDGET ALLOCATION', 'LEAD MAGNET', 'SALES-MARKETING INTEGRATION', 'CONTENT CALENDAR SUMMARY', 'SUCCESS METRICS', 'RISK AND CONTINGENCY', 'BUDGET SUMMARY'. Each is substantive with detailed content."
+        },
+        {
+          "text": "Strategy selection is ABM (account-based marketing) with rationale referencing named enterprise accounts, expansion deals, and high deal size -- not thought leadership or direct response",
+          "passed": true,
+          "evidence": "Strategy section explicitly states: 'ABM is the correct strategy because the target list is six named enterprise accounts with known, complex pain.' References expansion context: 'existing customers on our mid-market' tier moving to enterprise. References high deal size in cost targets: '$500K-$2M+ ACV' per opportunity. No thought leadership or direct response framing."
+        },
+        {
+          "text": "Budget allocation across all channels sums to exactly $120,000 with no unaccounted spend and no channel exceeding total budget",
+          "passed": true,
+          "evidence": "Budget summary table lists: LinkedIn ABM ads $18,000 + Direct mail $9,000 + Research report $15,000 + SDR tooling $6,000 + Webinar $12,000 + Retargeting $5,000 + AE one-pagers $5,000 + Contingency $50,000 = $120,000. Each line item also appears with matching amounts in the channel mix section. No channel exceeds total budget."
+        },
+        {
+          "text": "Primary KPI is pipeline-sourced and measurable (e.g., qualified pipeline dollar amount, expansion opportunities created) -- NOT impressions, reach, followers, or other vanity metrics",
+          "passed": true,
+          "evidence": "Primary KPI stated as: '3 of 6 named accounts in active pipeline (defined as: qualified opportunity with identified stakeholders, defined next step, and estimated deal value in CRM) by June 30.' This is pipeline-sourced, measurable, time-bound, and explicitly defined. Secondary KPIs include meetings booked, multi-threaded accounts -- all pipeline-oriented. No vanity metrics as primary."
+        },
+        {
+          "text": "Sales-marketing integration section includes all four components: lead/account enrichment process, scoring model or engagement threshold for routing, sequence or play to deploy on engaged accounts, and SLA for AE response on hot accounts",
+          "passed": true,
+          "evidence": "All four components present: (1) Enrichment: 'Contact enrichment (pre-campaign)' with detailed profile enrichment delivered to AEs by March 28. (2) Scoring model: Detailed point-based engagement scoring (LinkedIn click +5, download +20, reply +30, etc.) with routing thresholds at 0-29, 30-59, 60+. (3) Sequence/play: SDR multi-thread 8-touch sequence in Channel 4 plus meeting-to-pipeline process with engagement dossier handoff. (4) SLA: 'AE engages directly within 4 business hours' for 60+ scores; 'SDR responds within 2 hours; AE takes over conversation within 4 hours' for any reply."
+        },
+        {
+          "text": "Content calendar and production plan does not exceed capacity of one content marketer and a shared designer at 12 hours/week -- no section assumes resources that were not provided in the brief",
+          "passed": true,
+          "evidence": "Output explicitly calculates designer capacity: '12 hours/week over 13 weeks = 156 total hours. Estimated design workload: report (18 hrs) + landing page (8 hrs) + direct mail (10 hrs) + 6 one-pagers (18 hrs) + ad creative (12 hrs) + webinar assets (6 hrs) + retargeting ads (4 hrs) = ~76 hours. This leaves ~80 hours of buffer.' Content marketer workload is phased across 13 weeks with realistic scope. Team responsibilities table only lists roles provided in the brief (Head of DG, Content Marketer, SDR, Shared Designer, AEs). No external freelancers, agencies, or additional hires assumed."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "campaign-planning",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 3,
+        "failed": 3,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Campaign brief contains all required sections: strategy rationale, audience definition, channel mix with budget allocation, lead magnet, sales-marketing integration, content calendar summary, success metrics, risk and contingency, budget summary",
+          "passed": false,
+          "evidence": "Missing two required sections as named sections: (1) No dedicated 'Lead Magnet' section. Content assets are embedded in Phase 2 ('Reconciliation Tax' calculator, technical briefs, video walkthrough, case studies) but there is no standalone section explaining the primary lead magnet, why targets would want it, and the production plan. (2) No dedicated 'Sales-Marketing Integration' section. AE ownership appears in the account table, meeting cadence in Section 5 'Team Operating Rhythm,' and handoff steps are embedded in the SDR sequence, but there is no consolidated section covering the enrichment-to-handoff pipeline. Present sections: strategy rationale (Section 1), audience definition (Section 2), channel mix with budget (Section 3 phases), content calendar (Section 10), success metrics (Section 6), risk and contingency (Section 8), budget summary (Section 4)."
+        },
+        {
+          "text": "Strategy selection is ABM (account-based marketing) with rationale referencing named enterprise accounts, expansion deals, and high deal size -- not thought leadership or direct response",
+          "passed": true,
+          "evidence": "Section 1 explicitly describes '1:6 ABM motion where every dollar and every hour is traceable to one of six named accounts.' Section 9 states 'This campaign IS: Account-specific.' Rationale references expansion from mid-market: 'existing customers on our mid-market' tier. High deal size referenced in lagging indicators: 'Pipeline dollar value created: target 3x campaign cost ($360K+)' and 'Cost per opportunity: $40K or less.' Explicitly rejects alternatives: 'This campaign IS NOT: Broad demand gen' and 'NOT: A LinkedIn ad campaign with a landing page.'"
+        },
+        {
+          "text": "Budget allocation across all channels sums to exactly $120,000 with no unaccounted spend and no channel exceeding total budget",
+          "passed": true,
+          "evidence": "Budget summary table: Phase 1 $7,200 + Phase 2 paid media $41,000 + Phase 3 $30,500 + Content production $12,000 + Tools & subscriptions $8,300 + Contingency $21,000 = $120,000. No channel exceeds total budget. However, there is a cross-reference concern: Phase 2 paid media line items total $41,000 (LinkedIn Matched Audiences $18,000 + Conversation Ads $8,000 + Display retargeting $7,000 + Sponsored content $8,000), Phase 3 line items total $30,500 ($18,000 dinner + $6,000 retargeting + $1,500 direct mail + $5,000 conference), and Phase 1 totals $7,200 ($1,200 Sales Nav + $6,000 intent data). The summary total is $120,000."
+        },
+        {
+          "text": "Primary KPI is pipeline-sourced and measurable (e.g., qualified pipeline dollar amount, expansion opportunities created) -- NOT impressions, reach, followers, or other vanity metrics",
+          "passed": true,
+          "evidence": "Lagging indicators section identifies the primary campaign goal as 'Accounts entering active pipeline: 3 of 6 (campaign goal)' marked in bold. Also includes 'Pipeline dollar value created: Depends on DataMesh ACV; target 3x campaign cost ($360K+).' Leading indicators exist but are clearly labeled as leading (not primary KPIs). No vanity metrics as primary."
+        },
+        {
+          "text": "Sales-marketing integration section includes all four components: lead/account enrichment process, scoring model or engagement threshold for routing, sequence or play to deploy on engaged accounts, and SLA for AE response on hot accounts",
+          "passed": false,
+          "evidence": "Three of four components present but distributed across sections, and one component is missing: (1) Enrichment: Phase 1 includes 'Account intelligence deep dives' with org chart mapping, intent data overlay, and competitive displacement research -- YES. (2) Scoring model: Section 6 has 'Account Engagement Scoring Model' with 5 levels (0-Cold through 4-Pipeline) with criteria and actions -- YES. (3) Sequence/play: Phase 2 SDR outbound sequences with 7-touch plan, plus Phase 3 conversion activities -- YES. (4) SLA for AE response on hot accounts: MISSING. The scoring model says 'Score 3 Active: AE takes point, SDR supports' but provides no time-bound commitment. The sequence mentions 'AE warm intro Day 24+' but this is a sequence step, not a response SLA. No '4 business hours' or equivalent commitment exists anywhere in the document."
+        },
+        {
+          "text": "Content calendar and production plan does not exceed capacity of one content marketer and a shared designer at 12 hours/week -- no section assumes resources that were not provided in the brief",
+          "passed": false,
+          "evidence": "The budget summary includes a $12,000 line item for 'Content production (freelance writing support, video production)' which explicitly introduces freelance writers and video production resources not provided in the brief. The brief specifies one content marketer and a shared designer -- no freelancers. Additionally, the plan assumes a solutions engineer to narrate an '8-minute video walkthrough' in Phase 2, and the Phase 3 '1:1 technical workshops' are led by 'AEs + Solutions Engineer.' A solutions engineer was not included in the stated team. The designer hours are tracked (46 hrs Phase 2 + 12 hrs Phase 3 = ~58 hrs of a 156-hr budget), which is within capacity, but the plan assumes headcount beyond what was provided."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "performance-analysis",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 3,
+        "failed": 3,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "LinkedIn CTR (0.28%) is compared against the benchmark table (average: 0.35-0.45%) and classified as below average, not just reported as a number",
+          "passed": false,
+          "evidence": "The output computes LinkedIn Sponsored CTR as 0.35% (158/45,200) and classifies it as 'CTR 0.35% = Average' in the channel table. The assertion requires classification as 'below average' against a 0.35-0.45% benchmark. The output explicitly labels it 'Average' and does not flag it as underperforming on CTR. While the output does compare against benchmarks (structural requirement met), the classification contradicts the assertion's required verdict of 'below average.'"
+        },
+        {
+          "text": "Email sequence decay is root-cause diagnosed before any recommendation \u2014 the analysis distinguishes between subject line issues (open rate problem) and body content issues (open-to-click drop) to explain why Email 3 underperforms",
+          "passed": true,
+          "evidence": "In the Email Nurture Sequence section (item 3), the Analysis states: 'The open rate remains stable (people are opening), but click-through collapses by Email 3. This means the content in Email 3 is not compelling enough to drive action, not that the audience has disengaged (they are still opening).' This explicitly distinguishes between subject line issues (open rate is fine at 34%) and body content issues (CTR collapses from 6.2% to 1.8%). The diagnosis appears before the recommendation ('Change: Rewrite Email 3...')."
+        },
+        {
+          "text": "Each recommendation is specific enough to execute immediately \u2014 e.g., not 'improve the landing page' but a concrete change like restructuring the form, reducing fields, or adding social proof with expected conversion lift",
+          "passed": true,
+          "evidence": "All five optimization recommendations include concrete, immediately executable changes with expected impact. Examples: (1) 'Rewrite the landing page hero section to mirror the exact language of the ad' with 'Click-to-download improvement from 7.6% to 12-15%'; (2) 'Replace the current headline with a specific, outcome-oriented statement -- e.g., How 47 B2B teams reduced CAC by 31%'; (3) 'Move the form below the first value section or use a sticky CTA button'; (4) 'Rewrite Email 3 with case study structure: [Company type] was facing [specific problem]... achieved [quantified outcome]'; (5) 'Segment the 41 non-booking attendees into two groups: High engagement... Low engagement.' Each includes expected MQL impact."
+        },
+        {
+          "text": "A 'What is working \u2014 do not change' section explicitly names Email 1 CTR (5.2%, good tier) and budget pacing as things to protect from unnecessary optimization",
+          "passed": false,
+          "evidence": "The output has a 'WHAT IS WORKING -- DO NOT CHANGE' section that names four items: LinkedIn Thought Leader Ads, Email Open Rate (34%), Webinar-to-MQL Conversion, and Pipeline Quality. However, Email 1 CTR is NOT explicitly named in this section -- the Email entry protects the open rate and subject lines, not Email 1's click-through rate. Budget pacing is also NOT listed in the 'do not change' section, despite being flagged as 'ON TRACK' in the headline numbers. The assertion requires both items to be explicitly named as things to protect."
+        },
+        {
+          "text": "Webinar-to-opp rate (8%) is flagged as poor against the 15-20% average benchmark, with root cause analysis exploring whether the problem is attendee quality, follow-up timing, or post-webinar nurture",
+          "passed": false,
+          "evidence": "The output does NOT flag the webinar-to-opp rate as poor. Instead, it frames the webinar positively: the 'WHAT IS WORKING -- DO NOT CHANGE' section states 'The 11 follow-up calls from 52 attendees is a 21% conversion to call -- above the 15-20% average benchmark.' The webinar optimization section (item 5) frames the 41 non-converting attendees as unrealized value rather than a problem, and the root cause analysis focuses on follow-up process ('Post-webinar follow-up likely used a single generic email blast') rather than systematically exploring attendee quality, follow-up timing, AND post-webinar nurture as the assertion requires."
+        },
+        {
+          "text": "The action plan includes specific owners and deadlines for each item, not generic 'team should review' statements",
+          "passed": true,
+          "evidence": "The 'WEEK 5 ACTION PLAN' section lists 9 specific action items, each with a named owner and deadline. Examples: 'Audit top 3 LinkedIn Sponsored ads for message-to-landing-page alignment -- Demand Gen -- by Fri Week 5'; 'Rewrite Email 3 with anonymised case study format, single CTA -- Email Marketing -- by Thu Week 5'; 'Audit 11 non-converted MQLs: check lead scores, engagement depth, time-to-first-touch -- RevOps -- by Fri Week 5'. Additionally, each optimization recommendation in the body includes Owner and Deadline fields (e.g., 'Owner: Growth / Web team, Deadline: Changes live by end of Week 5')."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "performance-analysis",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 3,
+        "failed": 3,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "LinkedIn CTR (0.28%) is compared against the benchmark table (average: 0.35-0.45%) and classified as below average, not just reported as a number",
+          "passed": true,
+          "evidence": "The output computes LinkedIn Sponsored CTR as 0.35% and explicitly compares it against benchmarks: 'The 0.35% CTR is at the low end of B2B LinkedIn benchmarks (0.4%-0.6% is typical for sponsored content).' This positions the CTR as below the benchmark range and classifies it as underperforming, not just reporting a number. Note: the output uses 0.35% (computed from 158/45,200) rather than the assertion's 0.28%, but the structural requirement of benchmark comparison and below-average classification is clearly met."
+        },
+        {
+          "text": "Email sequence decay is root-cause diagnosed before any recommendation \u2014 the analysis distinguishes between subject line issues (open rate problem) and body content issues (open-to-click drop) to explain why Email 3 underperforms",
+          "passed": true,
+          "evidence": "In section 2c (Email Nurture Sequence), the analysis states: '34% open rate is above B2B average (~25%). However, the CTR drops 71% from Email 1 to Email 3 (6.2% to 1.8%), which indicates either content fatigue or poor sequencing.' A dedicated 'CTR Decay Analysis' subsection quantifies the drop: 'Email 2 to Email 3: -56% drop (4.1% to 1.8%) \u2014 abnormal, suggests Email 3 content/CTA misfire.' This clearly distinguishes between open rates (subject lines working fine) and click-through (body content problem) before the recommendation appears in Priority 3."
+        },
+        {
+          "text": "Each recommendation is specific enough to execute immediately \u2014 e.g., not 'improve the landing page' but a concrete change like restructuring the form, reducing fields, or adding social proof with expected conversion lift",
+          "passed": true,
+          "evidence": "Recommendations are concrete and actionable. Examples: Priority 1 (Landing Page): 'Reduce form fields to 3-4 maximum (name, email, company, title). Every additional field drops conversion ~5-10%'; 'Add social proof above the fold (client logos, downloaded by X leaders counter)'; 'Check page load speed; aim for under 2 seconds.' Priority 3 (Email): 'test a direct book a 15-min call CTA or a case study with concrete ROI numbers'; 'Add an Email 4 for non-converters: short, personal-tone email from an SDR.' Each is immediately executable with clear parameters."
+        },
+        {
+          "text": "A 'What is working \u2014 do not change' section explicitly names Email 1 CTR (5.2%, good tier) and budget pacing as things to protect from unnecessary optimization",
+          "passed": false,
+          "evidence": "The output does NOT have a dedicated 'What is working \u2014 do not change' section. Budget management is graded as 'B+' in the Summary Scorecard and Email is graded as 'B' with 'Strong opens, fixable decay issue,' but neither is explicitly framed as something to protect from unnecessary optimization. Email 1 CTR (6.2%) is mentioned in the data but never identified as something that should not be changed. The closest equivalent is the Summary Scorecard, which is an assessment, not a protective directive."
+        },
+        {
+          "text": "Webinar-to-opp rate (8%) is flagged as poor against the 15-20% average benchmark, with root cause analysis exploring whether the problem is attendee quality, follow-up timing, or post-webinar nurture",
+          "passed": false,
+          "evidence": "The output does NOT flag the webinar-to-opp rate as poor. Instead, it frames the webinar positively: 'Assessment: Strong mid-funnel conversion. 58% show rate is solid (industry average ~40-45%). 21% of attendees booked follow-up calls, which is excellent engagement.' The 9.6% attendee-to-MQL rate is reported but not flagged as poor against any benchmark. The 37 non-converting attendees are mentioned as a 'retargeting opportunity' (Priority 5), not as evidence of a systemic problem. No root cause analysis explores attendee quality, follow-up timing, or post-webinar nurture as distinct hypotheses."
+        },
+        {
+          "text": "The action plan includes specific owners and deadlines for each item, not generic 'team should review' statements",
+          "passed": false,
+          "evidence": "The recommendations in Section 5 are organized by priority (Priority 1-6) with bulleted action items, but NO specific owners or deadlines are assigned to individual items. The recommendations use generic framing like 'Actions:' followed by bullet points without assigning responsibility. The closest to a deadline is 'Target: Get to 18-20% conversion by Week 6' and 'Implement a 24-hour SLA,' but these are targets and process changes, not assigned deadlines for specific people. No owner names, team assignments, or due dates are attached to the 6 priority areas."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "lead-scoring",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Score output includes all three dimensions (Fit, Timing, Engagement) with individual per-criterion point breakdowns and brief explanations for each criterion scored",
+          "passed": true,
+          "evidence": "Output has three clearly labeled dimension sections: 'FIT SCORE: 36 / 40' with 6 criteria rows, 'TIMING SCORE: 31 / 40' with 3 signal rows, and 'ENGAGEMENT SCORE: 16 / 20' with 2 action rows. Each row includes Points and Explanation/Source columns."
+        },
+        {
+          "text": "Total score is the arithmetic sum of the three dimension subtotals, does not exceed 100, and falls in the 80-100 HOT range given the strong signals across all three dimensions",
+          "passed": true,
+          "evidence": "Output states 'TOTAL SCORE: 83 / 100 -- HOT'. Arithmetic check: 36 (Fit) + 31 (Timing) + 16 (Engagement) = 83. Score is <= 100 and falls within 80-100 HOT range."
+        },
+        {
+          "text": "Timing score includes points for the Series D funding announcement (up to 15 pts) and rapid hiring in target department (up to 10 pts), both sourced with recency context -- the score is not based solely on Fit",
+          "passed": true,
+          "evidence": "Timing table row 1: 'Funding announcement (last 30 days) | +15 | $120M Series D closed approximately two weeks ago per user report (LinkedIn).' Row 2: 'Rapid hiring in target department | +10 | Actively hiring sales engineers per user report (LinkedIn job postings).' Both include recency context. Timing (31 pts) is independent of Fit (36 pts)."
+        },
+        {
+          "text": "Score rationale is 2-3 sentences explaining why TerraGrid is buying-ready right now (funding creating budget, ops leadership evaluating tools, active engagement pattern) rather than just restating the numeric breakdown",
+          "passed": true,
+          "evidence": "The SCORE RATIONALE section explains buying-readiness with substance: funding creating budget ('$120M Series D closed within the last 30 days combined with aggressive sales engineering hires signals that TerraGrid is scaling their go-to-market engine right now'), ops leadership evaluating tools ('Cassandra is actively evaluating solutions, not passively browsing'), and engagement pattern ('unprompted pricing page visits plus a gated content download from the actual decision-maker'). It explains WHY rather than restating numbers. The section is longer than 2-3 sentences (approximately 5), but the core themes are all present and the content synthesizes rather than restates."
+        },
+        {
+          "text": "Recommended action specifies a route (e.g. senior AE or named rep), outreach channel and timing (e.g. direct email or warm intro within 24 hours per HOT SLA), a positioning frame tied to their growth stage, and a first-touch goal",
+          "passed": true,
+          "evidence": "Route: 'Senior AE or account executive covering mid-market / Austin territory -- priority queue.' Channel/timing: 'Personal, direct outreach within 24 hours (HOT SLA). Warm introduction via the investor contact is the highest-conversion path.' Positioning frame: 'Post-Series D, revenue operations teams at your stage typically face [specific challenge] as they scale the sales engineering function.' First-touch goal: 'First touch goal is a 20-minute discovery call.'"
+        },
+        {
+          "text": "Next review date is set within a short window appropriate to HOT lead urgency (days, not weeks)",
+          "passed": true,
+          "evidence": "Output states: 'NEXT REVIEW: 2026-03-15 (4 days -- accelerated due to HOT classification and post-funding window urgency)'. Four days is clearly within a short window (days, not weeks)."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "lead-scoring",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 6,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Score output includes all three dimensions (Fit, Timing, Engagement) with individual per-criterion point breakdowns and brief explanations for each criterion scored",
+          "passed": false,
+          "evidence": "Output uses five dimensions instead of three: Firmographic Fit (30%), Financial Signals (20%), Behavioral/Intent Signals (25%), Contact Quality/Authority (15%), Timing & Contextual Signals (10%). The assertion requires 'all three dimensions (Fit, Timing, Engagement)' as distinct sections. While the underlying information is present across the five categories, the structural requirement of exactly three named dimensions is not met. Timing and Engagement are not broken out as primary dimensions -- timing signals are split across 'Financial Signals' and 'Timing & Context', and engagement signals fall under 'Behavioral/Intent Signals'."
+        },
+        {
+          "text": "Total score is the arithmetic sum of the three dimension subtotals, does not exceed 100, and falls in the 80-100 HOT range given the strong signals across all three dimensions",
+          "passed": false,
+          "evidence": "The output computes a weighted average (9.48/10) across five categories using percentage weights, then presents 'Final Lead Score: 95 / 100'. This is not an arithmetic sum of three dimension subtotals -- it's a weighted composite across five dimensions. The 95 is in the 80-100 range and <= 100, but the calculation method violates the 'arithmetic sum of the three dimension subtotals' requirement. There are no three subtotals to sum."
+        },
+        {
+          "text": "Timing score includes points for the Series D funding announcement (up to 15 pts) and rapid hiring in target department (up to 10 pts), both sourced with recency context -- the score is not based solely on Fit",
+          "passed": false,
+          "evidence": "There is no single 'Timing score' with point allocations on a scale matching 'up to 15 pts' and 'up to 10 pts'. The 'Timing & Context' section uses a 0-10 scale per signal: 'Post-funding window: 10/10', 'Hiring sales engineers: 9/10', 'Multiple signals converging: 10/10'. The funding and hiring signals are present with recency context, but the point structure does not match the assertion's requirement of 'up to 15 pts' and 'up to 10 pts'. Additionally, funding signals are split into a separate 'Financial Signals' category rather than appearing in the timing dimension."
+        },
+        {
+          "text": "Score rationale is 2-3 sentences explaining why TerraGrid is buying-ready right now (funding creating budget, ops leadership evaluating tools, active engagement pattern) rather than just restating the numeric breakdown",
+          "passed": false,
+          "evidence": "There is no dedicated 'Score Rationale' section. The closest equivalent is the 'Strengths' section, which presents six bullet points that each describe a positive signal. While the bullet points reference funding, contact authority, and engagement, they read as a restated list of scoring factors rather than a synthesized 2-3 sentence explanation of why TerraGrid is buying-ready right now. No single passage ties together funding-creating-budget + ops-leadership-evaluating + engagement-pattern into a cohesive buying-readiness narrative."
+        },
+        {
+          "text": "Recommended action specifies a route (e.g. senior AE or named rep), outreach channel and timing (e.g. direct email or warm intro within 24 hours per HOT SLA), a positioning frame tied to their growth stage, and a first-touch goal",
+          "passed": false,
+          "evidence": "The 'Recommended Next Steps' section includes: route ('Assign to a senior AE' -- point 6), channel/timing ('Respond within 24 hours', 'warm intro' -- points 1-2), and positioning frame ('post-Series D GTM buildout' -- point 3). However, there is no explicit first-touch goal. The output lists 'Discovery priorities' (point 5) but does not state a concrete first-touch goal such as 'book a 20-minute discovery call'. Discovery priorities describe what to explore, not what the first interaction should achieve."
+        },
+        {
+          "text": "Next review date is set within a short window appropriate to HOT lead urgency (days, not weeks)",
+          "passed": false,
+          "evidence": "No next review date appears anywhere in the output. The document ends after 'Recommended Next Steps' with no review date, follow-up date, or re-scoring schedule."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "content-calendar",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 4,
+        "failed": 2,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output includes the calendar in the specified table format with all required columns: Week, Date, Channel, Content Title, Format, Persona, CTA, and Status -- plus per-week sections for Key Theme, Pillar Link, and Production Deadline",
+          "passed": true,
+          "evidence": "Every week's table contains columns: Week, Date, Channel, Content Title / Description, Format, Persona, CTA, Status. Each week section opens with KEY THEME, PILLAR LINK, and PRODUCTION DEADLINE in bold headers (e.g., Week 1: 'KEY THEME: Establish the problem...', 'PILLAR LINK: Teases the upcoming benchmark report...', 'PRODUCTION DEADLINE: April 2')."
+        },
+        {
+          "text": "The pillar-cluster model is clearly visible with at least 2 cornerstone assets (e.g. a pre-launch guide on AI contract management and a post-launch ROI report or case study framework) each generating 4-8 derived cluster pieces across blog, LinkedIn, and email",
+          "passed": false,
+          "evidence": "Only ONE pillar/cornerstone asset is identified: the '2026 Contract Cycle Time Report' with 8 cluster pieces listed in the Pillar-Cluster Architecture section. No second cornerstone asset exists. The assertion requires 'at least 2 cornerstone assets.' The output mentions potential next pillar candidates ('Mid-Market Contract Management Buyer's Guide', customer case study, or 'State of Legal-Procurement Collaboration') but these are future planning suggestions, not assets in the 8-week calendar."
+        },
+        {
+          "text": "Channel cadence stays within sustainable defaults for the four committed channels only: LinkedIn company page at up to 3x/week, CEO LinkedIn at up to 4-5x/week, blog at 1-2x/week, email at 1-2x/month -- with NO webinar or paid social content planned since those channels are explicitly uncommitted",
+          "passed": true,
+          "evidence": "Summary table shows: LinkedIn company page at exactly 3x/week every week (24 total / 8 weeks), CEO LinkedIn at 3-4x/week (28 total / 8 weeks), blog at 1x/week (8 total), email at 4 sends over 8 weeks (0.5x/week = 2x/month). All within limits. No webinar or paid social content appears anywhere in the calendar. The Production Capacity Assessment table explicitly confirms these cadences."
+        },
+        {
+          "text": "Total weekly content volume does not exceed 6-9 pieces per week (1 full-time writer at 3-4 pieces/week with 2-3x AI multiplier), and if any week approaches or exceeds this ceiling the output flags it and recommends what to cut, prioritising pillar content over channel fill",
+          "passed": true,
+          "evidence": "Weekly totals: W1=8, W2=8, W3=8, W4=9, W5=10, W6=7, W7=8, W8=7. Week 4 at 9 pieces includes a 'CAPACITY NOTE' explaining it's manageable. Week 5 at 10 pieces includes a detailed 'CAPACITY NOTE' explaining mitigation (pre-producing by April 28). The 'What to Cut If Capacity Gets Tight' section provides priority-ordered cuts: (1) CEO LinkedIn engagement posts, (2) LinkedIn company share posts, (3) blog posts, (4) 'NEVER cut: Report launch content (Week 2), launch announcement content (Week 5), email newsletters' -- correctly prioritizing pillar content over channel fill."
+        },
+        {
+          "text": "Every production deadline is set at least 5 business days before the corresponding publish date, and the LegalTech Connect event in week 3 has content (pre-event teasers, live coverage, post-event recap) with deadlines that account for the event timeline",
+          "passed": false,
+          "evidence": "Production deadlines are stated but fall short of 5 business days. Week 1 publishes April 7 (Monday) with deadline April 2 (Wednesday) = 3 business days. Week 2 publishes April 14 with deadline April 9 = 3 business days. Week 3 publishes April 21 with deadline April 16 = 3 business days. These are ~5 calendar days but only ~3 business days. The LegalTech Connect event content does include pre-event teasers (Apr 21), live coverage (Apr 22-23), and post-event recap (Apr 25), with the pre-produced content deadline of April 16 and a note that live posts are 'created same-day during conference.' The event timeline is accounted for, but the 5-business-day requirement is not met."
+        },
+        {
+          "text": "Every single content piece is anchored to one of the two personas (VP Legal Ops or Head of Procurement) and includes a specific CTA (e.g. 'Book a demo', 'Download the guide', 'Register for launch event') -- no piece exists without both a persona and a CTA",
+          "passed": true,
+          "evidence": "Every table row across all 8 weeks includes a Persona column with one of: 'VP Legal Ops', 'Head of Procurement', or 'Both', and a CTA column with specific CTAs such as 'Comment with their biggest contract pain point', 'Download the report', 'Request a demo', 'Book a walkthrough', 'Subscribe to newsletter', etc. No row is missing either field."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "content-calendar",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 6,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output includes the calendar in the specified table format with all required columns: Week, Date, Channel, Content Title, Format, Persona, CTA, and Status -- plus per-week sections for Key Theme, Pillar Link, and Production Deadline",
+          "passed": false,
+          "evidence": "Tables use columns: Day/Time, Channel, Content, Format, and sometimes Owner -- but are missing the required Week, Date (specific dates only appear in headers, not rows), Persona, CTA, and Status columns. Per-week sections have 'Objective' but not the required 'Key Theme', 'Pillar Link', or 'Production Deadline' triplet. While content themes exist in the 'Content Themes by Phase' table, they are not per-week Key Theme/Pillar Link/Production Deadline sections as specified."
+        },
+        {
+          "text": "The pillar-cluster model is clearly visible with at least 2 cornerstone assets (e.g. a pre-launch guide on AI contract management and a post-launch ROI report or case study framework) each generating 4-8 derived cluster pieces across blog, LinkedIn, and email",
+          "passed": false,
+          "evidence": "Only ONE pillar/cornerstone asset is identified: the '2026 Contract Cycle Time Report.' The Content Reuse & Efficiency Strategy section describes it as 'the content engine for the entire 8 weeks' generating landing page, 5+ LinkedIn posts, 2 blog posts, 3 newsletter references, carousel, and conference talking points. No second cornerstone asset exists. The assertion requires at least 2."
+        },
+        {
+          "text": "Channel cadence stays within sustainable defaults for the four committed channels only: LinkedIn company page at up to 3x/week, CEO LinkedIn at up to 4-5x/week, blog at 1-2x/week, email at 1-2x/month -- with NO webinar or paid social content planned since those channels are explicitly uncommitted",
+          "passed": false,
+          "evidence": "Email newsletter cadence is excessive: 9 editions across 8 weeks (more than 1x/week average), far exceeding the 1-2x/month limit. Production Summary shows newsletters in Weeks 1, 2, 3, 4, 5 (x2), 6, 7, 8 = 9 sends. At 1-2x/month the maximum over 8 weeks would be 4 sends. LinkedIn company page hits 4 posts in Week 5 (announcement + feature spotlight #1 + customer quote + feature spotlight #2), exceeding the 3x/week limit. No webinar or paid social content is planned, which is correct."
+        },
+        {
+          "text": "Total weekly content volume does not exceed 6-9 pieces per week (1 full-time writer at 3-4 pieces/week with 2-3x AI multiplier), and if any week approaches or exceeds this ceiling the output flags it and recommends what to cut, prioritising pillar content over channel fill",
+          "passed": false,
+          "evidence": "Week 5 has 2 blog posts + 4 CEO LinkedIn posts + 4 company LinkedIn posts + 2 newsletters = 12 pieces, well above the 6-9 ceiling. Week 2 has 1 landing page + 1 blog + 1 carousel + 3 CEO posts + 2 company posts + 1 newsletter = 9+ pieces. Week 3 has 1 blog + 3 CEO posts + 3 company posts + 1 newsletter + 2-3 quote graphics = 10+ pieces. While the output mentions 'This is the peak -- pre-write everything possible in Week 4' for Week 5, there is no explicit capacity flag, no ceiling calculation, and no prioritized recommendation on what to cut."
+        },
+        {
+          "text": "Every production deadline is set at least 5 business days before the corresponding publish date, and the LegalTech Connect event in week 3 has content (pre-event teasers, live coverage, post-event recap) with deadlines that account for the event timeline",
+          "passed": false,
+          "evidence": "No per-week production deadlines are stated anywhere in the output. The Risk Mitigation table mentions 'Pre-write all CEO posts 5+ days ahead' and 'Batch-produce Week 5-6 content during Week 3-4' as general risk mitigations, but no specific production deadlines are assigned to any week or content piece. The LegalTech Connect event does have pre-event teasers (Monday-Tuesday), live coverage (Wednesday-Thursday), and post-event recap (Friday), but without explicit deadlines there is no evidence the 5-business-day lead requirement is met."
+        },
+        {
+          "text": "Every single content piece is anchored to one of the two personas (VP Legal Ops or Head of Procurement) and includes a specific CTA (e.g. 'Book a demo', 'Download the guide', 'Register for launch event') -- no piece exists without both a persona and a CTA",
+          "passed": false,
+          "evidence": "No Persona column exists in any table. Some content descriptions mention personas implicitly (e.g., Week 6 Monday blog is 'Persona-specific blog for Head of Procurement'), but the majority of pieces have no explicit persona assignment. Many pieces also lack a specific CTA: Week 1 Monday CEO post has no CTA, Week 1 Thursday is 'Community engagement' with no CTA, Week 1 Friday poll has no CTA, Week 2 Friday CEO engagement has no CTA, Week 3 Wednesday CEO live post ends with a reaction rather than a CTA. At least a dozen pieces across the calendar lack one or both of persona and CTA."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "persona-icp",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "ICP includes firmographic criteria with specific numeric ranges for company size (employee count range), revenue range, geography (US and UK as primary markets), and industry verticals ranked by conversion likelihood -- not generic placeholders but ranges anchored to the mid-market positioning and $48K ARR deal size described",
+          "passed": true,
+          "evidence": "Output specifies Company size: 300-1,500 employees, Revenue range: $50M-$500M, Geography: 'Primary: United States, United Kingdom, Canada. Secondary: EU markets with English-language legal operations, Australia.' Industry verticals ranked 1-5 by expected conversion rate: Fintech, Healthtech, B2B SaaS, Insurtech, Regulated marketplaces. Ranges are anchored to mid-market positioning with rationale tied to each vertical."
+        },
+        {
+          "text": "Technology maturity criterion is specified with reference to legal ops function maturity and contract volume thresholds (500+ contracts/month referenced as a qualifying signal), reflecting the pattern the founder described rather than invented assumptions",
+          "passed": false,
+          "evidence": "Technology maturity is described as 'Mid-tech' with reference to legal ops function maturity: 'legal operations still rely on manual review, shared drives, or basic document management. They may have experimented with a CLM but have not built a dedicated legal ops function.' However, the contract volume threshold is stated as '200+ contracts processed per month' -- the assertion specifically requires '500+ contracts/month referenced as a qualifying signal' which is not present anywhere in the output."
+        },
+        {
+          "text": "NEGATIVE FIT SIGNALS / anti-ICP section is present and identifies at least two distinct anti-ICP profiles -- the time-waster profile (engages but never buys) and the wrong-fit profile (buys but churns) -- with specific characteristics for each, not generic warnings",
+          "passed": true,
+          "evidence": "Three distinct anti-ICP profiles are defined: (1) 'The Enterprise Evaluator (Engages but never buys)' -- time-waster profile with 6 specific red flags including 'Legal Ops team of 5+ with a dedicated Director/VP,' 'Existing CLM platform,' 'RFP process with 20+ evaluation criteria,' etc. (2) 'The Churn Risk (Buys but does not retain)' -- wrong-fit profile with specific characteristics: 'Mid-market company that matches firmographics but has low contract volume (under 100/month) or is buying for a one-time event.' Red flags include 'Buyer frames the need as a project rather than an ongoing operational requirement' and 'Contract volume is seasonal or event-driven.' (3) 'The Pre-Seed Solo Lawyer (Wrong stage entirely)' as a third profile. Each has detailed characteristics and BDR actions."
+        },
+        {
+          "text": "TIMING SIGNALS are split into HOT (act within 48 hours) and WARM (act within 2 weeks) with concrete trigger events relevant to legal/procurement contract review (e.g. regulatory deadlines, M&A activity, legal team hiring surges, new compliance requirements) rather than generic buying signals",
+          "passed": true,
+          "evidence": "Output has explicit sections 'TIMING SIGNALS -- HOT (act within 48 hours)' and 'TIMING SIGNALS -- WARM (act within 2 weeks)'. HOT signals include: Series B/C funding in last 30 days, M&A deal closed in last 60 days, new VP Legal/GC hired within 30 days, legal team posting about being overwhelmed, 2+ legal roles posted simultaneously. WARM signals include: Series A approaching 300 employees, new product launch, regulatory change in their vertical, competitor of closed-won customer raises funding, legal team member attending a legal ops conference, CLM contract up for renewal. All are concrete and relevant to legal/procurement."
+        },
+        {
+          "text": "POSITIVE FIT SIGNALS section lists observable, researchable indicators a sales rep could actually find during prospecting (e.g. job postings for legal ops roles, contract management tool mentions in tech stack, public procurement volume indicators) with guidance on where to find each signal",
+          "passed": true,
+          "evidence": "Dedicated 'POSITIVE FIT SIGNALS (look for these)' table with three columns: Signal, What to look for, Where to find it. Lists 8 signals: Recent Series B/C raise (Crunchbase, PitchBook, LinkedIn), Recent M&A activity (SEC filings, press releases), Rapid headcount growth (LinkedIn Insights, Greenhouse/Lever), Legal team hiring (LinkedIn Jobs, company careers page), Complaints about contract bottlenecks (LinkedIn posts, Glassdoor), Multi-vendor procurement stack (company website partnerships page), No CLM in tech stack (BuiltWith, job descriptions), International expansion (press releases, LinkedIn posts). Each has specific where-to-find guidance."
+        },
+        {
+          "text": "Output includes actionable next steps or recommendations for how to operationalise the ICP -- such as quarterly recalibration cadence, suggested data sources for signal monitoring, or integration with lead scoring -- acknowledging the ICP is not static",
+          "passed": true,
+          "evidence": "RECALIBRATION GUIDANCE section states 'This ICP is built from 30 closed-won deals. It should be treated as a working hypothesis, not a permanent fixture.' Specifies concrete recalibration triggers: 'Closed-won count reaches 75 deals,' 'A new vertical produces 5+ closed-won deals,' 'Win rate drops below 20%,' 'Average deal cycle exceeds 90 days,' 'Churn rate exceeds 15% annually.' Includes quarterly review cadence directive. Additionally, a BDR Qualification Framework with tiered scoring (Tier 1-3 + Disqualify) provides immediate operationalization."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "persona-icp",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 3,
+        "failed": 3,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "ICP includes firmographic criteria with specific numeric ranges for company size (employee count range), revenue range, geography (US and UK as primary markets), and industry verticals ranked by conversion likelihood -- not generic placeholders but ranges anchored to the mid-market positioning and $48K ARR deal size described",
+          "passed": true,
+          "evidence": "Output specifies Tier 1: 500-1,200 employees, $100M-$350M revenue; Tier 2: 300-1,500 employees, $50M-$500M revenue. Geography: 'US, UK, Canada (English-language contracts)' as primary, 'EU (English-language contract subset)' as secondary. Industry verticals listed with Tier 1 (Fintech, Healthtech, B2B SaaS) and Tier 2 (Insurtech, Regtech, Medtech, Legaltech-adjacent). Tiered firmographic approach is well-anchored to mid-market positioning."
+        },
+        {
+          "text": "Technology maturity criterion is specified with reference to legal ops function maturity and contract volume thresholds (500+ contracts/month referenced as a qualifying signal), reflecting the pattern the founder described rather than invented assumptions",
+          "passed": false,
+          "evidence": "Section 1.3 'Technographic Signals' covers technology maturity with signals like 'No CLM platform in place,' 'Using a basic e-signature tool but nothing upstream,' and 'AI-receptive culture.' However, the contract volume thresholds are 200-300/month (Tier 2) and 300+/month (Tier 1) in the firmographic table. The assertion requires '500+ contracts/month referenced as a qualifying signal' which does not appear anywhere in the output."
+        },
+        {
+          "text": "NEGATIVE FIT SIGNALS / anti-ICP section is present and identifies at least two distinct anti-ICP profiles -- the time-waster profile (engages but never buys) and the wrong-fit profile (buys but churns) -- with specific characteristics for each, not generic warnings",
+          "passed": false,
+          "evidence": "Part 2 contains a substantial Anti-ICP section. Section 2.1 (Hard Disqualifiers) clearly identifies the time-waster profile: Fortune 500/Enterprise with 'Evaluation cycles 9-18 months. Existing workflows are good enough.' Section 2.2 (Soft Disqualifiers) mentions 'Innovation theater buyer' as 'likely to churn at renewal.' However, the assertion requires a distinct 'wrong-fit profile (buys but churns)' with 'specific characteristics.' The without_skill output does not have a dedicated, clearly delineated 'buys but churns' profile -- the churn mention is one row in a soft disqualifiers table, not a distinct anti-ICP profile with detailed characteristics. The with_skill output by contrast has a full 'Churn Risk (Buys but does not retain)' profile with 4 specific red flags and BDR action guidance."
+        },
+        {
+          "text": "TIMING SIGNALS are split into HOT (act within 48 hours) and WARM (act within 2 weeks) with concrete trigger events relevant to legal/procurement contract review (e.g. regulatory deadlines, M&A activity, legal team hiring surges, new compliance requirements) rather than generic buying signals",
+          "passed": false,
+          "evidence": "Section 1.2 'Situational Triggers (Timing Criteria)' lists 5 triggers rank-ordered by 'observed close velocity': Post-Series B/C, Post-M&A, Regulatory compliance deadline, Legal team attrition, New GC/VP Legal Ops hired. The triggers themselves are concrete and relevant. However, they are NOT split into HOT (48 hours) and WARM (2 weeks) categories as the assertion requires. There is no urgency-based categorization at all -- just a ranked list."
+        },
+        {
+          "text": "POSITIVE FIT SIGNALS section lists observable, researchable indicators a sales rep could actually find during prospecting (e.g. job postings for legal ops roles, contract management tool mentions in tech stack, public procurement volume indicators) with guidance on where to find each signal",
+          "passed": true,
+          "evidence": "While there is no single section labeled 'POSITIVE FIT SIGNALS,' the output provides equivalent content across multiple sections. Section 1.3 (Technographic Signals) lists observable tech indicators. Section 1.6 (ICP Scoring Model) has a 'How to Verify' column listing specific sources: 'LinkedIn, Crunchbase, company website,' 'Technographic data (BuiltWith, 6sense, or discovery),' 'LinkedIn headcount search,' etc. Section 3.1 (Account Sourcing Criteria) maps Crunchbase, LinkedIn Sales Navigator, M&A databases, job boards, and G2/Capterra intent signals to specific filter logic. Collectively, these provide observable, researchable indicators with where-to-find guidance."
+        },
+        {
+          "text": "Output includes actionable next steps or recommendations for how to operationalise the ICP -- such as quarterly recalibration cadence, suggested data sources for signal monitoring, or integration with lead scoring -- acknowledging the ICP is not static",
+          "passed": true,
+          "evidence": "Part 4 'Validation & Iteration Plan' includes: Section 4.1 'Data to Track From Deal 31 Onward' (9 specific fields to capture), Section 4.2 'Quarterly ICP Review Cadence' with milestones at 50, 75, and 100 deals, Section 4.3 'Signals That the ICP Needs Updating' (4 specific triggers). Additionally, Section 1.6 provides an ICP Scoring Model with point values and routing thresholds for lead scoring integration. The document header explicitly states 'Status: Initial formalization -- revisit after 75 deals' and ends with 'This document should be treated as a living artifact.'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "pre-call-brief",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 4,
+        "failed": 2,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The brief follows the Type 1 Pre-Discovery Call Brief structure exactly: header line with prospect name and company, QUICK CONTEXT section, YOUR GOAL FOR THIS CALL section, DISCOVERY QUESTIONS section, ANTICIPATED OBJECTIONS AND RESPONSES section, CALL SUCCESS CRITERIA section (with primary/secondary/minimum), COMPETITORS TO LISTEN FOR section, and THINGS NOT TO DO section",
+          "passed": true,
+          "evidence": "All required sections are present with exact or near-exact names: 'PRE-CALL BRIEF: Natalie Reeves, VP of Supply Chain | Ironclad Distribution' (header), 'QUICK CONTEXT (2-minute read)', 'YOUR GOAL FOR THIS CALL', 'DISCOVERY QUESTIONS -- USE IN THIS ORDER', 'ANTICIPATED OBJECTIONS AND RESPONSES', 'CALL SUCCESS CRITERIA' (with Primary, Secondary, and Minimum sub-sections), 'COMPETITORS TO LISTEN FOR', and 'THINGS NOT TO DO'."
+        },
+        {
+          "text": "Discovery questions total 5 or fewer across all subsections (opening, depth, qualification), every single one is phrased as a question ending in a question mark -- none are statements or instructions to the rep",
+          "passed": false,
+          "evidence": "The DISCOVERY QUESTIONS section contains well more than 5 questions. Opening has 1 question embedded in a suggested statement. Depth has 5 numbered questions. Qualification has 3 additional bullet-point questions. Total is approximately 9 questions across all subsections, far exceeding the 5-question limit. All are phrased as questions ending in question marks, but the count constraint fails."
+        },
+        {
+          "text": "QUICK CONTEXT is concise enough for a 2-minute read (roughly 3-5 sentences), references Natalie's whitepaper download and the cold call intel about manual spreadsheet tracking and 2-3 hours lost per dispatcher, and mentions the lost retail contract as a relevant trigger event",
+          "passed": false,
+          "evidence": "QUICK CONTEXT is present and concise (~5 sentences). It references the whitepaper download ('downloading the warehouse automation ROI whitepaper'), manual spreadsheet tracking ('tracking exception rates manually in spreadsheets'), and the lost retail contract ('lost a retail client, Redline Sports, last quarter due to fulfillment accuracy issues'). However, it does NOT mention '2-3 hours lost per dispatcher' -- this specific detail from the prompt is absent from the section. The assertion requires all elements including the dispatcher hours detail."
+        },
+        {
+          "text": "YOUR GOAL FOR THIS CALL states a specific, singular call goal -- not a vague 'learn about their needs' or 'do a demo' but a concrete outcome like qualifying the pain around exception tracking, identifying who else is in the buying process, and confirming if there is budget or timeline pressure",
+          "passed": true,
+          "evidence": "YOUR GOAL FOR THIS CALL states: 'Confirm the operational pain (manual exception tracking, fulfillment accuracy) is tied to measurable business impact (client loss, revenue churn, peak-season capacity), identify who else is involved in evaluating a solution (IT, CFO, COO), and determine whether there is a timeline or triggering event driving urgency. A successful call ends with a second meeting booked that includes a technical stakeholder or economic buyer.' This is specific, actionable, and tied to concrete outcomes -- not vague."
+        },
+        {
+          "text": "ANTICIPATED OBJECTIONS AND RESPONSES includes at least 2 objections with exact words the prospect might say and responses that validate before reframing -- not defensive or argumentative responses",
+          "passed": true,
+          "evidence": "Three objections with exact prospect quotes: (1) 'Our Oracle WMS works fine for the basics -- we just need to fix the exception tracking piece, not rip and replace.' (2) 'We're early in this process -- not ready to commit to anything or bring other people in yet.' (3) 'We've been burned by implementations before -- our team doesn't have bandwidth for a big rollout.' Each response opens with validation ('That makes total sense', 'Completely fair', 'That's a real concern') before reframing. None are defensive or argumentative."
+        },
+        {
+          "text": "THINGS NOT TO DO section is present and contains 3-5 specific warnings relevant to this call (e.g., do not demo on a discovery call, do not trash Oracle WMS, do not assume the lost contract means urgency)",
+          "passed": true,
+          "evidence": "THINGS NOT TO DO section contains 5 specific warnings: (1) Do NOT lead with a product demo or feature walkthrough, (2) Do NOT dwell on the Redline Sports loss, (3) Do NOT badmouth Oracle, (4) Do NOT ask more than 2-3 questions in a row without offering something back, (5) Do NOT end the call without proposing a specific next step with a date. All are relevant to this specific call scenario."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "pre-call-brief",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 6,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The brief follows the Type 1 Pre-Discovery Call Brief structure exactly: header line with prospect name and company, QUICK CONTEXT section, YOUR GOAL FOR THIS CALL section, DISCOVERY QUESTIONS section, ANTICIPATED OBJECTIONS AND RESPONSES section, CALL SUCCESS CRITERIA section (with primary/secondary/minimum), COMPETITORS TO LISTEN FOR section, and THINGS NOT TO DO section",
+          "passed": false,
+          "evidence": "The output uses an entirely different structure. Sections are: Account Snapshot, Situational Analysis, Hypothesis: Why They'll Buy, Value Angles for ShipSmart, Discovery Call Framework, Potential Objections & Responses, Competitive Landscape, Research Gaps / Pre-Call To-Dos, Call Scorecard, One-Line Mindset. Missing required sections: no 'QUICK CONTEXT' (has Account Snapshot + Situational Analysis instead), no 'YOUR GOAL FOR THIS CALL' (goals are scattered across sub-section 'Goal:' lines), no 'DISCOVERY QUESTIONS' as standalone section (embedded in Discovery Call Framework), no 'ANTICIPATED OBJECTIONS AND RESPONSES' (has 'Potential Objections & Responses'), no 'CALL SUCCESS CRITERIA' with primary/secondary/minimum tiers (absent entirely), no 'COMPETITORS TO LISTEN FOR' (has 'Competitive Landscape'), no 'THINGS NOT TO DO' section (absent entirely)."
+        },
+        {
+          "text": "Discovery questions total 5 or fewer across all subsections (opening, depth, qualification), every single one is phrased as a question ending in a question mark -- none are statements or instructions to the rep",
+          "passed": false,
+          "evidence": "The Discovery Call Framework section contains approximately 15+ questions across Opening (2), Situation & Context (3), Problem Discovery (~7 across exception tracking, Redline Sports, and Oracle WMS sub-topics), Impact & Urgency (3), and Next Steps (implicit questions in talk tracks). This far exceeds the 5-question maximum. Additionally, several items are instructions to the rep rather than questions: 'Let her tell the story -- don't rush', 'Summarize what you heard back to her (prove you listened)' are directives, not questions."
+        },
+        {
+          "text": "QUICK CONTEXT is concise enough for a 2-minute read (roughly 3-5 sentences), references Natalie's whitepaper download and the cold call intel about manual spreadsheet tracking and 2-3 hours lost per dispatcher, and mentions the lost retail contract as a relevant trigger event",
+          "passed": false,
+          "evidence": "No section named 'QUICK CONTEXT' exists. The Account Snapshot (table format) and Situational Analysis (multiple paragraphs with subsections) cover similar ground but are far longer than 3-5 sentences -- the Situational Analysis alone is approximately 20+ lines with 'What We Know' and 'What We Don't Know' sub-sections. Not concise enough for a 2-minute read as a quick context section. The whitepaper is mentioned in the header metadata and the '2-3 hours lost per dispatcher' detail is absent."
+        },
+        {
+          "text": "YOUR GOAL FOR THIS CALL states a specific, singular call goal -- not a vague 'learn about their needs' or 'do a demo' but a concrete outcome like qualifying the pain around exception tracking, identifying who else is in the buying process, and confirming if there is budget or timeline pressure",
+          "passed": false,
+          "evidence": "No 'YOUR GOAL FOR THIS CALL' section exists. The Discovery Call Framework has per-phase 'Goal:' lines (e.g., 'Confirm what Marcus learned, fill gaps on scope and environment', 'Get her to articulate the pain in her own words'), but there is no singular, consolidated call goal statement. The closest is section 3 'Hypothesis: Why They'll Buy' which describes why they might buy, not the rep's goal for the call."
+        },
+        {
+          "text": "ANTICIPATED OBJECTIONS AND RESPONSES includes at least 2 objections with exact words the prospect might say and responses that validate before reframing -- not defensive or argumentative responses",
+          "passed": false,
+          "evidence": "The section is called 'Potential Objections & Responses' not 'ANTICIPATED OBJECTIONS AND RESPONSES' -- a structural mismatch with the required format. On content: it contains 5 objections in a table with quoted prospect language and responses that validate before reframing ('Totally fair', 'Good -- you should'). The content quality meets the spirit of the assertion, but the section name and format (markdown table vs. structured list) do not match the required Type 1 structure."
+        },
+        {
+          "text": "THINGS NOT TO DO section is present and contains 3-5 specific warnings relevant to this call (e.g., do not demo on a discovery call, do not trash Oracle WMS, do not assume the lost contract means urgency)",
+          "passed": false,
+          "evidence": "No 'THINGS NOT TO DO' section exists in the output. Some warnings are scattered throughout (e.g., 'Don't demo on this call' appears in Next Steps, 'Don't pitch all of them' in Value Angles), but there is no consolidated section with 3-5 explicit warnings."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "sequence",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Sequence contains exactly 6 touches over 21 days with day assignments matching the HOT structure (Day 1, Day 3, Day 7, Day 10, Day 17, Day 21) and each touch includes full message text with word count",
+          "passed": true,
+          "evidence": "All 6 touches match the HOT structure exactly: Touch 1 (Day 1, LinkedIn DM, 71 words), Touch 2 (Day 3, Email, 127 words), Touch 3 (Day 7, Email, 93 words), Touch 4 (Day 10, Phone + Email, 118/102 words), Touch 5 (Day 17, LinkedIn DM, 56 words), Touch 6 (Day 21, Email, 46 words). Each touch includes full message text with explicit word counts."
+        },
+        {
+          "text": "Channel mix is present: at least 2 distinct channels (LinkedIn and email) are used across the 6 touches, and no single channel is used for consecutive touches within fewer than 3 days",
+          "passed": true,
+          "evidence": "Three distinct channels used: LinkedIn DM (Touches 1, 5), Email (Touches 2, 3, 6), Phone (Touch 4). Channel listed as 'LinkedIn x2 + Email x3 + Phone x1'. Closest same-channel gap is Email on Day 7 (Touch 3) and Email follow-up on Day 10 (Touch 4), which is 3 days apart -- not fewer than 3."
+        },
+        {
+          "text": "Value escalation is visible: Touch 1-2 are personalised to Priya's situation (LinkedIn post, reliability hire, distribution centers), Touch 3 is a no-ask value add, Touch 4 introduces social proof (Apex Fulfillment case study with the 11% to 3.2% downtime stat), and Touch 6 is the graceful close",
+          "passed": false,
+          "evidence": "Touch 1-2 are personalized to Priya's LinkedIn post about fleet coordination past 200 robots, but the reliability hire is not mentioned until Touch 4 and distribution centers are not explicitly referenced. Touch 3 is a no-ask value add ('No pitch attached -- just data'). Touch 4 references Apex Fulfillment but does NOT include the specific '11% to 3.2% downtime stat' -- instead it uses replanning latency (500ms), throughput drops (25-40%), and reliability engineering framing. Touch 6 is a graceful close. The assertion requires the specific downtime stat which is absent from the output."
+        },
+        {
+          "text": "Touch 6 is a graceful close: short, respectful, leaves the door open, contains no ask, no guilt language, and no 'just checking in'",
+          "passed": true,
+          "evidence": "Touch 6 is 46 words. Opens with 'I'll assume the timing isn't right. Completely understood.' (respectful, no guilt). Leaves the door open: 'If fleet coordination at scale becomes a priority you want outside perspective on, I'm here.' Contains no ask, no guilt language, no 'just checking in'. Ends with 'Best, Nathan Cole'."
+        },
+        {
+          "text": "No two touches contain identical or substantially duplicated content -- each touch adds a new angle, data point, or framing that was not present in any previous touch",
+          "passed": true,
+          "evidence": "Each touch introduces distinct substance: Touch 1 -- LinkedIn post hook + Apex scaling proof point. Touch 2 -- technical deep-dive on algorithm collapse (combinatorial load, replanning latency, collision avoidance shift). Touch 3 -- data from 14 deployments, 3x throughput-per-sqm insight, no-ask framing. Touch 4 -- three-pattern framework (500ms latency, predictive-to-reactive shift, reliability bottleneck) + reliability hire signal. Touch 5 -- trigger check, timing-respectful lighter touch. Touch 6 -- graceful close. Some recurring references to the 200-robot threshold and Apex, but each touch wraps them in a new framing rather than repeating content."
+        },
+        {
+          "text": "Branching rules section is present and includes at minimum: reply at any touch triggers sequence exit with rep alert, and LinkedIn connection accepted without reply triggers a custom warm follow-up DM (not the generic sequence touch)",
+          "passed": true,
+          "evidence": "Branching rules section is explicitly present with four rules: (1) 'Reply received at any touch -> EXIT SEQUENCE; alert Nathan immediately', (2) 'LinkedIn connection accepted without reply -> warm follow-up DM (not the generic sequence touch)', (3) email open after Touch 3 triggers acceleration, (4) bounce detection pauses sequence. Both required minimum rules are present verbatim."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "sequence",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.33,
+        "passed": 2,
+        "failed": 4,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Sequence contains exactly 6 touches over 21 days with day assignments matching the HOT structure (Day 1, Day 3, Day 7, Day 10, Day 17, Day 21) and each touch includes full message text with word count",
+          "passed": false,
+          "evidence": "Output contains 6 touches but spans ~14 days (not 21) with day assignments Day 0, Day 2, Day 5, Day 8, Day 11, Day 14 -- none of which match the required HOT structure (Day 1, 3, 7, 10, 17, 21). The header explicitly states 'Total Touches: 6 across ~14 days'. Additionally, no word counts are provided for any touch."
+        },
+        {
+          "text": "Channel mix is present: at least 2 distinct channels (LinkedIn and email) are used across the 6 touches, and no single channel is used for consecutive touches within fewer than 3 days",
+          "passed": true,
+          "evidence": "Three distinct channels used: Email (Touches 1, 3, 5, 6), LinkedIn (Touch 2), Phone (Touch 4). Both LinkedIn and email are present. Checking consecutive same-channel gaps: Email Day 0 to Email Day 5 = 5 days (LinkedIn on Day 2 intervenes). Email Day 5 to Email Day 11 = 6 days (Phone on Day 8 intervenes). Email Day 11 to Email Day 14 = 3 days, which is not fewer than 3. All gaps meet the threshold."
+        },
+        {
+          "text": "Value escalation is visible: Touch 1-2 are personalised to Priya's situation (LinkedIn post, reliability hire, distribution centers), Touch 3 is a no-ask value add, Touch 4 introduces social proof (Apex Fulfillment case study with the 11% to 3.2% downtime stat), and Touch 6 is the graceful close",
+          "passed": false,
+          "evidence": "Multiple sub-conditions fail. (1) Touch 1 is personalized to Priya's LinkedIn post but the reliability hire is not mentioned until Touch 3, and distribution centers are not referenced. (2) Touch 3 is NOT a no-ask value add -- it ends with 'Happy to do a 20-minute technical walkthrough -- I'll bring our solutions architect so we can go deep on the architecture, not just the pitch. Worth a look?' which is an explicit ask. (3) Touch 4 references Apex Fulfillment but does not include the specific '11% to 3.2% downtime stat'. (4) Touch 6 is structured as a breakup email with three explicit options including 'Yes, let's talk -- I'll send a calendar link', which is an ask rather than a pure graceful close."
+        },
+        {
+          "text": "Touch 6 is a graceful close: short, respectful, leaves the door open, contains no ask, no guilt language, and no 'just checking in'",
+          "passed": false,
+          "evidence": "Touch 6 contains explicit asks. It presents 'Three ways this could go' with option 1 being 'Yes, let's talk -- I'll send a calendar link for 20 minutes this week or next.' This is a direct ask for a meeting. Option 3 states 'One reply and I'm gone' which, while not overtly guilt-inducing, carries implicit pressure. The assertion requires 'contains no ask' and this touch clearly contains one. Also not short -- includes a product recap paragraph and the three-option framework."
+        },
+        {
+          "text": "No two touches contain identical or substantially duplicated content -- each touch adds a new angle, data point, or framing that was not present in any previous touch",
+          "passed": true,
+          "evidence": "Each touch introduces a distinct angle: Touch 1 -- LinkedIn post reference + Apex scaling proof + 37% throughput stat. Touch 2 -- LinkedIn connection request, brief social channel opener. Touch 3 -- Reliability hire signal, cascading coordination failures, 99.7% uptime, decentralised architecture detail. Touch 4 -- Phone pattern interrupt, voicemail with calendar link follow-up. Touch 5 -- Georgia Tech connection + technical brief on centralised vs decentralised planning. Touch 6 -- Three-option breakup close. While Apex stats recur across touches, each wraps them in a genuinely new framing."
+        },
+        {
+          "text": "Branching rules section is present and includes at minimum: reply at any touch triggers sequence exit with rep alert, and LinkedIn connection accepted without reply triggers a custom warm follow-up DM (not the generic sequence touch)",
+          "passed": false,
+          "evidence": "No branching rules section exists anywhere in the output. The output contains a 'Sequence Design Notes' section and 'Key principles applied' but neither addresses branching logic, reply handling, sequence exit conditions, or LinkedIn connection-accepted scenarios."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "prospect-research",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 3,
+        "failed": 3,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Research brief contains all required sections: WHO IS [NAME] with career trajectory and role scope and activity and signal interpretation, WHAT IS [COMPANY] with business model and revenue estimate and headcount and tech stack and market position, WHAT IS HAPPENING NOW with HOT/WARM/WATCH classified signals, THE SPECIFIC PAIN, THE HOOK, PRODUCT FIT, and RECOMMENDED FIRST TOUCH",
+          "passed": true,
+          "evidence": "All required sections present: 'WHO IS KAVITHA RAMACHANDRAN?' covers career trajectory (Staff Engineer at Stripe to VP Engineering), role scope ('owns the full engineering org, likely 40-60 engineers'), activity ('No public activity found'), and signal interpretation ('new to the VP role (<18 months), that would normally be a HIGH receptivity signal'). 'WHAT IS TESSERA AI?' covers business model ('dev tools startup'), revenue ('Not available'), headcount ('~120 employees'), tech stack ('No job postings found'), and market position ('Dev tools / AI-ML space'). 'WHAT IS HAPPENING NOW' has HOT/WARM/WATCH classifications. 'THE SPECIFIC PAIN' section present. 'THE HOOK' section present. 'PRODUCT FIT' section present. 'RECOMMENDED FIRST TOUCH' section present with channel, tone, and goal."
+        },
+        {
+          "text": "Signal classification categorizes the Series B funding round (closed within 30 days) as a HOT signal with source attribution to the TechCrunch article and approximate date -- and identifies any additional signals from job postings or hiring surges in engineering as supporting HOT or WARM signals",
+          "passed": false,
+          "evidence": "The output does NOT classify the Series B as a HOT signal. Instead it states 'HOT: No verifiable hot signals found. No recent funding, contract wins, leadership announcements, or hiring surges could be confirmed.' The Series B is only mentioned under WATCH: 'If the $45M Series B is accurate and occurred ~8 months ago, the company would be in a scaling phase.' No source attribution to the TechCrunch article is provided. Note: the eval prompt says the Series B was '~three weeks ago' and led by Greylock/TechCrunch, but the output references '$45M' and 'Accel' and '~8 months ago' -- these are different details from the eval prompt (which says $38M Series B, Greylock, three weeks ago). The output appears to be working from different intake data than the eval prompt specifies."
+        },
+        {
+          "text": "At least one hook is identified that is specific and verifiable -- not a generic industry trend but something tied to Kavitha Ramachandran personally (a LinkedIn post, a conference talk, a career move) or to a specific Tessera AI event (the Series B terms, a specific job posting requirement, a named partnership or product launch)",
+          "passed": false,
+          "evidence": "The output explicitly states 'No verifiable hook could be identified.' It then lists 'Potential hooks if data is verified by the user' but labels these as hypothetical and conditional. The Stripe background hook and post-Series B scaling pressure hook are generic persona inferences, not tied to a specific verifiable artifact (no LinkedIn post, no conference talk, no specific job posting). The output itself acknowledges it fails this criterion: 'The skill protocol requires at least one hook based on verifiable information.'"
+        },
+        {
+          "text": "ICP match assessment evaluates Tessera AI against the stated criteria (Series A-C, developer tooling / AI-ML company, 50-500 headcount, US-based) and produces a STRONG / MODERATE / WEAK rating with reasoning for the rating rather than just stating it",
+          "passed": false,
+          "evidence": "The PRODUCT FIT section rates the match as 'POTENTIALLY STRONG -- pending verification' and states 'this prospect sits squarely in the ICP for BuildKite Pro.' However, the header of the brief rates ICP Match as 'UNVERIFIED' and the reasoning is minimal -- it just says if user-provided data is accurate, they fit. There is no systematic evaluation of each ICP criterion against evidence. The rating 'POTENTIALLY STRONG' with the caveat 'pending verification' is a conditional assessment rather than a definitive STRONG/MODERATE/WEAK rating with reasoning for each criterion. However, the output does identify the criteria and explain why they would match if verified. This is borderline -- the reasoning exists but is entirely contingent. Failing because the assertion asks for a rating 'with reasoning' and the output hedges with 'pending verification' rather than evaluating the available information."
+        },
+        {
+          "text": "Pain assessment connects the post-Series B situation (scaling pressure, engineering hiring, infrastructure strain from growth) specifically to CI/CD and deployment automation needs -- not generic 'they might need better tools' but a causal chain from their situation to the product category",
+          "passed": true,
+          "evidence": "The SPECIFIC PAIN section provides a clear causal chain: post-Series B dev tools startup with ~120 employees growing -> CI/CD scaling pain because 'traditional CI/CD pipelines become brittle and slow when ML workloads (large model training, GPU-dependent builds, data-heavy test suites) enter the picture' -> 'their own engineering team would be feeling this pain internally while also needing to ship faster to hit Series B milestones' -> VP of Engineering with Stripe-caliber infrastructure experience 'would have high standards for build reliability and pipeline performance, making them acutely aware of where their current CI/CD stack falls short.' This is a specific causal chain, not generic hand-waving."
+        },
+        {
+          "text": "Recommended first touch specifies channel (LinkedIn / Email / Phone with reasoning for why that channel suits this prospect), tone (peer-level / educational / ROI-focused), and goal (discovery call / referral / event / content share) -- and any factual claims in the brief about Kavitha's background or Tessera's business carry source attribution or are explicitly labeled as unverified",
+          "passed": true,
+          "evidence": "Channel specified: 'LinkedIn (recommended) -- a VP of Engineering at a startup is more likely to engage on LinkedIn than cold email. Her Stripe background suggests she is in strong tech networks where LinkedIn is the professional norm.' Tone: 'Peer-level / technical credibility -- she is a former Stripe Staff Engineer; generic sales messaging will be ignored. Lead with infrastructure-level insight.' Goal: 'Discovery call -- understand their current CI/CD stack, what is breaking at their scale, and whether BuildKite Pro addresses a live pain point.' Source attribution: The brief consistently labels unverified claims as '[USER-PROVIDED / UNVERIFIED]' throughout all sections. The CRITICAL DATA VERIFICATION NOTICE at the top and the RESEARCH METHODOLOGY & SOURCES section at the bottom document all searches conducted."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "prospect-research",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 3,
+        "failed": 3,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Research brief contains all required sections: WHO IS [NAME] with career trajectory and role scope and activity and signal interpretation, WHAT IS [COMPANY] with business model and revenue estimate and headcount and tech stack and market position, WHAT IS HAPPENING NOW with HOT/WARM/WATCH classified signals, THE SPECIFIC PAIN, THE HOOK, PRODUCT FIT, and RECOMMENDED FIRST TOUCH",
+          "passed": false,
+          "evidence": "The output contains substantial coverage but does NOT use the required section structure. Missing or non-conformant sections: (1) No 'WHO IS [NAME]' header -- the content is split across 'PROSPECT PROFILE' and 'Background & Persona Inference' which cover career trajectory and role scope, but there is no explicit 'activity' subsection (no mention of LinkedIn posts, conference talks, or public activity) and no 'signal interpretation' subsection. (2) No 'WHAT IS [COMPANY]' header -- 'COMPANY PROFILE' covers business model, headcount, and 'Likely Technical Environment' covers tech stack, but revenue estimate is absent (no range, no methodology, just not addressed) and market position is not discussed. (3) No 'WHAT IS HAPPENING NOW' section with HOT/WARM/WATCH classification. The 'MARKET & TIMING SIGNALS' section lists 5 buying window indicators but does NOT classify them as HOT, WARM, or WATCH. (4) No 'THE SPECIFIC PAIN' section -- pain is discussed throughout (especially points 1-4 under timing signals) but not as a dedicated section. (5) 'THE HOOK' is present as 'Recommended Hook: Stripe-to-Startup CI/CD Scale Problem'. (6) 'PRODUCT FIT' is present as 'ICP FIT ASSESSMENT'. (7) 'RECOMMENDED FIRST TOUCH' is present as 'OUTREACH STRATEGY' with channel, tone, and goal. The output covers most topics substantively but fails to conform to the required section taxonomy, particularly the HOT/WARM/WATCH classification structure."
+        },
+        {
+          "text": "Signal classification categorizes the Series B funding round (closed within 30 days) as a HOT signal with source attribution to the TechCrunch article and approximate date -- and identifies any additional signals from job postings or hiring surges in engineering as supporting HOT or WARM signals",
+          "passed": false,
+          "evidence": "The output has no HOT/WARM/WATCH signal classification system. The Series B is discussed as a 'buying window indicator' and 'strong signal' but is never classified as HOT. No source attribution to the TechCrunch article appears anywhere in the output. The output references the Series B as '$45M from Accel ~8 months ago' rather than the prompt's '$38M from Greylock ~3 weeks ago' -- different amount, investor, and timing. Hiring signals are discussed ('aggressive hiring and delivery targets') but not classified as HOT or WARM. Additional signals from job postings are listed as open research TODOs ('Check Tessera AI's careers page') rather than analyzed."
+        },
+        {
+          "text": "At least one hook is identified that is specific and verifiable -- not a generic industry trend but something tied to Kavitha Ramachandran personally (a LinkedIn post, a conference talk, a career move) or to a specific Tessera AI event (the Series B terms, a specific job posting requirement, a named partnership or product launch)",
+          "passed": false,
+          "evidence": "The recommended hook is 'Stripe-to-Startup CI/CD Scale Problem' which is described as: 'Bridge the gap between Stripe-grade developer productivity and the realities of scaling a startup's engineering infrastructure.' This is a persona-based inference, not a specific verifiable artifact. It is not tied to a specific LinkedIn post, conference talk, or observable event. The hook reasoning is: 'It acknowledges her background without being sycophantic' and 'It names a real, specific pain point.' However, the assertion requires something 'specific and verifiable' -- the Stripe career move could qualify as a career move hook, but it is marked [provided] and unverified. The opening also suggests 'Reference a specific, observable signal -- a recent Tessera blog post, job listing for a DevOps/platform engineer, or a conference talk. If none are available, lead with the stage-specific pain point' -- acknowledging no verifiable hook was found. The suggested email opening is generic stage-based messaging: 'Most VPEs I talk to 6 months after a Series B are dealing with the same problem.'"
+        },
+        {
+          "text": "ICP match assessment evaluates Tessera AI against the stated criteria (Series A-C, developer tooling / AI-ML company, 50-500 headcount, US-based) and produces a STRONG / MODERATE / WEAK rating with reasoning for the rating rather than just stating it",
+          "passed": true,
+          "evidence": "Section 4 'ICP FIT ASSESSMENT' contains a table evaluating each criterion individually: Stage (Series B = STRONG), Sector (Dev tools + AI = STRONG), Headcount (~120 = STRONG), Location (San Francisco = STRONG), with an overall rating of EXCELLENT. Reasoning is provided: buyer authority is analyzed ('Kavitha owns infrastructure and tooling decisions. She is either the decision-maker or the primary technical champion'), budget authority is addressed ('Budget authority for a $45M-funded company on a tool like BuildKite Pro is well within her remit'). The assessment uses a clear rating scale and explains why each criterion scores as it does, though the reasoning per criterion is brief. This passes because each ICP dimension is evaluated individually with a rating and the overall assessment includes reasoning beyond just stating the rating."
+        },
+        {
+          "text": "Pain assessment connects the post-Series B situation (scaling pressure, engineering hiring, infrastructure strain from growth) specifically to CI/CD and deployment automation needs -- not generic 'they might need better tools' but a causal chain from their situation to the product category",
+          "passed": true,
+          "evidence": "Multiple sections build a detailed causal chain: (1) 'Post-Series B = infrastructure buildout. The 6-12 month window after a Series B is the most common time for CI/CD platform adoption.' (2) 'Rapid hiring creates CI/CD pain. Every new engineer added to the team increases build queue contention, slows feedback loops, and exposes pipeline fragility.' (3) 'AI/ML pipeline complexity. Traditional CI/CD tools struggle with ML workloads -- long-running training jobs, GPU resource management, large artifact storage.' (4) 'Stripe alumni expect great tooling. The delta between what I had at Stripe and what we have here creates urgency.' (5) 'Dev tools companies eat their own dogfood. A mature CI/CD platform is table stakes for a company selling to developers.' (6) Company stage analysis: 'Companies at this stage typically shift from ad hoc tooling to mature, scalable platforms. CI/CD is often one of the first infrastructure investments after a major funding round.' (7) Build vs buy inflection: 'At ~120 employees (probably 50-70 engineers), maintaining custom CI/CD infrastructure becomes expensive. This is the exact headcount range where teams adopt specialized CI/CD platforms.' This is a rich, specific, multi-layered causal chain connecting situation to CI/CD needs."
+        },
+        {
+          "text": "Recommended first touch specifies channel (LinkedIn / Email / Phone with reasoning for why that channel suits this prospect), tone (peer-level / educational / ROI-focused), and goal (discovery call / referral / event / content share) -- and any factual claims in the brief about Kavitha's background or Tessera's business carry source attribution or are explicitly labeled as unverified",
+          "passed": true,
+          "evidence": "Channel: Email is PRIMARY with reasoning: 'VPEs process email systematically; a well-crafted cold email with a specific hook has the best conversion rate for this persona.' LinkedIn is SECONDARY: 'Use as a warm follow-up after email, or lead with LinkedIn if you can find a mutual connection.' Mutual intro via Stripe network is listed as HIGH VALUE. Tone: 'Data-driven', 'Infrastructure-aware', 'DX-focused', 'Time-conscious' with reasoning tied to Stripe background. The 'What NOT to Do' section reinforces tone: 'Do not oversimplify the technical pitch. She will disengage if you treat her like a non-technical buyer.' Goal: 'No meeting needed' -- the ask is content sharing ('Happy to share the architecture doc') as a low-commitment first step. Source attribution: Claims are consistently marked as '*[provided]*' throughout the brief. The opening caveat states: 'All claims sourced from your intake are marked as [provided] and should be validated before outreach via LinkedIn, mutual connections, or Tessera's website.' The verification section notes 'Web research did not surface a verifiable public profile' for either the prospect or company."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "outreach",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output contains a Five Laws check section with all five laws explicitly verified: specific reference, lead with them, one ask, word count, and banned language",
+          "passed": true,
+          "evidence": "Output contains a 'FIVE LAWS CHECK' section for the main message listing all five laws: Law 1 (Specific reference), Law 2 (Lead with them), Law 3 (One ask), Law 4 (Word count: 76 words / limit: 100), Law 5 (No jargon: Confirmed clean). Additionally, each follow-up variant also includes its own Five Laws check."
+        },
+        {
+          "text": "Message body is 100 words or fewer (LinkedIn DM channel limit)",
+          "passed": true,
+          "evidence": "Verified word count of the main DM message body (excluding signature): 76 words. The output self-reports 76 words, which matches independent verification. Well under the 100-word limit."
+        },
+        {
+          "text": "First sentence of the message body references Sarah Chen's LinkedIn post or her team's achievement -- does not begin with 'We', 'I', 'My company', 'RevStack', or any sender-focused language",
+          "passed": true,
+          "evidence": "First sentence: 'Congrats on cutting your Salesforce-to-NetSuite sync errors by 70% -- rebuilding that integration layer in-house is no small lift, especially at scale.' This directly references Sarah Chen's LinkedIn post about cutting sync errors by 70%. It begins with 'Congrats' (prospect-focused), not any sender-focused language."
+        },
+        {
+          "text": "Message contains exactly one CTA: a 15-minute call -- no alternative asks, no vague 'let me know if interested', no multiple options",
+          "passed": true,
+          "evidence": "The only CTA in the main DM is: 'Worth a 15-minute call to compare notes?' This is a single, specific ask for a 15-minute call. No alternative asks or vague language present."
+        },
+        {
+          "text": "Message body contains none of the banned words: leverage, synergy, best-in-class, seamless, robust, solution, game-changing, revolutionary, disruptive, holistic, end-to-end, cutting-edge, world-class, innovative, empower, unlock, transform",
+          "passed": true,
+          "evidence": "Searched the main DM message body for all 17 banned words. None found. The output's own Five Laws check also confirms: 'Confirmed clean -- no banned language detected.'"
+        },
+        {
+          "text": "Output includes both a Day 3 follow-up variant (different angle, not 'just checking in') and a Day 7 follow-up variant (shorter, single question format)",
+          "passed": true,
+          "evidence": "Day 3 follow-up present under '### Day 3 Follow-Up (Email -- channel switch from LinkedIn DM)' -- it takes a different angle by offering a resource ('short breakdown of how two mid-market rev-ops teams handled that second phase'), not a 'just checking in' message. Day 7 follow-up present under '### Day 7 Follow-Up (Email -- shorter, single question)' -- it is shorter (20 words) and uses a single diagnostic question: 'Is keeping that rebuilt integration layer running smoothly still a priority for your team, or has the focus shifted elsewhere?'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "outreach",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 3,
+        "failed": 3,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Output contains a Five Laws check section with all five laws explicitly verified: specific reference, lead with them, one ask, word count, and banned language",
+          "passed": false,
+          "evidence": "The output contains only the raw LinkedIn DM message. There is no 'Five Laws' check section anywhere in the output. No structured verification of specific reference, lead with them, one ask, word count, or banned language is present."
+        },
+        {
+          "text": "Message body is 100 words or fewer (LinkedIn DM channel limit)",
+          "passed": true,
+          "evidence": "Independent word count of the message body (excluding 'Hi Sarah,' greeting and signature): 78 words. Including the greeting 'Hi Sarah,' it is 80 words. Both are under the 100-word limit."
+        },
+        {
+          "text": "First sentence of the message body references Sarah Chen's LinkedIn post or her team's achievement -- does not begin with 'We', 'I', 'My company', 'RevStack', or any sender-focused language",
+          "passed": true,
+          "evidence": "After the 'Hi Sarah,' greeting, the first sentence is: 'Saw your post about cutting Salesforce-to-NetSuite sync errors by 70% after rebuilding in-house -- impressive results, especially at scale.' This references her LinkedIn post and begins with 'Saw your post' (prospect-focused), not sender-focused language."
+        },
+        {
+          "text": "Message contains exactly one CTA: a 15-minute call -- no alternative asks, no vague 'let me know if interested', no multiple options",
+          "passed": false,
+          "evidence": "The message contains a 15-minute call CTA ('Would you be open to a 15-minute call to swap notes?') but then adds a second offer: 'Happy to share patterns we've seen work well at your stage.' This constitutes a secondary value proposition that dilutes the single-ask principle. The assertion requires 'exactly one CTA' with 'no alternative asks', and the additional offer to share patterns functions as a supplementary ask layered onto the call request."
+        },
+        {
+          "text": "Message body contains none of the banned words: leverage, synergy, best-in-class, seamless, robust, solution, game-changing, revolutionary, disruptive, holistic, end-to-end, cutting-edge, world-class, innovative, empower, unlock, transform",
+          "passed": true,
+          "evidence": "Searched the entire message body for all 17 banned words. None found."
+        },
+        {
+          "text": "Output includes both a Day 3 follow-up variant (different angle, not 'just checking in') and a Day 7 follow-up variant (shorter, single question format)",
+          "passed": false,
+          "evidence": "The output contains only the primary LinkedIn DM message. There is no Day 3 follow-up variant and no Day 7 follow-up variant anywhere in the output."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "follow-up",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.83,
+        "passed": 5,
+        "failed": 1,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Email is labeled as Type 1: Post-Discovery Follow-Up and follows the Type 1 structure (acknowledgement, 'What I heard' section, 'What we discussed' section, next step)",
+          "passed": true,
+          "evidence": "The output header reads 'FOLLOW-UP EMAIL -- Post-Discovery Call | Lisa Cheng / Norwood Distribution'. The email follows the Type 1 structure: acknowledgement ('Thanks for the conversation this morning'), a '**What I heard:**' section with 3 bullets, a '**What we discussed:**' section summarizing the solution approach, and a '**Next steps:**' section with two numbered items. While the output does not use the literal phrase 'Type 1', the task header 'TASK: Follow-Up -- Post-Discovery Call' and the structure clearly correspond to a post-discovery follow-up pattern."
+        },
+        {
+          "text": "Subject line references a specific topic from the call (picking accuracy, fulfillment penalties, peak season ramp, or warehouse operations at Norwood Distribution) -- not a generic subject like 'Great meeting' or 'Our call today'",
+          "passed": true,
+          "evidence": "Subject line is 'Re: pick accuracy at Norwood -- path from 94% to 98%+', which references picking accuracy and Norwood Distribution specifically. This is highly specific and not generic."
+        },
+        {
+          "text": "'What I heard' section contains at least 2 bullets that use Lisa's own language: must include at least two of 'bleeding margin on mis-picks', 'held together with duct tape and prayers', 'the thing keeping me up at night', or '$1.2M in Q4 fulfillment penalties'",
+          "passed": true,
+          "evidence": "The 'What I heard' section contains: (1) 'Mis-picks are bleeding margin today' -- closely mirrors 'bleeding margin on mis-picks'. (2) 'Your legacy Oracle WMS is \"held together with duct tape and prayers\"' -- exact match in quotes. That is 2 of the 4 required phrases. Note: '$1.2M in Q4 fulfillment penalties' and 'the thing keeping me up at night' are not present."
+        },
+        {
+          "text": "Next step section confirms two specific commitments with dates: (1) sending the ProLog 3PL case study and ROI model by Thursday, and (2) the 30-minute CFO call on Tuesday at 2pm ET",
+          "passed": false,
+          "evidence": "The next steps section includes: (1) The ProLog case study is mentioned as attached ('I've attached the ProLog Fulfillment case study as promised') but there is no mention of an ROI model, and no commitment to send by Thursday -- it is presented as already attached. (2) The Tuesday 2:00 PM ET meeting is confirmed but it is described as a 'technical session with you, Raj, and our solutions engineer' -- NOT a CFO call. There is no mention of a 30-minute CFO call. The assertion requires both a case study + ROI model by Thursday AND a 30-minute CFO call on Tuesday at 2pm ET; neither commitment matches exactly."
+        },
+        {
+          "text": "Email does not contain any banned phrases: 'just checking in', 'circling back', 'bumping this up', 'touching base', or a generic 'great to meet you' without specifics",
+          "passed": true,
+          "evidence": "Searched the full email text. None of the banned phrases appear: no 'just checking in', no 'circling back', no 'bumping this up', no 'touching base', no 'great to meet you'. The greeting is 'Thanks for the conversation this morning' which is specific, not generic."
+        },
+        {
+          "text": "Timing recommendation is present and specifies sending within 2 hours or immediately after the call",
+          "passed": true,
+          "evidence": "The output includes 'TIMING: Send immediately (within the hour of call ending)' which satisfies the requirement of specifying sending immediately after the call."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "follow-up",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.17,
+        "passed": 1,
+        "failed": 5,
+        "total": 6,
+        "time_seconds": 0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Email is labeled as Type 1: Post-Discovery Follow-Up and follows the Type 1 structure (acknowledgement, 'What I heard' section, 'What we discussed' section, next step)",
+          "passed": false,
+          "evidence": "The email is not labeled as 'Type 1' anywhere in the output. It is titled 'Post-Discovery Follow-Up Package' but does not reference the Type 1 classification. Structurally, it has an acknowledgement ('Thank you for taking the time today...'), a '**What I Heard**' section, but instead of a '**What we discussed**' section, it has '**What I'm Sending You**' (which describes the case study, not what was discussed in the call). The next step section is present ('**Next Step: Technical Deep-Dive**'). The structure partially matches but deviates from the required Type 1 template by replacing 'What we discussed' with 'What I'm Sending You' and adding extra sections (On ROI for David, CRM Notes, Pre-Call Prep Brief, Calendar Invite Draft) that go well beyond the expected follow-up email structure."
+        },
+        {
+          "text": "Subject line references a specific topic from the call (picking accuracy, fulfillment penalties, peak season ramp, or warehouse operations at Norwood Distribution) -- not a generic subject like 'Great meeting' or 'Our call today'",
+          "passed": false,
+          "evidence": "The subject line is 'Next Steps from Our Conversation -- WarehouseIQ + Norwood Distribution'. While it mentions Norwood Distribution, 'Next Steps from Our Conversation' is generic -- it does not reference picking accuracy, fulfillment penalties, peak season ramp, or warehouse operations. It is closer to the banned pattern of 'Our call today' than to a specific topic reference."
+        },
+        {
+          "text": "'What I heard' section contains at least 2 bullets that use Lisa's own language: must include at least two of 'bleeding margin on mis-picks', 'held together with duct tape and prayers', 'the thing keeping me up at night', or '$1.2M in Q4 fulfillment penalties'",
+          "passed": false,
+          "evidence": "The 'What I Heard' section has 4 bullets but none use Lisa's exact language from the call. The section uses paraphrased business language: 'Pick accuracy is currently at 94.2%...to protect margins' (no 'bleeding margin' or 'mis-picks' phrasing), 'Your legacy Oracle WMS has been a constraint' (no 'duct tape and prayers' quote), and no mention of 'the thing keeping me up at night' or '$1.2M in Q4 fulfillment penalties'. The phrase 'held together with duct tape and prayers' appears only later in Section 3 (Pre-Call Prep Brief for the solutions engineer), not in the email's 'What I Heard' section."
+        },
+        {
+          "text": "Next step section confirms two specific commitments with dates: (1) sending the ProLog 3PL case study and ROI model by Thursday, and (2) the 30-minute CFO call on Tuesday at 2pm ET",
+          "passed": false,
+          "evidence": "The next step section mentions: (1) The ProLog case study is described as already attached, with no mention of an ROI model or a Thursday deadline. (2) The Tuesday March 18 at 2:00 PM ET meeting is confirmed but described as a 'Technical Deep-Dive' with Raj and a solutions engineer, not a '30-minute CFO call'. There is no mention of a CFO call in the next steps. The ROI analysis is mentioned separately under 'On ROI for David' as something that will be created AFTER the technical deep-dive, not sent by Thursday. Neither specific commitment matches the assertion."
+        },
+        {
+          "text": "Email does not contain any banned phrases: 'just checking in', 'circling back', 'bumping this up', 'touching base', or a generic 'great to meet you' without specifics",
+          "passed": true,
+          "evidence": "Searched the full email text. None of the banned phrases appear: no 'just checking in', no 'circling back', no 'bumping this up', no 'touching base', no 'great to meet you'. The greeting uses 'Thank you for taking the time today' which is specific rather than generic."
+        },
+        {
+          "text": "Timing recommendation is present and specifies sending within 2 hours or immediately after the call",
+          "passed": false,
+          "evidence": "There is no timing recommendation anywhere in the without-skill output. No mention of when to send the email. The CRM notes say 'Send follow-up email with ProLog Fulfillment case study | Due: Today (March 11)' but this is a task list, not a timing recommendation about sending within 2 hours or immediately. There is no explicit guidance about urgency of send timing."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.785,
+        "stddev": 0.221,
+        "min": 0.33,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0,
+        "stddev": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tokens": {
+        "mean": 0,
+        "stddev": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.369,
+        "stddev": 0.286,
+        "min": 0.0,
+        "max": 0.83
+      },
+      "time_seconds": {
+        "mean": 0,
+        "stddev": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tokens": {
+        "mean": 0,
+        "stddev": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.416",
+      "time_seconds": "+0",
+      "tokens": "+0"
+    }
+  },
+  "notes": [
+    "With-skill average pass rate: 78.5% (range: 33.0%-100.0%)",
+    "Without-skill average pass rate: 36.9% (range: 0.0%-83.0%)",
+    "Average skill lift: +41.6 percentage points",
+    "Lead-scoring shows strongest differentiation: 100% with-skill vs 0% without (entirely different scoring framework produced without skill)",
+    "Performance-analysis and prospect-research tied at 50%/50% -- assertions may need refinement (graders flagged data errors in assertions)",
+    "eval_metadata.json prompts were truncated to 200 chars causing some grader confusion on name/detail mismatches -- does not affect actual test execution",
+    "Several graders flagged missing assertions for factual accuracy / hallucination detection"
+  ]
+}

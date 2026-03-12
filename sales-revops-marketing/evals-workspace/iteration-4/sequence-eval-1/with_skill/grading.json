@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To maximise response rate on the opening touch, Touch 1 leads with Priya Kapoor's specific situation (her LinkedIn post about fleet coordination across 3 distribution centers and/or the Head of Reliability Engineering hire) rather than leading with FleetMind or Vantage Robotics -- prospects respond to messages about their problem, not your product",
+      "passed": true,
+      "evidence": "Touch 1 opens: 'Priya, your post last week about coordinating fleets across 3 new distribution centers hit on something I hear from a lot of warehouse automation leaders right now -- the orchestration layer that worked at one site falls apart at three.' Leads with her specific LinkedIn post and distribution center expansion. FleetMind is not mentioned until Touch 4."
+    },
+    {
+      "text": "To prevent the sequence from going stale, each of the 6 touches uses a distinct angle or proof point not present in any previous touch -- the available hooks (LinkedIn post, reliability hire, distribution center expansion, Georgia Tech connection, Apex Fulfillment case study, sector-level downtime patterns) must be distributed across touches, not front-loaded or repeated",
+      "passed": true,
+      "evidence": "Hook Distribution Plan shows distinct angles: Touch 1 (LinkedIn post/fleet coordination), Touch 2 (Reliability Engineering hire), Touch 3 (multi-site fleet scaling industry insight), Touch 4 (Apex Fulfillment case study 11%->3.2%), Touch 5 (Georgia Tech connection), Touch 6 (graceful close). Five Laws Compliance Check confirms each touch uses a different specific reference. No hook is repeated."
+    },
+    {
+      "text": "To convert awareness into pipeline, Touch 4 introduces the Apex Fulfillment proof point (unplanned downtime from 11% to 3.2% in 90 days) as social proof from a similar-scale warehouse automation company -- same-vertical proof points are the highest-converting element in outreach sequences, and burying them in Touch 1 wastes their impact",
+      "passed": true,
+      "evidence": "Touch 4 (Day 10): 'Apex Fulfillment (similar scale to Vantage, same warehouse automation vertical) was dealing with the exact multi-site coordination problem you posted about. They were running at 11% unplanned downtime across their fleet. After deploying FleetMind, they cut that to 3.2% in 90 days.' Proof point is deployed at Touch 4, not front-loaded in Touch 1."
+    },
+    {
+      "text": "To protect the relationship for future attempts, Touch 6 is a graceful close that is short, leaves the door open, contains no ask, and uses no guilt language or 'just checking in' -- a bad close poisons the entire account for re-engagement sequences later",
+      "passed": true,
+      "evidence": "Touch 6 (Day 21): 'Priya, I've reached out several times without hearing back -- I'll assume the timing isn't right. If that changes, I'm here. Wishing you and the Vantage team well with the expansion.' 34 words, no ask, no guilt language, no 'just checking in', leaves the door open."
+    },
+    {
+      "text": "To maintain channel effectiveness, at least 2 distinct channels (LinkedIn and email) are used across the 6 touches, and no single channel is used for consecutive touches within fewer than 3 days -- channel fatigue drives unsubscribes and connection-request rejections that permanently reduce reachability",
+      "passed": true,
+      "evidence": "Channels: Touch 1 LinkedIn (Day 1), Touch 2 Email (Day 3), Touch 3 Email (Day 7), Touch 4 LinkedIn (Day 10), Touch 5 Email (Day 17), Touch 6 LinkedIn (Day 21). Two channels used. Consecutive same-channel touches: Email Day 3 and Day 7 (4 days apart, exceeds 3-day minimum), LinkedIn Day 10 and Day 21 (11 days apart). No violations."
+    },
+    {
+      "text": "To prevent live prospects from falling through cracks, branching rules include: reply at any touch exits the sequence and alerts the rep (continuing to sequence a prospect who replied destroys trust), and LinkedIn connection accepted without reply triggers a custom warm follow-up DM rather than the generic next sequence touch",
+      "passed": true,
+      "evidence": "Branching Rules: 'Reply received at any touch -> EXIT SEQUENCE; alert rep immediately' and 'LinkedIn connection accepted without reply -> warm follow-up DM (not the generic sequence touch).' Both rules present as required."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

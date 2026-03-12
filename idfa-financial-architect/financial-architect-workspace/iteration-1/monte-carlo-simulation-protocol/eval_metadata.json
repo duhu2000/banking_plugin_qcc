@@ -1,0 +1,13 @@
+{
+  "eval_id": 10,
+  "eval_name": "monte-carlo-simulation-protocol",
+  "prompt": "I want to understand the range of possible Year 3 Gross Profit outcomes. Revenue growth could be anywhere from 5% to 15% (uniform distribution) and COGS efficiency could be 0% to 2% improvement per year (also uniform). Run a Monte Carlo simulation with 100 iterations and give me the distribution.",
+  "assertions": [
+    "Samples Inp_Rev_Growth from uniform(0.05, 0.15) and Inp_COGS_Efficiency from uniform(0.00, 0.02) for each iteration",
+    "Uses the write → recalculate → read pattern for EACH iteration (does not build an internal simulation)",
+    "Collects Gross_Profit_Y3 from the model after each iteration",
+    "Reports distribution statistics: at minimum mean, median, and some percentile or range measure",
+    "Restores the model to original base case values after simulation completes (Inp_Rev_Growth back to 0.10, Inp_COGS_Efficiency back to 0.01)",
+    "Does NOT perform Monte Carlo calculation internally — all arithmetic happens in the spreadsheet engine"
+  ]
+}

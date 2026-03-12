@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "text": "Runs 'uv run scripts/idfa_ops.py formula <file> Net_Income_Y1'",
+      "passed": true,
+      "evidence": "Report header: 'Tool used: uv run scripts/idfa_ops.py formula'. Direct Formula section shows the formula was read from the model."
+    },
+    {
+      "text": "Returns a formula referencing EBIT_Y1 and Tax_Y1 (e.g., '=EBIT_Y1-Tax_Y1')",
+      "passed": true,
+      "evidence": "Direct Formula: 'Net_Income_Y1 = EBIT_Y1 - Tax_Y1'. Full Dependency Chain table: 'Net_Income_Y1: =EBIT_Y1-Tax_Y1, Type: Calculation'."
+    },
+    {
+      "text": "Explains the formula in plain English: Net Income = EBIT minus Tax",
+      "passed": true,
+      "evidence": "Plain-English Explanation: 'Net_Income_Y1 computes Year 1 net income after tax...6. Net Income = EBIT minus tax.'"
+    },
+    {
+      "text": "Does NOT fabricate or guess the formula \u2014 reads it from the actual model file",
+      "passed": true,
+      "evidence": "Report states 'Tool used: uv run scripts/idfa_ops.py formula'. The Full Dependency Chain traces from the model's actual formulas through all levels back to inputs. The formula matches the model's known structure."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  }
+}

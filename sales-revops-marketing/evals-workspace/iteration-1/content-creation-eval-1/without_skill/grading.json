@@ -1,0 +1,95 @@
+{
+  "expectations": [
+    {
+      "text": "Article is between 600 and 1200 words and follows LinkedIn article structure: scroll-stopping hook as the first line, short paragraphs (2-4 sentences max), bold key lines for scannability",
+      "passed": true,
+      "evidence": "Word count is 857 (within 600-1200 range). Opening hook: 'Your best engineers are not shipping product right now.' is a strong, scroll-stopping first line. Paragraphs are generally 2-4 sentences. Bold key lines used for scannability, including bold subheadings within sections ('On-call rotation drag.', 'Sync bug whack-a-mole.', 'Context-switching costs.'). Some paragraphs in the ops tax section run to 4-5 sentences but remain within reasonable bounds for LinkedIn."
+    },
+    {
+      "text": "Takes a clear personal POV and position on the topic -- does not hedge with 'on the other hand' or 'it depends' framing; states what the fix looks like with conviction",
+      "passed": true,
+      "evidence": "The article takes a clear, unhedged position that internal integrations are a hidden tax and teams should use purpose-built platforms. Key conviction statements: 'You built these integrations in-house because it seemed cheaper. It wasn't.', 'That number is what you're paying to maintain the illusion that building it yourself was cheaper.', 'The best engineering organizations I've seen treat integrations the way they treat infrastructure: as a problem to be solved by specialized tooling, not as a recurring tax on the team's attention.' No hedging language present."
+    },
+    {
+      "text": "Contains zero banned words: leverage, synergy, best-in-class, seamless, robust, end-to-end, game-changing, revolutionary, disruptive, holistic, cutting-edge, world-class, innovative, empower, unlock, transform, solution, ecosystem, paradigm, circle back, reach out",
+      "passed": true,
+      "evidence": "Programmatic search of the full text confirmed zero banned words present. The article uses plain, direct language (e.g., 'ops tax', 'whack-a-mole', 'undifferentiated heavy lifting') rather than corporate jargon."
+    },
+    {
+      "text": "Includes a specific CTA directing readers to follow the Arcline Analytics company page for the 'Data Ops in Practice' series",
+      "passed": false,
+      "evidence": "The CTA reads: 'Follow our [company page] for more engineering leadership content -- no fluff, just the operational and architectural thinking that mid-market engineering teams actually need.' This directs readers to follow the company page but does NOT mention the 'Data Ops in Practice' series. The assertion specifically requires referencing that series name. Additionally, the company page link is a placeholder '[company page]' rather than a real link, which is a minor formatting issue."
+    },
+    {
+      "text": "Ends with a question designed to drive comments (thought leadership engagement pattern)",
+      "passed": false,
+      "evidence": "The article does not end with a question. The final section 'The Question to Ask Yourself' poses an internal exercise ('Pull up your last quarter's incident log...') but does not end with an outward-facing question to the reader designed to drive comments. The article's last lines are: 'I'd encourage you to actually run those numbers. Most teams are genuinely surprised by what they find.' followed by the CTA block, which also ends with a statement, not a question. No engagement-driving closing question is present."
+    },
+    {
+      "text": "Does not fabricate any statistics -- any data points are clearly labeled as estimates, sourced, or presented as placeholders for the user to fill in",
+      "passed": true,
+      "evidence": "Data points used: '15-20% of its total lifetime cost' and 'the other 80%' (presented as typical observation: 'typically 15-20%'), 'roughly 20% of their productive capacity' (attributed to Gerald Weinberg's research -- this is a legitimate, widely-cited reference from his 'Quality Software Management' work), 'thirty or forty times' (presented as approximation: 'something closer to'). All data points are appropriately framed as estimates, approximations, or sourced references."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 2,
+    "total": 6,
+    "pass_rate": 0.67
+  },
+  "execution_metrics": {
+    "output_chars": 5612,
+    "transcript_chars": 0
+  },
+  "timing": {},
+  "claims": [
+    {
+      "claim": "Gerald Weinberg's research shows roughly 20% productive capacity loss per additional concurrent project",
+      "type": "factual",
+      "verified": true,
+      "evidence": "This is a well-known reference from Gerald Weinberg's 'Quality Software Management, Vol. 1: Systems Thinking' (1992). The ~20% context-switching cost per additional project is a widely cited figure from that work, though it's an approximation. The attribution is legitimate."
+    },
+    {
+      "claim": "Ten integrations produce thirty or forty times the maintenance burden, not ten times",
+      "type": "factual",
+      "verified": false,
+      "evidence": "This specific multiplier (30-40x) is presented as an approximation ('something closer to') but is not sourced. While the general point about non-linear growth in failure surface area is valid, the specific 30-40x figure is an unverified estimate. It's appropriately hedged with 'something closer to' so doesn't violate the no-fabrication assertion, but readers might treat it as a data point."
+    },
+    {
+      "claim": "The initial build cost is typically 15-20% of total lifetime cost",
+      "type": "factual",
+      "verified": false,
+      "evidence": "This ratio is presented as a general observation ('typically') but is not sourced to any specific study. While directionally plausible based on software maintenance literature, the specific 15-20%/80% split for integrations is an unverified claim. It's appropriately framed as typical rather than definitive."
+    },
+    {
+      "claim": "The article represents Arcline Analytics as an integration orchestration platform",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The eval prompt describes Arcline Analytics as 'a data observability platform that detects pipel...' (truncated). The article positions it as 'an integration orchestration platform so your engineers can get back to building product.' This may be a mismatch with the actual company description."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Ends with a question designed to drive comments (thought leadership engagement pattern)",
+        "reason": "This is a good, discriminating assertion. The without_skill output has a section titled 'The Question to Ask Yourself' which might superficially seem like it satisfies this, but the grader correctly identified it's a self-directed exercise rather than an outward-facing engagement question. The assertion clearly distinguishes between these two patterns."
+      },
+      {
+        "reason": "No assertion checks whether the article aligns with the company's actual product positioning. Both outputs describe Arcline Analytics as an 'integration orchestration platform' when the prompt says it's a 'data observability platform.' This is a significant content accuracy issue that goes undetected."
+      },
+      {
+        "reason": "The without_skill output includes a placeholder link '[company page]' in the CTA. An assertion checking for publication-readiness (no placeholder brackets, no TODO markers) would catch this kind of unfinished output."
+      },
+      {
+        "assertion": "Does not fabricate any statistics -- any data points are clearly labeled as estimates, sourced, or presented as placeholders for the user to fill in",
+        "reason": "The without_skill output's Gerald Weinberg citation is legitimate, but the 30-40x multiplier and the 15-20%/80% split are unsourced estimates presented in a way that reads as authoritative. The assertion passes because they're technically hedged, but a stricter version might require that specific numbers either be sourced or explicitly marked as estimates (e.g., 'in our experience' or '[estimate -- replace with your data]')."
+      }
+    ],
+    "overall": "Assertions are well-constructed overall. The CTA and closing-question assertions are particularly discriminating -- they caught real quality gaps in this output. Main gap is no assertion on product-positioning accuracy, which both outputs got wrong."
+  }
+}

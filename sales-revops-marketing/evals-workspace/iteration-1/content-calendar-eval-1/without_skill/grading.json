@@ -1,0 +1,97 @@
+{
+  "expectations": [
+    {
+      "text": "Output includes the calendar in the specified table format with all required columns: Week, Date, Channel, Content Title, Format, Persona, CTA, and Status -- plus per-week sections for Key Theme, Pillar Link, and Production Deadline",
+      "passed": false,
+      "evidence": "Tables use columns: Day/Time, Channel, Content, Format, and sometimes Owner -- but are missing the required Week, Date (specific dates only appear in headers, not rows), Persona, CTA, and Status columns. Per-week sections have 'Objective' but not the required 'Key Theme', 'Pillar Link', or 'Production Deadline' triplet. While content themes exist in the 'Content Themes by Phase' table, they are not per-week Key Theme/Pillar Link/Production Deadline sections as specified."
+    },
+    {
+      "text": "The pillar-cluster model is clearly visible with at least 2 cornerstone assets (e.g. a pre-launch guide on AI contract management and a post-launch ROI report or case study framework) each generating 4-8 derived cluster pieces across blog, LinkedIn, and email",
+      "passed": false,
+      "evidence": "Only ONE pillar/cornerstone asset is identified: the '2026 Contract Cycle Time Report.' The Content Reuse & Efficiency Strategy section describes it as 'the content engine for the entire 8 weeks' generating landing page, 5+ LinkedIn posts, 2 blog posts, 3 newsletter references, carousel, and conference talking points. No second cornerstone asset exists. The assertion requires at least 2."
+    },
+    {
+      "text": "Channel cadence stays within sustainable defaults for the four committed channels only: LinkedIn company page at up to 3x/week, CEO LinkedIn at up to 4-5x/week, blog at 1-2x/week, email at 1-2x/month -- with NO webinar or paid social content planned since those channels are explicitly uncommitted",
+      "passed": false,
+      "evidence": "Email newsletter cadence is excessive: 9 editions across 8 weeks (more than 1x/week average), far exceeding the 1-2x/month limit. Production Summary shows newsletters in Weeks 1, 2, 3, 4, 5 (x2), 6, 7, 8 = 9 sends. At 1-2x/month the maximum over 8 weeks would be 4 sends. LinkedIn company page hits 4 posts in Week 5 (announcement + feature spotlight #1 + customer quote + feature spotlight #2), exceeding the 3x/week limit. No webinar or paid social content is planned, which is correct."
+    },
+    {
+      "text": "Total weekly content volume does not exceed 6-9 pieces per week (1 full-time writer at 3-4 pieces/week with 2-3x AI multiplier), and if any week approaches or exceeds this ceiling the output flags it and recommends what to cut, prioritising pillar content over channel fill",
+      "passed": false,
+      "evidence": "Week 5 has 2 blog posts + 4 CEO LinkedIn posts + 4 company LinkedIn posts + 2 newsletters = 12 pieces, well above the 6-9 ceiling. Week 2 has 1 landing page + 1 blog + 1 carousel + 3 CEO posts + 2 company posts + 1 newsletter = 9+ pieces. Week 3 has 1 blog + 3 CEO posts + 3 company posts + 1 newsletter + 2-3 quote graphics = 10+ pieces. While the output mentions 'This is the peak -- pre-write everything possible in Week 4' for Week 5, there is no explicit capacity flag, no ceiling calculation, and no prioritized recommendation on what to cut."
+    },
+    {
+      "text": "Every production deadline is set at least 5 business days before the corresponding publish date, and the LegalTech Connect event in week 3 has content (pre-event teasers, live coverage, post-event recap) with deadlines that account for the event timeline",
+      "passed": false,
+      "evidence": "No per-week production deadlines are stated anywhere in the output. The Risk Mitigation table mentions 'Pre-write all CEO posts 5+ days ahead' and 'Batch-produce Week 5-6 content during Week 3-4' as general risk mitigations, but no specific production deadlines are assigned to any week or content piece. The LegalTech Connect event does have pre-event teasers (Monday-Tuesday), live coverage (Wednesday-Thursday), and post-event recap (Friday), but without explicit deadlines there is no evidence the 5-business-day lead requirement is met."
+    },
+    {
+      "text": "Every single content piece is anchored to one of the two personas (VP Legal Ops or Head of Procurement) and includes a specific CTA (e.g. 'Book a demo', 'Download the guide', 'Register for launch event') -- no piece exists without both a persona and a CTA",
+      "passed": false,
+      "evidence": "No Persona column exists in any table. Some content descriptions mention personas implicitly (e.g., Week 6 Monday blog is 'Persona-specific blog for Head of Procurement'), but the majority of pieces have no explicit persona assignment. Many pieces also lack a specific CTA: Week 1 Monday CEO post has no CTA, Week 1 Thursday is 'Community engagement' with no CTA, Week 1 Friday poll has no CTA, Week 2 Friday CEO engagement has no CTA, Week 3 Wednesday CEO live post ends with a reaction rather than a CTA. At least a dozen pieces across the calendar lack one or both of persona and CTA."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 6,
+    "total": 6,
+    "pass_rate": 0.0
+  },
+  "execution_metrics": {
+    "output_chars": 23710,
+    "transcript_chars": 0
+  },
+  "timing": {},
+  "claims": [
+    {
+      "claim": "The benchmark report is the content engine for the entire 8 weeks",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The Content Reuse & Efficiency Strategy section states it becomes 'landing page, 5+ LinkedIn posts, 2 blog posts, 3 newsletter references, carousel, conference talking points.' Reviewing the calendar, report-derived content appears in Weeks 2, 3, 5, 6, 7, and 8, confirming it functions as the central content engine."
+    },
+    {
+      "claim": "CEO LinkedIn posts require only 15 minutes CEO time per post",
+      "type": "quality",
+      "verified": false,
+      "evidence": "This is an operational assumption stated in the Content Reuse & Efficiency Strategy, not verifiable from the output alone. Given that some CEO posts involve long-form founder narratives (Week 5 launch post), 15 minutes for review and personalization seems optimistic for those pieces."
+    },
+    {
+      "claim": "9 newsletter editions across 8 weeks",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Production Summary table shows: Week 1 (1), Week 2 (1), Week 3 (1), Week 4 (1), Week 5 (2), Week 6 (1), Week 7 (1), Week 8 (1) = 9 total. This significantly exceeds the prompt's constraint of an email newsletter with 4,200 subscribers at a sustainable cadence."
+    },
+    {
+      "claim": "Target of 500+ report downloads by Week 8",
+      "type": "quality",
+      "verified": false,
+      "evidence": "Stated in Key Metrics to Track table. This is a forward-looking target and cannot be verified from the calendar output. Whether it's a reasonable target depends on traffic and conversion assumptions not provided."
+    },
+    {
+      "claim": "Launch is coordinated for May 5 across all channels simultaneously",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Week 5 Monday (May 5) shows timed launch: 8:00 AM ET blog + company LinkedIn, 8:30 AM CEO LinkedIn, 9:00 AM email newsletter. All four channels fire within one hour."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Channel cadence stays within sustainable defaults for the four committed channels only: LinkedIn company page at up to 3x/week, CEO LinkedIn at up to 4-5x/week, blog at 1-2x/week, email at 1-2x/month -- with NO webinar or paid social content planned since those channels are explicitly uncommitted",
+        "reason": "This assertion bundles multiple constraints (4 channel cadence limits + 2 exclusions) into a single pass/fail. The without-skill output correctly avoids webinars and paid social but fails on email cadence. Breaking this into separate assertions would give more diagnostic clarity about where outputs succeed vs fail."
+      },
+      {
+        "reason": "No assertion tests the quality or specificity of the content ideas themselves. The without-skill output actually includes more detailed, higher-quality content descriptions (e.g., Week 5 launch day has timed coordination, persona-specific email subject lines, specific CEO narrative framing) that no assertion rewards. A discriminating assertion on content depth would capture this difference."
+      },
+      {
+        "reason": "No assertion checks whether the calendar dates are internally consistent (e.g., that Week 3 actually falls on the right dates relative to the launch date). The without-skill output has a date inconsistency: the calendar span says 'March 10 -- May 1 (pre-launch) | May 5 (launch)' but Week 4 is dated March 31 -- April 4, which is 5 weeks before launch, not 1 week. An assertion checking date arithmetic would catch this."
+      }
+    ],
+    "overall": "The assertions are well-designed to test structural compliance and operational rigor. The without-skill output fails across the board primarily because it uses a different format (day-by-day narrative instead of the specified table structure) and omits required metadata fields (Persona, CTA, Status columns; Key Theme / Pillar Link / Production Deadline sections). The assertions effectively discriminate between an output that follows specific format requirements and one that takes a more freeform approach."
+  }
+}

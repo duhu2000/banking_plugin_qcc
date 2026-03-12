@@ -1,0 +1,109 @@
+{
+  "expectations": [
+    {
+      "text": "LinkedIn CTR (0.28%) is compared against the benchmark table (average: 0.35-0.45%) and classified as below average, not just reported as a number",
+      "passed": true,
+      "evidence": "The output computes LinkedIn Sponsored CTR as 0.35% and explicitly compares it against benchmarks: 'The 0.35% CTR is at the low end of B2B LinkedIn benchmarks (0.4%-0.6% is typical for sponsored content).' This positions the CTR as below the benchmark range and classifies it as underperforming, not just reporting a number. Note: the output uses 0.35% (computed from 158/45,200) rather than the assertion's 0.28%, but the structural requirement of benchmark comparison and below-average classification is clearly met."
+    },
+    {
+      "text": "Email sequence decay is root-cause diagnosed before any recommendation — the analysis distinguishes between subject line issues (open rate problem) and body content issues (open-to-click drop) to explain why Email 3 underperforms",
+      "passed": true,
+      "evidence": "In section 2c (Email Nurture Sequence), the analysis states: '34% open rate is above B2B average (~25%). However, the CTR drops 71% from Email 1 to Email 3 (6.2% to 1.8%), which indicates either content fatigue or poor sequencing.' A dedicated 'CTR Decay Analysis' subsection quantifies the drop: 'Email 2 to Email 3: -56% drop (4.1% to 1.8%) — abnormal, suggests Email 3 content/CTA misfire.' This clearly distinguishes between open rates (subject lines working fine) and click-through (body content problem) before the recommendation appears in Priority 3."
+    },
+    {
+      "text": "Each recommendation is specific enough to execute immediately — e.g., not 'improve the landing page' but a concrete change like restructuring the form, reducing fields, or adding social proof with expected conversion lift",
+      "passed": true,
+      "evidence": "Recommendations are concrete and actionable. Examples: Priority 1 (Landing Page): 'Reduce form fields to 3-4 maximum (name, email, company, title). Every additional field drops conversion ~5-10%'; 'Add social proof above the fold (client logos, downloaded by X leaders counter)'; 'Check page load speed; aim for under 2 seconds.' Priority 3 (Email): 'test a direct book a 15-min call CTA or a case study with concrete ROI numbers'; 'Add an Email 4 for non-converters: short, personal-tone email from an SDR.' Each is immediately executable with clear parameters."
+    },
+    {
+      "text": "A 'What is working — do not change' section explicitly names Email 1 CTR (5.2%, good tier) and budget pacing as things to protect from unnecessary optimization",
+      "passed": false,
+      "evidence": "The output does NOT have a dedicated 'What is working — do not change' section. Budget management is graded as 'B+' in the Summary Scorecard and Email is graded as 'B' with 'Strong opens, fixable decay issue,' but neither is explicitly framed as something to protect from unnecessary optimization. Email 1 CTR (6.2%) is mentioned in the data but never identified as something that should not be changed. The closest equivalent is the Summary Scorecard, which is an assessment, not a protective directive."
+    },
+    {
+      "text": "Webinar-to-opp rate (8%) is flagged as poor against the 15-20% average benchmark, with root cause analysis exploring whether the problem is attendee quality, follow-up timing, or post-webinar nurture",
+      "passed": false,
+      "evidence": "The output does NOT flag the webinar-to-opp rate as poor. Instead, it frames the webinar positively: 'Assessment: Strong mid-funnel conversion. 58% show rate is solid (industry average ~40-45%). 21% of attendees booked follow-up calls, which is excellent engagement.' The 9.6% attendee-to-MQL rate is reported but not flagged as poor against any benchmark. The 37 non-converting attendees are mentioned as a 'retargeting opportunity' (Priority 5), not as evidence of a systemic problem. No root cause analysis explores attendee quality, follow-up timing, or post-webinar nurture as distinct hypotheses."
+    },
+    {
+      "text": "The action plan includes specific owners and deadlines for each item, not generic 'team should review' statements",
+      "passed": false,
+      "evidence": "The recommendations in Section 5 are organized by priority (Priority 1-6) with bulleted action items, but NO specific owners or deadlines are assigned to individual items. The recommendations use generic framing like 'Actions:' followed by bullet points without assigning responsibility. The closest to a deadline is 'Target: Get to 18-20% conversion by Week 6' and 'Implement a 24-hour SLA,' but these are targets and process changes, not assigned deadlines for specific people. No owner names, team assignments, or due dates are attached to the 6 priority areas."
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 3,
+    "total": 6,
+    "pass_rate": 0.5
+  },
+  "execution_metrics": {
+    "output_chars": 11564,
+    "transcript_chars": null
+  },
+  "timing": null,
+  "claims": [
+    {
+      "claim": "LinkedIn Sponsored CTR of 0.35% is at the low end of B2B benchmarks (0.4-0.6%)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "158 / 45,200 = 0.3496% rounds to 0.35%. Industry benchmarks for LinkedIn Sponsored Content CTR do typically range from 0.4-0.65%, so 0.35% is indeed at the low end."
+    },
+    {
+      "claim": "34% email open rate is above B2B average (~25%)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "B2B email open rate averages are commonly cited in the 20-30% range, with 25% being a reasonable central estimate. 34% is above this. The claim is reasonable."
+    },
+    {
+      "claim": "Webinar show rate of 58% is solid (industry average ~40-45%)",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Industry benchmarks for webinar show rates typically range from 40-60%, with many sources citing 45-55% as average. The output's claimed average of 40-45% is on the low end of commonly cited ranges; 58% is above average but claiming the average is 40-45% understates the typical range. Minor discrepancy."
+    },
+    {
+      "claim": "CTR drops 71% from Email 1 to Email 3 (6.2% to 1.8%)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "(6.2 - 1.8) / 6.2 = 70.97%, rounds to 71%. Correct."
+    },
+    {
+      "claim": "If landing page conversion were 20% instead of 12.9%, same 480 visits would yield 96 downloads instead of 62 — a 55% increase",
+      "type": "factual",
+      "verified": true,
+      "evidence": "480 * 0.20 = 96. (96 - 62) / 62 = 54.8%, rounds to 55%. Correct."
+    },
+    {
+      "claim": "Projected pipeline at current rates: 40 MQLs x 38.9% = ~16 SALs x 42.9% = ~7 opps x $113K = ~$791K",
+      "type": "factual",
+      "verified": true,
+      "evidence": "40 * 0.389 = 15.56 ≈ 16 SALs. 16 * 0.429 = 6.86 ≈ 7 opps. 7 * $113K = $791K. Math checks out."
+    },
+    {
+      "claim": "Pipeline ROI against $32K spend is 24.7x ($791K / $32K)",
+      "type": "factual",
+      "verified": false,
+      "evidence": "$791K / $32K = 24.7x. However, this is pipeline-to-spend ratio, not ROI (which would require accounting for revenue, costs, and close rates). Labeling it 'ROI' overstates certainty — it's a pipeline multiple. The math is correct but the framing is misleading."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "LinkedIn CTR (0.28%) is compared against the benchmark table (average: 0.35-0.45%) and classified as below average, not just reported as a number",
+        "reason": "The assertion states CTR is 0.28% but both outputs independently compute 0.35% from the data (158/45,200). The assertion likely contains a data error. Additionally, the assertion's benchmark range (0.35-0.45%) differs from the without_skill output's range (0.4-0.6%) -- both are reasonable industry ranges but the discrepancy means a correct analysis could fail on benchmark numbers alone."
+      },
+      {
+        "assertion": "A 'What is working — do not change' section explicitly names Email 1 CTR (5.2%, good tier) and budget pacing as things to protect from unnecessary optimization",
+        "reason": "The assertion references Email 1 CTR as 5.2% but both outputs report 6.2%. This is likely a data error in the assertion. Additionally, this assertion tests for a specific section title and specific items within it -- it's more of a format test than an analytical quality test. A strong analysis could correctly identify what's working without using the exact section name."
+      },
+      {
+        "reason": "No assertion tests whether the output correctly identifies and prioritizes the landing page as a cross-channel multiplier. This is arguably the most important analytical insight -- fixing the landing page improves every channel's MQL output simultaneously. Both outputs identify this but it goes unchecked."
+      },
+      {
+        "reason": "No assertion tests whether budget reallocation recommendations are backed by CPL comparisons. Both outputs recommend shifting budget from Sponsored Content ($1,600 CPL) to Thought Leader Ads ($475 CPL) -- a critical recommendation that no assertion validates."
+      }
+    ],
+    "overall": "Two assertions contain apparent data errors (0.28% CTR and 5.2% Email 1 CTR). The assertion set is weighted toward format compliance (section naming, owner/deadline presence) rather than analytical quality (correct diagnosis, sound prioritization, valid math). Consider adding assertions that test whether the analysis reaches correct conclusions from the data."
+  }
+}

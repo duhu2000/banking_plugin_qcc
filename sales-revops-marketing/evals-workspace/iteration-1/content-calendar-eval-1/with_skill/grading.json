@@ -1,0 +1,98 @@
+{
+  "expectations": [
+    {
+      "text": "Output includes the calendar in the specified table format with all required columns: Week, Date, Channel, Content Title, Format, Persona, CTA, and Status -- plus per-week sections for Key Theme, Pillar Link, and Production Deadline",
+      "passed": true,
+      "evidence": "Every week's table contains columns: Week, Date, Channel, Content Title / Description, Format, Persona, CTA, Status. Each week section opens with KEY THEME, PILLAR LINK, and PRODUCTION DEADLINE in bold headers (e.g., Week 1: 'KEY THEME: Establish the problem...', 'PILLAR LINK: Teases the upcoming benchmark report...', 'PRODUCTION DEADLINE: April 2')."
+    },
+    {
+      "text": "The pillar-cluster model is clearly visible with at least 2 cornerstone assets (e.g. a pre-launch guide on AI contract management and a post-launch ROI report or case study framework) each generating 4-8 derived cluster pieces across blog, LinkedIn, and email",
+      "passed": false,
+      "evidence": "Only ONE pillar/cornerstone asset is identified: the '2026 Contract Cycle Time Report' with 8 cluster pieces listed in the Pillar-Cluster Architecture section. No second cornerstone asset exists. The assertion requires 'at least 2 cornerstone assets.' The output mentions potential next pillar candidates ('Mid-Market Contract Management Buyer's Guide', customer case study, or 'State of Legal-Procurement Collaboration') but these are future planning suggestions, not assets in the 8-week calendar."
+    },
+    {
+      "text": "Channel cadence stays within sustainable defaults for the four committed channels only: LinkedIn company page at up to 3x/week, CEO LinkedIn at up to 4-5x/week, blog at 1-2x/week, email at 1-2x/month -- with NO webinar or paid social content planned since those channels are explicitly uncommitted",
+      "passed": true,
+      "evidence": "Summary table shows: LinkedIn company page at exactly 3x/week every week (24 total / 8 weeks), CEO LinkedIn at 3-4x/week (28 total / 8 weeks), blog at 1x/week (8 total), email at 4 sends over 8 weeks (0.5x/week = 2x/month). All within limits. No webinar or paid social content appears anywhere in the calendar. The Production Capacity Assessment table explicitly confirms these cadences."
+    },
+    {
+      "text": "Total weekly content volume does not exceed 6-9 pieces per week (1 full-time writer at 3-4 pieces/week with 2-3x AI multiplier), and if any week approaches or exceeds this ceiling the output flags it and recommends what to cut, prioritising pillar content over channel fill",
+      "passed": true,
+      "evidence": "Weekly totals: W1=8, W2=8, W3=8, W4=9, W5=10, W6=7, W7=8, W8=7. Week 4 at 9 pieces includes a 'CAPACITY NOTE' explaining it's manageable. Week 5 at 10 pieces includes a detailed 'CAPACITY NOTE' explaining mitigation (pre-producing by April 28). The 'What to Cut If Capacity Gets Tight' section provides priority-ordered cuts: (1) CEO LinkedIn engagement posts, (2) LinkedIn company share posts, (3) blog posts, (4) 'NEVER cut: Report launch content (Week 2), launch announcement content (Week 5), email newsletters' -- correctly prioritizing pillar content over channel fill."
+    },
+    {
+      "text": "Every production deadline is set at least 5 business days before the corresponding publish date, and the LegalTech Connect event in week 3 has content (pre-event teasers, live coverage, post-event recap) with deadlines that account for the event timeline",
+      "passed": false,
+      "evidence": "Production deadlines are stated but fall short of 5 business days. Week 1 publishes April 7 (Monday) with deadline April 2 (Wednesday) = 3 business days. Week 2 publishes April 14 with deadline April 9 = 3 business days. Week 3 publishes April 21 with deadline April 16 = 3 business days. These are ~5 calendar days but only ~3 business days. The LegalTech Connect event content does include pre-event teasers (Apr 21), live coverage (Apr 22-23), and post-event recap (Apr 25), with the pre-produced content deadline of April 16 and a note that live posts are 'created same-day during conference.' The event timeline is accounted for, but the 5-business-day requirement is not met."
+    },
+    {
+      "text": "Every single content piece is anchored to one of the two personas (VP Legal Ops or Head of Procurement) and includes a specific CTA (e.g. 'Book a demo', 'Download the guide', 'Register for launch event') -- no piece exists without both a persona and a CTA",
+      "passed": true,
+      "evidence": "Every table row across all 8 weeks includes a Persona column with one of: 'VP Legal Ops', 'Head of Procurement', or 'Both', and a CTA column with specific CTAs such as 'Comment with their biggest contract pain point', 'Download the report', 'Request a demo', 'Book a walkthrough', 'Subscribe to newsletter', etc. No row is missing either field."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 2,
+    "total": 6,
+    "pass_rate": 0.67
+  },
+  "execution_metrics": {
+    "output_chars": 27142,
+    "transcript_chars": 0
+  },
+  "timing": {},
+  "claims": [
+    {
+      "claim": "Target capacity is ~8.5 pieces/week for one writer with AI assistance",
+      "type": "factual",
+      "verified": true,
+      "evidence": "The Production Capacity Assessment shows 3-4 base pieces x 2.5x AI multiplier = 8-9 pieces/week adjusted capacity, minus 20% editorial overhead. The ~8.5/week figure is consistent with the math and the actual weekly totals (7-10 range, averaging ~8)."
+    },
+    {
+      "claim": "Week 5 spikes to ~10 pieces and is mitigated by pre-producing content in Weeks 3-4",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Week 5 total is listed as 10 (including 2 email variants counting as 1 production effort). The CAPACITY NOTE states content should be pre-produced by April 28 and the marketer's live work during launch week is 'limited to monitoring engagement, responding to comments, and creating 1-2 reactive posts.' Week 4 deadline of April 23 also mentions pre-producing Week 5 content."
+    },
+    {
+      "claim": "Email newsletters are sent biweekly (4 sends across 8 weeks)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Email Newsletter Strategy table shows 4 sends: Week 2 (report launch), Week 4 (pre-launch tease), Week 5 (product launch), Week 7 (post-launch nurture). This is exactly 4 sends over 8 weeks, confirming biweekly cadence."
+    },
+    {
+      "claim": "All cluster content links back to the report download page",
+      "type": "quality",
+      "verified": false,
+      "evidence": "The claim is stated in the Pillar-Cluster Architecture section but there is no way to verify URL linkage from the calendar output alone. Individual content descriptions do reference 'Download the report' CTAs, which supports the intent, but actual linkage would only be verifiable in the published content."
+    },
+    {
+      "claim": "Company targets 200-1,000 employee companies",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The Campaign Overview states '500-2,000 employees' but the prompt mentions '200-1000 emp...' (truncated). The output's target company size range may not match the prompt's original specification. Multiple content pieces reference '500-2,000 employees' which could be a deviation from the prompt."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "The pillar-cluster model is clearly visible with at least 2 cornerstone assets (e.g. a pre-launch guide on AI contract management and a post-launch ROI report or case study framework) each generating 4-8 derived cluster pieces across blog, LinkedIn, and email",
+        "reason": "This assertion may be overly prescriptive. The prompt mentions a single benchmark report as the pillar asset and a product launch -- it's unclear whether the prompt actually asked for 2 cornerstone assets. The examples given (pre-launch guide, post-launch ROI report) suggest specific assets that may not align with the prompt's actual instructions. Consider verifying the full prompt text to determine if this assertion matches the input."
+      },
+      {
+        "assertion": "Every production deadline is set at least 5 business days before the corresponding publish date",
+        "reason": "The distinction between 'business days' and 'calendar days' is material. The output sets deadlines ~5 calendar days before publish, which is 3 business days. If the prompt specified '5 business days' this is a genuine fail; if the prompt said '5 days' the output could be considered compliant. The assertion should clarify which is meant."
+      },
+      {
+        "reason": "No assertion checks whether the content calendar includes a coherent narrative arc across the 8 weeks. Both outputs that succeed on format could still fail on strategic coherence. A discriminating assertion might check that weeks 1-2 are problem-awareness, weeks 3-4 are authority-building, week 5 is launch, and weeks 6-8 are post-launch conversion -- which would distinguish a strategically sound calendar from one that merely fills slots."
+      }
+    ],
+    "overall": "The assertions cover format, structure, and operational constraints well. The main gaps are: (1) the 2-pillar requirement may not match the prompt, (2) business vs calendar days ambiguity, and (3) no assertion tests strategic coherence or quality of the content ideas themselves."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "eval_id": 8,
+  "eval_name": "explain-model-logic-map",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Lists ALL 24 Named Ranges with their business rules in plain English",
+      "passed": true,
+      "evidence": "The Logic Map lists all Named Ranges: 6 assumptions (Inp_Rev_Y1, Inp_Rev_Growth, Inp_COGS_Pct_Y1, Inp_COGS_Efficiency, Inp_OpEx_Y1, Inp_OpEx_Growth) plus 18 calculations across 6 chains (Revenue_Y1..Y3, COGS_Pct_Y1..Y3, COGS_Y1..Y3, Gross_Profit_Y1..Y3, OpEx_Y1..Y3, EBITDA_Y1..Y3) = 24 total. Each has a 'Plain English' column description. The Intent Notes table (lines 258-278) provides additional plain-English descriptions for all 18 calculation ranges."
+    },
+    {
+      "text": "Shows the dependency chain from inputs through calculations to outputs",
+      "passed": true,
+      "evidence": "Full Dependency Graph section (lines 187-224) provides an ASCII art diagram showing the complete flow from Layer 1 assumptions through all calculation chains to EBITDA_Y1..Y3. Each chain section also lists its dependencies (e.g., 'Dependency: Inp_Rev_Y1, Inp_Rev_Growth')."
+    },
+    {
+      "text": "Groups by layer (Assumptions → Calculations → Output)",
+      "passed": true,
+      "evidence": "Document is structured with 'Layer 1 -- Assumptions (All Inputs)' (lines 25-45), 'Layer 2 -- Calculations (All Business Rules)' (lines 48-183), and the dependency graph labeled 'LAYER 1 (Assumptions)' and 'LAYER 2 (Calculations)'. The three-layer explanation in the introduction (lines 17-21) explicitly names all three layers."
+    },
+    {
+      "text": "Each formula description is understandable without Excel knowledge",
+      "passed": true,
+      "evidence": "Every formula has a 'Plain English' description: e.g., 'Year 2 revenue = Year 1 grown by the growth rate', 'Year 1 COGS = Year 1 Revenue x Year 1 COGS %', 'Year 1 EBITDA = Year 1 GP minus Year 1 OpEx'. Business rule paragraphs precede each chain (e.g., 'COGS-to-revenue ratio starts at the Year 1 assumption and decreases by a fixed efficiency gain each year. This models scale economies'). No Excel-specific jargon."
+    },
+    {
+      "text": "Includes the key input levers and their downstream effects",
+      "passed": true,
+      "evidence": "The 'Quick-Reference: What to Change for Common Scenarios' table (lines 281-291) maps each business question ('If you want to...') to the relevant Named Range and its current value. Key design decisions (lines 42-44) explain downstream effects. Each chain section describes how inputs propagate."
+    },
+    {
+      "text": "Does NOT include cell coordinate references in the Logic Map",
+      "passed": true,
+      "evidence": "The entire Logic Map uses only Named Range names. All formulas, dependency graphs, and tables reference Named Ranges (Revenue_Y1, Inp_Rev_Growth, etc.). No cell references like A1, B2, C6 etc. appear in the formula descriptions, dependency graph, or business rule explanations."
+    }
+  ]
+}

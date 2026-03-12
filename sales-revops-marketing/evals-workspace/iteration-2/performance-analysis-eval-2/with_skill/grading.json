@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "To prevent a budget cut that would destroy $378K in pipeline from $11K in spend (34:1 ratio), the analysis explicitly refuses to recommend cutting LinkedIn without first testing creative and audience changes — directly applying the skill's NEVER rule about pausing channels before testing creative",
+      "passed": true,
+      "evidence": "Section titled 'THE ANSWER: DO NOT CUT LINKEDIN' explicitly states 'Recommendation: Do not cut this channel.' and 'Directly applying the performance analysis rule: NEVER recommend pausing a channel that is underperforming without first testing whether the creative, copy, or audience is the problem, not the channel itself.' The 2-week test plan is laid out before any budget decision."
+    },
+    {
+      "text": "To diagnose the real spend optimization opportunity, week-over-week CTR decline (Sponsored: 0.55% to 0.25%; Thought Leader: 1.2% to 0.64%) is identified as creative fatigue or audience saturation — a fixable execution problem, not a channel-level failure that warrants budget reallocation",
+      "passed": true,
+      "evidence": "Root cause analysis section titled 'Diagnosis: Creative Fatigue + Possible Audience Saturation' with detailed week-over-week tables for both Sponsored (0.55% -> 0.25%) and Thought Leader (1.2% -> 0.64%). Explicitly states 'This is NOT: A channel-level failure (pipeline ROI proves the channel works)' and 'This is a fixable execution problem, not a channel-level failure that warrants budget reallocation.'"
+    },
+    {
+      "text": "To prove LinkedIn generates pipeline-ready leads worth protecting, downstream conversion quality (55% lead-to-MQL, 58% MQL-to-SAL, 50% SAL-to-opp) is benchmarked against the skill's reference table — MQL-to-SAL at 41% average benchmark makes 55% above-average, validating that the channel attracts ICP-fit prospects even as volume declines",
+      "passed": true,
+      "evidence": "Headline numbers table benchmarks Lead-to-MQL at 55% (35-50% avg = ABOVE AVERAGE), MQL-to-SAL at 58% (35-50% avg = ABOVE AVERAGE), SAL-to-Opp at 50% (55-70% avg = SLIGHTLY BELOW AVG). Note: the benchmark ranges cited differ slightly from the expectation's '41% average benchmark' — the output uses 35-50% as the average tier — but the classification as above-average is present and supported."
+    },
+    {
+      "text": "To show leadership the difference between volume decline and ROI decline, pipeline-to-spend ratio (34:1) and average deal size ($42K) are positioned as the primary decision metrics — not impressions or CTR — reframing the cut-or-keep decision around revenue outcomes rather than vanity metrics",
+      "passed": true,
+      "evidence": "Headline numbers table highlights pipeline-to-spend ratio of 34:1 as 'EXCELLENT' (benchmarked against 10:1 good, 20:1 excellent). 'WHAT TO TELL LEADERSHIP' section states: 'The decision metric for leadership is pipeline-to-spend ratio and average deal size -- not impressions or CTR. Impressions and CTR are diagnostic metrics for the marketing team. The board cares about pipeline generated per dollar spent.'"
+    },
+    {
+      "text": "To give the marketing team an executable save-the-channel plan, specific creative refresh recommendations are provided — new ad variants to test, audience segment expansion beyond current targeting, or format mix shifts toward Thought Leader ads — with expected CTR recovery targets and a 2-week test timeline before any budget decision",
+      "passed": true,
+      "evidence": "Three detailed optimization opportunities: (1) Sponsored Creative Refresh with 4 specific variant angles, owner, deadline ('end of this week'), and expected CTR recovery to 0.40-0.55%. (2) Shift Budget Mix Toward Thought Leader Ads with 2x/week publishing cadence and $1-2K amplification test. (3) Audience Segment Expansion with two test variants (adjacent titles and lookalike audience). A 2-week test plan table is provided with weekly actions, success metrics, and decision gates."
+    },
+    {
+      "text": "To protect what is generating revenue, the 'What is working' section explicitly names Thought Leader ad format (higher CTR trajectory even while declining) and downstream lead quality as assets that a blanket budget cut would destroy alongside the underperforming Sponsored creative",
+      "passed": true,
+      "evidence": "'WHAT IS WORKING -- DO NOT CHANGE' section names three assets: (1) Thought Leader Ad Format — 'A blanket budget cut would destroy this asset alongside the underperforming Sponsored creative.' (2) Downstream Lead Quality — 55% lead-to-MQL and 58% MQL-to-SAL cited as above benchmark. (3) Pipeline Economics — 34:1 ratio and $42K deal size."
+    }
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}
+}

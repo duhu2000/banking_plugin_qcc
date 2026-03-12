@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "TARGET MARKET CLARITY: Firmographic criteria define specific numeric ranges for company size, revenue, geography (US and UK), and industry verticals ranked by conversion likelihood -- all anchored to the mid-market positioning and $48K ARR deal size so marketing and sales share one definition of who to pursue, eliminating wasted spend on wrong-fit accounts",
+      "passed": true,
+      "evidence": "Firmographic criteria specify: Company size 200-1,000 employees, Revenue range $20M-$500M ARR (mid-market), Geography 'Primary: United States, Canada. Secondary: UK, EU (English-speaking or bilingual legal teams)'. Industry verticals are ranked by conversion signal strength: 1. B2B SaaS companies, 2. Fintech/financial services, 3. Professional services, 4. Healthcare IT and healthtech, 5. E-commerce/marketplace platforms. US and UK are covered. Ranges are numeric and specific."
+    },
+    {
+      "text": "DEAL VELOCITY: Technology maturity criterion specifies legal ops function maturity and contract volume thresholds (500+ contracts/month as stated in the prompt) as qualifying signals, giving BDRs a fast-qualify checklist that eliminates unqualified prospects before they consume AE time",
+      "passed": true,
+      "evidence": "Technology maturity is specified: 'Mid-tech -- uses modern SaaS stack... but does NOT yet have an entrenched Contract Lifecycle Management (CLM) platform.' Legal team size: 'Minimum 3 in-house legal professionals... Sweet spot is 3-10.' Contract volume: 'Processes 500+ contracts per month across all types (customer, vendor, NDA, amendment, renewal).' These serve as qualifying signals for BDRs."
+    },
+    {
+      "text": "DEAL VELOCITY: NEGATIVE FIT SIGNALS / anti-ICP section identifies at least two distinct anti-ICP profiles -- the time-waster (engages but never buys) and the wrong-fit (buys but churns) -- with specific observable characteristics for each, so reps disqualify early instead of burning a 60-day sales cycle on accounts that will never close",
+      "passed": true,
+      "evidence": "The ANTI-ICP SUMMARY section identifies three distinct profiles: 1. 'The Enterprise Rip-and-Replace' (time-waster: 'They are intellectually interested and will engage deeply in evaluation, but the switching cost is massive. Average evaluation cycle: 6-12 months. Win rate: very low.'), 2. 'The Solo Counsel Startup' (wrong-fit: 'Genuine pain but no budget... They will request a free trial, use it briefly, and either churn or never convert from free to paid.'), 3. 'The E-Signature Shopper' (product mismatch). Each has disqualification signals and specific observable characteristics. Additionally, the NEGATIVE FIT SIGNALS table lists 6 anti-ICP types with time cost assessments."
+    },
+    {
+      "text": "SALES CYCLE COMPRESSION: TIMING SIGNALS are split into HOT (act within 48 hours) and WARM (act within 2 weeks) with concrete trigger events specific to legal/procurement contract review (regulatory deadlines, M&A activity, legal team hiring surges, compliance requirements) that let the BDR team prioritize outbound by buying urgency rather than treating all leads equally",
+      "passed": true,
+      "evidence": "Timing signals are split into two sections: 'TIMING SIGNALS -- HOT (act within 48 hours)' with 5 signals including compliance scare/audit finding, missed renewal causing financial loss, new Head of Legal/VP Procurement hired, legal ops role posted for first time, and regulatory change affecting industry. 'TIMING SIGNALS -- WARM (act within 2 weeks)' with 5 signals including Series B-D funding, headcount crossing 200, new product line/market expansion, annual planning/budget cycle, and legal team member posting about contract management pain. All triggers are specific to legal/procurement contract review domain."
+    },
+    {
+      "text": "REP PREPARATION TIME: POSITIVE FIT SIGNALS lists observable, researchable indicators a rep can find during prospecting (job postings for legal ops roles, contract management tool mentions, public procurement volume indicators) with guidance on where to find each signal, replacing the 30+ minutes of manual research reps currently do per prospect",
+      "passed": true,
+      "evidence": "POSITIVE FIT SIGNALS table lists 8 signals each with 'What to Look For' and 'Where to Find It' columns: Growing legal team (LinkedIn Jobs, company career page), No CLM platform in stack (G2 reviews, BuiltWith, technographic enrichment tools, job postings), High contract volume indicators (LinkedIn Jobs, Indeed, Greenhouse), Recent funding round (Crunchbase, PitchBook, TechCrunch), Compliance/regulatory event (Press releases, SEC filings, industry news), Procurement team exists (LinkedIn, org chart tools), Legal ops hire (Job boards, LinkedIn), Rapid headcount growth (LinkedIn headcount data, Glassdoor)."
+    },
+    {
+      "text": "TARGET MARKET CLARITY: Output includes operationalization guidance -- quarterly recalibration cadence, data sources for signal monitoring, or lead scoring integration -- acknowledging the ICP degrades without maintenance and giving RevOps a concrete refresh protocol",
+      "passed": true,
+      "evidence": "RECOMMENDED NEXT STEPS section includes: Item 1: 'Validate this ICP against your 30 closed-won deals. Score each deal against the firmographic criteria...' Item 3: 'Instrument your CRM with these timing signals. Set up alerts for: new Head of Legal hires at target accounts (UserGems or LinkedIn Sales Navigator), funding rounds at companies with 200-1,000 employees in target verticals (Crunchbase alerts), and legal ops job postings (LinkedIn job alerts).' Item 5: 'Recalibrate quarterly. As you close deals 31-100, revisit this ICP and persona. The patterns will sharpen.' This provides quarterly cadence, data sources for monitoring, and a concrete refresh protocol."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

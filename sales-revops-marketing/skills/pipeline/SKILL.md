@@ -29,7 +29,9 @@ Pull from CRM via MCP or accept pasted export containing:
 DIMENSION 1: Pipeline Health
 
 - Total pipeline value by stage
-- Weighted pipeline (value x stage probability)
+- Weighted pipeline: for each deal, multiply value x stage probability
+  (e.g. Discovery=20%, Qualification=40%, Proposal=60%, Negotiation=80%).
+  Sum all weighted values. Show the per-deal calculation in the report.
 - Pipeline coverage ratio (total pipeline / quota remaining)
 - Average deal size vs. target
 - Pipeline velocity (average days per stage)
@@ -49,6 +51,10 @@ Flag as STALLED if:
 - No activity >30 days
 - No next step agreed
 - Close date pushed >2x without explanation
+
+For each stalled deal: calculate what percentage of the remaining
+quota gap this deal represents. This quantifies the impact of
+losing it and determines whether replacement pipeline is needed.
 
 DIMENSION 3: Forecast Accuracy
 

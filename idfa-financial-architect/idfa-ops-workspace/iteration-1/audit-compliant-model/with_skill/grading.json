@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "Runs 'uv run scripts/idfa_audit.py <file>'",
+      "passed": true,
+      "evidence": "audit_raw.json shows structured audit output with file path and all four guardrails. The audit_report.md references the audit tool output."
+    },
+    {
+      "text": "Reports status for Guardrail 1 (Named Range Priority) \u2014 should be PASS for this model",
+      "passed": true,
+      "evidence": "Guardrail 1: 'Status: PASS, Violations: 0'. 'All 14 formulas in the Calculations layer reference Named Ranges exclusively.'"
+    },
+    {
+      "text": "Reports status for Guardrail 2 (LaTeX Verification) \u2014 PASS or WARN (no complex formulas like WACC)",
+      "passed": true,
+      "evidence": "Guardrail 2: 'Status: PASS'. 'No complex financial formulas (WACC, NPV, DCF, IRR, etc.) were found without accompanying LaTeX verification comments.'"
+    },
+    {
+      "text": "Reports status for Guardrail 3 (Intent Notes) \u2014 should reflect comment coverage",
+      "passed": true,
+      "evidence": "Guardrail 3: 'Status: PASS (100% coverage)'. 'All 14 formula cells have comments attached.'"
+    },
+    {
+      "text": "Reports status for Guardrail 4 (Layer Isolation) \u2014 should be PASS (no hardcoded values)",
+      "passed": true,
+      "evidence": "Guardrail 4: 'Status: PASS, Violations: 0'. 'No hardcoded numeric constants were found embedded in formulas.'"
+    },
+    {
+      "text": "Presents the overall compliance score/percentage",
+      "passed": true,
+      "evidence": "'Overall Result: PASS, Compliance Score: 100%'. audit_raw.json: '\"overall\": \"PASS\", \"compliance_score\": \"100%\"'."
+    },
+    {
+      "text": "Explains what each guardrail checks in terms the user can understand",
+      "passed": true,
+      "evidence": "Each guardrail section includes a 'What this guardrail checks:' paragraph. E.g., G1: 'Formulas must use Named Ranges instead of cell coordinate references. Coordinate references are fragile, opaque, and break the intent-driven principle.'"
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

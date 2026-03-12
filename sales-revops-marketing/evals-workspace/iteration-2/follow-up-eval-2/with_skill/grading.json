@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Body specifically names Marcus's positive reaction to the traffic-splitting feature or canary deployment capability — not a generic 'the team seemed interested in the demo' (drives deal velocity) — calling out the exact feature that sparked engagement reinforces the 'aha moment' and gives Marcus language to champion internally when he sells this to his CTO",
+      "passed": true,
+      "evidence": "The email states: 'Your reaction to the traffic-splitting feature -- specifically the canary deployment capability -- told me that is where the real operational value sits for your team. The three follow-up questions you asked about canary deployment configurations suggest this is directly relevant to how you would roll out the new gateway without disrupting live freight traffic.' Both traffic-splitting and canary deployments are named explicitly."
+    },
+    {
+      "text": "Priya's vendor lock-in objection is addressed directly: references the open-standards export shown during the demo and commits to sending the schema documentation she requested (drives deal velocity) — unaddressed technical objections from influencers are the #1 reason post-demo deals stall; resolving Priya's concern in writing prevents her from becoming a silent blocker",
+      "passed": true,
+      "evidence": "A dedicated section titled 'Addressing Priya's concern' states: 'Priya raised an important question about vendor lock-in given your custom middleware architecture. I showed her the open-standards export during the demo, and she mentioned she would need to see the schema documentation to fully evaluate portability. I am sending the full schema documentation to Priya separately today so she has everything she needs to assess the migration-off path independently.'"
+    },
+    {
+      "text": "Proposal timeline confirms two specific dates: proposal delivery by March 20 with 60-day pilot terms included, and proposal review call on March 24 at 10am PT (drives deal velocity) — documenting agreed dates in the follow-up creates mutual accountability and prevents the 'I never agreed to that timeline' objection that kills Q2 deadlines",
+      "passed": true,
+      "evidence": "Under 'What we agreed:' the email lists: 'I will send a proposal by March 20 that includes 60-day pilot terms as you requested' and 'We have a proposal review call booked for March 24 at 10am PT'. Both dates and the pilot terms are confirmed explicitly."
+    },
+    {
+      "text": "Email references the Q2 deadline or CTO-imposed timeline as shared urgency (drives deal velocity) — anchoring to the buyer's own deadline reframes urgency as their goal, not the seller pushing for a close, which keeps the champion motivated to drive internal approvals",
+      "passed": true,
+      "evidence": "The email states: 'Given the Q2 deadline from your CTO to have the new gateway live, the March 24 review keeps us on a timeline that gives your team a full 60-day pilot window before the Q2 cutoff. I want to make sure we protect that timeline for you.' References both the Q2 deadline and the CTO as the source of urgency."
+    },
+    {
+      "text": "Email avoids all banned follow-up phrases: 'just checking in', 'circling back', 'bumping this up', 'touching base', and does not use generic openers without specific demo content (drives reply rate) — these phrases signal a mass template and undermine the credibility built during a personalized demo",
+      "passed": true,
+      "evidence": "The email contains none of the banned phrases. It opens with 'Thanks for making time today to walk through the platform with your team' and immediately moves to specific demo content (traffic-splitting feature, canary deployments). Every paragraph references specific details from the demo."
+    },
+    {
+      "text": "Timing recommendation specifies sending within 24 hours of the demo (drives deal velocity) — post-demo follow-ups sent within 24 hours lock in momentum while the product experience is still vivid; delays past 24 hours let competing priorities and internal objections fill the gap",
+      "passed": true,
+      "evidence": "The TIMING section states: 'Send within 24 hours of the demo -- ideally within 2-4 hours while the demo experience is still fresh for Marcus and his team. Post-demo follow-ups sent within 24 hours lock in momentum while the product experience is vivid; delays past 24 hours let competing priorities and internal objections fill the gap.'"
+    }
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}
+}

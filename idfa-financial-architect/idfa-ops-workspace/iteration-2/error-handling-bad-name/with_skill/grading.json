@@ -1,0 +1,33 @@
+{
+  "eval_id": 8,
+  "eval_name": "error-handling-bad-name",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Attempts the read and receives a 'Named Range not found' error",
+      "passed": true,
+      "evidence": "Section 1: 'uv run scripts/idfa_ops.py read ops_test_model.xlsx Total_Revenue_All_Years' with result: {\"error\": \"Named Range not found: Total_Revenue_All_Years\"}, Exit code: 1."
+    },
+    {
+      "text": "Does NOT crash or give up",
+      "passed": true,
+      "evidence": "After the error, the agent proceeds to Section 2 (Recovery: Model Inspection) and Section 3 (Suggested Alternatives) — continues working productively instead of stopping."
+    },
+    {
+      "text": "Suggests the correct alternatives (Revenue_Y1, Revenue_Y2)",
+      "passed": true,
+      "evidence": "Section 3: 'The closest matches are: Revenue_Y1 (Year 1 revenue) and Revenue_Y2 (Year 2 revenue).' Also provides commands to read them."
+    },
+    {
+      "text": "Explains WHY the name doesn't exist",
+      "passed": true,
+      "evidence": "'The name Total_Revenue_All_Years does not exist. The closest matches are Revenue_Y1 and Revenue_Y2.' The model uses per-year ranges rather than aggregate totals, so no total-across-years range exists."
+    },
+    {
+      "text": "Optionally offers to create the missing aggregate",
+      "passed": true,
+      "evidence": "Section 3 offers: '2. Create a new named range for the total (IDFA-compliant approach): uv run scripts/idfa_ops.py create-range model.xlsx Total_Revenue Calculations D3. Then add the formula =Revenue_Y1+Revenue_Y2 in cell D3.'"
+    }
+  ]
+}

@@ -1,0 +1,1790 @@
+{
+  "exit_reason": "max_iterations (5)",
+  "original_description": "Apply the Intent-Driven Financial Architecture (IDFA) when building, auditing, retrofitting, or analysing Excel financial models. Activate when the user mentions: financial model, spreadsheet, Excel formula, named ranges, cell references, formula tracing, model audit, COGS, revenue projection, gross profit, EBITDA, DCF, LBO, comps, three-statement model, budget, forecast, variance analysis, what-if analysis, scenario modelling, goal seeking, Monte Carlo simulation, model review, or model handover. Also activate when the user says \"the model is a black box\", \"I inherited this model\", \"I need to audit this spreadsheet\", or any similar phrase indicating confusion about how a financial model works. Do NOT activate for general accounting questions, tax advice, investment recommendations, or tasks unrelated to the structure and logic of financial spreadsheets.",
+  "best_description": "Apply the Intent-Driven Financial Architecture (IDFA) when building, auditing, retrofitting, or analysing Excel financial models. Activate when the user mentions: financial model, spreadsheet, Excel formula, named ranges, cell references, formula tracing, model audit, COGS, revenue projection, gross profit, EBITDA, DCF, LBO, comps, three-statement model, budget, forecast, variance analysis, what-if analysis, scenario modelling, goal seeking, Monte Carlo simulation, model review, or model handover. Also activate when the user says \"the model is a black box\", \"I inherited this model\", \"I need to audit this spreadsheet\", or any similar phrase indicating confusion about how a financial model works. Do NOT activate for general accounting questions, tax advice, investment recommendations, or tasks unrelated to the structure and logic of financial spreadsheets.",
+  "best_score": "3/6",
+  "best_train_score": "9/18",
+  "best_test_score": "3/6",
+  "final_description": "Use this skill for hands-on Excel financial model work: building models from scratch (SaaS, three-statement, revenue/COGS/EBITDA), auditing a spreadsheet for formula errors, explaining or mapping out model logic, converting cell references to named ranges, running what-if or scenario analysis, goal-seeking (what input value produces a target output?), or running Monte Carlo simulations. Also use when someone has inherited an unfamiliar model, calls it a \"black box\", or needs a specific formula (like WACC) checked. The trigger is a user who has a spreadsheet and needs to do something with it. Do NOT use for accounting theory, tax questions, investment advice, or finance questions with no model attached.",
+  "iterations_run": 5,
+  "holdout": 0.3,
+  "train_size": 18,
+  "test_size": 6,
+  "history": [
+    {
+      "iteration": 1,
+      "description": "Apply the Intent-Driven Financial Architecture (IDFA) when building, auditing, retrofitting, or analysing Excel financial models. Activate when the user mentions: financial model, spreadsheet, Excel formula, named ranges, cell references, formula tracing, model audit, COGS, revenue projection, gross profit, EBITDA, DCF, LBO, comps, three-statement model, budget, forecast, variance analysis, what-if analysis, scenario modelling, goal seeking, Monte Carlo simulation, model review, or model handover. Also activate when the user says \"the model is a black box\", \"I inherited this model\", \"I need to audit this spreadsheet\", or any similar phrase indicating confusion about how a financial model works. Do NOT activate for general accounting questions, tax advice, investment recommendations, or tasks unrelated to the structure and logic of financial spreadsheets.",
+      "train_passed": 9,
+      "train_failed": 9,
+      "train_total": 18,
+      "train_results": [
+        {
+          "query": "Explain the logic map of this financial model so I can hand it off to a new analyst",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Find the Year 1 revenue needed to hit $3.5M EBITDA in Year 3 using goal seeking",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "My budget model is a black box \u2014 nobody knows what the formulas do. Help me map it out",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Audit this spreadsheet for formula errors and tell me if the COGS calculations are correct",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Can you check the WACC formula in my spreadsheet? I think there might be an error",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to convert this legacy Excel model to use Named Ranges instead of cell references",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I inherited this financial model from a colleague who left. Can you audit it and tell me what's going on?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Build me a 5-year SaaS revenue model with churn and expansion revenue",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to do a what-if analysis on my three-statement model for the board presentation",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to file a tax extension \u2014 what forms do I need?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Draft a marketing email campaign for our product launch",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Create a React dashboard component for displaying sales metrics",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I invest in NVIDIA or AMD stock right now?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me write unit tests for my Node.js API",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me set up a PostgreSQL database for my application",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the difference between FIFO and LIFO inventory accounting?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the current capital gains tax rate for long-term investments?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I use straight-line or declining balance depreciation for my equipment?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 3,
+      "test_failed": 3,
+      "test_total": 6,
+      "test_results": [
+        {
+          "query": "Add a depreciation line item to my P&L model and update EBITDA accordingly",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Run a Monte Carlo simulation on my financial model with 100 iterations",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "What happens to EBITDA if I change the revenue growth assumption from 10% to 5%?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "How do I record a journal entry for accounts receivable?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Write me a Python script to scrape stock prices from Yahoo Finance",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What GAAP rules apply to revenue recognition for subscription businesses?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 9,
+      "failed": 9,
+      "total": 18,
+      "results": [
+        {
+          "query": "Explain the logic map of this financial model so I can hand it off to a new analyst",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Find the Year 1 revenue needed to hit $3.5M EBITDA in Year 3 using goal seeking",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "My budget model is a black box \u2014 nobody knows what the formulas do. Help me map it out",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Audit this spreadsheet for formula errors and tell me if the COGS calculations are correct",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Can you check the WACC formula in my spreadsheet? I think there might be an error",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to convert this legacy Excel model to use Named Ranges instead of cell references",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I inherited this financial model from a colleague who left. Can you audit it and tell me what's going on?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Build me a 5-year SaaS revenue model with churn and expansion revenue",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to do a what-if analysis on my three-statement model for the board presentation",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to file a tax extension \u2014 what forms do I need?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Draft a marketing email campaign for our product launch",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Create a React dashboard component for displaying sales metrics",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I invest in NVIDIA or AMD stock right now?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me write unit tests for my Node.js API",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me set up a PostgreSQL database for my application",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the difference between FIFO and LIFO inventory accounting?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the current capital gains tax rate for long-term investments?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I use straight-line or declining balance depreciation for my equipment?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 2,
+      "description": "Use this skill for any task involving Excel financial models \u2014 building, auditing, fixing, or explaining them. Triggers include: a user who has inherited or is confused by a spreadsheet, wants to find what input achieves a target output (goal seeking), needs what-if or scenario analysis, wants to audit formulas for errors, needs to convert cell references to named ranges, wants to build a new revenue/cost/EBITDA model, or asks about WACC, DCF, Monte Carlo simulation, or any multi-year financial projection. The core use case is: the user has a spreadsheet and needs structured help working with its logic. Do NOT trigger for general accounting theory, tax questions, investment advice, or coding tasks that don't involve financial spreadsheets.",
+      "train_passed": 9,
+      "train_failed": 9,
+      "train_total": 18,
+      "train_results": [
+        {
+          "query": "Find the Year 1 revenue needed to hit $3.5M EBITDA in Year 3 using goal seeking",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "My budget model is a black box \u2014 nobody knows what the formulas do. Help me map it out",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Explain the logic map of this financial model so I can hand it off to a new analyst",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Audit this spreadsheet for formula errors and tell me if the COGS calculations are correct",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to convert this legacy Excel model to use Named Ranges instead of cell references",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Can you check the WACC formula in my spreadsheet? I think there might be an error",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I inherited this financial model from a colleague who left. Can you audit it and tell me what's going on?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Build me a 5-year SaaS revenue model with churn and expansion revenue",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to do a what-if analysis on my three-statement model for the board presentation",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to file a tax extension \u2014 what forms do I need?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Draft a marketing email campaign for our product launch",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Create a React dashboard component for displaying sales metrics",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me write unit tests for my Node.js API",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I invest in NVIDIA or AMD stock right now?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me set up a PostgreSQL database for my application",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the current capital gains tax rate for long-term investments?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the difference between FIFO and LIFO inventory accounting?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I use straight-line or declining balance depreciation for my equipment?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 3,
+      "test_failed": 3,
+      "test_total": 6,
+      "test_results": [
+        {
+          "query": "Add a depreciation line item to my P&L model and update EBITDA accordingly",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Run a Monte Carlo simulation on my financial model with 100 iterations",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "What happens to EBITDA if I change the revenue growth assumption from 10% to 5%?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "How do I record a journal entry for accounts receivable?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Write me a Python script to scrape stock prices from Yahoo Finance",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What GAAP rules apply to revenue recognition for subscription businesses?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 9,
+      "failed": 9,
+      "total": 18,
+      "results": [
+        {
+          "query": "Find the Year 1 revenue needed to hit $3.5M EBITDA in Year 3 using goal seeking",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "My budget model is a black box \u2014 nobody knows what the formulas do. Help me map it out",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Explain the logic map of this financial model so I can hand it off to a new analyst",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Audit this spreadsheet for formula errors and tell me if the COGS calculations are correct",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to convert this legacy Excel model to use Named Ranges instead of cell references",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Can you check the WACC formula in my spreadsheet? I think there might be an error",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I inherited this financial model from a colleague who left. Can you audit it and tell me what's going on?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Build me a 5-year SaaS revenue model with churn and expansion revenue",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to do a what-if analysis on my three-statement model for the board presentation",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to file a tax extension \u2014 what forms do I need?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Draft a marketing email campaign for our product launch",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Create a React dashboard component for displaying sales metrics",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me write unit tests for my Node.js API",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I invest in NVIDIA or AMD stock right now?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me set up a PostgreSQL database for my application",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the current capital gains tax rate for long-term investments?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the difference between FIFO and LIFO inventory accounting?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I use straight-line or declining balance depreciation for my equipment?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 3,
+      "description": "Use this skill whenever a user is working hands-on with a financial spreadsheet or Excel model \u2014 not asking abstract finance questions, but actually doing something with a model. This includes: building a new financial model (revenue, COGS, EBITDA, SaaS, three-statement); auditing or debugging formulas in an existing spreadsheet; explaining or mapping out what a model does; converting cell references to named ranges; running what-if or scenario analysis; finding the input value that produces a target output (goal seeking); or running Monte Carlo simulations on financial assumptions. The trigger is the user treating a spreadsheet as a working artifact they need help operating, not just asking about finance concepts. Do NOT use for accounting theory, tax questions, investment advice, or general finance questions that don't involve a specific model or spreadsheet.",
+      "train_passed": 9,
+      "train_failed": 9,
+      "train_total": 18,
+      "train_results": [
+        {
+          "query": "Find the Year 1 revenue needed to hit $3.5M EBITDA in Year 3 using goal seeking",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Explain the logic map of this financial model so I can hand it off to a new analyst",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "My budget model is a black box \u2014 nobody knows what the formulas do. Help me map it out",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to convert this legacy Excel model to use Named Ranges instead of cell references",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Can you check the WACC formula in my spreadsheet? I think there might be an error",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Audit this spreadsheet for formula errors and tell me if the COGS calculations are correct",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I inherited this financial model from a colleague who left. Can you audit it and tell me what's going on?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Build me a 5-year SaaS revenue model with churn and expansion revenue",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to do a what-if analysis on my three-statement model for the board presentation",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to file a tax extension \u2014 what forms do I need?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Draft a marketing email campaign for our product launch",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Create a React dashboard component for displaying sales metrics",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I invest in NVIDIA or AMD stock right now?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me write unit tests for my Node.js API",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me set up a PostgreSQL database for my application",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the current capital gains tax rate for long-term investments?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I use straight-line or declining balance depreciation for my equipment?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the difference between FIFO and LIFO inventory accounting?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 3,
+      "test_failed": 3,
+      "test_total": 6,
+      "test_results": [
+        {
+          "query": "Add a depreciation line item to my P&L model and update EBITDA accordingly",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "What happens to EBITDA if I change the revenue growth assumption from 10% to 5%?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Run a Monte Carlo simulation on my financial model with 100 iterations",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "How do I record a journal entry for accounts receivable?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Write me a Python script to scrape stock prices from Yahoo Finance",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What GAAP rules apply to revenue recognition for subscription businesses?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 9,
+      "failed": 9,
+      "total": 18,
+      "results": [
+        {
+          "query": "Find the Year 1 revenue needed to hit $3.5M EBITDA in Year 3 using goal seeking",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Explain the logic map of this financial model so I can hand it off to a new analyst",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "My budget model is a black box \u2014 nobody knows what the formulas do. Help me map it out",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to convert this legacy Excel model to use Named Ranges instead of cell references",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Can you check the WACC formula in my spreadsheet? I think there might be an error",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Audit this spreadsheet for formula errors and tell me if the COGS calculations are correct",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I inherited this financial model from a colleague who left. Can you audit it and tell me what's going on?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Build me a 5-year SaaS revenue model with churn and expansion revenue",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to do a what-if analysis on my three-statement model for the board presentation",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to file a tax extension \u2014 what forms do I need?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Draft a marketing email campaign for our product launch",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Create a React dashboard component for displaying sales metrics",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I invest in NVIDIA or AMD stock right now?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me write unit tests for my Node.js API",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me set up a PostgreSQL database for my application",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the current capital gains tax rate for long-term investments?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I use straight-line or declining balance depreciation for my equipment?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the difference between FIFO and LIFO inventory accounting?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 4,
+      "description": "Use this skill when the user wants to build, audit, fix, explain, or analyze an Excel financial model. This covers: building revenue, COGS, EBITDA, SaaS, or three-statement models; auditing spreadsheet formulas for errors; explaining what a model does or creating a logic map; converting cell references to named ranges; running what-if or scenario analysis; goal-seeking (finding the input that produces a target output); and Monte Carlo simulation on financial inputs. Also use when the user has inherited an unfamiliar model, says a model is a \"black box,\" or needs to check a specific formula like WACC. The defining signal is that the user has a spreadsheet they need help operating \u2014 not an abstract finance question. Do NOT use for accounting theory, tax filing, investment advice, or finance questions with no spreadsheet involved.",
+      "train_passed": 9,
+      "train_failed": 9,
+      "train_total": 18,
+      "train_results": [
+        {
+          "query": "My budget model is a black box \u2014 nobody knows what the formulas do. Help me map it out",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Find the Year 1 revenue needed to hit $3.5M EBITDA in Year 3 using goal seeking",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Explain the logic map of this financial model so I can hand it off to a new analyst",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Audit this spreadsheet for formula errors and tell me if the COGS calculations are correct",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Can you check the WACC formula in my spreadsheet? I think there might be an error",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Build me a 5-year SaaS revenue model with churn and expansion revenue",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to convert this legacy Excel model to use Named Ranges instead of cell references",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I inherited this financial model from a colleague who left. Can you audit it and tell me what's going on?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to do a what-if analysis on my three-statement model for the board presentation",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to file a tax extension \u2014 what forms do I need?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I invest in NVIDIA or AMD stock right now?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Draft a marketing email campaign for our product launch",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Create a React dashboard component for displaying sales metrics",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me set up a PostgreSQL database for my application",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the current capital gains tax rate for long-term investments?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the difference between FIFO and LIFO inventory accounting?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me write unit tests for my Node.js API",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I use straight-line or declining balance depreciation for my equipment?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 3,
+      "test_failed": 3,
+      "test_total": 6,
+      "test_results": [
+        {
+          "query": "Add a depreciation line item to my P&L model and update EBITDA accordingly",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Run a Monte Carlo simulation on my financial model with 100 iterations",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "What happens to EBITDA if I change the revenue growth assumption from 10% to 5%?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "How do I record a journal entry for accounts receivable?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What GAAP rules apply to revenue recognition for subscription businesses?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Write me a Python script to scrape stock prices from Yahoo Finance",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 9,
+      "failed": 9,
+      "total": 18,
+      "results": [
+        {
+          "query": "My budget model is a black box \u2014 nobody knows what the formulas do. Help me map it out",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Find the Year 1 revenue needed to hit $3.5M EBITDA in Year 3 using goal seeking",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Explain the logic map of this financial model so I can hand it off to a new analyst",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Audit this spreadsheet for formula errors and tell me if the COGS calculations are correct",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Can you check the WACC formula in my spreadsheet? I think there might be an error",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Build me a 5-year SaaS revenue model with churn and expansion revenue",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to convert this legacy Excel model to use Named Ranges instead of cell references",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I inherited this financial model from a colleague who left. Can you audit it and tell me what's going on?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to do a what-if analysis on my three-statement model for the board presentation",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to file a tax extension \u2014 what forms do I need?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I invest in NVIDIA or AMD stock right now?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Draft a marketing email campaign for our product launch",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Create a React dashboard component for displaying sales metrics",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me set up a PostgreSQL database for my application",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the current capital gains tax rate for long-term investments?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the difference between FIFO and LIFO inventory accounting?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me write unit tests for my Node.js API",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I use straight-line or declining balance depreciation for my equipment?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 5,
+      "description": "Use this skill for hands-on Excel financial model work: building models from scratch (SaaS, three-statement, revenue/COGS/EBITDA), auditing a spreadsheet for formula errors, explaining or mapping out model logic, converting cell references to named ranges, running what-if or scenario analysis, goal-seeking (what input value produces a target output?), or running Monte Carlo simulations. Also use when someone has inherited an unfamiliar model, calls it a \"black box\", or needs a specific formula (like WACC) checked. The trigger is a user who has a spreadsheet and needs to do something with it. Do NOT use for accounting theory, tax questions, investment advice, or finance questions with no model attached.",
+      "train_passed": 9,
+      "train_failed": 9,
+      "train_total": 18,
+      "train_results": [
+        {
+          "query": "Find the Year 1 revenue needed to hit $3.5M EBITDA in Year 3 using goal seeking",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "My budget model is a black box \u2014 nobody knows what the formulas do. Help me map it out",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Explain the logic map of this financial model so I can hand it off to a new analyst",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Audit this spreadsheet for formula errors and tell me if the COGS calculations are correct",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Can you check the WACC formula in my spreadsheet? I think there might be an error",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to convert this legacy Excel model to use Named Ranges instead of cell references",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I inherited this financial model from a colleague who left. Can you audit it and tell me what's going on?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Build me a 5-year SaaS revenue model with churn and expansion revenue",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to do a what-if analysis on my three-statement model for the board presentation",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to file a tax extension \u2014 what forms do I need?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Draft a marketing email campaign for our product launch",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I invest in NVIDIA or AMD stock right now?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Create a React dashboard component for displaying sales metrics",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the current capital gains tax rate for long-term investments?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me write unit tests for my Node.js API",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me set up a PostgreSQL database for my application",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I use straight-line or declining balance depreciation for my equipment?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the difference between FIFO and LIFO inventory accounting?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 3,
+      "test_failed": 3,
+      "test_total": 6,
+      "test_results": [
+        {
+          "query": "Add a depreciation line item to my P&L model and update EBITDA accordingly",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Run a Monte Carlo simulation on my financial model with 100 iterations",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "What happens to EBITDA if I change the revenue growth assumption from 10% to 5%?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "How do I record a journal entry for accounts receivable?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Write me a Python script to scrape stock prices from Yahoo Finance",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What GAAP rules apply to revenue recognition for subscription businesses?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 9,
+      "failed": 9,
+      "total": 18,
+      "results": [
+        {
+          "query": "Find the Year 1 revenue needed to hit $3.5M EBITDA in Year 3 using goal seeking",
+          "should_trigger": true,
+          "trigger_rate": 0.3333333333333333,
+          "triggers": 1,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "My budget model is a black box \u2014 nobody knows what the formulas do. Help me map it out",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Explain the logic map of this financial model so I can hand it off to a new analyst",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Audit this spreadsheet for formula errors and tell me if the COGS calculations are correct",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Can you check the WACC formula in my spreadsheet? I think there might be an error",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to convert this legacy Excel model to use Named Ranges instead of cell references",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I inherited this financial model from a colleague who left. Can you audit it and tell me what's going on?",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "Build me a 5-year SaaS revenue model with churn and expansion revenue",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to do a what-if analysis on my three-statement model for the board presentation",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "I need to file a tax extension \u2014 what forms do I need?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Draft a marketing email campaign for our product launch",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I invest in NVIDIA or AMD stock right now?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Create a React dashboard component for displaying sales metrics",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the current capital gains tax rate for long-term investments?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me write unit tests for my Node.js API",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Help me set up a PostgreSQL database for my application",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "Should I use straight-line or declining balance depreciation for my equipment?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "What's the difference between FIFO and LIFO inventory accounting?",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

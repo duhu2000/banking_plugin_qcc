@@ -1,0 +1,38 @@
+{
+  "eval_id": 5,
+  "eval_name": "audit-compliant-model",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Runs idfa_audit.py and reports all four guardrails",
+      "passed": true,
+      "evidence": "Methodology: 'idfa_audit.py (IDFA Operations Skill v2.0)'. Four separate guardrail sections: G1 Named Range Priority, G2 LaTeX Verification, G3 Intent Notes, G4 Layer Isolation — all reported individually."
+    },
+    {
+      "text": "Reports Guardrail 1 PASS (zero coordinate references)",
+      "passed": true,
+      "evidence": "Guardrail 1 section: 'Named Range Priority — PASS. All 14 formulas in the Calculations sheet reference Named Ranges exclusively. Zero coordinate references detected. Coordinate references found: 0. Status: PASS.'"
+    },
+    {
+      "text": "Reports Guardrail 3 status on Intent Notes",
+      "passed": true,
+      "evidence": "Guardrail 3 section: 'Intent Notes — PASS. All 14 formula cells have intent-note comments attached. Coverage is 100%. Formulas with comments: 14. Formulas missing comments: 0.'"
+    },
+    {
+      "text": "Reports Guardrail 4 PASS (no hardcoded constants)",
+      "passed": true,
+      "evidence": "Guardrail 4 section: 'Layer Isolation — PASS. No hardcoded numeric constants were found embedded in formulas. Hardcoded values in formulas: 0. Status: PASS.'"
+    },
+    {
+      "text": "Presents the overall compliance score",
+      "passed": true,
+      "evidence": "Overall Result table: 'Overall: PASS, Score: 100%, Total formulas audited: 14'. Also: 'IDFA compliance score: 100% — all four guardrails PASS'."
+    },
+    {
+      "text": "Explains what each guardrail protects against in business terms",
+      "passed": true,
+      "evidence": "G1: 'ensures formulas are self-documenting and resilient to structural changes'. G2: 'No complex multi-step financial formulas requiring independent mathematical verification'. G3: 'explaining the business intent of the calculation'. G4: 'All numeric inputs flow through the Assumptions layer via Named Ranges' — each has a business-level Explanation paragraph."
+    }
+  ]
+}

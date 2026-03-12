@@ -1,0 +1,28 @@
+{
+  "eval_id": 3,
+  "eval_name": "formula-inspection",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Runs idfa_ops.py formula and returns the exact formula (=EBIT_Y1-Tax_Y1)",
+      "passed": true,
+      "evidence": "Direct Formula section shows '=EBIT_Y1 - Tax_Y1'. Footer states: 'All formulas obtained via uv run skills/idfa-ops/scripts/idfa_ops.py formula'."
+    },
+    {
+      "text": "Explains the formula in plain English",
+      "passed": true,
+      "evidence": "Immediately below the formula: 'Year 1 net income equals earnings before interest and tax minus the tax charge.' Also a 6-step plain English breakdown in the Assessment section."
+    },
+    {
+      "text": "Traces the dependency chain at least one level back",
+      "passed": true,
+      "evidence": "Full Dependency Chain table traces all the way from the 5 assumption inputs through Units_Y1 → Revenue_Y1 → Variable_Costs_Y1 → Contribution_Y1 → EBIT_Y1 → Tax_Y1 → Net_Income_Y1, with formulas for each level. Also includes a fully expanded algebraic substitution."
+    },
+    {
+      "text": "Does NOT fabricate a formula or compute the value internally",
+      "passed": true,
+      "evidence": "Footer: 'All formulas obtained via uv run skills/idfa-ops/scripts/idfa_ops.py formula. Numerical values computed by tracing the formula chain from assumption inputs.' The formula is read from the model, not invented."
+    }
+  ]
+}

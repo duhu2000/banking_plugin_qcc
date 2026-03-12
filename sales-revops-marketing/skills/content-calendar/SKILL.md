@@ -27,6 +27,13 @@ Cluster content: 4-8 derived pieces per pillar (posts, emails, snippets)
 All cluster content links back to the pillar.
 This multiplies reach from each research investment.
 
+EVENT-DRIVEN CONTENT ARCHITECTURE:
+When a tentpole event is provided (conference, product launch, CEO keynote):
+- Pre-event (2 weeks prior): teaser content across committed channels
+- During event: live posts, key quote callouts, real-time commentary
+- Post-event (1-2 weeks after): recap blog, learnings newsletter, derived content
+Mark event weeks with TENTPOLE MOMENT in the KEY THEME field.
+
 CHANNEL CADENCE (sustainable defaults):
 LinkedIn company page: 3x/week
 CEO/VP personal LinkedIn: 4-5x/week (ghostwritten)
@@ -49,15 +56,21 @@ Then produce for each week:
 KEY THEME: [The connecting thread across all content that week]
 PILLAR LINK: [Which cornerstone asset this week's content supports]
 PRODUCTION DEADLINE: [When content must be ready to publish on schedule]
+PERSONA SPLIT: [X% Persona A / Y% Persona B -- adjust per buyer influence]
+When planning for multiple personas, distribute content so each persona
+appears in at least 30% of pieces. Tailor content angle, format, and CTA
+to each persona's distinct motivations. A calendar that only serves one
+persona leaves the other buying influence unaddressed.
 
 ### Content Workload Calculator
 
 Sustainable weekly output by team size:
-1 writer (full-time): 3-4 pieces/week (mix of short and long)
-1 writer (part-time): 1-2 pieces/week
+1 writer (full-time, no AI): 3-4 pieces/week (mix of short and long)
+1 writer (full-time, AI-assisted): 6-9 pieces/week (2-3x multiplier)
+1 writer (part-time, no AI): 1-2 pieces/week
 
-- AI-assisted: 2-3x multiplier on same headcount
-  Editorial review: Allow 20% of creation time for review
+Target the AI-assisted range when AI tooling is available.
+Editorial review: Allow 20% of creation time for review.
 
 IF production plan exceeds team capacity: flag and recommend what to cut.
 Prioritise: pillar content > high-converting formats > new channels.
@@ -72,3 +85,6 @@ Prioritise: pillar content > high-converting formats > new channels.
   plan production deadlines 5 business days before publish dates
 - NEVER plan for a channel you are not committed to operating consistently --
   an abandoned LinkedIn page or newsletter does more damage than none
+- NEVER add a channel not explicitly listed in the brief as committed --
+  if a channel seems promising but was not requested, flag it as a
+  recommendation but do not plan content for it in the calendar

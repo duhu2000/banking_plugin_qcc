@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To give the AE enough verified intelligence to write outreach that gets a reply, the research brief contains all required output sections with the mandatory header (TASK, ICP MATCH, CONFIGURATION, VERIFY DATA) — WHO IS section with career background sourced from LinkedIn or public profiles, WHAT IS DATADOG with real financials from public filings, WHAT IS HAPPENING NOW with classified signals, THE SPECIFIC PAIN, THE HOOK, PRODUCT FIT, and RECOMMENDED FIRST TOUCH",
+      "passed": true,
+      "evidence": "Header present with TASK, ICP MATCH (MODERATE), CONFIGURATION, VERIFY DATA. All sections present: 'WHO IS AMIT AGARWAL?' (career background from LinkedIn), 'WHAT IS DATADOG?' (revenue $2.68B FY2025, 5,500+ employees from public filings), 'WHAT IS HAPPENING NOW?' (HOT/WARM/WATCH signals), 'THE SPECIFIC PAIN', 'THE HOOK', 'PRODUCT FIT', 'RECOMMENDED FIRST TOUCH'."
+    },
+    {
+      "text": "To surface timing signals that determine whether to reach out now or wait, signal classification categorizes Datadog's CI/CD platform expansion as a relevant signal with source attribution to earnings calls, press releases, or product announcements — and checks for additional signals from engineering job postings, recent acquisitions, or leadership changes that indicate active investment in the CI/CD space",
+      "passed": true,
+      "evidence": "HOT signals include CI Visibility and Pipeline Visibility product launches sourced from 'Datadog product announcements and DASH conference' and Q4 earnings beat sourced from 'Q4 2025 earnings call, January/February 2026'. WARM signals include hiring in CI/CD roles sourced from 'Datadog careers page and LinkedIn job postings'. Additional signals checked: enterprise deal momentum, market consolidation, AI/ML observability."
+    },
+    {
+      "text": "To ensure the AE's outreach references something real and checkable, at least one hook is identified that is specific and verifiable — tied to a public event such as Datadog's earnings report, a product launch announcement, a specific job posting for CI/CD roles, or a conference talk — not a generic industry trend about observability platforms expanding",
+      "passed": true,
+      "evidence": "Primary hook: 'Datadog's Q4 2025 earnings commentary specifically highlighted CI Visibility and Pipeline Visibility as growth areas. Reference this in outreach: their public commitment to the CI/CD space means their internal engineering teams are under pressure to ship faster on these new product lines.' This is tied to a specific, verifiable public event (Q4 earnings transcript). Secondary hook: engineering job postings for CI/CD roles."
+    },
+    {
+      "text": "To qualify whether this deal is worth pursuing before the AE invests time, ICP match assessment evaluates Datadog against the stated criteria (public or late-stage, developer tooling / observability company, 1000+ headcount, US-based) and produces a STRONG / MODERATE / WEAK rating with specific reasoning — including whether selling CI/CD tooling to a company that builds CI/CD visibility creates a competitive tension that weakens fit",
+      "passed": true,
+      "evidence": "ICP Match Assessment: all four criteria evaluated and met (public company YES, developer tooling YES, 1000+ headcount YES at 5,500+, US-based YES). Rating: MODERATE with specific reasoning: 'Rating adjusted from STRONG to MODERATE due to competitive tension in the CI/CD space.' Competitive tension analysis: 'Datadog builds CI/CD products (CI Visibility, Pipeline Visibility), creating competitive overlap. Their engineering culture favors building internal tools over buying.'"
+    },
+    {
+      "text": "To connect Datadog's situation to a specific reason they would buy, the pain assessment constructs a causal chain from their platform expansion (moving beyond APM into security and CI/CD) to infrastructure scaling pressure — identifying whether Datadog is a buyer of CI/CD tooling for internal engineering needs or a competitor building CI/CD products, and how that distinction changes the sales approach",
+      "passed": true,
+      "evidence": "Pain assessment explicitly identifies two scenarios: '1. Internal engineering need (BUY scenario): Datadog's internal engineering teams (~2,000+ engineers) need CI/CD tooling to build, test, and deploy their own platform.' vs. '2. Competitive overlap (CONFLICT scenario): Datadog's CI Visibility product monitors and analyzes CI/CD pipelines -- which sits adjacent to CI/CD automation.' Sales approach recommendation: 'Even companies that build CI/CD visibility products still use specialized deployment automation for their internal engineering workflows.'"
+    },
+    {
+      "text": "To determine who on the buying committee should receive the first message, the recommended first touch evaluates whether Amit Agarwal is the right entry point or whether a Director of Platform Engineering or Infrastructure lead would be more appropriate — specifying channel, tone, and goal with reasoning based on the prospect's seniority and Datadog's org structure",
+      "passed": true,
+      "evidence": "Contact re-evaluation: 'Amit Agarwal as VP of Engineering is senior leadership overseeing the entire engineering organization, including the teams building Datadog's CI/CD products. Approaching him with a CI/CD vendor pitch risks triggering the competitive reflex.' Recommended alternative: 'Director of Platform Engineering, Director of Developer Productivity, or Head of Internal Tools.' If proceeding with Amit: Channel LinkedIn, tone peer-level technical, goal discovery conversation to understand internal tooling decisions."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

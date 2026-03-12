@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Uses the idfa-ops write command to change Inp_Rev_Growth to 0.05 (not manually editing cells)",
+      "passed": false,
+      "evidence": "The with_skill outputs directory contains only idfa_compliant_model.xlsx \u2014 no transcript, no results markdown. Cannot verify whether idfa-ops write was used."
+    },
+    {
+      "text": "Calls recalc_bridge.py to trigger deterministic recalculation after each assumption change",
+      "passed": false,
+      "evidence": "No transcript or results file in with_skill/outputs/ to verify recalc_bridge.py was called. Only the xlsx file is present."
+    },
+    {
+      "text": "Uses the idfa-ops read command to retrieve EBITDA_Y3 (and ideally other affected values)",
+      "passed": false,
+      "evidence": "No transcript or results file in with_skill/outputs/ to verify read commands were used."
+    },
+    {
+      "text": "Does NOT calculate EBITDA_Y3 internally and report that number \u2014 all reported numbers come from model reads",
+      "passed": false,
+      "evidence": "No results file to examine. Cannot verify whether numbers came from model reads vs internal calculation."
+    },
+    {
+      "text": "Presents a clear before/after comparison of the scenarios",
+      "passed": false,
+      "evidence": "No results markdown or text output was produced in with_skill/outputs/ \u2014 only the xlsx file exists."
+    },
+    {
+      "text": "Runs the second scenario (COGS efficiency change) as a compound change on top of the first, reading the combined impact",
+      "passed": false,
+      "evidence": "No results file to verify compound scenario execution."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 6,
+    "total": 6,
+    "pass_rate": 0.0
+  }
+}

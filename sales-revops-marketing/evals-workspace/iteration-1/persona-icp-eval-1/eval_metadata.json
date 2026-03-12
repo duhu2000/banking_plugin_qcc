@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "persona-icp-eval-1",
+  "prompt": "We're a B2B SaaS startup selling an AI-powered contract review tool to legal and procurement teams. We've closed about 30 deals so far and I've noticed some real patterns in who converts vs who wastes...",
+  "assertions": [
+    "ICP includes firmographic criteria with specific numeric ranges for company size (employee count range), revenue range, geography (US and UK as primary markets), and industry verticals ranked by conversion likelihood -- not generic placeholders but ranges anchored to the mid-market positioning and $48K ARR deal size described",
+    "Technology maturity criterion is specified with reference to legal ops function maturity and contract volume thresholds (500+ contracts/month referenced as a qualifying signal), reflecting the pattern the founder described rather than invented assumptions",
+    "NEGATIVE FIT SIGNALS / anti-ICP section is present and identifies at least two distinct anti-ICP profiles -- the time-waster profile (engages but never buys) and the wrong-fit profile (buys but churns) -- with specific characteristics for each, not generic warnings",
+    "TIMING SIGNALS are split into HOT (act within 48 hours) and WARM (act within 2 weeks) with concrete trigger events relevant to legal/procurement contract review (e.g. regulatory deadlines, M&A activity, legal team hiring surges, new compliance requirements) rather than generic buying signals",
+    "POSITIVE FIT SIGNALS section lists observable, researchable indicators a sales rep could actually find during prospecting (e.g. job postings for legal ops roles, contract management tool mentions in tech stack, public procurement volume indicators) with guidance on where to find each signal",
+    "Output includes actionable next steps or recommendations for how to operationalise the ICP -- such as quarterly recalibration cadence, suggested data sources for signal monitoring, or integration with lead scoring -- acknowledging the ICP is not static"
+  ]
+}

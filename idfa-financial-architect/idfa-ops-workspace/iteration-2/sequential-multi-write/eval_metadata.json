@@ -1,0 +1,13 @@
+{
+  "eval_id": 9,
+  "eval_name": "sequential-multi-write",
+  "prompt": "I want to model an aggressive scenario: increase units to 75,000, drop variable cost to $35, cut fixed costs to $800,000.",
+  "assertions": [
+    "Writes all three assumptions via idfa_ops.py write",
+    "Triggers recalculation at least once after all writes",
+    "Reports Year 2 Net Income (~$3.36M, roughly +96% from baseline)",
+    "Reads the result from the model via idfa_ops.py read",
+    "Presents results with a clear before/after comparison",
+    "The output file contains the complete scenario"
+  ]
+}

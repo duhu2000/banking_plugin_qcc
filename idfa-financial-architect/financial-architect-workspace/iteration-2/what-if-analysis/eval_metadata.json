@@ -1,0 +1,13 @@
+{
+  "eval_id": 3,
+  "eval_name": "what-if-analysis",
+  "prompt": "I have this financial model and I want to understand the sensitivity. What happens to Year 3 EBITDA if revenue growth drops from 10% to 5%? And then what if COGS efficiency also goes from 1% improvement per year to 0.5%?",
+  "assertions": [
+    "Reports EBITDA_Y3 for at least three states: base case (~$2.877M), scenario 1 (~$2.426M), scenario 2 (~$2.315M)",
+    "Quantifies the dollar delta: revenue growth alone costs ~$451K in Y3 EBITDA (-15.7%)",
+    "Identifies that revenue growth is the dominant driver (~80% of total EBITDA decline)",
+    "All reported values come from the model's formula engine, not internal arithmetic",
+    "Presents a clear comparison table",
+    "The compound scenario correctly layers both changes simultaneously"
+  ]
+}

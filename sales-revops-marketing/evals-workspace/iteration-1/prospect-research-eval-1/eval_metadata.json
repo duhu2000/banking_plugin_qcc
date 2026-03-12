@@ -1,0 +1,13 @@
+{
+  "eval_id": 1,
+  "eval_name": "prospect-research-eval-1",
+  "prompt": "I need a full prospect research brief on Kavitha Ramachandran -- she's the VP of Engineering at Tessera AI. They just closed a $38M Series B about three weeks ago led by Greylock, I saw the TechCrunch...",
+  "assertions": [
+    "Research brief contains all required sections: WHO IS [NAME] with career trajectory and role scope and activity and signal interpretation, WHAT IS [COMPANY] with business model and revenue estimate and headcount and tech stack and market position, WHAT IS HAPPENING NOW with HOT/WARM/WATCH classified signals, THE SPECIFIC PAIN, THE HOOK, PRODUCT FIT, and RECOMMENDED FIRST TOUCH",
+    "Signal classification categorizes the Series B funding round (closed within 30 days) as a HOT signal with source attribution to the TechCrunch article and approximate date -- and identifies any additional signals from job postings or hiring surges in engineering as supporting HOT or WARM signals",
+    "At least one hook is identified that is specific and verifiable -- not a generic industry trend but something tied to Kavitha Ramachandran personally (a LinkedIn post, a conference talk, a career move) or to a specific Tessera AI event (the Series B terms, a specific job posting requirement, a named partnership or product launch)",
+    "ICP match assessment evaluates Tessera AI against the stated criteria (Series A-C, developer tooling / AI-ML company, 50-500 headcount, US-based) and produces a STRONG / MODERATE / WEAK rating with reasoning for the rating rather than just stating it",
+    "Pain assessment connects the post-Series B situation (scaling pressure, engineering hiring, infrastructure strain from growth) specifically to CI/CD and deployment automation needs -- not generic 'they might need better tools' but a causal chain from their situation to the product category",
+    "Recommended first touch specifies channel (LinkedIn / Email / Phone with reasoning for why that channel suits this prospect), tone (peer-level / educational / ROI-focused), and goal (discovery call / referral / event / content share) -- and any factual claims in the brief about Kavitha's background or Tessera's business carry source attribution or are explicitly labeled as unverified"
+  ]
+}

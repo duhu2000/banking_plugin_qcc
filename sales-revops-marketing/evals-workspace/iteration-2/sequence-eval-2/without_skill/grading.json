@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To earn a response from a WARM lead with no prior interaction, early touches (1-2) reference David Chen's specific situation -- the Top 50 Healthtech list, his move from Salesforce 5 months ago, the SDR and Marketing Ops hiring signals, or his engagement with the VP Marketing CRM data hygiene post -- rather than leading with DataBridge or generic healthtech pain points",
+      "passed": true,
+      "evidence": "Touch 1 (Day 1, LinkedIn) references: 'Lumen Health on the Top 50 Healthtech to Watch list' and 'you joined from Salesforce about 5 months ago'. Touch 2 (Day 5, Email) references: 'Lumen is hiring 3 SDRs and a Marketing Ops Manager'. Neither Touch 1 nor Touch 2 mentions DataBridge by name. However, Touch 1 omits the VP Marketing CRM data hygiene post engagement, though this is not required -- it references other specific signals."
+    },
+    {
+      "text": "To build credibility before asking, Touch 3 introduces a problem insight relevant to David's situation (scaling RevOps data across a growing team, forecast accuracy with multiple data sources) with no pitch and no ask -- WARM leads who receive value before the ask convert to meetings at higher rates than those who get pitched early",
+      "passed": true,
+      "evidence": "Touch 3 (Day 14, LinkedIn) discusses: 'forecast accuracy drops when your data lives in 3-4 different systems and each one updates on a different schedule' and 'ops team compensates by manually reconciling before every forecast review'. Intent section confirms: 'No mention of DataBridge. No ask for a meeting.' Ends with 'curious whether this resonates or if you've already solved it' which is an engagement prompt, not a meeting ask."
+    },
+    {
+      "text": "To deploy social proof at peak impact, the MedSync case study (4 data sources consolidated, 34% forecast accuracy improvement, similar healthtech ARR) appears in Touch 4 rather than Touch 1 -- same-vertical proof points land harder after the prospect has context on the problem being solved",
+      "passed": true,
+      "evidence": "Touch 4 (Day 24, Email) introduces the MedSync case study: 'MedSync -- a healthtech company at a similar ARR to Lumen -- was running their RevOps reporting across 4 different data sources... 34% improvement in forecast accuracy within one quarter.' No mention of MedSync in Touches 1-3."
+    },
+    {
+      "text": "To protect the relationship for future re-engagement, Touch 5 is a graceful close that is short, respectful, leaves the door open, contains no ask, and does not use 'just checking in' or pressuring language -- a WARM lead who gets a respectful close is 3x more likely to respond to a re-engagement sequence 90 days later",
+      "passed": true,
+      "evidence": "Touch 5 (Day 35, LinkedIn): 'If the timing isn't right, completely understand. No need to respond. If Lumen's data infrastructure becomes a priority down the line, I'm easy to find here. Wishing you and the team continued momentum.' Short, respectful, no ask, no 'just checking in', leaves door open."
+    },
+    {
+      "text": "To prevent channel fatigue over the 35-day WARM cadence, touches use at least 2 distinct channels (email and LinkedIn) and no channel is used for consecutive touches within a 3-day window -- WARM sequences have longer spacing, making channel variety even more important for staying visible without being annoying",
+      "passed": true,
+      "evidence": "Sequence summary shows: Touch 1 (Day 1, LinkedIn), Touch 2 (Day 5, Email), Touch 3 (Day 14, LinkedIn), Touch 4 (Day 24, Email), Touch 5 (Day 35, LinkedIn). Two channels used with alternating pattern. Channel pattern described as 'LinkedIn > Email > LinkedIn > Email > LinkedIn (alternating, no consecutive same-channel within 3-day window)'. Minimum gap between consecutive touches is 4 days (Day 1 to Day 5), well outside the 3-day window."
+    },
+    {
+      "text": "To prevent a responding prospect from receiving automated follow-ups that destroy trust, branching rules include a reply-exit rule (any reply at any touch exits the sequence and alerts the rep), and the sequence completion section includes moving non-responders to a cultivate nurture cadence with CRM logging",
+      "passed": true,
+      "evidence": "Branching Rules: 'ANY reply at ANY touch immediately exits the sequence and alerts the rep.' With detailed table showing actions for positive, negative, and neutral replies. Sequence Completion: 'Move to cultivate nurture cadence | Monthly value-add touchpoints' and 'CRM logging | Log sequence completion: WARM 5-touch completed, no response, moved to cultivate'."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

@@ -36,11 +36,16 @@ IF not configured, apply these defaults:
 - Data: Support claims with data; label estimates as estimated
 - Structure: Respect the reader's time -- get to the point fast
 
-BANNED WORDS (check every piece before outputting):
+BANNED WORDS (check every piece before outputting -- zero tolerance):
 leverage, synergy, best-in-class, seamless, robust, end-to-end,
 game-changing, revolutionary, disruptive, holistic, cutting-edge,
 world-class, innovative, empower, unlock, transform, solution,
 ecosystem, paradigm, circle back, reach out (as a noun)
+
+Before finalising: search the output for every banned word above.
+If any appear, replace with a concrete, specific alternative.
+"Solution" -> name the actual product, tool, or approach.
+"Robust" -> describe what makes it strong specifically.
 
 ### Phase 3: Format-Specific Structure
 
@@ -50,7 +55,9 @@ LONG-FORM ARTICLE / BLOG POST (800-2,000 words):
 - Problem: establish the problem before offering any solution
 - Body: 3-5 specific, concrete points -- each with evidence or example
 - POV: take a position; do not write "on the other hand" content
-- CTA: single, specific, low-friction
+- CTA: single, specific, low-friction -- if the prompt specifies a particular
+  CTA (e.g. "follow our company page for the X series"), use that exact CTA;
+  do not substitute a generic alternative
 
 WHITEPAPER / GUIDE (2,000-5,000 words):
 

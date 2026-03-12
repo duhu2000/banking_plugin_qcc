@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To reactivate a warm relationship rather than starting cold, Touch 1 specifically references the October 2025 demo and the stated blocker (ERP migration), then acknowledges the blocker's resolution (completed in January per press release) as the reason for reconnecting -- re-engagement sequences that open cold as if no prior relationship exists get response rates no better than cold outreach",
+      "passed": true,
+      "evidence": "Touch 1 states: 'when we connected last October, you mentioned that the timing wasn't right for TradeLink while NovaTrade was going through an ERP migration. I noticed that migration wrapped up in January, so I wanted to check in and see if now might be a better time to revisit the conversation.' References the October demo, ERP blocker, and January resolution."
+    },
+    {
+      "text": "To create urgency tied to Maria Santos's changed circumstances, Touch 2 introduces new value from at least one of: the LATAM expansion creating new partnership complexity across 3 markets, Maria's promotion from Senior Partnerships Manager to Head of Partnerships giving her a bigger mandate, or the PortBridge case study (28% partner-sourced revenue increase in 6 months) -- each of these is a distinct buying signal that did not exist during the October demo",
+      "passed": false,
+      "evidence": "Touch 2 (Day 7, LinkedIn) mentions the LATAM expansion ('I know how busy things must be with the LATAM expansion and your new role as Head of Partnerships') and repeats the PortBridge case study ('grew partner-sourced revenue by 28% in 6 months'). However, the PortBridge case study was already introduced in Touch 1 with the same stat. Touch 2 does not introduce genuinely new value -- it largely repeats Touch 1's content ('I sent you an email earlier this week about reconnecting on TradeLink') rather than introducing a distinct new angle. The LATAM expansion and promotion were also already mentioned in Touch 1."
+    },
+    {
+      "text": "To prevent burning a prospect who already expressed product interest, Touch 3 is a graceful close or hand-off that is short, respectful, and leaves the door open without pressuring or guilting Maria into responding -- she said she loved the product, so a bad close risks permanently losing a prospect who is already sold on value",
+      "passed": false,
+      "evidence": "Touch 3 contains a pitch ('I really believe TradeLink could help NovaTrade manage its expanding partner ecosystem more effectively') and an ask ('if you'd like to explore this further, I'm happy to set up a quick 15-minute call at your convenience'). While it includes 'If the timing still isn't right, I completely understand', the touch is not a graceful close -- it is a third pitch with a meeting ask. A graceful close should contain no ask and no pitch."
+    },
+    {
+      "text": "To reach Maria through different attention windows, at least 2 distinct channels are used across the 3 touches (not all 3 on the same channel) -- re-engagement prospects are harder to reach because they already filtered you out once, so channel variety is essential for breaking through",
+      "passed": true,
+      "evidence": "Touch 1 (Day 1, Email), Touch 2 (Day 7, LinkedIn Message), Touch 3 (Day 14, Email). Two distinct channels used: Email and LinkedIn."
+    },
+    {
+      "text": "To ensure each touch earns its place in the sequence, no two touches repeat identical content -- Touch 1 anchors on the prior relationship and resolved blocker, Touch 2 introduces new value (LATAM expansion, promotion, or PortBridge proof point), and Touch 3 provides the graceful close -- a 3-touch sequence has zero margin for repetition",
+      "passed": false,
+      "evidence": "Touch 1 mentions the October demo, ERP migration resolution, LATAM expansion, promotion, AND the PortBridge case study (28% stat). Touch 2 repeats the LATAM expansion, promotion, and PortBridge case study with the same 28% stat -- opening with 'I sent you an email earlier this week'. Touch 3 again references PortBridge ('28% increase in partner-sourced revenue') and pitches TradeLink. All three available hooks (LATAM, promotion, PortBridge) are front-loaded into Touch 1 and then repeated rather than distributed across touches."
+    },
+    {
+      "text": "To prevent a re-engaged prospect from getting automated messages after replying, branching rules include the reply-exit rule (any reply at any touch exits the sequence and alerts the rep), and the sequence completion section specifies moving to a cultivate nurture cadence if no response after all 3 touches -- re-engaged prospects who reply need immediate human follow-up, not another automated touch",
+      "passed": false,
+      "evidence": "Sequence Notes mention: 'If Maria responds at any point, stop the automated sequence and transition to a personal conversation.' This is a brief mention but lacks a formal branching rules section. There is no sequence completion section specifying a cultivate nurture cadence for non-responders, no CRM logging guidance, and no structured branching rules beyond the single sentence about reply-exit."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "eval_id": 1,
+  "eval_name": "intent-synthesis-saas-model",
+  "prompt": "I need to build a 5-year SaaS revenue model from scratch. Here are the assumptions: we start Year 1 with 500 customers paying $200/month each. We expect 20% customer growth YoY and 5% annual price increases. Monthly churn is 2%. Build me the full IDFA-compliant model specification — every Named Range, every formula — before writing anything to Excel.",
+  "assertions": [
+    "Every input assumption has a Named Range with Inp_ prefix (e.g., Inp_Customers_Y1, Inp_Price_Monthly, Inp_Customer_Growth, Inp_Price_Increase, Inp_Churn_Monthly)",
+    "All calculation formulas reference Named Ranges only — zero cell-coordinate references like A1, B2, $C$3",
+    "The model separates into three layers: Assumptions (inputs only), Calculations (logic only), Output (presentation only)",
+    "Revenue calculations correctly account for churn reducing the customer base",
+    "The specification includes both MRR (Monthly Recurring Revenue) and ARR (Annual Recurring Revenue) as Named Ranges",
+    "Each formula is readable as a plain-English business rule without needing to trace cell references",
+    "Year-over-year naming convention uses _Y1, _Y2 etc. dimension suffixes consistently"
+  ]
+}

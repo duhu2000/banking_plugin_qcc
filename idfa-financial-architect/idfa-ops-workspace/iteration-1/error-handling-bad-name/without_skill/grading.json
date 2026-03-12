@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Attempts to read 'Total_Revenue_All_Years' via idfa_ops.py read",
+      "passed": false,
+      "evidence": "No idfa_ops.py used. The attempt was made via direct openpyxl inspection."
+    },
+    {
+      "text": "Receives a 'Named Range not found' error (exit code 1)",
+      "passed": false,
+      "evidence": "No structured JSON error or exit code. The report describes the failure conceptually: 'Total_Revenue_All_Years does not exist in the workbook.'"
+    },
+    {
+      "text": "Does NOT crash or give up \u2014 handles the error gracefully",
+      "passed": true,
+      "evidence": "The report handles the missing range by listing all defined names and identifying the closest matches. Notes: 'a generic openpyxl approach with no guard logic would raise a KeyError.'"
+    },
+    {
+      "text": "Either inspects the model to find similar/correct names, or lists available revenue-related Named Ranges",
+      "passed": true,
+      "evidence": "'All Defined Names (20 total)' table lists every named range. 'Closest Matches: Revenue_Y1 (Calculations!$B$3), Revenue_Y2 (Calculations!$C$3).'"
+    },
+    {
+      "text": "Suggests the correct Named Ranges that exist (Revenue_Y1, Revenue_Y2)",
+      "passed": true,
+      "evidence": "'Closest revenue-related defined names are: Revenue_Y1 (Calculations!$B$3), Revenue_Y2 (Calculations!$C$3).'"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 2,
+    "total": 5,
+    "pass_rate": 0.6
+  }
+}

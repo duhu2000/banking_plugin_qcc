@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Reads the WACC formula from the model (cell B16 or via inspection)",
+      "passed": true,
+      "evidence": "'Spreadsheet Formula (B16): =($B$10/$B$12)*$B$13 + ($B$11/$B$12)*$B$14*(1-$B$15)'"
+    },
+    {
+      "text": "Presents the LaTeX-notation equivalent of the WACC formula",
+      "passed": true,
+      "evidence": "Section 2 shows LaTeX: 'WACC = E/V * Ke + D/V * Kd * (1 - T)'"
+    },
+    {
+      "text": "Verifies that equity weight + debt weight equals 1.0",
+      "passed": true,
+      "evidence": "'Weights sum: 0.625 + 0.375 = 1.000 OK' and 'Capital weights sum to 1.0: PASS'"
+    },
+    {
+      "text": "Verifies that only the debt term is multiplied by (1 - Tax Rate)",
+      "passed": true,
+      "evidence": "'Tax shield applied to debt only (correct): PASS'. The formula correctly applies (1-T) only to the debt component."
+    },
+    {
+      "text": "Verifies cost of equity and cost of debt are in the same units (both decimals or both percentages)",
+      "passed": false,
+      "evidence": "The report does not explicitly check unit consistency between Ke and Kd. It shows both as percentages (12.00%, 6.00%) but does not have a dedicated check confirming they are in the same units."
+    },
+    {
+      "text": "Identifies the formula uses cell references ($B$10, $B$12, etc.) and flags this as an IDFA violation requiring Named Ranges",
+      "passed": false,
+      "evidence": "Section 6 Notes mentions 'All cell references use absolute addressing ($B$10, etc.), which is appropriate since these are fixed assumption inputs.' This does NOT flag it as a violation \u2014 it considers absolute refs appropriate. No mention of IDFA or Named Range requirement."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 2,
+    "total": 6,
+    "pass_rate": 0.67
+  }
+}

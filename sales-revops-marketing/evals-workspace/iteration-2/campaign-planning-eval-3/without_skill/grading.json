@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Pipeline generation: primary KPI is 60 qualified demos booked with a 20 net-new sub-target, and the plan includes secondary conversion metrics (demo-to-opportunity rate, cross-sell attach rate) that connect demos to actual pipeline dollars -- not product signups, page views, or announcement impressions",
+      "passed": true,
+      "evidence": "Primary KPI: '60 qualified demos booked in the launch quarter' with 'Net-new logos: minimum 20 demos' and 'Cross-sell (install base): minimum 40 demos'. Secondary KPIs include 'Demo-to-opportunity conversion rate (target: 50%+)', 'Cross-sell attach rate among install base (target: 12% of 340 accounts = ~41 accounts engaged)', 'Partner-sourced pipeline: 8-10 demos', and 'Pipeline dollars generated: target $1.8M+ in qualified pipeline'. All connect to pipeline dollars."
+    },
+    {
+      "text": "Budget efficiency: $200,000 budget is allocated across phased spend (pre-launch, launch week, sustained demand gen) with the majority weighted toward sustained demand gen weeks 3-12 rather than front-loaded into launch week -- directly addressing the stated risk that announcement-only launches fizzle after two weeks",
+      "passed": true,
+      "evidence": "Phased budget: Pre-Launch $30,000 (15%), Launch Week $35,000 (17.5%), Sustained Demand Gen $135,000 (67.5%). Explicitly states: 'Past product launches fizzled after two weeks when budget was front-loaded into announcement. 67.5% of budget allocated to weeks 2-12 ensures sustained pipeline generation throughout the quarter.'"
+    },
+    {
+      "text": "Alignment: sales-marketing integration routes demo requests to hunting AEs for net-new logos and farming AEs for cross-sell, with a scoring model that distinguishes the two lead types, a Salesloft sequence configured for demo follow-up, and an SLA for demo scheduling turnaround -- ensuring all 60 demos reach the right AE within a defined timeframe",
+      "passed": true,
+      "evidence": "Net-new leads: 'Route to hunting AEs (4 AEs, round-robin). Salesloft sequence: Pipeline Forecasting -- Net New Demo (3 touches over 5 days)'. Cross-sell leads: 'Route to farming AEs (4 AEs, account-matched). Salesloft sequence: Pipeline Forecasting -- Cross-Sell Upgrade (2 touches over 3 days)'. Scoring model includes net-new signals (ICP match, VP/CRO title) and cross-sell signals (existing customer, high CRM usage). Demo SLA: 'HOT leads: Demo scheduled within 24 hours... AE sends calendar link within 4 hours.'"
+    },
+    {
+      "text": "Content leverage: campaign brief treats net-new and cross-sell as distinct audience segments with differentiated messaging, channel selection, and conversion paths -- the cross-sell motion leverages the install base relationship and CRM analytics usage data, while the net-new motion uses ICP-targeted outbound channels",
+      "passed": true,
+      "evidence": "Segment A (Net-New) uses 'LinkedIn Ads (ICP-targeted), Google Ads (brand + category terms), partner co-marketing' with messaging 'Your pipeline forecast is a guess. Ours isn't.' Segment B (Cross-Sell) uses 'Email to install base, in-app notifications, CSM-driven outreach' with messaging 'You already see the data. Now predict what it means.' Cross-sell leverages 'usage data shows accounts with high CRM adoption are prime for forecasting upsell'."
+    },
+    {
+      "text": "Execution velocity: content calendar sequences deliverables across 12 weeks for the full team (one PM, two content marketers, full-time designer, 20 hrs/week video editor) with no week exceeding team capacity, and production milestones ensure launch-week assets are complete before the launch date with buffer time built in",
+      "passed": true,
+      "evidence": "Team capacity documented: '~180 hrs total team capacity. No week should exceed 160 hrs of assigned work (89% utilization, leaving buffer for revisions).' Pre-launch milestone: 'All launch-week assets complete by end of Week -1 (5 business days of buffer before launch).' Sustained phase: 'Weekly team utilization (Weeks 2-12 average): ~120-140 hrs/week (within 160-hr ceiling). Peak weeks reach ~155 hrs but stay under capacity.' Video editor listed as 'Part-Time Video Editor (20 hrs/week)'."
+    },
+    {
+      "text": "Pipeline generation: partner co-marketing with Salesforce and HubSpot ecosystem partners is structured as a pipeline-contributing channel with its own demo target or attribution model, not just a logo-placement exercise -- partner-sourced pipeline is tracked as a named secondary KPI",
+      "passed": true,
+      "evidence": "Salesforce partner: 'Demo target: 4-5 partner-sourced demos' with 'Attribution: UTM-tagged partner links, co-branded landing page, partner-sourced lead field in Salesforce'. HubSpot partner: 'Demo target: 4-5 partner-sourced demos' with same attribution model. 'Partner-Sourced Pipeline KPI: 8-10 demos from partner channels, tracked as a named secondary KPI with monthly reporting. Partner-sourced pipeline dollars reported separately in weekly revenue meeting.'"
+    },
+    {
+      "text": "Budget efficiency: risk and contingency section addresses the specific post-launch demand dropoff risk with a time-bound decision gate (e.g., if demo pace below 15 by Week 4), a named metric to evaluate, and a prescribed corrective action (budget reallocation, retargeting activation, or partner acceleration) -- protecting $200K from being spent on a declining-returns curve",
+      "passed": true,
+      "evidence": "Risk 1 (PRIMARY): 'Decision gate: If demo pace is below 15 demos booked by end of Week 4'. Metric: 'Weekly demo booking rate + source attribution (net-new vs. cross-sell vs. partner)'. Corrective actions: '1. Budget reallocation: Shift $15,000 from underperforming paid channels to highest-converting channel. 2. Retargeting activation: Accelerate retargeting spend from $15,000 to $22,000. 3. Partner acceleration: Request co-email blast. 4. CSM-driven cross-sell push.' Additional gates for net-new and cross-sell risks."
+    }
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}
+}

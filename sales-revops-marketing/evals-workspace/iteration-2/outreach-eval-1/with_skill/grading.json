@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Message opens with a direct reference to Sarah Chen's LinkedIn post about cutting Salesforce-to-NetSuite sync errors by 70% (drives reply rate) — the first sentence must name her specific achievement, not RevStack or Jamie, because prospect-first openers outperform sender-first openers in cold outreach response rates",
+      "passed": true,
+      "evidence": "First sentence: 'Sarah -- your post about cutting Salesforce-to-NetSuite sync errors by 70% after rebuilding the integration layer in-house was impressive.' Opens with Sarah's specific achievement, not RevStack or Jamie."
+    },
+    {
+      "text": "Message body is 100 words or fewer and the single CTA is a 15-minute call with no alternative asks or vague 'let me know' language (drives deal velocity) — a single specific ask with a defined time commitment converts at higher rates than multi-option or open-ended closes",
+      "passed": true,
+      "evidence": "The Five Laws Check states 'Word count: 80 words / limit: 100' which is under 100 words. The single CTA is 'Would a 15-minute call make sense to compare notes?' — one ask, specific time commitment, no alternative asks or vague 'let me know' language."
+    },
+    {
+      "text": "Message avoids corporate jargon (leverage, synergy, best-in-class, seamless, robust, solution, game-changing, revolutionary, disruptive, holistic, end-to-end, cutting-edge, world-class, innovative, empower, unlock, transform) — messages with these words have measurably lower reply rates in B2B cold outreach",
+      "passed": true,
+      "evidence": "The message text contains none of the banned jargon terms. The Five Laws Check also confirms: 'Law 5 (No jargon): Confirmed clean -- no banned language present.' Language is conversational and direct."
+    },
+    {
+      "text": "Output includes a Five Laws compliance audit section verifying all 5 laws (specific reference, lead with them, one ask, word count, banned language) — this structured self-check reduces rep review time and catches messages that would get ignored before they're sent",
+      "passed": true,
+      "evidence": "Output includes 'FIVE LAWS CHECK:' section verifying all 5 laws: 'Law 1 (Specific reference)' — Sarah's LinkedIn post; 'Law 2 (Lead with them)' — first sentence references her achievement; 'Law 3 (One ask)' — 15-minute call; 'Law 4 (Word count)' — 80 words; 'Law 5 (No jargon)' — confirmed clean."
+    },
+    {
+      "text": "Output includes a Day 3 follow-up on a different angle (not 'just checking in') and via a different channel since primary was LinkedIn, plus a Day 7 follow-up in single-question format (drives deal velocity) — a pre-built multi-touch sequence saves the rep 15-20 minutes of drafting and keeps the cadence moving without manual effort",
+      "passed": true,
+      "evidence": "Day 3 Follow-Up is provided via email (different channel from LinkedIn DM), with a different angle about maintenance cost doubling as data volume grows. Not 'just checking in'. Day 7 Follow-Up is a single-question format: 'Sarah -- is keeping that in-house integration scalable something your team is actively thinking about, or is it not a priority right now?' at 29 words."
+    },
+    {
+      "text": "Notes section includes the specific hook used, tone classification, and a confidence rating tied to verifiable signal quality (drives pipeline hygiene) — this metadata lets a sales manager audit outreach quality at scale and ensures reps only send messages backed by real prospect signals",
+      "passed": true,
+      "evidence": "NOTES section includes: 'Hook used: Sarah's LinkedIn post (two days ago) about cutting Salesforce-to-NetSuite sync errors by 70% after rebuilding the integration layer in-house', 'Tone: Peer-level', 'Confidence: HIGH -- hook is specific, timely, and directly relevant to RevStack's value proposition'. All three metadata elements are present with the confidence rating tied to signal quality."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  }
+}

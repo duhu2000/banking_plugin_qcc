@@ -1,0 +1,97 @@
+{
+  "expectations": [
+    {
+      "text": "The brief follows the Type 1 Pre-Discovery Call Brief structure exactly: header line with prospect name and company, QUICK CONTEXT section, YOUR GOAL FOR THIS CALL section, DISCOVERY QUESTIONS section, ANTICIPATED OBJECTIONS AND RESPONSES section, CALL SUCCESS CRITERIA section (with primary/secondary/minimum), COMPETITORS TO LISTEN FOR section, and THINGS NOT TO DO section",
+      "passed": false,
+      "evidence": "The output uses an entirely different structure. Sections are: Account Snapshot, Situational Analysis, Hypothesis: Why They'll Buy, Value Angles for ShipSmart, Discovery Call Framework, Potential Objections & Responses, Competitive Landscape, Research Gaps / Pre-Call To-Dos, Call Scorecard, One-Line Mindset. Missing required sections: no 'QUICK CONTEXT' (has Account Snapshot + Situational Analysis instead), no 'YOUR GOAL FOR THIS CALL' (goals are scattered across sub-section 'Goal:' lines), no 'DISCOVERY QUESTIONS' as standalone section (embedded in Discovery Call Framework), no 'ANTICIPATED OBJECTIONS AND RESPONSES' (has 'Potential Objections & Responses'), no 'CALL SUCCESS CRITERIA' with primary/secondary/minimum tiers (absent entirely), no 'COMPETITORS TO LISTEN FOR' (has 'Competitive Landscape'), no 'THINGS NOT TO DO' section (absent entirely)."
+    },
+    {
+      "text": "Discovery questions total 5 or fewer across all subsections (opening, depth, qualification), every single one is phrased as a question ending in a question mark -- none are statements or instructions to the rep",
+      "passed": false,
+      "evidence": "The Discovery Call Framework section contains approximately 15+ questions across Opening (2), Situation & Context (3), Problem Discovery (~7 across exception tracking, Redline Sports, and Oracle WMS sub-topics), Impact & Urgency (3), and Next Steps (implicit questions in talk tracks). This far exceeds the 5-question maximum. Additionally, several items are instructions to the rep rather than questions: 'Let her tell the story -- don't rush', 'Summarize what you heard back to her (prove you listened)' are directives, not questions."
+    },
+    {
+      "text": "QUICK CONTEXT is concise enough for a 2-minute read (roughly 3-5 sentences), references Natalie's whitepaper download and the cold call intel about manual spreadsheet tracking and 2-3 hours lost per dispatcher, and mentions the lost retail contract as a relevant trigger event",
+      "passed": false,
+      "evidence": "No section named 'QUICK CONTEXT' exists. The Account Snapshot (table format) and Situational Analysis (multiple paragraphs with subsections) cover similar ground but are far longer than 3-5 sentences -- the Situational Analysis alone is approximately 20+ lines with 'What We Know' and 'What We Don't Know' sub-sections. Not concise enough for a 2-minute read as a quick context section. The whitepaper is mentioned in the header metadata and the '2-3 hours lost per dispatcher' detail is absent."
+    },
+    {
+      "text": "YOUR GOAL FOR THIS CALL states a specific, singular call goal -- not a vague 'learn about their needs' or 'do a demo' but a concrete outcome like qualifying the pain around exception tracking, identifying who else is in the buying process, and confirming if there is budget or timeline pressure",
+      "passed": false,
+      "evidence": "No 'YOUR GOAL FOR THIS CALL' section exists. The Discovery Call Framework has per-phase 'Goal:' lines (e.g., 'Confirm what Marcus learned, fill gaps on scope and environment', 'Get her to articulate the pain in her own words'), but there is no singular, consolidated call goal statement. The closest is section 3 'Hypothesis: Why They'll Buy' which describes why they might buy, not the rep's goal for the call."
+    },
+    {
+      "text": "ANTICIPATED OBJECTIONS AND RESPONSES includes at least 2 objections with exact words the prospect might say and responses that validate before reframing -- not defensive or argumentative responses",
+      "passed": false,
+      "evidence": "The section is called 'Potential Objections & Responses' not 'ANTICIPATED OBJECTIONS AND RESPONSES' -- a structural mismatch with the required format. On content: it contains 5 objections in a table with quoted prospect language and responses that validate before reframing ('Totally fair', 'Good -- you should'). The content quality meets the spirit of the assertion, but the section name and format (markdown table vs. structured list) do not match the required Type 1 structure."
+    },
+    {
+      "text": "THINGS NOT TO DO section is present and contains 3-5 specific warnings relevant to this call (e.g., do not demo on a discovery call, do not trash Oracle WMS, do not assume the lost contract means urgency)",
+      "passed": false,
+      "evidence": "No 'THINGS NOT TO DO' section exists in the output. Some warnings are scattered throughout (e.g., 'Don't demo on this call' appears in Next Steps, 'Don't pitch all of them' in Value Angles), but there is no consolidated section with 3-5 explicit warnings."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 6,
+    "total": 6,
+    "pass_rate": 0.0
+  },
+  "execution_metrics": {
+    "output_chars": 12403
+  },
+  "claims": [
+    {
+      "claim": "ShipSmart is a warehouse execution platform, not a full WMS replacement, and uses an overlay architecture",
+      "type": "factual",
+      "verified": false,
+      "evidence": "This is a product architecture claim. The eval prompt (as available) does not describe ShipSmart's technical architecture. This appears to be fabricated or assumed product knowledge."
+    },
+    {
+      "claim": "Memphis is a major logistics corridor with FedEx hub, proximity to intermodal rail, I-40/I-55 interchange",
+      "type": "factual",
+      "verified": false,
+      "evidence": "While Memphis is indeed a major logistics hub with FedEx headquarters, this geographic detail was not in the eval prompt. The LLM is drawing on general knowledge. Factually plausible but unverifiable from the provided inputs."
+    },
+    {
+      "claim": "Oracle WMS was described as 'ancient'",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The Account Snapshot states Oracle WMS is 'described as \"ancient\" but \"good enough for the basics\"'. The eval prompt mentions 'good enough for the basics' but the word 'ancient' does not appear in any available input. This appears to be a fabricated detail -- a significant accuracy concern for a pre-call brief where the rep might use this word and reveal they don't actually know what was said."
+    },
+    {
+      "claim": "Natalie likely has budget authority or is one approval away (CFO or CEO at a 600-person company)",
+      "type": "quality",
+      "verified": true,
+      "evidence": "This is a reasonable inference from her VP title and the company size (~600 employees). Framed appropriately as 'likely' rather than certain."
+    },
+    {
+      "claim": "Typical ShipSmart deployment for a 3PL is [X weeks/months]",
+      "type": "factual",
+      "verified": false,
+      "evidence": "The output includes a placeholder '[X weeks/months]' in the objection response about IT/18-month timeline. This is an unfilled template variable that would be unusable in an actual call prep scenario."
+    },
+    {
+      "claim": "The output provides a comprehensive discovery framework with 10 sections",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The output does contain 10 numbered sections covering account snapshot, analysis, hypothesis, value angles, call framework, objections, competitive landscape, research gaps, scorecard, and mindset. It is comprehensive -- arguably too comprehensive for a pre-call brief meant to be consumed quickly."
+    }
+  ],
+  "user_notes_summary": null,
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "ANTICIPATED OBJECTIONS AND RESPONSES includes at least 2 objections with exact words the prospect might say and responses that validate before reframing -- not defensive or argumentative responses",
+        "reason": "This assertion tests both structure (section name) and content (objection quality). The without-skill output has high-quality objection content but fails on the structural name requirement. The assertion could be split: one for structure (correct section name) and one for content quality (validate-before-reframe pattern). Currently the structural test masks that the content was actually good."
+      },
+      {
+        "reason": "No assertion checks for factual accuracy -- whether the output introduces claims not present in the prompt. The without-skill output fabricates that Oracle WMS was described as 'ancient' (it was only called 'good enough for the basics') and includes a placeholder '[X weeks/months]' in an objection response. Both would be problematic in a real pre-call brief. An assertion like 'The brief does not introduce factual claims about the prospect that were not in the input data' would catch hallucination."
+      },
+      {
+        "reason": "No assertion checks output length or scannability. The without-skill output is 12,403 characters (~10 sections) which is far too long for a pre-call brief. A rep reading this 10 minutes before a call would be overwhelmed. An assertion like 'The brief is under 4,000 characters or fits on 2 pages' would discriminate between a focused brief and a verbose analysis document."
+      }
+    ],
+    "overall": "The assertions are well-designed to discriminate between a skill-guided output (which knows the Type 1 format) and an unguided output. The without-skill output is a competent sales document but fails every structural assertion because it uses a generic consulting-style format rather than the specific brief format. This validates that the assertions test for genuine skill compliance. Adding hallucination-detection and length/scannability assertions would further strengthen the eval."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "eval_id": 1,
+  "eval_name": "write-read-roundtrip",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Runs idfa_ops.py write to set Inp_Price to 125",
+      "passed": true,
+      "evidence": "Step 3 shows: 'uv run skills/idfa-ops/scripts/idfa_ops.py write ... Inp_Price 125' with JSON output: {\"status\": \"ok\", \"name\": \"Inp_Price\", \"value\": 125, \"cell\": \"Assumptions!B2\"}"
+    },
+    {
+      "text": "Runs idfa_ops.py read to verify the value is 125",
+      "passed": true,
+      "evidence": "Step 4 shows: 'uv run skills/idfa-ops/scripts/idfa_ops.py read ... Inp_Price' with JSON output: {\"status\": \"ok\", \"values\": {\"Inp_Price\": 125}}"
+    },
+    {
+      "text": "Both commands produce JSON output with status 'ok'",
+      "passed": true,
+      "evidence": "Write JSON: {\"status\": \"ok\", ...} and Read JSON: {\"status\": \"ok\", \"values\": {\"Inp_Price\": 125}} — both show status 'ok'"
+    },
+    {
+      "text": "The operation preserves all existing Named Ranges and formulas",
+      "passed": true,
+      "evidence": "Step 1 inspect showed 20 Named Ranges. The note at the end confirms 'Dependent calculated ranges (Revenue_Y1, Revenue_Y2, EBIT_Y1, EBIT_Y2, Net_Income_Y1, Net_Income_Y2) have not been recalculated' — indicating formulas were preserved, not overwritten."
+    },
+    {
+      "text": "Does not use raw openpyxl or manual cell editing",
+      "passed": true,
+      "evidence": "All operations used idfa_ops.py commands (inspect, read, write). No raw openpyxl code or manual cell editing is referenced anywhere in the output."
+    }
+  ]
+}

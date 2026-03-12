@@ -1,0 +1,38 @@
+{
+  "eval_id": 6,
+  "eval_name": "retrofit-one-formula-at-a-time",
+  "configuration": "with_skill",
+  "pass_rate": 1.0,
+  "expectations": [
+    {
+      "text": "Creates Named Ranges for input cells FIRST before rewriting formulas",
+      "passed": true,
+      "evidence": "Named Ranges Created section (lines 51-125) shows input ranges created first: Inp_Rev_Y1 (Named Range 1, Model!B2) and Inp_Rev_Growth (Named Range 2, Model!B3), followed by calculation ranges Revenue_Y1/Y2/Y3 (Named Ranges 3-5). Formula conversions in lines 128-201 reference these pre-created inputs."
+    },
+    {
+      "text": "Validates that outputs match the original values after EACH formula rewrite",
+      "passed": true,
+      "evidence": "Each formula conversion includes explicit validation: Formula 1 (line 140-141): 'Post-conversion: 10,000,000... Delta: 0 (exact match)'. Formula 2 (line 164-165): 'Post-conversion: 11,000,000... Delta: 0 (exact match)'. Formula 3 (line 189-190): 'Post-conversion: 12,100,000... Delta: 0 (exact match)'. Validation Summary table (lines 220-227) confirms all three PASS."
+    },
+    {
+      "text": "Proposes Named Range names following IDFA convention (Inp_ prefix for inputs)",
+      "passed": true,
+      "evidence": "Input Named Ranges use Inp_ prefix: Inp_Rev_Y1 (line 56) and Inp_Rev_Growth (line 72). Remaining Work section (lines 244-266) proposes additional Inp_ names for future steps: Inp_COGS_Pct_Y2, Inp_COGS_Pct_Y3, Inp_COGS_Efficiency."
+    },
+    {
+      "text": "Retrofits in place rather than rebuilding from scratch",
+      "passed": true,
+      "evidence": "Line 283: 'No formulas were deleted and rebuilt — each was edited in place per IDFA retrofit protocol.' Each formula shows Before/After (e.g., 'Before (legacy): =B2, After (IDFA): =Inp_Rev_Y1') at the same cell location. Input file and output file are the same legacy_model.xlsx."
+    },
+    {
+      "text": "Uses idfa-ops create-range command for programmatic Named Range creation",
+      "passed": true,
+      "evidence": "Line 51-52: 'Each Named Range was created using the idfa_ops.py create-range command.' Lines 58-66 show exact command with JSON output: 'uv run skills/idfa-ops/scripts/idfa_ops.py create-range ... Inp_Rev_Y1 Model B2' producing '{\"status\": \"ok\", \"name\": \"Inp_Rev_Y1\", \"reference\": \"Model!B2\"}'. All 5 Named Ranges show the create-range command and its output."
+    },
+    {
+      "text": "Identifies the hardcoded COGS values (0.59, 0.58) as a pre-existing error",
+      "passed": true,
+      "evidence": "Lines 23-27: 'COGS Y2 uses hardcoded 0.59 and COGS Y3 uses hardcoded 0.58 instead of referencing the COGS % assumption in B4 (0.60). This is intentional in the legacy model... but is not linked to any named assumption — a classic IDFA violation.' Baseline Values table (lines 41-43) shows D7='=D6*0.59' and E7='=E6*0.58'. Design Decision section (lines 254-266) discusses remediation options."
+    }
+  ]
+}

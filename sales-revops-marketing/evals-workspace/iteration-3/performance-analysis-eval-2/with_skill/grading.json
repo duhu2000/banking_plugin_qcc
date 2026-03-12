@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "To prevent a budget cut that would destroy $378K in pipeline from $11K in spend (34:1 ratio), the analysis explicitly refuses to recommend cutting LinkedIn without first testing creative and audience changes — directly applying the skill's NEVER rule about pausing channels before testing creative",
+      "passed": true,
+      "evidence": "The answer section opens with 'No. Do not cut LinkedIn.' and states: 'Cutting LinkedIn right now would violate a fundamental principle: never pause a channel that is underperforming without first testing whether the creative/copy/audience is the problem, not the channel.' The recommendation to leadership is explicit: 'Give the team 2 weeks to execute a creative refresh... If these targets are not met after 2 weeks of fresh creative, then... a budget reallocation conversation is warranted. But cutting now, before testing creative, would be premature and would forfeit a 34:1 pipeline channel.'"
+    },
+    {
+      "text": "To diagnose the real spend optimization opportunity, week-over-week CTR decline (Sponsored: 0.55% to 0.25%; Thought Leader: 1.2% to 0.64%) is identified as creative fatigue or audience saturation — a fixable execution problem, not a channel-level failure that warrants budget reallocation",
+      "passed": true,
+      "evidence": "Layer 2 root cause '1. CREATIVE FATIGUE -- THE PRIMARY DRIVER OF CTR DECLINE' documents: 'Sponsored: 0.55% → 0.46% → 0.35% → 0.25% (losing ~0.10pp/week). Thought Leader: 1.2% → 1.0% → 0.80% → 0.64% (losing ~0.19pp/week).' Diagnosis: 'The same ad creative has been running for 4 weeks against the same audience... This is the signature of audience saturation -- the same people seeing the same ads repeatedly and tuning out. This is an execution problem with a known fix (creative refresh), not a channel-level failure.' Section 2 adds audience saturation as secondary driver."
+    },
+    {
+      "text": "To prove LinkedIn generates pipeline-ready leads worth protecting, downstream conversion quality (55% lead-to-MQL, 58% MQL-to-SAL, 50% SAL-to-opp) is benchmarked against the skill's reference table — MQL-to-SAL at 41% average benchmark makes 55% above-average, validating that the channel attracts ICP-fit prospects even as volume declines",
+      "passed": true,
+      "evidence": "Headline numbers section: 'MQL-to-SAL: 58% (benchmark: 35-50% average) -- GOOD, above average tier'. The answer section states: '55% of LinkedIn leads became MQLs. 58% of those MQLs became SALs (above the 35-50% average benchmark). These are ICP-fit prospects.' Layer 1 confirms: 'Lead Quality: ON TRACK. Downstream conversion rates remain strong. MQL-to-SAL at 58% is above average.' Note: the expectation references 41% as the average benchmark -- the output uses 35-50% as the range and classifies 58% as above average, which is the correct application."
+    },
+    {
+      "text": "To show leadership the difference between volume decline and ROI decline, pipeline-to-spend ratio (34:1) and average deal size ($42K) are positioned as the primary decision metrics — not impressions or CTR — reframing the cut-or-keep decision around revenue outcomes rather than vanity metrics",
+      "passed": true,
+      "evidence": "Layer 1 states: 'Channel ROI: ON TRACK. The 34:1 pipeline-to-spend ratio and $42K average deal size mean LinkedIn is generating high-value pipeline efficiently. This is the primary decision metric for leadership, not CTR or impressions.' The answer section leads with pipeline economics: '$11,000 in spend generated $378,000 in pipeline. A 34:1 pipeline-to-spend ratio is outstanding by any B2B standard.' The 'What is working' section reinforces: 'Pipeline-to-Spend Ratio (34:1) -- EXCEPTIONAL... This is the single most important metric for the cut-or-keep decision.'"
+    },
+    {
+      "text": "To give the marketing team an executable save-the-channel plan, specific creative refresh recommendations are provided — new ad variants to test, audience segment expansion beyond current targeting, or format mix shifts toward Thought Leader ads — with expected CTR recovery targets and a 2-week test timeline before any budget decision",
+      "passed": true,
+      "evidence": "Four specific recommendations provided: (1) 'Launch 4 new Sponsored ad variants' with specific variant descriptions (pain-point led, social proof led, carousel, video testimonial), expected CTR recovery 'from 0.25% to 0.45-0.55%' by Friday; (2) 'SHIFT BUDGET MIX TOWARD THOUGHT LEADER ADS' with 3x/week posting cadence and 20% budget reallocation; (3) 'AUDIENCE EXPANSION TEST' targeting adjacent titles, verticals, and company sizes at 20% of budget; (4) Follow-up audit. The 2-week timeline is explicit: 'Give the team 2 weeks to execute a creative refresh. Measure results at the end of Week 6' with specific success criteria."
+    },
+    {
+      "text": "To protect what is generating revenue, the 'What is working' section explicitly names Thought Leader ad format (higher CTR trajectory even while declining) and downstream lead quality as assets that a blanket budget cut would destroy alongside the underperforming Sponsored creative",
+      "passed": true,
+      "evidence": "'WHAT IS WORKING -- DO NOT CHANGE' section includes: '3. Thought Leader Ad Format -- HIGHER CTR TRAJECTORY: Even while declining, TLA consistently outperforms Sponsored by 2-2.6x on CTR. TLA generates leads at zero incremental cost. Do not reduce TLA posting frequency.' And '2. Downstream Lead Quality (55% Lead-to-MQL, 58% MQL-to-SAL) -- ABOVE AVERAGE... Do not change the audience targeting criteria based on CTR decline. The targeting is correct -- it is the creative that is fatigued, not the audience that is wrong.'"
+    },
+    {
+      "text": "To ensure the analysis follows the structured performance report format, the output must open with the mandatory output header (TASK, ICP MATCH, CONFIGURATION, VERIFY DATA) and use the 4-layer framework (ARE WE ON TRACK, WHY, WHAT TO DO, WHAT NOT TO CHANGE) with each layer clearly labeled — a general-purpose analysis would provide recommendations but not follow this specific structural template",
+      "passed": true,
+      "evidence": "Output opens with mandatory header: 'TASK: Performance Analysis -- LinkedIn Channel Deep-Dive (4-Week Trend) / ICP MATCH: STRONG (VP/Director of Ops at mid-market logistics, 200-2000 employees) / CONFIGURATION: Not configured / VERIFY DATA: All prospect data should be verified before outreach'. The 4-layer framework is present with explicit labels: 'LAYER 1 -- ARE WE ON TRACK?', 'LAYER 2 -- WHY? (Root Cause Analysis)', 'LAYER 3 -- WHAT TO DO (Specific Recommendations)', and 'WHAT IS WORKING -- DO NOT CHANGE'."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

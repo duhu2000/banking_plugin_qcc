@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "To protect an existing deal relationship at risk of reorg, the research brief identifies the CRO transition as the central strategic factor \u2014 WHO IS MARCUS WEBB includes verified career background (confirming or correcting the Stripe attribution with source), tenure calculated as approximately 2 months with signal interpretation that a new CRO at <6 months is a HOT receptivity window per the skill's signal criteria",
+      "passed": false,
+      "evidence": "The baseline also fails to verify or correct Marcus Webb's prior-company background with a source. It says Stripe is unconfirmed and should be checked before the intro."
+    },
+    {
+      "text": "To give the AE competitive intelligence on the account before the warm intro, WHAT IS MERIDIAN FINANCIAL GROUP covers real business model (B2B payments processing), revenue estimate sourced to the CEO podcast mention plus any corroborating data, headcount with trend direction, and market position \u2014 the company is NOT conflated with any other entity named Meridian",
+      "passed": false,
+      "evidence": "The company section lacks corroborated sourcing and headcount trend data. It repeats the CEO podcast revenue claim and admits headquarters/headcount are unconfirmed."
+    },
+    {
+      "text": "To identify whether this is a 'defend the deal' or 'expand the deal' situation, signal classification categorizes the CRO replacement as a HOT signal with source and date, and separately evaluates supporting signals \u2014 job postings for revenue operations or sales operations roles, reorg indicators, or changes in go-to-market strategy that reveal whether Marcus Webb is building a new team or inheriting the existing one",
+      "passed": false,
+      "evidence": "The output discusses the CRO transition as important, but it does not classify signals into HOT/WARM/WATCH or separately evaluate supporting signals like job postings and reorg indicators in a structured way."
+    },
+    {
+      "text": "To arm the AE with a narrative that resonates with a new CRO's first-100-days priorities, the pain assessment constructs a specific causal chain: CRO replacement implies board-level dissatisfaction with revenue execution, which creates immediate demand for pipeline visibility, forecast accuracy, and deal inspection \u2014 connecting Marcus Webb's likely priorities directly to the revenue intelligence product category",
+      "passed": true,
+      "evidence": "The pain assessment still builds a clear causal chain from CRO replacement to board dissatisfaction, first-100-days pressure, and the need for pipeline visibility and forecast accuracy."
+    },
+    {
+      "text": "To make the warm intro feel informed rather than generic, at least one hook is identified that is specific to Marcus Webb or the transition event \u2014 a post Marcus made about revenue methodology, an initiative he led at Stripe, or a Meridian job posting that signals his new priorities \u2014 not a generic 'new CROs need visibility' hook",
+      "passed": false,
+      "evidence": "The 'Potential Hooks' section is mostly a research to-do list. It does not actually identify a concrete, prospect-specific hook beyond generic suggestions to look for one."
+    },
+    {
+      "text": "To determine the right approach given the champion-at-risk situation, the recommended first touch addresses whether to lead through the existing champion or go direct to Marcus Webb \u2014 specifying channel and tone appropriate for a new C-level executive in his first 90 days, and flagging the reorg risk as a factor that affects timing and approach",
+      "passed": true,
+      "evidence": "The recommended approach addresses both the champion path and the direct Marcus path, and it specifies channel, tone, and timing appropriate for a new CRO."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 4,
+    "total": 6,
+    "pass_rate": 0.33
+  }
+}

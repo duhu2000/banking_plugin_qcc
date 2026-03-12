@@ -1,0 +1,40 @@
+{
+  "expectations": [
+    {
+      "text": "Subject line references TerraForm Logistics's specific situation — the Maersk partnership, the 40-to-70 rep scale, or sales capacity during expansion (drives reply rate) — prospect-specific subject lines outperform generic ones ('Quick question', 'Introduction') by 2-3x on open rate in cold email",
+      "passed": true,
+      "evidence": "Subject line is: 'TerraForm's Maersk expansion + scaling from 40 to 70 reps' — directly references both the Maersk partnership and the 40-to-70 rep scaling."
+    },
+    {
+      "text": "First sentence references the FreightWaves Maersk announcement or the careers page hiring ramp, not Quota OS or Priya (drives reply rate) — opening with a verifiable, timely event the prospect cares about signals research effort and earns the read past the first line",
+      "passed": true,
+      "evidence": "First sentence: 'Saw the FreightWaves piece on TerraForm's Maersk partnership for North American intermodal freight -- congrats on the win.' References FreightWaves and the Maersk partnership. No mention of Quota OS or Priya."
+    },
+    {
+      "text": "Email body is 150 words or fewer with exactly one CTA — a 20-minute demo — and no secondary asks, no 'or if you prefer a call', no vague 'thoughts?' (drives deal velocity) — single-CTA cold emails have significantly higher conversion to booked meetings than multi-option emails",
+      "passed": true,
+      "evidence": "Word count stated as 127 words (under 150). Single CTA: 'Worth 20 minutes to see how it would work for TerraForm's expansion?' No secondary asks or alternatives."
+    },
+    {
+      "text": "Message avoids corporate jargon (leverage, synergy, best-in-class, seamless, robust, solution, game-changing, revolutionary, disruptive, holistic, end-to-end, cutting-edge, world-class, innovative, empower, unlock, transform) — messages with these words have measurably lower reply rates in B2B cold outreach",
+      "passed": true,
+      "evidence": "Five Laws Compliance Audit table shows Law 5 (Banned Language): 'None present' — PASS. Verified by reading email body — no banned jargon words found."
+    },
+    {
+      "text": "Output includes a Five Laws compliance audit section verifying all 5 laws (specific reference, lead with them, one ask, word count, banned language) — this structured self-check reduces rep review time and catches messages that would get ignored before they're sent",
+      "passed": true,
+      "evidence": "The output includes a 'Five Laws Compliance Audit' table with all 5 laws verified: Law 1 (Specific Reference: PASS), Law 2 (Lead With Them: PASS), Law 3 (One Ask: PASS), Law 4 (Word Count: 127 words, PASS), Law 5 (Banned Language: PASS). Overall compliance: 5/5 PASS."
+    },
+    {
+      "text": "Output includes a Day 3 follow-up using a different angle with new value (e.g., quota-setting challenges when onboarding 30 reps) and a Day 7 follow-up in single-question format (drives deal velocity) — a pre-built 3-touch sequence eliminates the rep needing to draft follow-ups from scratch, keeping cadence momentum without manual effort",
+      "passed": true,
+      "evidence": "Day 3 follow-up (Touch 2) uses a different angle: 'setting quotas that are achievable in month 1 vs. month 4 of a new rep's ramp' — quota ramp curve problem, different from primary email's Maersk news angle. Day 7 follow-up (Touch 3) is a single question: 'when your 30 new reps hit quota-carrying status, how is your team planning to rebalance territories across the expanded Maersk book of business?'"
+    },
+    {
+      "text": "Notes section includes the specific hooks used, a confidence rating tied to source quality (FreightWaves = published media, careers page = publicly verifiable), and tone classification (drives pipeline hygiene) — this metadata lets managers audit whether reps are sending outreach backed by real signals or fabricated personalization",
+      "passed": true,
+      "evidence": "Notes section includes: Hooks used (3 listed with descriptions), Confidence rating with source quality: 'Hook 1 (Maersk partnership): HIGH -- Published media source (FreightWaves), verifiable and timestamped' and 'Hook 2 (40-to-70 rep scale): HIGH -- Publicly verifiable via company careers page.' Tone classification: 'Professional-casual, peer-to-peer. No superlatives or pressure language.'"
+    }
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}
+}

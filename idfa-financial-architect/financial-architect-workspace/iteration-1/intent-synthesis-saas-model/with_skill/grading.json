@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "Every input assumption has a Named Range with Inp_ prefix (e.g., Inp_Customers_Y1, Inp_Price_Monthly, Inp_Customer_Growth, Inp_Price_Increase, Inp_Churn_Monthly)",
+      "passed": true,
+      "evidence": "Layer 1 table lists: Inp_Customers_Y1, Inp_Price_Monthly_Y1, Inp_Customer_Growth_Rate, Inp_Price_Increase_Rate, Inp_Churn_Rate_Monthly \u2014 all with Inp_ prefix."
+    },
+    {
+      "text": "All calculation formulas reference Named Ranges only \u2014 zero cell-coordinate references like A1, B2, $C$3",
+      "passed": true,
+      "evidence": "All 75 calculation formulas in Layer 2 reference Named Ranges exclusively. The IDFA compliance checklist states 'Zero cell-address references (A1, B8, $C$10)' and confirms PASS for Guardrail 1."
+    },
+    {
+      "text": "The model separates into three layers: Assumptions (inputs only), Calculations (logic only), Output (presentation only)",
+      "passed": true,
+      "evidence": "Architecture Overview explicitly defines 'Layer 1 (Assumptions): All user-modifiable inputs', 'Layer 2 (Calculations): All formulas referencing Named Ranges only', 'Layer 3 (Output): Display tables and charts reading from Layer 2 only'."
+    },
+    {
+      "text": "Revenue calculations correctly account for churn reducing the customer base",
+      "passed": true,
+      "evidence": "Net revenue uses average customers (midpoint of BoY and EoY after churn): 'Revenue_Net_Y1 = Customers_Avg_Y1 * Price_Annual_Y1'. Churn compounds monthly (21.53% annual from 2% monthly). Churned revenue is tracked separately."
+    },
+    {
+      "text": "The specification includes both MRR (Monthly Recurring Revenue) and ARR (Annual Recurring Revenue) as Named Ranges",
+      "passed": true,
+      "evidence": "Section M lists MRR_BoY_Y1 through MRR_BoY_Y5 and ARR_BoY_Y1 through ARR_BoY_Y5, with formulas: 'MRR_BoY_Y1 = Customers_BoY_Y1 * Price_Monthly_Y1' and 'ARR_BoY_Y1 = MRR_BoY_Y1 * 12'."
+    },
+    {
+      "text": "Each formula is readable as a plain-English business rule without needing to trace cell references",
+      "passed": true,
+      "evidence": "Every formula table includes a 'Business Rule' column with plain English, e.g., 'Year 2 price is Year 1 price plus the annual increase', 'Customers lost in Year 1 is BoY count times the annual churn rate'."
+    },
+    {
+      "text": "Year-over-year naming convention uses _Y1, _Y2 etc. dimension suffixes consistently",
+      "passed": true,
+      "evidence": "All yearly Named Ranges use _Y1 through _Y5 suffixes consistently: Revenue_Net_Y1, Customers_BoY_Y1, Price_Monthly_Y1, MRR_BoY_Y1, etc. The Named Range Registry confirms this pattern across all 80 ranges."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}
