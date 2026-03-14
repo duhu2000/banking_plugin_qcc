@@ -9,7 +9,7 @@ description: >
   processing, Article 18, objection to processing, Article 21, data subject
   rights, privacy inquiry, ICO complaint, privacy response.
   NOT for: contract review, NDA triage, IP matters, regulatory monitoring, legal advice on data protection interpretation, erasure execution.
-plugin-commands: /legal-brief
+author: Panaversity -- The AI Agent Factory
 chapter: 22 -- Legal Operations and Compliance
 ---
 

@@ -8,7 +8,7 @@ description: >
   legal ROI, panel firms, outside counsel, legal department budget,
   matter management, legal benchmarking.
   NOT for: contract review, NDA triage, IP research, regulatory monitoring, DSAR processing, budget approval (CFO required).
-plugin-commands: /legal-brief
+author: Panaversity -- The AI Agent Factory
 chapter: 22 -- Legal Operations and Compliance
 ---
 

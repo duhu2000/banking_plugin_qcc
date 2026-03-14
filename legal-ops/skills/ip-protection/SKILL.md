@@ -9,7 +9,7 @@ description: >
   patent infringement, trademark infringement, copyright infringement,
   IP portfolio, IP monitoring, competitor patent, patent filing.
   NOT for: contract review, NDA triage, regulatory monitoring, DSAR processing, patent filing (attorney required), trademark registration.
-plugin-commands: /legal-brief
+author: Panaversity -- The AI Agent Factory
 chapter: 22 -- Legal Operations and Compliance
 ---
 

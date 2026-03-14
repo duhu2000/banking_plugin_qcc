@@ -1,16 +1,39 @@
 ---
-name: contract-intake-agent
-version: 1.0
+name: contract-intake
+version: 3.0
+type: agent
 description: >
   Activate for: incoming contract, contract received, new contract, contract
   routing, contract intake, NDA received, vendor agreement received, contract
   submitted for review, legal intake, contract queue, contract management,
   contract tracking, new agreement, contract pipeline, contract submitted.
   NOT for: IP research, regulatory monitoring, DSAR processing, contract execution (authorised signatory required), legal advice.
-plugin-commands: /review-contract, /triage-nda, /vendor-check
-mcp-integrations: Google Drive, SharePoint, Gmail, Outlook, Google Sheets, Notion
+author: Panaversity -- The AI Agent Factory
 chapter: 22 -- Legal Operations and Compliance
+mcp-integrations: Google Drive, SharePoint, Gmail, Outlook, Google Sheets, Notion
+routes-to:
+  anthropic-commands:
+    - /review-contract
+    - /triage-nda
+  skills:
+    - skills/compliance-calendar/SKILL.md
 ---
+
+## ROLE
+
+This agent manages the end-to-end contract intake process: receiving documents,
+classifying them, extracting metadata, routing through triage, tracking SLA
+compliance, sending communication templates, and handling post-execution actions.
+It chains to Anthropic's built-in commands and to Panaversity skills as needed.
+
+## TRIGGER CONDITIONS
+
+| Trigger      | Condition                                               | Action                                          |
+| ------------ | ------------------------------------------------------- | ----------------------------------------------- |
+| **Email**    | Contract received at legal-intake@yourcompany.com       | Start intake sequence                           |
+| **Upload**   | Document uploaded to designated SharePoint/Drive folder | Start intake sequence                           |
+| **Web form** | Contract submitted via internal portal                  | Start intake sequence                           |
+| **URGENT**   | Business deadline stated < 48 hours                     | Flag URGENT; notify GC; halve all SLA timelines |
 
 ## INTAKE SEQUENCE -- EXECUTE IN ORDER
 
@@ -31,16 +54,16 @@ Immediately:
 
 ### Step 2: Document Type Classification
 
-| Document Type                    | Route                                         |
-| -------------------------------- | --------------------------------------------- |
-| NDA / Mutual CA / CDA            | -> nda-triage protocol                        |
-| Vendor Agreement / MSA / SOW     | -> contract-review protocol                   |
-| SaaS / Software Licence          | -> contract-review protocol                   |
-| Employment Agreement             | -> HR Legal queue (no agent analysis)         |
-| Independent Contractor Agreement | -> HR Legal queue                             |
-| Partnership / JV Agreement       | -> contract-review protocol + GC notification |
-| M&A / Investment Document        | -> GC immediately (no agent triage)           |
-| Unknown / Cannot classify        | -> Extract key terms; route to GC queue       |
+| Document Type                    | Route                                             |
+| -------------------------------- | ------------------------------------------------- |
+| NDA / Mutual CA / CDA            | -> Anthropic `/triage-nda` protocol               |
+| Vendor Agreement / MSA / SOW     | -> Anthropic `/review-contract` protocol          |
+| SaaS / Software Licence          | -> Anthropic `/review-contract` protocol          |
+| Employment Agreement             | -> HR Legal queue (no agent analysis)             |
+| Independent Contractor Agreement | -> HR Legal queue                                 |
+| Partnership / JV Agreement       | -> Anthropic `/review-contract` + GC notification |
+| M&A / Investment Document        | -> GC immediately (no agent triage)               |
+| Unknown / Cannot classify        | -> Extract key terms; route to GC queue           |
 
 ### Step 3: Metadata Extraction (mandatory for all contracts)
 
@@ -57,27 +80,30 @@ Extract and log:
 
 ### Step 4: Triage Classification and Routing
 
-RUN the appropriate triage protocol (nda-triage or contract-review).
+RUN the appropriate triage protocol:
 
-ROUTE based on output:
+- NDA documents: route through router agent's NDA pre-checks, then to Anthropic `/triage-nda`
+- Contract documents: route to Anthropic `/review-contract` with jurisdiction overlay and playbook context
 
-Tier 1 -- Standard Approval:
+The triage protocol produces a tier classification. ROUTE based on output:
+
+**Tier 1 -- Standard Approval:**
 -> Notify requesting business unit (Template A)
 -> Route to authorised signatory approval queue
 -> Set execution follow-up reminder: 3 business days
 
-Tier 2 -- Counsel Review:
+**Tier 2 -- Counsel Review:**
 -> Notify designated reviewing attorney (Template B)
 -> Attach triage summary
 -> Set SLA reminder: 2 business days
 
-Tier 3 -- Full Review / RED items:
+**Tier 3 -- Full Review / RED items:**
 -> Notify General Counsel (Template C)
 -> Attach full review output
 -> Schedule review call if deal value > [configured threshold]
 -> Set SLA reminder: 5 business days
 
-URGENT flag (business-stated deadline < 48 hours):
+**URGENT flag (business-stated deadline < 48 hours):**
 -> Notify GC immediately regardless of tier
 -> Halve all SLA timelines
 -> Flag in tracking system as URGENT
@@ -98,11 +124,21 @@ On confirmation of signing:
 - Update contract tracking log: status = EXECUTED
 - Extract and log: execution date, effective date, term, governing law,
   renewal date, notice period for non-renewal
-- Set calendar reminders:
+- Set calendar reminders (via compliance-calendar skill):
   -> Notice period deadline (last date to give non-renewal notice)
   -> Contract expiry date
   -> Key obligation due dates (extracted from contract)
 - Notify requesting business unit: confirmation + renewal notice date
+
+## ESCALATION / REVIEW CHECKPOINTS
+
+| Checkpoint          | Condition                                        | Reviewer           |
+| ------------------- | ------------------------------------------------ | ------------------ |
+| **Triage complete** | All metadata extracted, tier assigned            | Legal Ops Manager  |
+| **SLA breach**      | Tier 1 > 1 day, Tier 2 > 2 days, Tier 3 > 5 days | GC                 |
+| **RED escalation**  | Any RED deviation identified                     | GC immediately     |
+| **Execution**       | Signed contract confirmed                        | Legal Ops Manager  |
+| **Post-execution**  | Calendar reminders and obligations logged        | Compliance Officer |
 
 ## COMMUNICATION TEMPLATES
 

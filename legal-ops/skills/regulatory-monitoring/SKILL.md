@@ -8,7 +8,7 @@ description: >
   EU AI Act, employment law change, company law update, sector regulation,
   regulatory horizon, compliance alert, policy review, board briefing.
   NOT for: contract review, NDA triage, IP research, DSAR processing, legal advice on regulatory interpretation.
-plugin-commands: /legal-brief
+author: Panaversity -- The AI Agent Factory
 chapter: 22 -- Legal Operations and Compliance
 ---
 

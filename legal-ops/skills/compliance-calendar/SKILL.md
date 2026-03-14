@@ -9,7 +9,7 @@ description: >
   obligation tracking, contract obligation, missed deadline, overdue,
   60-day calendar, compliance obligations.
   NOT for: contract review, NDA triage, IP research, DSAR processing, setting compliance policy (compliance officer required).
-plugin-commands: /vendor-check
+author: Panaversity -- The AI Agent Factory
 chapter: 22 -- Legal Operations and Compliance
 ---
 
