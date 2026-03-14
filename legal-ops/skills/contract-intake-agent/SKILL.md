@@ -1,7 +1,6 @@
 ---
-name: contract-intake
-version: 3.0
-type: agent
+name: contract-intake-agent
+version: 2.0
 description: >
   Activate for: incoming contract, contract received, new contract, contract
   routing, contract intake, NDA received, vendor agreement received, contract
@@ -21,7 +20,7 @@ routes-to:
 
 ## ROLE
 
-This agent manages the end-to-end contract intake process: receiving documents,
+This skill manages the end-to-end contract intake process: receiving documents,
 classifying them, extracting metadata, routing through triage, tracking SLA
 compliance, sending communication templates, and handling post-execution actions.
 It chains to Anthropic's built-in commands and to Panaversity skills as needed.
@@ -82,7 +81,7 @@ Extract and log:
 
 RUN the appropriate triage protocol:
 
-- NDA documents: route through router agent's NDA pre-checks, then to Anthropic `/triage-nda`
+- NDA documents: route through router's NDA pre-checks, then to Anthropic `/triage-nda`
 - Contract documents: route to Anthropic `/review-contract` with jurisdiction overlay and playbook context
 
 The triage protocol produces a tier classification. ROUTE based on output:

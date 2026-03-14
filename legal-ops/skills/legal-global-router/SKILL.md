@@ -1,9 +1,8 @@
 ---
-name: legal-ops-router
-version: 3.0
-type: agent
+name: legal-global-router
+version: 2.0
 description: >
-  TOP-LEVEL ROUTER AGENT. Activate when ANY of these terms appear:
+  TOP-LEVEL ROUTER. Activate when ANY of these terms appear:
   contract review, NDA, non-disclosure, confidentiality agreement,
   redline, legal review, IP, intellectual property, patent, trademark,
   copyright, trade secret, GDPR, DSAR, data subject access, compliance,
@@ -18,41 +17,16 @@ description: >
   NOT for: direct legal advice, court filings, litigation strategy, attorney-client privileged communications, contract execution.
 author: Panaversity -- The AI Agent Factory
 chapter: 22 -- Legal Operations and Compliance
-orchestrates:
-  agents:
-    - agents/contract-intake/AGENT.md
-  skills:
-    - skills/compliance-calendar/SKILL.md
-    - skills/dsar-privacy/SKILL.md
-    - skills/ip-protection/SKILL.md
-    - skills/legal-spend/SKILL.md
-    - skills/regulatory-monitoring/SKILL.md
-  anthropic-commands:
-    - /review-contract
-    - /triage-nda
-    - /vendor-check
-    - /brief
-    - /compliance-check
-    - /legal-risk-assessment
-    - /meeting-briefing
-    - /legal-response
-    - /signature-request
 ---
-
-## ROLE
-
-This agent is the central router for all legal operations tasks. It does NOT
-produce final legal output itself. It identifies the correct skill, agent, or
-Anthropic command for each query, loads the appropriate jurisdiction overlay
-and negotiation playbook, and hands off to the correct destination.
 
 ## STEP 1 -- IDENTIFY TASK TYPE AND ROUTE
 
 | Query Pattern                                      | Route To                                        |
 | -------------------------------------------------- | ----------------------------------------------- |
-| Contract intake, incoming contract, routing        | agents/contract-intake/AGENT.md                 |
+| Contract intake, incoming contract, routing        | contract-intake agent                           |
 | Contract review, clause analysis, redlines         | Anthropic `/review-contract` (with overlay)     |
 | NDA, non-disclosure, confidentiality agreement     | Anthropic `/triage-nda` (with pre-checks below) |
+| Vendor assessment, vendor due diligence            | Anthropic `/vendor-check` (with overlay)        |
 | Patent, trademark, copyright, trade secret, IP     | skills/ip-protection/SKILL.md                   |
 | Regulatory update, compliance monitoring           | skills/regulatory-monitoring/SKILL.md           |
 | DSAR, data subject, GDPR request, privacy request  | skills/dsar-privacy/SKILL.md                    |
@@ -65,7 +39,7 @@ and negotiation playbook, and hands off to the correct destination.
 | Draft legal response                               | Anthropic `/legal-response`                     |
 | E-signature, signature request                     | Anthropic `/signature-request`                  |
 
-### Research Routing (formerly /legal-brief)
+### Research Routing (replaces former /legal-brief command)
 
 When the query is a research or briefing request, route by topic:
 

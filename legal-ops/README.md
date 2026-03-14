@@ -2,7 +2,7 @@
 
 Plugin for **Chapter 22: Legal Operations and Compliance** from [The AI Agent Factory](https://learn.panaversity.org) by Panaversity.
 
-**2 agents, 5 skills, 6 jurisdiction overlays, 1 playbook template.** Extends Anthropic's built-in Legal Plugin with multi-jurisdiction awareness and domain-specific legal operations workflows across UK, EU, US, Pakistan, UAE, and GCC jurisdictions.
+**2 agents, 7 skills, 6 jurisdiction overlays, 1 playbook template.** Extends Anthropic's built-in Legal Plugin with multi-jurisdiction awareness and domain-specific legal operations workflows across UK, EU, US, Pakistan, UAE, and GCC jurisdictions.
 
 ---
 
@@ -59,29 +59,37 @@ Start a new Claude session and say: "I need to review a vendor agreement under E
 ```
 legal-ops/
 ├── .claude-plugin/plugin.json                # v3.0.0 manifest
-├── agents/
-│   ├── legal-ops-router/
-│   │   ├── AGENT.md                          # Central router: task + jurisdiction routing
-│   │   └── references/jurisdictions/
+├── agents/                                   # Thin orchestrators (flat .md files)
+│   ├── legal-ops-router.md                   # Central router: task + jurisdiction routing
+│   └── contract-intake.md                    # End-to-end contract intake orchestration
+├── skills/                                   # Domain knowledge (directory-based)
+│   ├── legal-global-router/                  # Routing table, NDA pre-checks, playbook logic
+│   │   ├── SKILL.md
+│   │   └── references/jurisdictions/         # 6 jurisdiction overlays
 │   │       ├── uk-law.md                     # England & Wales
 │   │       ├── eu-law.md                     # EU + member state notes
 │   │       ├── us-law.md                     # US federal + state
 │   │       ├── pakistan-law.md               # Pakistan
 │   │       ├── uae-law.md                    # UAE mainland/DIFC/ADGM
 │   │       └── gcc-law.md                    # KSA, Bahrain, Kuwait, Oman, Qatar
-│   └── contract-intake/
-│       └── AGENT.md                          # End-to-end contract intake orchestration
-├── skills/
-│   ├── compliance-calendar/
-│   │   └── SKILL.md                          # Obligation tracking + escalation sequences
-│   ├── dsar-privacy/
-│   │   └── SKILL.md                          # DSAR 30-day workflow
-│   ├── ip-protection/
-│   │   └── SKILL.md                          # Patent/trademark/copyright/OSS
-│   ├── legal-spend/
-│   │   └── SKILL.md                          # Spend analytics + anomaly detection
-│   └── regulatory-monitoring/
-│       └── SKILL.md                          # Weekly regulatory briefing
+│   ├── contract-intake-agent/                # Intake workflow, SLA tracking, templates
+│   │   └── SKILL.md
+│   ├── compliance-calendar/                  # Obligation tracking + escalation sequences
+│   │   └── SKILL.md
+│   ├── dsar-privacy/                         # DSAR 30-day workflow
+│   │   └── SKILL.md
+│   ├── ip-protection/                        # Patent/trademark/copyright/OSS
+│   │   └── SKILL.md
+│   ├── legal-spend/                          # Spend analytics + anomaly detection
+│   │   └── SKILL.md
+│   └── regulatory-monitoring/                # Weekly regulatory briefing
+│       └── SKILL.md
+├── evals/                                    # Golden-file tests
+│   ├── routing-golden.json                   # 12 routing test cases
+│   ├── product-golden.json                   # 5 product accuracy cases
+│   └── run-evals.py                          # Structural validator
+├── hooks/hooks.json                          # SessionStart + PostToolUse validation
+├── scripts/validate-routing.py               # Routing validation test harness
 ├── legal.local.md.template                   # Negotiation playbook -- fill in + rename
 ├── CLAUDE.md                                 # Agent instructions
 ├── LICENSE                                   # Apache-2.0
@@ -90,17 +98,22 @@ legal-ops/
 
 ---
 
-## Agents (2)
+## Agents (2) -- Thin Orchestrators
 
-| Agent              | Purpose                                                                                                                                                                                    |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `legal-ops-router` | Identifies task type + jurisdiction, loads overlay + playbook, routes to correct skill or Anthropic command. Includes 9 NDA RED flag pre-checks before handing to Anthropic `/triage-nda`. |
-| `contract-intake`  | Manages end-to-end contract intake: receive, classify, extract metadata, triage via Anthropic commands, route by tier, track SLA, handle post-execution.                                   |
+Agents are flat markdown files with YAML frontmatter that preload skills.
+Domain knowledge lives in skills, not agents.
 
-## Skills (5)
+| Agent              | Preloads Skill         | Purpose                                                                                                                                                                                    |
+| ------------------ | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `legal-ops-router` | `legal-global-router`  | Identifies task type + jurisdiction, loads overlay + playbook, routes to correct skill or Anthropic command. Includes 9 NDA RED flag pre-checks before handing to Anthropic `/triage-nda`. |
+| `contract-intake`  | `contract-intake-agent`| Manages end-to-end contract intake: receive, classify, extract metadata, triage via Anthropic commands, route by tier, track SLA, handle post-execution.                                   |
+
+## Skills (7) -- Domain Knowledge
 
 | Skill                   | Capability                                           |
 | ----------------------- | ---------------------------------------------------- |
+| `legal-global-router`   | Routing table, jurisdiction overlays, NDA pre-checks, playbook loading |
+| `contract-intake-agent` | Intake workflow, SLA tracking, communication templates|
 | `compliance-calendar`   | Filing deadlines, renewals, escalation sequences     |
 | `dsar-privacy`          | 30-day DSAR workflow with multi-jurisdiction support |
 | `ip-protection`         | Patent landscape, trademark watch, FTO scaffolding   |
@@ -130,7 +143,7 @@ legal-ops/
 | IP Marks             | Not configured                                      | _your registered marks_ |
 | Escalation Contacts  | Generic roles                                       | _your named contacts_   |
 
-To customize: copy `legal.local.md.template`, rename to `legal.local.md`, and fill in your organisation's positions. To add a jurisdiction: create a new overlay file in `agents/legal-ops-router/references/jurisdictions/` following the same format.
+To customize: copy `legal.local.md.template`, rename to `legal.local.md`, and fill in your organisation's positions. To add a jurisdiction: create a new overlay file in `skills/legal-global-router/references/jurisdictions/` following the same format.
 
 ---
 

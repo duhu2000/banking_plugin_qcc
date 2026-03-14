@@ -38,17 +38,22 @@ ALL OUTPUTS REQUIRE REVIEW BY LICENSED ATTORNEY.
 This plugin extends Anthropic's built-in Legal Plugin (Layer 1) with
 jurisdiction-aware routing and domain-specific workflows (Layer 2).
 
-### Agents (orchestrators -- route, chain, track state)
+### Agents (thin orchestrators -- preload skills, route, track state)
 
-| Agent            | File                               | Purpose                                                                                                                     |
-| ---------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| legal-ops-router | `agents/legal-ops-router/AGENT.md` | Central router: identifies task type + jurisdiction, loads overlay + playbook, routes to correct skill or Anthropic command |
-| contract-intake  | `agents/contract-intake/AGENT.md`  | End-to-end contract intake: classify, triage, route, track SLA, post-execution                                              |
+Agents are flat .md files with YAML frontmatter that preload skills via
+the `skills:` field. Domain knowledge lives in skills, not agents.
 
-### Skills (atomic capabilities -- single input, structured output)
+| Agent            | File                          | Preloads Skill       | Purpose                                                  |
+| ---------------- | ----------------------------- | -------------------- | -------------------------------------------------------- |
+| legal-ops-router | `agents/legal-ops-router.md`  | legal-global-router  | Central router: task + jurisdiction routing              |
+| contract-intake  | `agents/contract-intake.md`   | contract-intake-agent| End-to-end contract intake orchestration                 |
+
+### Skills (domain knowledge -- routing logic, workflows, analysis)
 
 | Skill                 | File                                    | Purpose                                              |
 | --------------------- | --------------------------------------- | ---------------------------------------------------- |
+| legal-global-router   | `skills/legal-global-router/SKILL.md`   | Routing table, jurisdiction overlays, NDA pre-checks |
+| contract-intake-agent | `skills/contract-intake-agent/SKILL.md`  | Intake workflow, SLA tracking, templates             |
 | compliance-calendar   | `skills/compliance-calendar/SKILL.md`   | Obligation tracking, escalation sequences, dashboard |
 | dsar-privacy          | `skills/dsar-privacy/SKILL.md`          | DSAR 30-day workflow, jurisdiction response windows  |
 | ip-protection         | `skills/ip-protection/SKILL.md`         | Patent landscape, trademark monitoring, FTO, OSS     |
@@ -57,7 +62,7 @@ jurisdiction-aware routing and domain-specific workflows (Layer 2).
 
 ### Jurisdiction Overlays (6 files)
 
-Located at `agents/legal-ops-router/references/jurisdictions/`:
+Located at `skills/legal-global-router/references/jurisdictions/`:
 
 | Overlay           | Covers                                                    |
 | ----------------- | --------------------------------------------------------- |
@@ -70,14 +75,14 @@ Located at `agents/legal-ops-router/references/jurisdictions/`:
 
 ## Core Methodology
 
-Before executing ANY legal operations task, read `agents/legal-ops-router/AGENT.md`
-for the routing logic -- it identifies the correct destination and jurisdiction overlay
-for every query.
+Before executing ANY legal operations task, the router agent loads
+`skills/legal-global-router/SKILL.md` for routing logic -- it identifies the
+correct destination and jurisdiction overlay for every query.
 
 **Routing sequence:**
 
 1. Identify task type -> route to the correct agent, skill, or Anthropic command
-2. Identify jurisdiction -> load the correct overlay from `agents/legal-ops-router/references/jurisdictions/`
+2. Identify jurisdiction -> load the correct overlay from `skills/legal-global-router/references/jurisdictions/`
 3. Check for negotiation playbook (`legal.local.md`) -> load if found
 4. Apply the mandatory output header to every response
 
