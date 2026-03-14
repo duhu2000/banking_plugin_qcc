@@ -65,7 +65,7 @@
   {
     "query": "New vendor agreement received for intake and routing -- counterparty is a Pakistani software company",
     "expected_route": "agent:contract-intake",
-    "expected_product_skill": "contract-intake-agent",
+    "expected_product_skill": "contract-intake",
     "expected_jurisdiction": "Pakistan",
     "expected_overlay": "pakistan-law.md",
     "expected_contains": ["metadata", "classification", "Tier", "routing"],

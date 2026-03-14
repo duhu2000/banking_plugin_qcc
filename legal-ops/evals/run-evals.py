@@ -55,7 +55,7 @@ def validate_routing_golden(path: Path) -> list[str]:
         "dsar-privacy",
         "legal-spend",
         "compliance-calendar",
-        "contract-intake-agent",
+        "contract-intake",
     }
     missing_skills = expected_skills - skills
     if missing_skills:
