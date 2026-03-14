@@ -21,6 +21,7 @@ def validate_routing_golden(path: Path) -> list[str]:
         errors.append(f"routing-golden.json: expected 10+ cases, got {len(cases)}")
     required_fields = [
         "query",
+        "expected_route",
         "expected_product_skill",
         "expected_jurisdiction",
         "expected_overlay",
@@ -31,7 +32,20 @@ def validate_routing_golden(path: Path) -> list[str]:
         for f in required_fields:
             if f not in c:
                 errors.append(f"routing-golden.json case {i}: missing field '{f}'")
-    # Verify all 8 product skills are covered
+        # Validate expected_route format
+        route = c.get("expected_route", "")
+        if route and ":" not in route:
+            errors.append(
+                f"routing-golden.json case {i}: expected_route '{route}' "
+                f"must have format 'type:name' (anthropic:/cmd, skill:name, agent:name)"
+            )
+    # Verify route coverage: all 3 route types represented
+    route_types = {c.get("expected_route", "").split(":")[0] for c in cases}
+    expected_types = {"anthropic", "skill", "agent"}
+    missing_types = expected_types - route_types
+    if missing_types:
+        errors.append(f"routing-golden.json: missing route types: {missing_types}")
+    # Verify all destination skills/commands are covered
     skills = {c["expected_product_skill"] for c in cases}
     expected_skills = {
         "contract-review",
@@ -41,7 +55,7 @@ def validate_routing_golden(path: Path) -> list[str]:
         "dsar-privacy",
         "legal-spend",
         "compliance-calendar",
-        "contract-intake-agent",
+        "contract-intake",
     }
     missing_skills = expected_skills - skills
     if missing_skills:

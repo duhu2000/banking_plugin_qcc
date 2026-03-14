@@ -1,17 +1,14 @@
 ---
 name: dsar-privacy
-version: 1.0
 description: >
-  Activate for: DSAR, data subject access request, subject access request,
-  SAR, right of access, Article 15, GDPR request, CCPA request, privacy
-  request, right to be forgotten, erasure request, Article 17, data
-  portability, Article 20, data rectification, Article 16, restriction of
-  processing, Article 18, objection to processing, Article 21, data subject
-  rights, privacy inquiry, ICO complaint, privacy response.
-  NOT for: contract review, NDA triage, IP matters, regulatory monitoring, legal advice on data protection interpretation, erasure execution.
-plugin-commands: /legal-brief
-chapter: 22 -- Legal Operations and Compliance
+  Data Subject Access Request (DSAR) workflow management. Covers the full
+  30-day DSAR lifecycle: receipt, identity verification, data discovery,
+  compilation and redaction, response drafting, and logging. Multi-jurisdiction
+  support for UK GDPR, EU GDPR, CCPA, and PIPEDA.
+user-invocable: false
 ---
+
+# DSAR and Privacy -- Data Subject Access Request Workflow
 
 ## JURISDICTION RESPONSE WINDOWS
 

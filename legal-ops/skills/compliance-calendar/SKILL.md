@@ -1,17 +1,14 @@
 ---
 name: compliance-calendar
-version: 1.0
 description: >
-  Activate for: contract renewal, renewal deadline, notice period,
-  renewal reminder, compliance deadline, obligation due, filing deadline,
-  regulatory deadline, policy review due, audit schedule, certification
-  renewal, licence renewal, compliance calendar, upcoming deadline,
-  obligation tracking, contract obligation, missed deadline, overdue,
-  60-day calendar, compliance obligations.
-  NOT for: contract review, NDA triage, IP research, DSAR processing, setting compliance policy (compliance officer required).
-plugin-commands: /vendor-check
-chapter: 22 -- Legal Operations and Compliance
+  Obligation tracking, deadline management, and compliance calendar dashboards.
+  Covers contract obligations, regulatory filings, internal compliance reviews,
+  and litigation deadline escalation. Produces RAG-status dashboards with
+  escalation timelines.
+user-invocable: false
 ---
+
+# Compliance Calendar -- Obligation Tracking
 
 ## CALENDAR CATEGORIES
 

@@ -1,16 +1,14 @@
 ---
 name: regulatory-monitoring
-version: 1.0
 description: >
-  Activate for: regulatory update, regulation change, new law, compliance
-  monitoring, regulatory briefing, regulatory calendar, law change, legal
-  development, regulatory risk, ICO guidance, FCA update, GDPR update,
-  EU AI Act, employment law change, company law update, sector regulation,
-  regulatory horizon, compliance alert, policy review, board briefing.
-  NOT for: contract review, NDA triage, IP research, DSAR processing, legal advice on regulatory interpretation.
-plugin-commands: /legal-brief
-chapter: 22 -- Legal Operations and Compliance
+  Regulatory compliance monitoring, impact assessment, and alerting. Produces
+  weekly regulatory briefs and monthly board summaries with RAG-status
+  classification. Covers data protection, AI regulation, employment,
+  company law, and sector-specific regulatory areas across multiple jurisdictions.
+user-invocable: false
 ---
+
+# Regulatory Monitoring -- Compliance Alerts and Impact Assessment
 
 ## CONFIGURATION PARAMETERS (load from settings or ask user)
 

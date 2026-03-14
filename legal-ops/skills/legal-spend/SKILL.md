@@ -1,16 +1,14 @@
 ---
 name: legal-spend
-version: 1.0
 description: >
-  Activate for: legal spend, legal invoice, law firm invoice, legal budget,
-  matter budget, legal costs, external counsel, billing rates, hourly rates,
-  legal matter, write-off, billing anomaly, legal efficiency, spend analysis,
-  legal ROI, panel firms, outside counsel, legal department budget,
-  matter management, legal benchmarking.
-  NOT for: contract review, NDA triage, IP research, regulatory monitoring, DSAR processing, budget approval (CFO required).
-plugin-commands: /legal-brief
-chapter: 22 -- Legal Operations and Compliance
+  Legal spend analytics, anomaly detection, and benchmarking. Analyses
+  outside counsel invoices by matter type, law firm, and business unit.
+  Flags billing anomalies and produces quarterly spend reports with
+  rate benchmarking against market data.
+user-invocable: false
 ---
+
+# Legal Spend -- Analytics, Anomaly Detection, and Benchmarking
 
 ## DATA SOURCES (connect via MCP)
 

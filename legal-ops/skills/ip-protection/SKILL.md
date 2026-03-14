@@ -1,17 +1,14 @@
 ---
 name: ip-protection
-version: 1.0
 description: >
-  Activate for: patent, patent search, patent landscape, freedom to operate,
-  FTO, prior art, trademark, trade mark, brand protection, trademark watch,
-  trademark monitoring, copyright, DMCA, open source, OSS licence, trade
-  secret, IP audit, IP protection, IP ownership, IP clause, IP indemnity,
-  patent infringement, trademark infringement, copyright infringement,
-  IP portfolio, IP monitoring, competitor patent, patent filing.
-  NOT for: contract review, NDA triage, regulatory monitoring, DSAR processing, patent filing (attorney required), trademark registration.
-plugin-commands: /legal-brief
-chapter: 22 -- Legal Operations and Compliance
+  Intellectual property protection workflows: patent landscape analysis,
+  freedom-to-operate (FTO) preliminary assessment, trademark monitoring,
+  copyright and OSS licence compliance, and IP clause review within contracts.
+  Produces research scaffolding for IP counsel review.
+user-invocable: false
 ---
+
+# IP Protection -- Patent, Trademark, Copyright, and OSS Compliance
 
 ## IP TASK CLASSIFICATION
 

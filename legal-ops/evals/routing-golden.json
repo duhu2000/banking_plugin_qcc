@@ -1,6 +1,7 @@
 [
   {
     "query": "Review this vendor MSA for our SaaS procurement under English law",
+    "expected_route": "anthropic:/review-contract",
     "expected_product_skill": "contract-review",
     "expected_jurisdiction": "UK",
     "expected_overlay": "uk-law.md",
@@ -9,6 +10,7 @@
   },
   {
     "query": "We received an NDA from a prospective technology partner based in Delaware",
+    "expected_route": "anthropic:/triage-nda",
     "expected_product_skill": "nda-triage",
     "expected_jurisdiction": "US",
     "expected_overlay": "us-law.md",
@@ -17,6 +19,7 @@
   },
   {
     "query": "Run a patent landscape analysis for AI document extraction technology in the EU",
+    "expected_route": "skill:ip-protection",
     "expected_product_skill": "ip-protection",
     "expected_jurisdiction": "EU",
     "expected_overlay": "eu-law.md",
@@ -25,6 +28,7 @@
   },
   {
     "query": "What regulatory changes in data protection affect our UK and EU operations this month?",
+    "expected_route": "skill:regulatory-monitoring",
     "expected_product_skill": "regulatory-monitoring",
     "expected_jurisdiction": "Multi",
     "expected_overlay": ["uk-law.md", "eu-law.md"],
@@ -33,6 +37,7 @@
   },
   {
     "query": "We received a DSAR from a former customer under UK GDPR",
+    "expected_route": "skill:dsar-privacy",
     "expected_product_skill": "dsar-privacy",
     "expected_jurisdiction": "UK",
     "expected_overlay": "uk-law.md",
@@ -41,6 +46,7 @@
   },
   {
     "query": "Analyse our external legal spend for Q1 2026 and flag billing anomalies",
+    "expected_route": "skill:legal-spend",
     "expected_product_skill": "legal-spend",
     "expected_jurisdiction": "N/A",
     "expected_overlay": null,
@@ -49,6 +55,7 @@
   },
   {
     "query": "Show all contract obligations due in the next 60 days",
+    "expected_route": "skill:compliance-calendar",
     "expected_product_skill": "compliance-calendar",
     "expected_jurisdiction": "N/A",
     "expected_overlay": null,
@@ -57,7 +64,8 @@
   },
   {
     "query": "New vendor agreement received for intake and routing -- counterparty is a Pakistani software company",
-    "expected_product_skill": "contract-intake-agent",
+    "expected_route": "agent:contract-intake",
+    "expected_product_skill": "contract-intake",
     "expected_jurisdiction": "Pakistan",
     "expected_overlay": "pakistan-law.md",
     "expected_contains": ["metadata", "classification", "Tier", "routing"],
@@ -65,6 +73,7 @@
   },
   {
     "query": "Review this consulting agreement governed by UAE/DIFC law for our Dubai subsidiary",
+    "expected_route": "anthropic:/review-contract",
     "expected_product_skill": "contract-review",
     "expected_jurisdiction": "UAE",
     "expected_overlay": "uae-law.md",
@@ -73,6 +82,7 @@
   },
   {
     "query": "We need trademark monitoring for our brand across EU member states",
+    "expected_route": "skill:ip-protection",
     "expected_product_skill": "ip-protection",
     "expected_jurisdiction": "EU",
     "expected_overlay": "eu-law.md",
@@ -81,6 +91,7 @@
   },
   {
     "query": "Triage this incoming NDA from a German company proposing German law as governing law",
+    "expected_route": "anthropic:/triage-nda",
     "expected_product_skill": "nda-triage",
     "expected_jurisdiction": "EU",
     "expected_overlay": "eu-law.md",
@@ -89,6 +100,7 @@
   },
   {
     "query": "A California resident has filed a CCPA data deletion request",
+    "expected_route": "skill:dsar-privacy",
     "expected_product_skill": "dsar-privacy",
     "expected_jurisdiction": "US",
     "expected_overlay": "us-law.md",
