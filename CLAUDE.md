@@ -122,27 +122,41 @@ metadata:
 ---
 ```
 
-## Agent .md Frontmatter Rules
+## Subagent Files (`agents/*.md`) Frontmatter Rules
+
+Subagents are defined as Markdown files in the `agents/` directory of a plugin.
+The Claude Code docs call the concept "subagents" but the plugin directory is `agents/`.
+See: https://code.claude.com/docs/en/sub-agents
 
 ### Valid fields (and ONLY these)
 
 - `name` (required) — lowercase + hyphens
-- `description` (required) — when Claude should delegate to this agent
-- `tools` (optional) — YAML list of tool names
-- `disallowedTools` (optional)
+- `description` (required) — when Claude should delegate to this subagent
+- `tools` (optional) — YAML list of tool names (NOT `allowed-tools` — that's for skills)
+- `disallowedTools` (optional) — tools to deny
 - `model` (optional) — `sonnet`, `opus`, `haiku`, full model ID, or `inherit`
 - `permissionMode` (optional) — `default`, `acceptEdits`, `dontAsk`, `bypassPermissions`, `plan`
 - `maxTurns` (optional) — integer
-- `skills` (optional) — list of skill names to preload
-- `mcpServers` (optional)
-- `hooks` (optional)
-- `memory` (optional) — `user`, `project`, or `local`
-- `background` (optional) — boolean
-- `isolation` (optional) — `worktree`
+- `skills` (optional) — list of skill names to preload into the subagent's context
+- `mcpServers` (optional) — MCP servers scoped to this subagent
+- `hooks` (optional) — lifecycle hooks scoped to this subagent
+- `memory` (optional) — `user`, `project`, or `local` (persistent cross-session memory)
+- `background` (optional) — boolean (run as background task)
+- `isolation` (optional) — `worktree` (run in isolated git worktree)
 
-### Fields that MUST NOT appear in agents
+### Fields that MUST NOT appear in subagent files
 
-`version`, `author`, `standard`, `allowed-tools` (agents use `tools`, not `allowed-tools`)
+`version`, `author`, `standard`, `allowed-tools` (subagents use `tools`, not `allowed-tools`)
+
+### Key difference from skills
+
+| Concept | Skills (`skills/*/SKILL.md`) | Subagents (`agents/*.md`) |
+|---------|------------------------------|---------------------------|
+| Tool access | `allowed-tools` (space-delimited string) | `tools` (YAML list) |
+| Can run in background | No | Yes (`background: true`) |
+| Has persistent memory | No | Yes (`memory: user/project/local`) |
+| Can preload other skills | No | Yes (`skills:` list) |
+| Runs in own context | Only with `context: fork` | Always |
 
 ## plugin.json Rules
 
@@ -164,8 +178,8 @@ plugin-name/
 │       ├── SKILL.md       # Required
 │       ├── references/    # Optional reference docs
 │       └── scripts/       # Optional executable code
-├── agents/                # Subagent definitions
-│   └── agent-name.md
+├── agents/                # Subagent definitions (concept = "subagents", dir = "agents/")
+│   └── agent-name.md      # Subagent Markdown file
 ├── commands/              # Legacy commands (prefer skills/)
 ├── hooks/
 │   └── hooks.json
@@ -194,6 +208,19 @@ from the plugin must begin with this header (governing standard, jurisdiction, e
 
 Stored in `skills/<router>/references/jurisdictions/*.md`. Loaded by the router
 based on the user's query context.
+
+## Creating and Evaluating Skills
+
+Use `/skill-creator` to create new skills, modify existing skills, and run evals.
+It handles frontmatter generation, eval scenario creation, and iterative improvement.
+
+Workflow for a new skill:
+1. `/skill-creator` — create the skill with correct frontmatter and body
+2. `/skill-creator` — generate eval scenarios (trigger tests)
+3. `/skill-creator` — run evals, iterate until passing
+4. Run the quality checklist below before committing
+
+This ensures skills are spec-compliant from creation and have eval coverage.
 
 ## Quality Checklist (Before Committing)
 
