@@ -1,244 +1,283 @@
-# AgentFactory Business Plugins
+# 🏦 Banking Domain Agents + 企查查MCP增强版
 
-![License](https://img.shields.io/github/license/panaversity/agentfactory-business-plugins)
-![Stars](https://img.shields.io/github/stars/panaversity/agentfactory-business-plugins)
-![Issues](https://img.shields.io/github/issues/panaversity/agentfactory-business-plugins)
+[![MCP](https://img.shields.io/badge/MCP-Compatible-green)](https://github.com/modelcontextprotocol)
+[![QCC](https://img.shields.io/badge/企查查-数据底座-blue)](https://www.qcc.com)
 
-🚀 **Marketplace of domain-specific plugins for building enterprise AI agents.**
+> 基于 [Panaversity AgentFactory Business Plugins](https://github.com/panaversity/agentfactory-business-plugins) 银行业务插件集，**零代码改动**集成企查查MCP服务，为金融机构提供智能化、自动化的中国企业尽职调查解决方案。
 
-Enable AI agents to perform **finance, banking, legal, and sales workflows** using modular domain plugins.
-
-AgentFactory Business Plugins extends AI agents with **specialized skills, commands, and workflow logic** for real-world enterprise environments.
-
-Part of the **AgentFactory ecosystem**.
+**原仓库版本**: Jurisdiction-aware banking regulatory agent (v2.0.0) with 17 skills (1 router + 16 products), 7 jurisdiction overlays, 4 commands, hooks, and eval harness covering IFRS 9 ECL, Basel III/IV capital and liquidity, AML/KYC/sanctions compliance, and bank reconciliation across UK, EU, US, Australia, Singapore, UAE, and Pakistan.
 
 ---
 
-## Why AgentFactory Business Plugins?
-
-Most AI agent frameworks provide general capabilities but lack **domain expertise** required for real-world enterprise workflows.
-
-AgentFactory Business Plugins solves this by providing **domain-specific agent skills** that allow AI agents to operate safely and effectively in regulated business environments.
-
-These plugins encode **business rules, regulatory knowledge, and workflow automation** that agents can execute autonomously.
-
----
-
-## ✨ Features
-
-* 🧠 Domain-specific **AI agent skills**
-* 🧩 Modular **plugin architecture**
-* ⚡ Designed for **agentic AI workflows**
-* 🏢 Built for **enterprise business automation**
-* 🔌 Easy integration with AI agent frameworks
-* 📦 Expandable marketplace of plugins
-
----
-
-## 📦 Available Plugins
-
-The repository includes plugins across multiple business domains.
-
-| Plugin                                                      | Description                                                                                                                                                            | Version | Install                                                                |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------- |
-| **[islamic-finance](./islamic-finance/)**                   | 12 product skills, 13 jurisdiction overlays, 4 domain commands for Islamic finance accounting across AAOIFI, IFRS, and local standards                                 | v2.0.0  | `claude plugin install islamic-finance@agentfactory-business`          |
-| **[idfa-financial-architect](./idfa-financial-architect/)** | Intent-Driven Financial Architecture (IDFA) — four guardrails, three layers, two skills for human-readable, AI-operable, audit-proof financial models                  | v2.0.0  | `claude plugin install idfa-financial-architect@agentfactory-business` |
-| **[banking](./banking/)**                                   | 16 product skills, 7 jurisdiction overlays, 4 domain commands for banking regulatory compliance across IFRS 9, Basel III/IV, AML/KYC/sanctions                         | v1.0.0  | `claude plugin install banking@agentfactory-business`                  |
-| **[legal-ops](./legal-ops/)**                               | 8 product skills, 5 jurisdiction overlays, 4 domain commands for legal operations — contract review, NDA triage, IP protection, regulatory monitoring, DSAR management | v1.0.0  | `claude plugin install legal-ops@agentfactory-business`                |
-
-> Individual plugins may have their own license terms. See each plugin's LICENSE file for details.
-
-
----
-
-## 🤖 Example Agent Workflow
-
-User request:
+## 🎯 核心价值
 
 ```
-Analyze this financial report and summarize risks
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│   原作者专业银行监管SKILL  +  企查查MCP（中国企业数据底座）       │
+│                                                                 │
+│   ┌──────────────────────────┐     MCP协议      ┌─────────────┐│
+│   │ aml-cdd-edd              │ ◄────────────────►│ qcc-company ││
+│   │ kyc-risk-rating          │     智能匹配       │ qcc-risk    ││
+│   │ sanctions-screening      │                   │ qcc-ipr     ││
+│   │ aml-typologies           │                   │qcc-operation││
+│   │ aml-sar-drafting         │                   └─────────────┘│
+│   │ ... (17个专业SKILL)      │                                   │
+│   └──────────────────────────┘                                   │
+│                                                                 │
+│   ✅ 零代码改动：原汁原味使用原作者专业银行监管SKILL                │
+│   ✅ 即插即用：配置MCP即可自动调用企查查中国企业数据                │
+│   ✅ 智能增强：AML/KYC/制裁筛查自动获取中国企业工商、风险数据       │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
 ```
-
-Agent workflow:
-
-1. Detect **financial analysis intent**
-2. Route request to **Finance Plugin**
-3. Execute domain-specific financial analysis
-4. Return structured insights
-
-Example result:
-
-```
-Risk Summary:
-• Revenue concentration risk
-• Liquidity exposure
-• Debt covenant breach risk
-```
-
-Each plugin contains domain-specific **skills and commands** that agents can execute.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 快速开始
 
-### Option A: Install via Claude Code CLI (Recommended)
+### 1. 克隆本仓库
 
 ```bash
-# Install a plugin
-claude plugin install islamic-finance@agentfactory-business
-claude plugin install idfa-financial-architect@agentfactory-business
-claude plugin install banking@agentfactory-business
-claude plugin install legal-ops@agentfactory-business
-
-# Verify installation
-claude --list-plugins
+git clone https://github.com/duhu2000/banking_plugin_qcc.git
+cd banking_plugin_qcc
 ```
 
+### 2. 配置企查查MCP
 
-### Option B: Install via Cowork (Claude.ai)
+`.mcp.json` 已包含在仓库中：
 
-1. Sidebar → Customize → Browse plugins → +
-2. Add marketplace from GitHub → `panaversity/agentfactory-business-plugins`
-3. Select and install the plugin you need
-
-### Option C: Clone the repository
-
-```
-git clone https://github.com/panaversity/agentfactory-business-plugins
-```
-
-Explore available plugins
-
-```
-claude --plugin-dir ./agentfactory-business-plugins/islamic-finance
-claude --plugin-dir ./agentfactory-business-plugins/idfa-financial-architect
-claude --plugin-dir ./agentfactory-business-plugins/banking
-claude --plugin-dir ./agentfactory-business-plugins/legal-ops
-```
-
-#### Marketplace Structure
-
-```
-agentfactory-business-plugins/
-├── marketplace.json          # Plugin catalog
-├── islamic-finance/          # Islamic Finance Domain Agents plugin
-│   ├── .claude-plugin/       # Plugin manifest
-│   ├── skills/               # 13 domain skills (auto-loaded)
-│   ├── commands/             # 4 slash commands (auto-loaded)
-│   ├── hooks/                # Session + validation hooks (auto-loaded)
-│   ├── scripts/              # Test harness
-│   ├── evals/                # Golden-file tests
-│   ├── exercises/            # Exercise data (download as zip)
-│   ├── workflow-recipes/     # Operational playbooks (download as zip)
-│   └── references/           # Lookup tables
-├── idfa-financial-architect/ # IDFA Financial Architect plugin
-│   ├── .claude-plugin/       # Plugin manifest
-│   ├── skills/               # 2 domain skills (auto-loaded)
-│   ├── evals/                # Two-tier eval harness
-│   ├── tests/                # Unit tests
-│   └── examples/             # Reference models
-├── banking/                  # Banking Regulatory Compliance plugin
-│   ├── .claude-plugin/       # Plugin manifest
-│   ├── skills/               # 16 product skills (auto-loaded)
-│   ├── commands/             # 4 slash commands (auto-loaded)
-│   ├── hooks/                # Session + validation hooks (auto-loaded)
-│   ├── evals/                # Golden-file tests
-│   └── exercises/            # Exercise data (download as zip)
-├── legal-ops/                # Legal Operations and Compliance plugin
-│   ├── .claude-plugin/       # Plugin manifest
-│   ├── skills/               # 9 skills (auto-loaded)
-│   ├── commands/             # 4 slash commands (auto-loaded)
-│   ├── hooks/                # Session + validation hooks (auto-loaded)
-│   ├── scripts/              # Test harness
-│   ├── evals/                # Golden-file tests
-│   ├── exercises/            # 8 exercises (download as zip)
-│   └── workflow-recipes/     # 4 operational playbooks (download as zip)
-└── [future plugins...]       # More business domain plugins planned
+```json
+{
+  "mcpServers": {
+    "qcc-company": {
+      "url": "https://agent.qcc.com/mcp/company/stream",
+      "headers": {
+        "Authorization": "Bearer ${QCC_MCP_API_KEY}"
+      },
+      "description": "企查查企业基座 - 提供工商登记、股东信息、变更记录等企业基础信息服务"
+    },
+    "qcc-risk": {
+      "url": "https://agent.qcc.com/mcp/risk/stream",
+      "headers": {
+        "Authorization": "Bearer ${QCC_MCP_API_KEY}"
+      },
+      "description": "企查查风控大脑 - 提供失信、被执行、限高、破产等18类风险信息"
+    },
+    "qcc-ipr": {
+      "url": "https://agent.qcc.com/mcp/ipr/stream",
+      "headers": {
+        "Authorization": "Bearer ${QCC_MCP_API_KEY}"
+      },
+      "description": "企查查知产引擎 - 提供专利、商标、软件著作权等知识产权信息"
+    },
+    "qcc-operation": {
+      "url": "https://agent.qcc.com/mcp/operation/stream",
+      "headers": {
+        "Authorization": "Bearer ${QCC_MCP_API_KEY}"
+      },
+      "description": "企查查经营罗盘 - 提供招投标、资质证书、信用评级等经营信息"
+    }
+  }
+}
 ```
 
-Integrate plugins with your AI agent framework.
-
----
-
-## For Learners
-
-Each plugin is a companion to a specific chapter in The AI Agent Factory:
-
-| Plugin                   | Chapter                                     | What You Learn                                                                       |
-| ------------------------ | ------------------------------------------- | ------------------------------------------------------------------------------------ |
-| islamic-finance          | Ch 20: Islamic Finance Domain Agents        | Build jurisdiction-aware Islamic finance agents using 3 accounting regimes           |
-| idfa-financial-architect | Ch 18: Intent-Driven Financial Architecture | Build audit-proof financial models using Named Ranges, four guardrails, three layers |
-| banking                  | Ch 21: Banking Regulatory Compliance        | Build jurisdiction-aware banking regulatory agents for IFRS 9, Basel III/IV, AML/KYC |
-| legal-ops                | Ch 22: Legal Operations and Compliance      | Build legal operations agents for contract review, NDA triage, IP protection, DSAR   |
-
-### Downloading Exercise Data
-
-After installing a plugin, download the exercise data:
-
-1. Go to the [Releases page](https://github.com/panaversity/agentfactory-business-plugins/releases/latest)
-2. Download the zip you need:
-
-| Download                                | What's Inside                   | Use With                  |
-| --------------------------------------- | ------------------------------- | ------------------------- |
-| `islamic-finance-full.zip`              | Everything                      | Complete setup / capstone |
-| `islamic-finance-exercise-data.zip`     | 14 exercises + reference tables | Chapter exercises         |
-| `islamic-finance-workflow-recipes.zip`  | 4 operational playbooks         | Production workflows      |
-| `idfa-financial-architect-full.zip`     | Plugin + examples + evals       | Complete setup            |
-| `idfa-financial-architect-examples.zip` | Example models (GP Waterfall)   | Quick start               |
-| `banking-full.zip`                      | Everything                      | Complete setup / capstone |
-| `legal-ops-full.zip`                    | Everything                      | Complete setup / capstone |
-| `legal-ops-exercise-data.zip`           | 8 exercises                     | Chapter exercises         |
-| `legal-ops-workflow-recipes.zip`        | 4 operational playbooks         | Production workflows      |
-
-3. Unzip into your project:
+### 3. 设置环境变量
 
 ```bash
-unzip islamic-finance-exercise-data.zip -d my-project/
+export QCC_MCP_API_KEY="your_api_key_here"
+
+# 验证配置
+source ./setup-qcc-env.sh  # macOS/Linux
+# 或 .\setup-qcc-env.ps1   # Windows
+```
+
+从 [企查查开放平台](https://agent.qcc.com) 申请API Key。
+
+### 4. 启动Claude Code
+
+```bash
+claude --plugin-dir .
+```
+
+### 5. 体验SKILL
+
+详见 [QUICKSTART.md](./QUICKSTART.md)
+
+---
+
+## 📦 与原仓库的关系
+
+| 项目 | 说明 |
+|------|------|
+| **原仓库** | [panaversity/agentfactory-business-plugins](https://github.com/panaversity/agentfactory-business-plugins) |
+| **提取目录** | `banking/` 子目录 |
+| **本仓库原则** | **零侵入**：不修改任何原作者SKILL代码 |
+| **增强方式** | 仅通过 `.mcp.json` 配置企查查MCP服务 |
+| **同步更新** | 可直接同步上游仓库更新，无代码冲突 |
+
+---
+
+## 🎬 典型应用场景（企查查MCP增强）
+
+### 场景1：KYB企业开户尽职调查
+
+**使用Command**: `/banking-aml`
+
+**使用SKILL**: `aml-cdd-edd` + `kyc-risk-rating`
+
+```
+📝 用户输入：
+"有个客户来开户，请帮我做客户尽职调查（CDD），
+客户名称：企查查科技股份有限公司"
+
+⚡ 自动执行：
+├── 原作者SKILL：aml-cdd-edd 启动CDD流程
+├── 企查查MCP自动匹配调用：
+│   ├── qcc-company: 工商登记信息核验
+│   ├── qcc-company: 股权穿透识别受益所有人
+│   └── qcc-risk: 18类风险信号扫描
+└── 生成标准化CDD报告（含企查查数据）
+
+📄 输出结果：
+    ✅ 企业基础信息：统一社会信用代码、注册资本、法定代表人
+    ✅ 股权结构：自动识别受益所有人（UBO）
+    ⚠️  风险提示：X条历史变更记录
+    ✅ 无经营异常/司法风险/行政处罚
+    ✅ KYC风险评级：Medium（标准CDD）
+```
+
+### 场景2：制裁名单筛查 + 中国企业
+
+**使用SKILL**: `sanctions-screening`
+
+```
+📝 用户输入：
+"请对以下中国企业进行制裁名单筛查：企查查科技股份有限公司"
+
+⚡ 自动执行：
+├── SKILL：OFAC、OFSI、EU、UN制裁名单筛查
+├── 企查查MCP增强：
+│   ├── 查询企业工商信息（注册号、地址）
+│   ├── 股权穿透（50%规则所有权检查）
+│   └── 识别关联实体（法人、股东、高管）
+└── 综合筛查报告
+
+📄 输出结果：
+    ✅ 主实体：未出现在制裁名单
+    ✅ 受益所有人：无制裁记录
+    ✅ 50%规则：上层股东无SDN
+    ✅ 结论：CLEAR，可准入
+```
+
+### 场景3：AML交易监控与SAR报告
+
+**使用Command**: `/banking-aml`
+
+**使用SKILL**: `aml-typologies` + `aml-sar-drafting`
+
+```
+📝 用户输入：
+"/banking-aml cn '现金交易异常：某中国客户连续多日大额取现'
+
+⚡ 自动执行：
+├── SKILL：识别可疑交易类型（20种AML typologies）
+├── 企查查MCP：查询客户企业背景
+│   ├── 企业经营状况
+│   ├── 历史风险记录
+│   └── 关联企业分析
+└── SAR可疑交易报告生成
 ```
 
 ---
 
-## For Other AI Agents
+## 📚 包含的17个SKILL（原汁原味）
 
-Only Claude Code / Cowork get full plugin functionality (auto-routing, commands, hooks). For other platforms, copy the skill content as custom instructions:
-
-| Agent           | Instructions Path                 | What to Copy                              |
-| --------------- | --------------------------------- | ----------------------------------------- |
-| GitHub Copilot  | `.github/copilot-instructions.md` | Router SKILL.md + relevant product skills |
-| VS Code Copilot | `.vscode/copilot-instructions.md` | Same                                      |
-| Cursor          | `.cursorrules`                    | Same                                      |
-| Codex           | `AGENTS.md` or system prompt      | Same                                      |
-
-
-## 🤝 Contributing
-
-We welcome contributions!
-
-You can contribute by:
-
-* Adding new domain plugins
-* Improving existing skills
-* Expanding documentation
-* Building integrations with agent frameworks
-
-This marketplace is maintained by [Panaversity](https://github.com/panaversity). Open a pull request to contribute.
+| 分类 | SKILL | 功能描述 | 企查查MCP增强场景 |
+|------|-------|----------|-------------------|
+| **Router** | `banking-global-router` | 智能路由到产品+司法管辖区 | - |
+| **IFRS 9** | `ifrs9-ecl` | 预期信用损失计算 | 中国企业客户信用数据 |
+| **IFRS 9** | `ifrs9-staging` | Stage 1/2/3评估 | 中国企业经营状态 |
+| **IFRS 9** | `ifrs9-scenarios` | 宏观经济情景 | - |
+| **IFRS 9** | `ifrs9-disclosure` | IFRS 7披露起草 | - |
+| **Basel** | `basel-capital` | 资本充足率 | - |
+| **Basel** | `basel-rwa-credit` | 信用风险RWA | 中国企业交易对手风险 |
+| **Basel** | `basel-rwa-market` | 市场风险RWA (FRTB) | - |
+| **Liquidity** | `liquidity-lcr` | 流动性覆盖率 | - |
+| **Liquidity** | `liquidity-nsfr` | 净稳定资金比率 | - |
+| **Stress** | `stress-testing` | ICAAP压力测试 | - |
+| **AML** | `aml-typologies` | 20种AML可疑类型识别 | 中国企业背景核查 |
+| **AML** | `aml-sar-drafting` | SAR/STR报告起草 | 中国企业关联信息 |
+| **AML** | `aml-cdd-edd` | CDD/EDD尽职调查 | ✅ **企业工商+风险扫描** |
+| **AML** | `sanctions-screening` | OFAC/OFSI/EU制裁筛查 | ✅ **中国企业+50%规则** |
+| **KYC** | `kyc-risk-rating` | 4维度KYC风险评级 | ✅ **企业类型+股权穿透** |
+| **Recon** | `bank-reconciliation` | 银行对账 | - |
 
 ---
 
-## 🌍 AgentFactory Ecosystem
+## 🌍 司法管辖区支持
 
-This project is part of the **AgentFactory ecosystem** for building agentic AI systems.
-
-Learn more at **[The AI Agent Factory](https://agentfactory.panaversity.org)** — the complete guide to building and monetizing Digital FTEs.
-
-Maintained by [Panaversity](https://github.com/panaversity).
+| 司法管辖区 | 覆盖 | 主要监管机构 | 企查查MCP增强 |
+|------------|------|--------------|---------------|
+| UK | ✅ | PRA, FCA | - |
+| EU | ✅ | ECB, EBA | - |
+| USA | ✅ | Fed, OCC, OFAC | - |
+| Australia | ✅ | APRA, AUSTRAC | - |
+| Singapore | ✅ | MAS | - |
+| UAE | ✅ | CBUAE, DFSA | - |
+| Pakistan | ✅ | SBP | - |
+| **China** | ✅ **新增MCP支持** | PBOC, CBIRC, CSRC | **✅ 全量企查查数据** |
 
 ---
 
-## License
+## 🛡️ 安全与合规
 
-Repository-level: Apache-2.0 — see [LICENSE](./LICENSE). Individual plugins may have their own license terms (see each plugin's LICENSE file).
+- **数据安全**：企查查MCP采用HTTPS加密传输，API Key通过环境变量管理
+- **代码安全**：零代码改动，保持原作者SKILL的原生安全性
+- **授权访问**：需要有效的企查查开放平台账号和API Key
+- **合规使用**：遵守《个人信息保护法》《数据安全法》《反洗钱法》等相关法规
+- **审计追溯**：所有MCP调用可追溯，支持合规审计
 
+---
 
-## Keywords
-AI agents, agentic AI, autonomous agents, enterprise AI, business automation, AI workflows, financial AI, banking AI, legal AI, sales automation, AI plugins, LLM agents, digital employees, claude code plugins, islamic finance AI, regulatory compliance AI, MCP plugins, agent skills.
+## 📖 文档索引
+
+| 文档 | 说明 |
+|------|------|
+| [QUICKSTART.md](./QUICKSTART.md) | 5分钟快速体验指南，包含真实企查查MCP调用示例 |
+| [CLAUDE.md](./CLAUDE.md) | 原作者Agent指令（未修改） |
+| `skills/*/SKILL.md` | 各SKILL详细说明 |
+| `commands/*.md` | 4个Slash Command使用说明 |
+| `setup-qcc-env.sh` | 环境变量配置脚本 |
+
+---
+
+## 🤝 致谢
+
+- 本仓库基于 [Panaversity AgentFactory Business Plugins](https://github.com/panaversity/agentfactory-business-plugins) 构建
+- 感谢原作者提供的专业银行监管SKILL
+- 企查查MCP服务由 [企查查开放平台](https://agent.qcc.com) 提供
+
+---
+
+## 📄 许可证
+
+与原仓库保持一致：Apache-2.0
+
+---
+
+## 💬 问题反馈
+
+- 原作者SKILL问题：[panaversity/agentfactory-business-plugins](https://github.com/panaversity/agentfactory-business-plugins/issues)
+- 本仓库MCP配置问题：[duhu2000/banking_plugin_qcc](https://github.com/duhu2000/banking_plugin_qcc/issues)
+
+---
+
+## 💡 使用提示
+
+> **重要**：本插件的SKILL代码完全来自原作者，未做任何修改。企查查MCP的调用是通过 **Claude Code的智能工具匹配机制** 自动完成的——当SKILL需要"企业信息查询"时，系统会自动匹配到配置的 `qcc-company` 等MCP服务。
+>
+> 这种"配置驱动"的架构让您可以：
+> - ✅ **零代码改动**使用专业银行监管SKILL
+> - ✅ **灵活切换数据源**（企查查 / 其他数据源）
+> - ✅ **保持与上游仓库同步更新**，无代码冲突
