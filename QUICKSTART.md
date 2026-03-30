@@ -311,7 +311,7 @@ qcc-company 或 qcc-risk
 
 - 查看 [README.md](./README.md) 了解完整插件架构
 - 查看 `skills/` 目录了解所有17个SKILL的详细功能
-- 访问 [企查查开放平台](https://agent.qcc.com) 获取更多API能力说明
+- 访问 [企查查智能体数据平台](https://agent.qcc.com) 获取更多能力说明
 - 根据业务需求配置具体的MCP服务器URL
 
 ---

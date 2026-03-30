@@ -92,7 +92,7 @@ source ./setup-qcc-env.sh  # macOS/Linux
 # 或 .\setup-qcc-env.ps1   # Windows
 ```
 
-从 [企查查开放平台](https://agent.qcc.com) 申请API Key。
+从 [企查查智能体数据平台](https://agent.qcc.com) 申请API Key。
 
 ### 4. 启动Claude Code
 
@@ -234,7 +234,7 @@ claude --plugin-dir .
 
 - **数据安全**：企查查MCP采用HTTPS加密传输，API Key通过环境变量管理
 - **代码安全**：零代码改动，保持原作者SKILL的原生安全性
-- **授权访问**：需要有效的企查查开放平台账号和API Key
+- **授权访问**：需要有效的企查查智能体数据平台账号和API Key
 - **合规使用**：遵守《个人信息保护法》《数据安全法》《反洗钱法》等相关法规
 - **审计追溯**：所有MCP调用可追溯，支持合规审计
 
@@ -256,7 +256,8 @@ claude --plugin-dir .
 
 - 本仓库基于 [Panaversity AgentFactory Business Plugins](https://github.com/panaversity/agentfactory-business-plugins) 构建
 - 感谢原作者提供的专业银行监管SKILL
-- 企查查MCP服务由 [企查查开放平台](https://agent.qcc.com) 提供
+- 企查查智能体数据平台：https://agent.qcc.com
+- Email: duhu@qcc.com
 
 ---
 
