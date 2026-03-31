@@ -274,6 +274,6 @@ e) **年度或更频繁的风险审查**
 ## 🔗 相关资源
 
 - FATF官方网站：https://www.fatf-gafi.org
-- 企查查开放平台：https://agent.qcc.com
+- 企查查智能体数据平台：https://agent.qcc.com
 - 本插件GitHub：https://github.com/duhu2000/banking_plugin_qcc
 - 原作者仓库：https://github.com/panaversity/agentfactory-business-plugins

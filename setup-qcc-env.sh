@@ -12,7 +12,7 @@
       echo ""
       echo "请从以下渠道获取API Key："
       echo "  1. 访问 https://agent.qcc.com"
-      echo "  2. 登录企查查开放平台"
+      echo "  2. 登录企查查智能体数据平台"
       echo "  3. 创建应用获取 MCP API Key"
       echo ""
       echo "然后执行: export QCC_MCP_API_KEY='your_api_key_here'"

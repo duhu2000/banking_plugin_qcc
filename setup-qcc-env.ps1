@@ -11,7 +11,7 @@
       Write-Host ""
       Write-Host "请从以下渠道获取API Key："
       Write-Host "  1. 访问 https://agent.qcc.com"
-      Write-Host "  2. 登录企查查开放平台"
+      Write-Host "  2. 登录企查查智能体数据平台"
       Write-Host "  3. 创建应用获取 MCP API Key"
       Write-Host ""
       Write-Host "然后执行: $env:QCC_MCP_API_KEY='your_api_key_here'"
