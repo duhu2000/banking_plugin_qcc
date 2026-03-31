@@ -39,32 +39,31 @@ source ./setup-qcc-env.sh
 
 ## 🎯 场景体验
 
-本插件包含17个专业银行监管SKILL（1个路由器 + 16个产品SKILL），覆盖IFRS 9、Basel III/IV、AML/KYC、制裁筛查等领域。
-
-以下场景展示**AML/KYC类SKILL**如何自动调用企查查MCP获取中国企业数据：
+本插件包含17个专业银行监管SKILL，以下6个SKILL已深度集成企查查MCP服务，在处理中国企业时自动获取工商、风险、股权数据：
 
 ---
 
-### 🏢 场景1：KYB企业开户风险评级
+## 场景1：AML客户尽职调查（CDD/EDD）
 
-**使用Command**: `/banking-aml`
+**使用SKILL**: `aml-cdd-edd`
 
-**使用SKILL**: `kyc-risk-rating` + `aml-cdd-edd`
+**适用场景**：客户开户尽职调查、增强尽职调查（EDD）、政治公众人物（PEP）识别、受益所有人（UBO）穿透、企业股权结构分析
 
 **测试指令**：
 ```
-/banking-aml cn "新客户开户尽职调查：企查查科技股份有限公司，
-申请开立基本存款账户，注册资本1亿元人民币，法定代表人：XXX"
+有个客户来开户，请帮我做客户尽职调查（CDD），
+客户名称：企查查科技股份有限公司
 ```
 
-**企查查MCP自动增强点**：
+**企查查MCP数据映射**：
 
-| 原SKILL功能 | 企查查MCP增强 | 效果 |
-|------------|---------------|------|
-| 企业类型风险评估 | 自动查询工商登记信息 | 确认企业类型、注册资本、成立日期 |
-| 地理风险评估 | 查询企业注册地址 | 验证实际经营地与注册地一致性 |
-| 实际控制人识别 | 股权穿透分析 | 自动识别受益所有人（UBO） |
-| 风险扫描 | 18类风险信号扫描 | 经营异常、司法风险、行政处罚 |
+| SKILL功能 | MCP服务 | 获取数据 |
+|-----------|---------|----------|
+| 企业客户身份核验 | `qcc-company` | 工商登记信息、统一社会信用代码、注册资本、法定代表人 |
+| 受益所有人识别 | `qcc-company` | 股权穿透、股东结构、实际控制人 |
+| 业务性质验证 | `qcc-operation` | 经营范围、所属行业、资质证书 |
+| 负面信息筛查 | `qcc-risk` | 司法风险、行政处罚、经营异常 |
+| 持续监控数据 | `qcc-risk` | 实时风险预警、变更记录 |
 
 **预期输出**：
 ```
@@ -72,133 +71,46 @@ GOVERNING STANDARD: FATF Recommendation 10 (CDD), 12 (PEPs)
 DOMAIN: AML/KYC -- Customer Due Diligence
 JURISDICTION: China -- PBOC / CBIRC / CSRC
 
-【企查查数据自动核验】
+【企查查数据核验】
 ✅ 企业工商信息：企查查科技股份有限公司
-   - 统一社会信用代码：91320XXXXXXXXXXXX
-   - 注册资本：10000万人民币
-   - 成立日期：2014-XX-XX
-   - 登记状态：存续（在营、开业、在册）
-✅ 法定代表人核验通过
-✅ 股权结构：穿透识别受益所有人
-⚠️ 风险提示：发现X条历史变更记录
-✅ 无经营异常记录
-✅ 无司法风险记录
-
-KYC RISK RATING ASSESSMENT
-Customer Name:      企查查科技股份有限公司
-Customer Type:      Domestic corporate (private, no PEP links)
-                   Risk Score: 3 — Medium
-Geographic:         China (non-FATF, moderate risk)
-                   Risk Score: 3 — Medium
-Product/Service:    Basic current account
-                   Risk Score: 1 — Low
-Behavioural:        New customer
-                   Risk Score: 3 — Medium
-
-COMPOSITE SCORE:    2.7
-OVERALL RATING:     Medium
-CDD LEVEL:          Standard CDD
-MONITORING FREQUENCY: Every 3 years
-```
-
----
-
-### 🔍 场景2：AML客户尽职调查（CDD/EDD）
-
-**使用Command**: `/banking-aml`
-
-**使用SKILL**: `aml-cdd-edd`
-
-**测试指令**：
-```
-有个客户来开户，请帮我做客户尽职调查（CDD），
-客户名称：企查查科技股份有限公司，
-客户类型：私营企业，疑似有复杂股权结构，请做增强尽职调查（EDD）
-```
-
-**企查查MCP自动增强点**：
-
-| CDD/EDD要求 | 企查查MCP支持 |
-|------------|--------------|
-| 识别并验证客户身份 | `qcc-company`: 工商登记信息核验 |
-| 识别受益所有人（≥25%） | `qcc-company`: 股权穿透分析 |
-| 了解业务性质和目的 | `qcc-operation`: 招投标记录、资质证书 |
-| 复杂企业结构穿透 | `qcc-company`: 多层级股权结构图 |
-| 负面信息筛查 | `qcc-risk`: 司法风险、行政处罚、经营异常 |
-| 持续监控数据 | `qcc-risk`: 实时风险预警 |
-
-**预期输出**：
-```
-GOVERNING STANDARD: FATF Recommendation 10 (CDD), 12 (PEPs)
-DOMAIN: AML/KYC -- Enhanced Due Diligence
-JURISDICTION: China -- PBOC / CBIRC
-
-【企查查数据 -- EDD增强调查】
-
-### 1. 企业基础身份核验
-✅ 企业名称：企查查科技股份有限公司
-✅ 统一社会信用代码：已核验
+✅ 统一社会信用代码：91320XXXXXXXXXXXX
 ✅ 注册资本：10000万人民币（实缴）
 ✅ 成立日期：2014年
-✅ 企业类型：股份有限公司
-✅ 登记机关：苏州市市场监督管理局
-
-### 2. 受益所有人识别（UBO）
-【股权穿透分析结果】
-第一层：
-- 股东A：持股35%
-- 股东B：持股25%
-- 股东C：持股20%
-- 其他股东：持股20%
-
-受益所有人（≥25%）：
-- 股东A（自然人）：35% → 主要受益人
-- 股东B（自然人）：25% → 受益人
-
-### 3. 业务性质验证
-【企查查经营数据】
-- 所属行业：软件和信息技术服务业
-- 经营范围：企业信用评估、数据服务、软件开发等
-- 资质证书：高新技术企业、ISO认证等
-- 招投标记录：近3年中标X个项目
-
-### 4. 风险扫描结果
-【18类风险信号扫描】
+✅ 法定代表人：XXX
+✅ 股权穿透：识别受益所有人（股东A 35%、股东B 25%）
 ✅ 无经营异常记录
-✅ 无行政处罚记录
-✅ 无严重违法失信记录
-✅ 无股权冻结记录
-✅ 无司法诉讼（作为被告）
-⚠️ 历史变更记录：法定代表人变更X次
-⚠️ 股东变更记录：X次
+⚠️ 历史变更记录：X条
+✅ 无司法风险记录
 
-### 5. EDD结论
-RISK LEVEL: Medium-High
-REASON: 股权结构相对复杂，需持续关注
-RECOMMENDATION: 批准开户，设置年度审查
+CDD结论：
+RISK LEVEL: Medium
+CDD LEVEL: Standard CDD
+RECOMMENDATION: 批准开户，设置3年定期审查
 ```
 
 ---
 
-### 🚫 场景3：制裁名单筛查 + 中国企业
+## 场景2：制裁名单筛查
 
 **使用SKILL**: `sanctions-screening`
 
+**适用场景**：OFAC/SDN名单筛查、OFSI/EU/UN制裁名单检查、50%所有权规则审查、中国企业及关联方全面筛查
+
 **测试指令**：
 ```
-请对以下中国企业进行制裁名单筛查：
-客户名称：企查查科技股份有限公司
-关联方：包括法定代表人、主要股东、受益所有人
+请对以下中国企业进行制裁名单筛查：企查查科技股份有限公司
 ```
 
-**企查查MCP自动增强点**：
+**企查查MCP数据映射**：
 
-| 制裁筛查要求 | 企查查MCP支持 |
-|------------|--------------|
-| 客户及关联方识别 | `qcc-company`: 企业、股东、高管信息 |
-| 50%规则所有权检查 | `qcc-company`: 股权穿透至自然人 |
-| 地址信息验证 | `qcc-company`: 注册地址、经营地址 |
-| 别名/曾用名筛查 | `qcc-company`: 历史变更记录 |
+| SKILL功能 | MCP服务 | 获取数据 |
+|-----------|---------|----------|
+| 主实体身份核验 | `qcc-company` | 工商登记信息、注册号、注册地址 |
+| 受益所有人识别 | `qcc-company` | 股权穿透、股东结构、实际控制人 |
+| 50%规则所有权检查 | `qcc-company` | 多层级股权结构、最终受益人 |
+| 关联实体识别 | `qcc-company` | 法定代表人、高管、关联企业 |
+| 别名/曾用名筛查 | `qcc-company` | 历史变更记录、曾用名 |
+| 负面信息补充 | `qcc-risk` | 司法风险、经营异常、行政处罚 |
 
 **预期输出**：
 ```
@@ -206,58 +118,232 @@ GOVERNING STANDARD: OFAC (USA), OFSI/HMT (UK), EU CFSP, UN Security Council
 DOMAIN: Sanctions Screening -- Entity and Associated Parties
 JURISDICTION: Multi-jurisdictional (Primary: China)
 
-【企查查数据 -- 关联实体识别】
+【企查查数据 -- 50%规则检查】
+✅ 主实体：企查查科技股份有限公司
+✅ 股权穿透：第一层股东
+   - 股东A（自然人）：35%
+   - 股东B（自然人）：25%
+   - 股东C（法人）：20%
+✅ 无单一股东≥50%，无SDN关联
+✅ 法定代表人：XXX（无制裁记录）
 
-### 筛查实体清单
-1. 主实体：企查查科技股份有限公司
-   - 注册号：91320XXXXXXXXXXXX
-   - 地址：江苏省苏州市...
+【制裁名单筛查】
+✅ OFAC SDN List：CLEAR
+✅ OFSI/HMT：CLEAR
+✅ EU Sanctions：CLEAR
+✅ UN Consolidated：CLEAR
+✅ 50% Rule：PASS
 
-2. 法定代表人：XXX
-   - 关联企业：X家（通过企查查关联图谱）
-
-3. 受益所有人：
-   - 股东A（35%）：XXX
-   - 股东B（25%）：XXX
-
-4. 历史曾用名：
-   - 无前序名称
-
-### 制裁名单筛查结果
-✅ OFAC SDN List：无匹配
-✅ OFSI/HMT：无匹配
-✅ EU Sanctions：无匹配
-✅ UN Consolidated：无匹配
-✅ 50% Rule Check：上层股东无SDN
-
-### 结论
-CLEAR：该实体及其关联方未出现在主要制裁名单上
-NEXT STEP：完成客户准入，设置持续监控
+结论：CLEAR — 可以准入
 ```
 
 ---
 
-## 🏦 其他银行监管SKILL（企查查增强适用性）
+## 场景3：KYC风险评级
 
-虽然以下SKILL主要面向财务监管，但企查查MCP同样可以提供中国企业数据支持：
+**使用SKILL**: `kyc-risk-rating`
 
-### Basel资本充足率 + 中国企业敞口
+**适用场景**：客户风险分类、四维度风险评分（客户类型/地理/产品/行为）、高风险客户识别、定期风险评估
 
-**SKILL**: `basel-rwa-credit`
+**测试指令**：
+```
+请对企查查科技股份有限公司进行KYC风险评级
+```
 
-**企查查增强**：对中国企业交易对手进行信用风险评估时，调用企查查获取：
-- 财务数据（注册资本、股东实缴）
-- 信用评级（企查查信用等级）
-- 风险信号（失信、被执行）
+**企查查MCP数据映射**：
 
-### IFRS 9 ECL + 中国企业客户
+| SKILL功能 | MCP服务 | 获取数据 |
+|-----------|---------|----------|
+| 客户类型风险 | `qcc-company` | 企业类型、注册资本、成立年限、股东结构 |
+| 地理风险 | `qcc-company` | 注册地址、实际经营地址、分支机构分布 |
+| 业务性质验证 | `qcc-operation` | 经营范围、所属行业、资质证书 |
+| 行为风险信号 | `qcc-risk` | 经营异常、司法诉讼、行政处罚、失信记录 |
+| 关联风险 | `qcc-company` | 关联企业、集团关系、一致行动人 |
 
-**SKILL**: `ifrs9-ecl`
+**预期输出**：
+```
+GOVERNING STANDARD: FATF Recommendation 1 (Risk-Based Approach)
+DOMAIN: KYC Risk Rating
+JURISDICTION: China
 
-**企查查增强**：
-- 中国企业客户违约概率（PD）评估支持
-- 企业经营状态实时监控
-- 风险预警信号纳入ECL模型
+【企查查数据 -- 四维度评估】
+客户类型：     2 — 上市公司（企查查数据显示）
+地理：         1 — 中国（FATF成员）
+产品/服务：    3 — 企业活期账户
+行为：         3 — 新客户
+
+综合评分：      2.15
+整体评级：      Medium（中等风险）
+CDD级别：       Standard CDD
+监控频率：      Every 3 years
+
+【风险信号扫描】
+✅ 无经营异常
+✅ 无司法诉讼
+✅ 无行政处罚
+✅ 无负面舆情
+```
+
+---
+
+## 场景4：信用风险RWA计算
+
+**使用SKILL**: `basel-rwa-credit`
+
+**适用场景**：信用风险RWA标准法计算、企业敞口风险权重评估、交易对手信用风险分析
+
+**测试指令**：
+```
+请计算对中国企业XXX科技有限公司的信用风险RWA，
+敞口金额1000万人民币
+```
+
+**企查查MCP数据映射**：
+
+| SKILL功能 | MCP服务 | 获取数据 |
+|-----------|---------|----------|
+| 企业信用状况 | `qcc-company` | 注册资本、实缴资本、股东结构 |
+| 财务稳定性 | `qcc-operation` | 招投标记录、中标率、经营活跃度 |
+| 风险预警信号 | `qcc-risk` | 失信记录、被执行、限高、破产 |
+| 行业地位 | `qcc-operation` | 资质证书、信用评级、行业排名 |
+| 经营状态 | `qcc-company` | 经营异常、行政处罚、股权冻结 |
+
+**预期输出**：
+```
+GOVERNING STANDARD: Basel III Standardised Approach for Credit Risk
+DOMAIN: Credit Risk RWA
+JURISDICTION: China
+
+【企查查数据 -- 信用评估】
+交易对手：XXX科技有限公司
+注册资本：5000万人民币（实缴100%）
+成立年限：8年
+信用评级：A级（企查查）
+✅ 无失信记录
+✅ 无被执行记录
+⚠️ 历史行政处罚：1条（已说明）
+
+【RWA计算】
+敞口类别：企业敞口
+基础风险权重（未评级）：100%
+企查查信用调整：-10%
+调整后风险权重：90%
+
+EAD：           10,000,000 CNY
+Risk Weight：   90%
+RWA：           9,000,000 CNY
+Minimum Capital (8%)：720,000 CNY
+```
+
+---
+
+## 场景5：IFRS 9预期信用损失（ECL）
+
+**使用SKILL**: `ifrs9-ecl`
+
+**适用场景**：预期信用损失计算、PD/LGD/EAD参数估计、情景加权ECL、中国企业客户减值准备
+
+**测试指令**：
+```
+请计算对XXX科技有限公司贷款组合的IFRS 9 ECL，
+账面总额1000万人民币，当前 Stage 1
+```
+
+**企查查MCP数据映射**：
+
+| SKILL功能 | MCP服务 | 获取数据 |
+|-----------|---------|----------|
+| PD（违约概率） | `qcc-risk` | 历史失信记录、被执行记录、经营异常 |
+| 信用周期调整 | `qcc-operation` | 行业景气度、招投标活跃度 |
+| LGD支持 | `qcc-company` | 企业资产状况、股权结构 |
+| 阶段划分 | `qcc-risk` | 实时风险信号、预警信息 |
+| 前瞻信息 | `qcc-operation` | 经营趋势、资质变化 |
+
+**预期输出**：
+```
+GOVERNING STANDARD: IFRS 9 Financial Instruments
+DOMAIN: Expected Credit Loss (ECL)
+JURISDICTION: China
+
+【企查查数据 -- 信用风险参数】
+客户：XXX科技有限公司
+
+风险信号扫描：
+✅ 无失信记录
+✅ 无被执行记录
+⚠️ 经营异常记录：1条（已移除）
+✅ 无股权冻结
+✅ 经营状态：正常
+
+PD调整：
+基础PD（TTC）：2.5%
+企查查风险调整：+0.3%
+调整后PIT PD：2.8%
+
+【ECL计算】
+账面总额：        10,000,000 CNY
+Stage：           Stage 1
+PD（12-month）：  2.8%
+LGD：             45%
+EAD：             10,000,000 CNY
+
+情景加权ECL：     147,000 CNY
+```
+
+---
+
+## 场景6：IFRS 9阶段划分（SICR评估）
+
+**使用SKILL**: `ifrs9-staging`
+
+**适用场景**：信用风险显著增加（SICR）判断、阶段迁移评估、第三阶段违约识别、定性/定量触发因素分析
+
+**测试指令**：
+```
+请评估XXX科技有限公司贷款的阶段划分，
+当前Stage 1，最近发现企业有1条经营异常记录
+```
+
+**企查查MCP数据映射**：
+
+| SKILL功能 | MCP服务 | 获取数据 |
+|-----------|---------|----------|
+| 定量SICR触发 | `qcc-risk` | 逾期信息、风险评级变化 |
+| 定性SICR信号 | `qcc-risk` | 经营异常、司法诉讼、行政处罚 |
+| 行业风险 | `qcc-operation` | 行业景气度、系统性风险 |
+| 关联风险 | `qcc-company` | 母公司/关联方风险传导 |
+| 财务契约监控 | `qcc-company` | 股权冻结、资产查封 |
+
+**预期输出**：
+```
+GOVERNING STANDARD: IFRS 9.5.5 Impairment
+DOMAIN: Staging Assessment (SICR)
+JURISDICTION: China
+
+【企查查数据 -- 风险信号扫描】
+客户：XXX科技有限公司
+当前阶段：Stage 1
+提议阶段：Stage 1（维持）
+
+定量触发因素：
+✅ 无逾期记录
+✅ 内部评级未下调
+✅ 生命周期PD未超过阈值
+
+定性触发因素：
+⚠️ 经营异常记录：1条（地址变更未及时备案）
+✅ 无司法诉讼
+✅ 无行政处罚
+✅ 无行业系统性风险
+
+【专业判断】
+经营异常记录为地址变更备案延迟，
+已及时整改移除，不构成实质性SICR。
+
+ECL影响：
+维持12-month ECL
+继续监控
+```
 
 ---
 
@@ -310,9 +396,8 @@ qcc-company 或 qcc-risk
 ## 📚 下一步
 
 - 查看 [README.md](./README.md) 了解完整插件架构
-- 查看 `skills/` 目录了解所有17个SKILL的详细功能
+- 查看 `skills/*/SKILL.zh.md` 了解各SKILL详细中文说明
 - 访问 [企查查智能体数据平台](https://agent.qcc.com) 获取更多能力说明
-- 根据业务需求配置具体的MCP服务器URL
 
 ---
 
