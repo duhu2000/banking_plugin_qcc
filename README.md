@@ -44,46 +44,7 @@ git clone https://github.com/duhu2000/banking_plugin_qcc.git
 cd banking_plugin_qcc
 ```
 
-### 2. 配置企查查MCP
-
-`.mcp.json` 已包含在仓库中：
-
-```json
-{
-  "mcpServers": {
-    "qcc-company": {
-      "url": "https://agent.qcc.com/mcp/company/stream",
-      "headers": {
-        "Authorization": "Bearer ${QCC_MCP_API_KEY}"
-      },
-      "description": "企查查企业基座 - 提供工商登记、股东信息、变更记录等企业基础信息服务"
-    },
-    "qcc-risk": {
-      "url": "https://agent.qcc.com/mcp/risk/stream",
-      "headers": {
-        "Authorization": "Bearer ${QCC_MCP_API_KEY}"
-      },
-      "description": "企查查风控大脑 - 提供失信、被执行、限高、破产等18类风险信息"
-    },
-    "qcc-ipr": {
-      "url": "https://agent.qcc.com/mcp/ipr/stream",
-      "headers": {
-        "Authorization": "Bearer ${QCC_MCP_API_KEY}"
-      },
-      "description": "企查查知产引擎 - 提供专利、商标、软件著作权等知识产权信息"
-    },
-    "qcc-operation": {
-      "url": "https://agent.qcc.com/mcp/operation/stream",
-      "headers": {
-        "Authorization": "Bearer ${QCC_MCP_API_KEY}"
-      },
-      "description": "企查查经营罗盘 - 提供招投标、资质证书、信用评级等经营信息"
-    }
-  }
-}
-```
-
-### 3. 设置环境变量
+### 2. 设置环境变量
 
 ```bash
 export QCC_MCP_API_KEY="your_api_key_here"
