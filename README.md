@@ -18,16 +18,17 @@
 |                                                                  |
 |    +----------------------+      MCP       +------------------+  |
 |    | aml-cdd-edd          |  ◄──────────►  | qcc-company      |  |
-|    | kyc-risk-rating      |    Auto-Route  | qcc-risk         |  |
-|    | sanctions-screening  |                | qcc-ipr          |  |
-|    | aml-typologies       |                | qcc-operation    |  |
-|    | aml-sar-drafting     |                +------------------+  |
-|    | ... (17 skills)      |                                      |
+|    | sanctions-screening  |    Auto-Route  | qcc-risk         |  |
+|    | kyc-risk-rating      |                | qcc-ipr          |  |
+|    | basel-rwa-credit     |                | qcc-operation    |  |
+|    | ifrs9-ecl            |                +------------------+  |
+|    | ifrs9-staging        |                                      |
+|    | ... (11 more skills) |                                      |
 |    +----------------------+                                      |
 |                                                                  |
 |    ✅ Zero Code Change: Use original skills as-is                |
 |    ✅ Plug & Play: Config MCP to auto-connect QCC data           |
-|    ✅ Smart Enhancement: AML/KYC auto-fetch China company data   |
+|    ✅ Smart Enhancement: AML/KYC/Credit Risk auto-fetch data     |
 |                                                                  |
 +------------------------------------------------------------------+
 ```
@@ -406,25 +407,32 @@ claude --plugin-dir .
 
 ## 📚 包含的17个SKILL（原汁原味）
 
+### 🔥 企查查MCP增强版（6个核心SKILL）
+
 | 分类 | SKILL | 功能描述 | 企查查MCP增强场景 |
 |------|-------|----------|-------------------|
-| **Router** | `banking-global-router` | 智能路由到产品+司法管辖区 | - |
-| **IFRS 9** | `ifrs9-ecl` | 预期信用损失计算 | 中国企业客户信用数据 |
-| **IFRS 9** | `ifrs9-staging` | Stage 1/2/3评估 | 中国企业经营状态 |
-| **IFRS 9** | `ifrs9-scenarios` | 宏观经济情景 | - |
-| **IFRS 9** | `ifrs9-disclosure` | IFRS 7披露起草 | - |
-| **Basel** | `basel-capital` | 资本充足率 | - |
-| **Basel** | `basel-rwa-credit` | 信用风险RWA | 中国企业交易对手风险 |
-| **Basel** | `basel-rwa-market` | 市场风险RWA (FRTB) | - |
-| **Liquidity** | `liquidity-lcr` | 流动性覆盖率 | - |
-| **Liquidity** | `liquidity-nsfr` | 净稳定资金比率 | - |
-| **Stress** | `stress-testing` | ICAAP压力测试 | - |
-| **AML** | `aml-typologies` | 20种AML可疑类型识别 | 中国企业背景核查 |
-| **AML** | `aml-sar-drafting` | SAR/STR报告起草 | 中国企业关联信息 |
-| **AML** | `aml-cdd-edd` | CDD/EDD尽职调查 | ✅ **企业工商+风险扫描** |
-| **AML** | `sanctions-screening` | OFAC/OFSI/EU制裁筛查 | ✅ **中国企业+50%规则** |
-| **KYC** | `kyc-risk-rating` | 4维度KYC风险评级 | ✅ **企业类型+股权穿透** |
-| **Recon** | `bank-reconciliation` | 银行对账 | - |
+| **AML** | `aml-cdd-edd` | CDD/EDD尽职调查 | ✅ **工商登记+18类风险扫描** |
+| **AML** | `sanctions-screening` | OFAC/OFSI/EU制裁筛查 | ✅ **50%规则+股权穿透** |
+| **KYC** | `kyc-risk-rating` | 4维度KYC风险评级 | ✅ **企业类型+风险信号** |
+| **Basel** | `basel-rwa-credit` | 信用风险RWA | ✅ **企业信用+交易对手风险** |
+| **IFRS 9** | `ifrs9-ecl` | 预期信用损失 | ✅ **PD/LGD参数+风险预警** |
+| **IFRS 9** | `ifrs9-staging` | Stage 1/2/3评估 | ✅ **SICR判断+经营状态** |
+
+### 📖 其他11个专业SKILL
+
+| 分类 | SKILL | 功能描述 |
+|------|-------|----------|
+| **Router** | `banking-global-router` | 智能路由到产品+司法管辖区 |
+| **IFRS 9** | `ifrs9-scenarios` | 宏观经济情景 |
+| **IFRS 9** | `ifrs9-disclosure` | IFRS 7披露起草 |
+| **Basel** | `basel-capital` | 资本充足率 |
+| **Basel** | `basel-rwa-market` | 市场风险RWA (FRTB) |
+| **Liquidity** | `liquidity-lcr` | 流动性覆盖率 |
+| **Liquidity** | `liquidity-nsfr` | 净稳定资金比率 |
+| **Stress** | `stress-testing` | ICAAP压力测试 |
+| **AML** | `aml-typologies` | 20种AML可疑类型识别 |
+| **AML** | `aml-sar-drafting` | SAR/STR报告起草 |
+| **Recon** | `bank-reconciliation` | 银行对账 |
 
 ---
 
