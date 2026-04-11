@@ -1,28 +1,26 @@
 ---
 name: aml-cdd-edd-qcc
 description: >
-  Activate for: CDD, EDD, customer due diligence, enhanced due diligence,
-  simplified due diligence, KYC, know your customer, customer onboarding,
-  source of wealth, source of funds, PEP, politically exposed person,
-  beneficial ownership, UBO, corporate structure, ongoing monitoring.
+  适用于：客户尽职调查(CDD)、强化尽职调查(EDD)、简化尽职调查(SDD)、
+  了解你的客户(KYC)、客户开户、财富来源、资金来源、政治公众人物(PEP)、
+  受益所有人、UBO、公司结构、持续监控。
 
-  **QCC MCP Enhanced**: Automatically retrieves Chinese enterprise registration
-  data, beneficial ownership information, and risk signals for corporate customers
-  registered in China. Validates beneficial ownership through official records.
+  **企查查MCP增强版**：自动获取中国企业工商登记数据、受益所有人信息
+  和风险信号，用于中国企业客户的尽职调查。受益所有人通过官方记录验证。
 
-  NOT for: personal finance advice or retail banking product recommendations,
-  tax compliance or tax residency determinations, credit underwriting decisions.
+  不适用于：个人理财建议或零售银行产品推荐、税务合规或税务居民身份判定、
+  信贷审批决策。
 license: Apache-2.0
 metadata:
   version: "2.0"
-  author: "Panaversity — The AI Agent Factory (Enhanced with QCC MCP)"
+  author: "Panaversity — The AI Agent Factory (企查查MCP增强版)"
   standard: "FATF Recommendation 10 (CDD), 12 (PEPs), 13 (Correspondent Banking)"
-  mcp-integrations: "QCC MCP (Company/Risk)"
+  mcp-integrations: "企查查MCP (Company/Risk)"
 ---
 
-## MCP Configuration Requirements
+## MCP 配置要求
 
-**⚠️ Important: Before using this skill for Chinese enterprises, ensure QCC MCP servers are configured**
+**⚠️ 重要：中国企业尽职调查需要企查查MCP**
 
 ```bash
 # ~/.claude/.mcp.json
@@ -42,177 +40,177 @@ metadata:
 
 ---
 
-## CUSTOMER DUE DILIGENCE (CDD) — STANDARD MEASURES
+## 客户尽职调查(CDD) — 标准措施
 
-Required for all customers at account opening:
+开户时对所有客户的要求：
 
-1. Identify the customer — obtain identifying information
-2. Verify the customer's identity — using reliable, independent source documents
-3. Identify the beneficial owner (BO) — persons owning or controlling ≥ 25% (or lower)
-4. Verify the beneficial owner's identity
-5. Understand the nature and purpose of the business relationship
-6. Conduct ongoing monitoring of the relationship
+1. 识别客户 — 获取识别信息
+2. 验证客户身份 — 使用可靠的独立来源文件
+3. 识别受益所有人(BO) — 拥有或控制≥25%（或更低）的个人
+4. 验证受益所有人身份
+5. 了解业务关系的性质和目的
+6. 对关系进行持续监控
 
 ---
 
-## QCC MCP ENHANCEMENT — CHINESE ENTERPRISE CDD
+## 企查查MCP增强 — 中国企业尽职调查
 
-### For Chinese Corporate Customers: Mandatory QCC Verification
+### 中国企业客户：强制企查查验证
 
-**Phase 1: Company Registration Verification (qcc-company)**
+**阶段1：公司登记验证（qcc-company）**
 
-1. **Business Registration Check**
-   - Verify unified social credit code matches official records
-   - Confirm company name, legal representative, registered address
-   - Check business status (active/liquidated/revoked)
-   - Verify registered capital and paid-in capital
+1. **工商登记核查**
+   - 验证公司名称与工商登记是否匹配
+   - 检查工商状态（存续/注销/吊销）
+   - 验证统一社会信用代码
+   - 确认注册地址
 
-2. **Business Scope Verification**
-   - Validate declared business activities against registration
-   - Identify any special licenses or permits required
-   - Check for restrictions or prohibitions
+2. **经营范围验证**
+   - 将申报的经营活动与登记进行比对
+   - 识别所需的特殊许可证或许可
+   - 检查限制或禁止事项
 
-**Phase 2: Beneficial Ownership Verification (qcc-company)**
+**阶段2：受益所有人验证（qcc-company）**
 
-3. **Shareholder Structure Analysis**
-   - Retrieve complete shareholder register
-   - Identify natural persons owning ≥25% (direct or indirect)
-   - Calculate total ownership percentages
-   - Identify actual controllers (if different from shareholders)
+3. **股东结构分析**
+   - 获取完整股东名册
+   - 识别直接和间接持有≥25%的自然人
+   - 计算总持股比例
+   - 识别实际控制人（如与股东不同）
 
-4. **Equity Stability Assessment**
-   - Check for recent equity changes
-   - Identify equity pledge or freeze records
-   - Assess ownership concentration
+4. **股权稳定性评估**
+   - 检查近期股权变更
+   - 识别股权质押或冻结记录
+   - 评估所有权集中度
 
-**Phase 3: Risk Signal Scanning (qcc-risk)**
+**阶段3：风险信号扫描（qcc-risk）**
 
-5. **Adverse Information Check**
-   - Judicial cases (as defendant)
-   - Court announcements
-   - Judgment debtor records
-   - Administrative penalties
-   - Operating anomaly listings
+5. **负面信息核查**
+   - 被告涉诉案件
+   - 法院公告
+   - 失信被执行人记录
+   - 行政处罚
+   - 经营异常名录
 
-### QCC CDD Output Format
+### 企查查尽职调查输出格式
 
 ```
 ================================================================
-CHINESE ENTERPRISE CDD — QCC VERIFICATION REPORT
+中国企业尽职调查 — 企查查验证报告
 ================================================================
-Company Name:        [Name]
-Unified Credit Code: [Code]
-Query Date:          [YYYY-MM-DD]
-Data Source:         QCC MCP (Company/Risk)
+公司名称:        [名称]
+统一信用代码:    [代码]
+查询日期:        [YYYY-MM-DD]
+数据来源:        企查查MCP (Company/Risk)
 ----------------------------------------------------------------
-REGISTRATION STATUS:
-  Legal Status:      [Active/Suspended/Liquidated]
-  Legal Rep:         [Name]
-  Registered Cap:    [Amount] ([Paid-in/Subscribed])
-  Established:       [Date]
+登记状态:
+  法律状态:      [存续/注销/吊销]
+  法定代表人:    [姓名]
+  注册资本:      [金额] ([实缴/认缴])
+  成立日期:      [日期]
 
-BENEFICIAL OWNERSHIP:
-  [Shareholder 1]:   [Name] - [XX]% (Natural person/Entity)
-  [Shareholder 2]:   [Name] - [XX]% (Natural person/Entity)
-  Actual Controller: [Name] (if different)
+受益所有人:
+  [股东1]:       [姓名] - [XX]% (自然人/实体)
+  [股东2]:       [姓名] - [XX]% (自然人/实体)
+  实际控制人:    [姓名] (如不同)
 
-RISK SIGNALS:
-  Judicial Cases:    [Count] ([X] as defendant)
-  Court Announces:   [Count]
-  Dishonest Debtor:  [Yes/No]
-  Admin Penalties:   [Count]
-  Operating Anomaly: [Yes/No - Details]
+风险信号:
+  司法案件:      [数量]
+  法院公告:      [数量]
+  失信被执行人:  [是/否]
+  行政处罚:      [数量]
+  经营异常:      [是/否]
 
-CDD RECOMMENDATION:
-  [Proceed/Enhanced Due Diligence/Decline]
+尽职调查建议:
+  [继续/强化尽职调查/拒绝]
 ================================================================
 ```
 
 ---
 
-## INDIVIDUAL CUSTOMER IDENTITY VERIFICATION
+## 个人客户身份验证
 
-Documents (in order of reliability):
-- Tier 1 (highest): Passport; national ID card; government-issued photo ID
-- Tier 2: Driving licence; residence permit
-- Address verification: Utility bill, bank statement, government correspondence (must be dated within 3 months)
-- For non-face-to-face onboarding: certified copies; electronic verification; video identification (where jurisdiction permits)
-
----
-
-## CORPORATE CUSTOMER IDENTITY VERIFICATION — STANDARD
-
-Company: Certificate of incorporation; memorandum and articles of association;
-latest audited accounts; register of directors; register of shareholders
-
-Beneficial owner: Identify all individuals owning or controlling ≥ 25%
-(FATF threshold — some jurisdictions use lower: 10% in USA for certain entities)
-
-Director verification: Verify identity of all directors with day-to-day control
-Authorised signatories: Verify identity of all authorised signatories
-
-**FOR CHINESE COMPANIES**: Use QCC MCP as primary source for:
-- Register of shareholders
-- Director information
-- Company structure
-- Verification of beneficial ownership
+文件（按可靠性排序）：
+- 一级（最高）：护照；国民身份证；政府签发的带照片身份证
+- 二级：驾驶执照；居留许可
+- 地址验证：水电费账单、银行对账单、政府函件（须为3个月内日期）
+- 非面对面开户：经核证的副本；电子验证；视频识别（司法管辖区允许的情况下）
 
 ---
 
-## POLITICALLY EXPOSED PERSONS (PEPs) — ENHANCED DUE DILIGENCE
+## 公司客户身份验证 — 标准
 
-### PEP Definition (FATF Recommendation 12)
+公司：注册证书；公司章程大纲和章程细则；
+最新经审计账目；董事名册；股东名册
 
-Individuals entrusted with prominent public functions:
-- Heads of state, heads of government, senior politicians
-- Senior government officials, judicial or military officials
-- Senior executives of state-owned enterprises
-- Senior officials of political parties
+受益所有人：识别所有拥有或控制≥25%的个人
+（FATF阈值 — 某些司法管辖区使用更低：美国某些实体为10%）
 
-### QCC PEP Enhancement
+董事验证：验证所有具有日常控制权的董事的身份
+授权签字人：验证所有授权签字人的身份
 
-**For Chinese enterprises with SOE connections:**
-- Check if legal representative or major shareholders hold government positions
-- Identify connections to state-owned enterprises
-- Assess level of government influence/control
-
----
-
-## ENHANCED DUE DILIGENCE (EDD) — HIGH RISK CUSTOMERS
-
-### Triggers for EDD
-
-- PEP status (mandatory)
-- High-risk jurisdiction (FATF grey/black list)
-- Complex corporate structure
-- Adverse media or negative information during screening
-- **QCC triggers for Chinese enterprises:**
-  - Judicial cases as defendant
-  - Listed as dishonest judgment debtor
-  - Administrative penalties in past 2 years
-  - Equity freeze or pledge records
-  - Operating anomaly status
-
-### EDD Process
-
-1. Gather more detailed information (source of wealth, source of funds, BO structure)
-2. Verify information using independent sources (**QCC MCP for Chinese entities**)
-3. Senior management sign-off
-4. Enhanced ongoing monitoring
-5. Annual EDD refresh (minimum)
+**中国公司**：使用企查查MCP作为主要来源获取：
+- 股东名册
+- 董事信息
+- 公司结构
+- 受益所有人验证
 
 ---
 
-## NEVER DO THESE
+## 政治公众人物(PEPs) — 强化尽职调查
 
-- NEVER approve SDD without a documented risk assessment
-- NEVER accept "business income" as sufficient source of wealth evidence for PEPs
-- NEVER onboard a customer when beneficial ownership cannot be established through the full corporate chain
-- NEVER downgrade a PEP's risk status immediately upon leaving office
-- NEVER treat CDD as a one-time onboarding event
-- **FOR CHINESE ENTERPRISES: NEVER rely solely on customer-provided documents — verify against QCC official records**
-- **FOR CHINESE ENTERPRISES: NEVER accept beneficial ownership declarations without QCC verification**
+### PEP定义（FATF建议12）
+
+被委托重要公共职能的个人：
+- 国家元首、政府首脑、高级政客
+- 高级政府官员、司法或军事官员
+- 国有企业高管
+- 政党高级官员
+
+### 企查查PEP增强
+
+**与国企有关联的中国企业：**
+- 检查法定代表人或主要股东是否担任政府职务
+- 识别与国有企业的关联
+- 评估政府影响/控制水平
 
 ---
 
-ALL OUTPUTS REQUIRE REVIEW BY A QUALIFIED PROFESSIONAL BEFORE USE IN REGULATORY FILINGS OR BUSINESS DECISIONS.
+## 强化尽职调查(EDD) — 高风险客户
+
+### 强化尽职调查触发条件
+
+- PEP身份（强制）
+- 高风险司法管辖区（FATF灰/黑名单）
+- 复杂公司结构
+- 筛查期间的负面媒体报道
+- **中国企业触发条件：**
+  - 被告涉诉案件
+  - 被列为失信被执行人
+  - 近2年内行政处罚
+  - 股权冻结或质押记录
+  - 经营异常状态
+
+### 强化尽职调查流程
+
+1. 收集更详细信息（财富来源、资金来源、BO结构）
+2. 使用独立来源验证信息（**中国企业使用企查查MCP**）
+3. 高级管理层签字
+4. 强化持续监控
+5. 年度强化尽职调查更新（最低）
+
+---
+
+## 禁止事项
+
+- **绝不**在无记录风险评估的情况下批准简化尽职调查
+- **绝不**接受"营业收入"作为PEP的充分财富来源证据
+- **绝不**在无法通过完整公司链确定受益所有人的情况下 onboarding 客户
+- **绝不**在离职后立即降低PEP的风险状态
+- **绝不**将客户尽职调查视为一次性开户事件
+- **中国企业：绝不仅依赖客户提供的文件 — 通过企查查官方记录验证**
+- **中国企业：绝不接受无企查查验证的受益所有人声明**
+
+---
+
+所有输出需经合格专业人士审核后方可用于监管申报或业务决策。

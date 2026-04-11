@@ -1,34 +1,32 @@
 ---
 name: kyc-risk-rating-qcc
 description: >
-  Activate for: KYC risk rating, customer risk classification, AML risk score,
-  customer risk assessment, high-risk customer, risk-based approach, risk rating,
-  customer risk categories, Chinese enterprise customer risk assessment.
+  适用于：KYC风险评级、客户风险分类、反洗钱风险评分、客户风险评估、
+  高风险客户识别、风险为本方法、中国企业客户风险评估。
 
-  **QCC MCP Enhanced**: Automatically retrieves Chinese enterprise risk data
-  (judicial risks, operational anomalies, administrative penalties, equity freeze)
-  for corporate customers registered in China.
+  **企查查MCP增强版**：自动获取中国企业风险数据（司法风险、经营异常、
+  行政处罚、股权冻结等），用于中国企业客户的风险评估。
 
-  NOT for: transaction monitoring alerts (use aml-typologies), SAR/STR drafting
-  (use aml-sar-drafting), sanctions screening (use sanctions-screening).
+  不适用于：交易监控预警（使用aml-typologies）、可疑交易报告起草
+  （使用aml-sar-drafting）、制裁筛查（使用sanctions-screening）。
 license: Apache-2.0
 metadata:
   version: "2.0"
-  author: "Panaversity — The AI Agent Factory (Enhanced with QCC MCP)"
+  author: "Panaversity — The AI Agent Factory (企查查MCP增强版)"
   standard: "FATF Recommendation 1 (Risk-Based Approach), Recommendation 10 (CDD)"
-  mcp-integrations: "QCC MCP (Company/Risk)"
+  mcp-integrations: "企查查MCP (Company/Risk)"
 ---
 
-## MCP Configuration Requirements
+## MCP 配置要求
 
-**⚠️ Important: Before using this skill, ensure QCC MCP servers are configured**
+**⚠️ 重要：使用本技能前，必须确保企查查MCP服务器已配置**
 
-### For Chinese Enterprise Customers:
-1. ✅ `~/.claude/.mcp.json` exists with QCC configuration
-2. ✅ `QCC_MCP_API_KEY` environment variable is set
-3. ✅ Claude Code has restarted to load MCP configuration
+### 中国企业客户配置要求：
+1. ✅ `~/.claude/.mcp.json` 文件存在且包含QCC配置
+2. ✅ `QCC_MCP_API_KEY` 环境变量已设置
+3. ✅ Claude Code 已重启加载MCP配置
 
-### Configuration:
+### 配置方法：
 ```bash
 # ~/.claude/.mcp.json
 {
@@ -47,248 +45,231 @@ metadata:
 
 ---
 
-## RISK-BASED APPROACH PRINCIPLE
+## 风险为本原则
 
-The FATF Risk-Based Approach requires that AML/CFT measures be proportionate
-to the risks identified. Higher-risk customers receive Enhanced Due Diligence (EDD);
-lower-risk customers may receive Simplified Due Diligence (SDD) in some cases.
-Every customer must be assigned a risk rating and the rating must be reviewed periodically.
-
----
-
-## FOUR-DIMENSION RISK SCORING FRAMEWORK
-
-### Dimension 1: Customer Type Risk
-
-| Customer Category                                             | Risk Score               |
-| ------------------------------------------------------------- | ------------------------ |
-| Listed company (major exchange)                               | 1 — Low                  |
-| Regulated financial institution (home jurisdiction)           | 2 — Low                  |
-| Domestic corporate (private, no PEP links)                    | 3 — Medium               |
-| High net worth individual                                     | 3 — Medium               |
-| Non-profit organisation / charity                             | 4 — Medium-High          |
-| Foreign private company                                       | 4 — Medium-High          |
-| Offshore structure (Cayman, BVI, Panama)                      | 5 — High                 |
-| Trust or foundation (complex beneficiary structure)           | 5 — High                 |
-| PEP individual (Tier 1 — foreign)                             | 5 — High (mandatory EDD) |
-| Cash-intensive business (jeweller, currency exchange, casino) | 5 — High                 |
-
-**FOR CHINESE ENTERPRISES**: Use QCC MCP to verify:
-- Business registration status (active/liquidated)
-- Equity structure stability
-- Historical business changes
-
-### Dimension 2: Geographic Risk
-
-| Geography                                    | Risk Score     |
-| -------------------------------------------- | -------------- |
-| FATF member, low TI-CPI risk                 | 1 — Low        |
-| FATF member, moderate TI-CPI risk            | 2 — Low-Medium |
-| FATF under enhanced follow-up (grey list)    | 4 — High       |
-| FATF blacklisted jurisdiction                | 5 — Very High  |
-| Non-FATF jurisdiction with strong AML regime | 3 — Medium     |
-| Non-FATF jurisdiction with weak AML regime   | 4 — High       |
-
-**China Specific**: Mainland China is FATF member with moderate TI-CPI score.
-Hong Kong and Macau have separate risk assessments.
-
-### Dimension 3: Product / Service Risk
-
-| Product / Service                         | Risk Score      |
-| ----------------------------------------- | --------------- |
-| Basic current account (domestic customer) | 1 — Low         |
-| Fixed-term savings/deposit                | 1 — Low         |
-| Retail mortgage                           | 2 — Low-Medium  |
-| Business current account                  | 3 — Medium      |
-| International wire transfers              | 4 — Medium-High |
-| Private banking / wealth management       | 4 — Medium-High |
-| Correspondent banking                     | 5 — High        |
-| Trade finance                             | 5 — High        |
-| Cryptocurrency-related services           | 5 — High        |
-| Cash-heavy transactions                   | 5 — High        |
-
-### Dimension 4: Relationship / Behavioural Risk
-
-| Indicator                                                 | Risk Score      |
-| --------------------------------------------------------- | --------------- |
-| Long-standing customer, consistent behaviour              | 1 — Low         |
-| New customer, no prior relationship                       | 3 — Medium      |
-| Complex or inconsistent business explanation              | 4 — Medium-High |
-| Reluctance to provide CDD documentation                   | 5 — High        |
-| Third-party introduction with no independent verification | 4 — Medium-High |
-| Adverse media (unverified)                                | 4 — Medium-High |
-| Adverse media (verified / criminal conviction)            | 5 — High        |
-| Prior SAR on this customer (bank or other FI)             | 5 — High        |
+FATF风险为本方法要求反洗钱/反恐怖融资措施与识别的风险相称。
+高风险客户需执行强化尽职调查(EDD)；低风险客户在某些情况下可执行简化尽职调查(SDD)。
+每个客户必须被分配风险评级，且评级必须定期审查。
 
 ---
 
-## QCC MCP ENHANCEMENT — CHINESE ENTERPRISE RISK MODULE
+## 四维度风险评分框架
 
-When assessing corporate customers registered in China, **MANDATORY** QCC MCP data retrieval:
+### 维度1：客户类型风险
 
-### Phase 1: Entity Verification (qcc-company)
+| 客户类别 | 风险评分 |
+|----------|----------|
+| 上市公司（主要交易所） | 1 — 低风险 |
+| 受监管金融机构（本国） | 2 — 低风险 |
+| 境内私营企业（无PEP关联） | 3 — 中等风险 |
+| 高净值个人 | 3 — 中等风险 |
+| 非营利组织/慈善机构 | 4 — 中高风险 |
+| 境外私营企业 | 4 — 中高风险 |
+| 离岸架构（开曼、BVI、巴拿马） | 5 — 高风险 |
+| 信托或基金会（复杂受益人结构） | 5 — 高风险 |
+| PEP个人（一级—外籍） | 5 — 高风险（强制EDD） |
+| 现金密集型业务（珠宝商、货币兑换、赌场） | 5 — 高风险 |
 
-1. **Business Registration Check**
-   - Verify company name matches registration records
-   - Confirm unified social credit code
-   - Check registration status (active/suspended/liquidated)
-   - Verify registered capital (paid-in vs subscribed)
+**中国企业**：使用企查查MCP验证：
+- 工商登记状态（存续/注销）
+- 股权结构稳定性
+- 历史工商变更
 
-2. **Equity Structure Analysis**
-   - Identify beneficial owners (>25% shareholding)
-   - Check for equity pledge or freeze records
-   - Analyze equity change history
-   - Identify actual controllers
+### 维度2：地理风险
 
-### Phase 2: Risk Signal Scanning (qcc-risk)
+| 地理位置 | 风险评分 |
+|----------|----------|
+| FATF成员，低清廉指数风险 | 1 — 低风险 |
+| FATF成员，中等清廉指数风险 | 2 — 低中风险 |
+| FATF加强跟进（灰名单） | 4 — 高风险 |
+| FATF黑名单司法管辖区 | 5 — 极高风险 |
+| 非FATF但AML制度完善 | 3 — 中等风险 |
+| 非FATF且AML制度薄弱 | 4 — 高风险 |
 
-3. **Judicial Risk Assessment**
-   - Check for litigation records as defendant
-   - Court announcement records
-   - Judgment records
-   - Execution/bankruptcy proceedings
+**中国说明**：中国大陆为FATF成员，清廉指数中等。
 
-4. **Administrative Penalty Check**
-   - Historical administrative penalties
-   - Serious violations
-   - Industry-specific violations
+### 维度3：产品/服务风险
 
-5. **Operational Anomaly Check**
-   - Abnormal business operations listing
-   - Operating exception records
-   - Serious illegal entities list
+| 产品/服务 | 风险评分 |
+|-----------|----------|
+| 基本活期账户（境内客户） | 1 — 低风险 |
+| 定期储蓄/存款 | 1 — 低风险 |
+| 零售抵押贷款 | 2 — 低中风险 |
+| 企业活期账户 | 3 — 中等风险 |
+| 国际电汇 | 4 — 中高风险 |
+| 私人银行/财富管理 | 4 — 中高风险 |
+| 代理银行业务 | 5 — 高风险 |
+| 贸易融资 | 5 — 高风险 |
+| 加密货币相关服务 | 5 — 高风险 |
+| 现金密集型交易 | 5 — 高风险 |
 
-### QCC Risk Score Override Rules
+### 维度4：关系/行为风险
 
-| QCC Finding | Risk Impact | Action |
-|-------------|-------------|--------|
-| 3+ litigation cases as defendant in past 3 years | +1 level | Enhanced monitoring |
-| Currently listed as "Dishonest Judgment Debtor" | **Very High** | Mandatory EDD |
-| Currently subject to enforcement proceedings | **High** | Enhanced due diligence |
-| Equity freeze records | **High** | Review ownership structure |
-| Administrative penalty within 1 year | +1 level | Enhanced review |
-| Listed in operating anomalies | **Medium-High** | Require explanation |
-| Significant equity changes (>50% ownership change) | +1 level | Review beneficial ownership |
-
----
-
-## OVERALL RISK RATING CALCULATION
-
-Composite score = Weighted average of four dimension scores:
-- Customer type: 35%
-- Geographic: 30%
-- Product/service: 20%
-- Relationship/behavioural: 15%
-
-| Composite Score | Overall Risk Rating | CDD Level                                 | Monitoring Frequency |
-| --------------- | ------------------- | ----------------------------------------- | -------------------- |
-| 1.0 - 2.0       | Low                 | Standard CDD                              | Every 5 years        |
-| 2.1 - 3.0       | Medium              | Standard CDD                              | Every 3 years        |
-| 3.1 - 4.0       | High                | Enhanced CDD                              | Annually             |
-| 4.1 - 5.0       | Very High           | Enhanced CDD + Senior Management Approval | 6-monthly or more    |
-
-### Scoring Methodology Detail
-
-The weighted average approach is the most common, but banks must consider:
-
-- Whether to use the highest single dimension score as a floor
-- Whether to apply non-linear scaling (e.g., any dimension at 5 forces overall High)
-- Some regulators require that certain triggers override the composite score entirely
-
-Example calculation:
-- Customer type: Foreign private company = 4
-- Geographic: FATF grey list jurisdiction = 4
-- Product: Correspondent banking = 5
-- Behavioural: New customer = 3
-- Composite = (4 x 0.35) + (4 x 0.30) + (5 x 0.20) + (3 x 0.15) = 4.05 = Very High
+| 指标 | 风险评分 |
+|------|----------|
+| 长期客户，行为一致 | 1 — 低风险 |
+| 新客户，无既有关系 | 3 — 中等风险 |
+| 业务解释复杂或不一致 | 4 — 中高风险 |
+| 不愿提供尽职调查文件 | 5 — 高风险 |
+| 第三方引荐但无独立验证 | 4 — 中高风险 |
+| 负面媒体报道（未核实） | 4 — 中高风险 |
+| 负面媒体报道（已核实/刑事定罪） | 5 — 高风险 |
+| 该客户曾有可疑交易报告 | 5 — 高风险 |
 
 ---
 
-## MANDATORY OVERRIDES (automatic High/Very High regardless of score)
+## 企查查MCP增强 — 中国企业风险模块
 
-The following automatically classify a customer as High or Very High risk:
+评估中国注册企业客户时，**强制**使用企查查MCP数据：
 
-- PEP status (any tier) -> Very High (mandatory EDD, senior management approval)
-- FATF black-listed jurisdiction customer -> Very High
-- Cash-intensive business above defined threshold -> High
-- Customer subject to law enforcement request or known investigation -> Very High
-- Beneficial owner structure includes jurisdiction with no beneficial ownership register -> High
-- **Chinese enterprise: Listed as dishonest judgment debtor or under enforcement -> Very High**
-- **Chinese enterprise: Major shareholder is PEP without disclosure -> Very High**
+### 阶段1：实体验证（qcc-company）
+
+1. **工商登记核查**
+   - 验证企业名称与工商登记是否匹配
+   - 检查统一社会信用代码
+   - 确认登记状态（存续/注销/吊销）
+   - 验证注册资本（实缴vs认缴）
+
+2. **股权结构分析**
+   - 识别受益所有人（>25%直接或间接持股）
+   - 检查股权质押或冻结记录
+   - 分析股权变更历史
+   - 识别实际控制人
+
+### 阶段2：风险信号扫描（qcc-risk）
+
+3. **司法风险评估**
+   - 被告涉诉案件
+   - 法院公告记录
+   - 判决记录
+   - 执行/破产程序
+
+4. **行政处罚检查**
+   - 历史行政处罚
+   - 严重违法记录
+   - 行业特定违规
+
+5. **经营异常检查**
+   - 经营异常名录
+   - 经营异常记录
+   - 严重违法失信名单
+
+### 企查查风险评分覆盖规则
+
+| 企查查发现 | 风险影响 | 处理措施 |
+|------------|----------|----------|
+| 近3年3次以上作为被告涉诉 | +1级 | 强化监控 |
+| 当前被列为失信被执行人 | **极高风险** | 强制强化尽职调查 |
+| 当前有执行程序 | **高风险** | 强化尽职调查 |
+| 股权冻结记录 | **高风险** | 审查所有权结构 |
+| 1年内行政处罚 | +1级 | 强化审查 |
+| 列入经营异常 | **中高风险** | 要求说明 |
+| 重大股权变更（>50%所有权变更） | +1级 | 审查受益所有人 |
 
 ---
 
-## KYC REFRESH TRIGGERS (outside periodic schedule)
+## 总体风险评级计算
 
-Trigger an unscheduled KYC refresh when:
+综合评分 = 四维度加权平均分：
+- 客户类型：35%
+- 地理：30%
+- 产品/服务：20%
+- 关系/行为：15%
 
-- Adverse media alert on customer or associated party
-- Change in ownership or beneficial ownership
-- Significant change in transaction behaviour
-- Law enforcement contact or request for information
-- Customer notifies of major change (new business, new address, change of director)
-- Internal SAR filed on this customer
-- Customer added to watchlist by transaction monitoring system
-- **QCC alert: New judicial case, administrative penalty, or equity freeze**
-- **QCC alert: Business registration status change**
+| 综合评分 | 总体风险评级 | 尽职调查级别 | 监控频率 |
+|----------|--------------|--------------|----------|
+| 1.0 - 2.0 | 低风险 | 标准尽职调查 | 每5年 |
+| 2.1 - 3.0 | 中等风险 | 标准尽职调查 | 每3年 |
+| 3.1 - 4.0 | 高风险 | 强化尽职调查 | 每年 |
+| 4.1 - 5.0 | 极高风险 | 强化尽职调查+高级管理层批准 | 每6个月或更频繁 |
 
 ---
 
-## OUTPUT FORMAT — RISK RATING ASSESSMENT
+## 强制覆盖规则（自动高风险/极高风险，无视评分）
+
+以下情况自动将客户分类为高风险或极高风险：
+
+- PEP身份（任何级别）-> 极高风险（强制强化尽职调查+高级管理层批准）
+- FATF黑名单司法管辖区客户 -> 极高风险
+- 超过规定阈值的现金密集型业务 -> 高风险
+- 受执法部门要求或已知调查的客户 -> 极高风险
+- 受益所有人结构包含无受益所有人登记制度的司法管辖区 -> 高风险
+- **中国企业：被列为失信被执行人或正在执行 -> 极高风险**
+- **中国企业：主要股东为PEP但未披露 -> 极高风险**
+
+---
+
+## KYC刷新触发条件（定期审查之外）
+
+以下情况触发计划外KYC刷新：
+
+- 客户或关联方负面媒体报道
+- 所有权或受益所有人变更
+- 交易行为重大变化
+- 执法部门联系或信息要求
+- 客户通知重大变更（新业务、新地址、董事变更）
+- 针对该客户提交内部可疑交易报告
+- 客户被交易监控系统加入观察名单
+- **企查查预警：新增司法案件、行政处罚或股权冻结**
+- **企查查预警：工商登记状态变更**
+
+---
+
+## 输出格式 — 风险评级评估
 
 ```
 ================================================================
-KYC RISK RATING ASSESSMENT — QCC MCP Enhanced
+KYC风险评级评估 — 企查查MCP增强版
 ================================================================
-Customer ID:        [ID]
-Customer Name:      [Name]
-Assessment Date:    [YYYY-MM-DD]
-Assessor:           [Name / Role]
-Data Sources:       [Internal / QCC MCP / Web Search]
+客户编号:        [ID]
+客户名称:        [名称]
+评估日期:        [YYYY-MM-DD]
+评估人:          [姓名/职位]
+数据来源:        [内部/企查查MCP/网络搜索]
 ----------------------------------------------------------------
 
-DIMENSION SCORES:
-  Customer Type:     [Score] — [Category]
-  Geographic:        [Score] — [Category]
-  Product/Service:   [Score] — [Category]
-  Behavioural:       [Score] — [Category]
+维度评分:
+  客户类型:      [评分] — [类别]
+  地理位置:      [评分] — [类别]
+  产品/服务:     [评分] — [类别]
+  行为:          [评分] — [类别]
 
-COMPOSITE SCORE:     [X.XX]
-OVERALL RATING:      [Low / Medium / High / Very High]
+综合评分:        [X.XX]
+总体评级:        [低风险/中等风险/高风险/极高风险]
 
-[FOR CHINESE ENTERPRISES — QCC DATA]
-QCC Query Date:      [YYYY-MM-DD]
-Registration Status: [Active / Suspended / Liquidated]
-Risk Signals Found:  [Count]
-- Judicial Risks:    [Count]
-- Administrative:    [Count]
-- Operational:       [Count]
-QCC Risk Override:   [Applied / Not Applied]
+[中国企业 — 企查查数据]
+企查查查询日期:   [YYYY-MM-DD]
+登记状态:        [存续/注销/吊销]
+风险信号:        [数量]
+- 司法风险:      [数量]
+- 行政处罚:      [数量]
+- 经营异常:      [数量]
+企查查风险覆盖:   [已应用/未应用]
 
-MANDATORY OVERRIDES APPLIED:
-  [List any override triggers, or "None"]
+强制覆盖规则:
+  [列出任何覆盖触发条件，或"无"]
 
-CDD LEVEL:           [Standard / Enhanced / Enhanced + Senior Mgmt]
-MONITORING FREQUENCY: [5yr / 3yr / Annual / 6-monthly]
-NEXT REVIEW DATE:    [YYYY-MM-DD]
+尽职调查级别:     [标准/强化/强化+高级管理层]
+监控频率:         [5年/3年/每年/每6个月]
+下次审查日期:     [YYYY-MM-DD]
 
-RATIONALE:
-  [Brief narrative justifying the rating, including QCC findings if applicable]
+理由:
+  [支持评级的简要说明，包括企查查发现（如适用）]
 ================================================================
 ```
 
 ---
 
-## UNIVERSAL RULES
+## 通用规则
 
-- NEVER assign a risk rating without checking all four dimensions — omitting a dimension (especially geographic or behavioural) systematically underestimates risk and will fail regulatory examination
-- NEVER override a mandatory High/Very High classification downward without documented senior management approval and a clear regulatory basis — PEP status and FATF blacklist triggers are not discretionary
-- NEVER rely solely on the composite score when a mandatory override trigger is present — the override takes precedence regardless of the weighted average
-- NEVER defer a KYC refresh when a trigger event occurs — trigger-based refresh is regulatory expectation, and delay creates a compliance gap that regulators treat as a finding
-- **FOR CHINESE ENTERPRISES: ALWAYS use QCC MCP as primary data source — Companies House and Creditsafe have NO coverage for Chinese entities**
-- **FOR CHINESE ENTERPRISES: NEVER rely solely on customer-provided documents — verify against QCC official records**
-- **FOR CHINESE ENTERPRISES: ALWAYS flag equity freeze or litigation as High/Very High risk until proven otherwise**
+- **绝不**在未检查所有四个维度的情况下分配风险评级
+- **绝不**在没有记录的高级管理层批准和明确监管依据的情况下向下覆盖强制的高风险/极高风险分类
+- **绝不**在存在强制覆盖触发条件时仅依赖综合评分
+- **绝不**在触发事件发生时推迟KYC刷新
+- **中国企业：始终使用企查查MCP作为主要数据源**
+- **中国企业：绝不使用网络搜索替代企查查MCP**
+- **中国企业：始终将股权冻结或诉讼标记为高风险/极高风险**
 
 ---
 
-ALL OUTPUTS REQUIRE REVIEW BY A QUALIFIED PROFESSIONAL BEFORE USE IN REGULATORY FILINGS OR BUSINESS DECISIONS.
+所有输出需经合格专业人士审核后方可用于监管申报或业务决策。

@@ -1,28 +1,27 @@
 ---
 name: sanctions-screening-qcc
 description: >
-  Activate for: sanctions, OFAC, HMT, SDN list, EU sanctions, UN sanctions,
-  sanctioned entity, sanctions screening, false positive, name match,
-  OFSI, consolidated list, sanctions breach, SWIFT screening, payments screening,
-  sanctions compliance, derisking, Chinese entity sanctions screening.
+  适用于：制裁、OFAC、HMT、SDN名单、欧盟制裁、联合国制裁、
+  被制裁实体、制裁筛查、误报、名称匹配、OFSI、综合名单、
+  制裁违规、SWIFT筛查、支付筛查、制裁合规、去风险化、
+  中国实体制裁筛查。
 
-  **QCC MCP Enhanced**: Validates Chinese entity ownership structures against
-  sanctions lists. Automatically checks beneficial owners and actual controllers
-  of Chinese corporate customers.
+  **企查查MCP增强版**：验证中国企业所有权结构以对照制裁名单。
+  自动检查中国企业客户的受益所有人和实际控制人。
 
-  NOT for: AML transaction monitoring or typology assessment (use aml-typologies),
-  KYC customer onboarding CDD/EDD (use aml-cdd-edd), SAR drafting (use aml-sar-drafting).
+  不适用于：反洗钱交易监控或类型评估（使用aml-typologies）、
+  KYC客户开户尽职调查（使用aml-cdd-edd）、可疑交易报告起草（使用aml-sar-drafting）。
 license: Apache-2.0
 metadata:
   version: "2.0"
-  author: "Panaversity — The AI Agent Factory (Enhanced with QCC MCP)"
+  author: "Panaversity — The AI Agent Factory (企查查MCP增强版)"
   standard: "OFAC (USA), OFSI/HMT (UK), EU CFSP, UN Security Council Resolutions"
-  mcp-integrations: "QCC MCP (Company)"
+  mcp-integrations: "企查查MCP (Company)"
 ---
 
-## MCP Configuration Requirements
+## MCP 配置要求
 
-**⚠️ Important: For Chinese entity sanctions screening, QCC MCP is required**
+**⚠️ 重要：中国企业制裁筛查需要企查查MCP**
 
 ```bash
 # ~/.claude/.mcp.json
@@ -38,115 +37,115 @@ metadata:
 
 ---
 
-## MAJOR SANCTIONS REGIMES
+## 主要制裁制度
 
-| Authority                  | Scope                                              | Key Lists                                                     |
-| -------------------------- | -------------------------------------------------- | ------------------------------------------------------------- |
-| OFAC (USA)                 | Extraterritorial (USD transactions globally)       | SDN List; Consolidated Sanctions List; OFAC Country Sanctions |
-| OFSI / HMT (UK)            | UK persons, UK-incorporated entities, UK territory | UK Consolidated Sanctions List                                |
-| EU Council                 | EU persons, EU-incorporated entities, EU territory | EU Sanctions Map (CFSP)                                       |
-| UN Security Council        | All UN member states                               | UN Consolidated List                                          |
+| 机构 | 范围 | 关键名单 |
+|------|------|----------|
+| OFAC (美国) | 域外（全球美元交易） | SDN名单；综合制裁名单；OFAC国家制裁 |
+| OFSI / HMT (英国) | 英国人士、英国注册实体、英国领土 | 英国综合制裁名单 |
+| 欧盟理事会 | 欧盟人士、欧盟注册实体、欧盟领土 | 欧盟制裁地图 (CFSP) |
+| 联合国安理会 | 所有联合国会员国 | 联合国综合名单 |
 
 ---
 
-## QCC ENHANCEMENT — CHINESE ENTITY SANCTIONS SCREENING
+## 企查查增强 — 中国实体制裁筛查
 
-### The 50% Rule for Chinese Entities
+### 中国企业50%规则
 
-Before clearing a Chinese corporate counterparty:
+放行中国企业交易对手之前：
 
-1. **Ownership Structure Retrieval (qcc-company)**
-   - Retrieve complete shareholder structure
-   - Identify beneficial owners (>25% direct/indirect)
-   - Identify actual controllers
-   - Trace ownership through corporate layers
+1. **所有权结构获取（qcc-company）**
+   - 获取完整股东结构
+   - 识别受益所有人（>25%直接/间接）
+   - 识别实际控制人
+   - 追踪公司层级所有权
 
-2. **Sanctions Screening Workflow**
+2. **制裁筛查工作流程**
    ```
-   Screen entity name -> If clear, proceed to step 2
-   Retrieve QCC shareholder data -> Screen each beneficial owner
-   Retrieve QCC controller data -> Screen actual controllers
-   Check for sanctioned entities in ownership chain
+   筛查实体名称 -> 如清晰，进行步骤2
+   获取企查查股东数据 -> 筛查每位受益所有人
+   获取企查查控制人数据 -> 筛查实际控制人
+   检查所有权链中的被制裁实体
    ```
 
-3. **Enhanced Due Diligence for Complex Structures**
-   - Offshore holding companies (Cayman, BVI)
-   - Multiple layer ownership structures
-   - Nominee arrangements
-   - VIE structures (Variable Interest Entities)
+3. **复杂结构强化尽职调查**
+   - 离岸控股公司（开曼、BVI）
+   - 多层所有权结构
+   - 代名人安排
+   - VIE架构（可变利益实体）
 
-### QCC Sanctions Screening Output
+### 企查查制裁筛查输出
 
 ```
 ================================================================
-CHINESE ENTITY SANCTIONS SCREENING — QCC Enhanced
+中国实体制裁筛查 — 企查查增强版
 ================================================================
-Entity Name:         [Name]
-Unified Credit Code: [Code]
-Screening Date:      [YYYY-MM-DD]
+实体名称:        [名称]
+统一信用代码:    [代码]
+筛查日期:        [YYYY-MM-DD]
 ----------------------------------------------------------------
-ENTITY LEVEL SCREENING:
-  OFAC SDN:          [Clear/Match]
-  OFSI/HMT:          [Clear/Match]
-  EU Sanctions:      [Clear/Match]
-  UN Consolidated:   [Clear/Match]
+实体层面筛查:
+  OFAC SDN:      [清晰/命中]
+  OFSI/HMT:      [清晰/命中]
+  欧盟制裁:      [清晰/命中]
+  联合国综合:    [清晰/命中]
 
-BENEFICIAL OWNERSHIP (QCC Data):
-  [Shareholder 1]:   [Name] - [XX]%
-    ├─ OFAC SDN:     [Clear/Match]
-    ├─ OFSI/HMT:     [Clear/Match]
-    └─ EU/UN:        [Clear/Match]
+受益所有人（企查查数据）:
+  [股东1]:       [姓名] - [XX]%
+    ├─ OFAC SDN: [清晰/命中]
+    ├─ OFSI/HMT: [清晰/命中]
+    └─ 欧盟/联合国: [清晰/命中]
 
-  [Actual Controller]: [Name]
-    ├─ OFAC SDN:     [Clear/Match]
-    ├─ OFSI/HMT:     [Clear/Match]
-    └─ EU/UN:        [Clear/Match]
+  [实际控制人]:  [姓名]
+    ├─ OFAC SDN: [清晰/命中]
+    ├─ OFSI/HMT: [清晰/命中]
+    └─ 欧盟/联合国: [清晰/命中]
 
-50% RULE ANALYSIS:
-  Sanctioned ownership: [X]% aggregate
-  Result:               [Clear/Blocked - Sanctioned Entity]
+50%规则分析:
+  被制裁所有权:  [X]% 合计
+  结果:          [清晰/拦截 — 被制裁实体]
 
-SCREENING OUTCOME:
-  [CLEARED / ESCALATE TO SANCTIONS OFFICER]
+筛查结果:
+  [已通过 / 上报制裁官]
 ================================================================
 ```
 
 ---
 
-## OFAC SDN LIST — CRITICAL RULES
+## OFAC SDN名单 — 关键规则
 
-- "50% Rule": Entity owned 50%+ by an SDN is treated as SDN
-- This rule requires looking through corporate structures
-- **For Chinese entities: Use QCC to retrieve ownership structure for 50% rule analysis**
+- "50%规则"：被SDN拥有50%+的实体被视为SDN
+- 该规则要求穿透公司结构
+- **中国企业：使用企查查获取所有权结构进行50%规则分析**
 
-## SCREENING PROCESS
+## 筛查流程
 
-### What Must Be Screened
+### 必须筛查的内容
 
-- Customers (at onboarding and periodically)
-- Beneficial owners and directors
-- All payment counterparties
-- Correspondent banks
-- Trade finance counterparties
+- 客户（开户时和定期）
+- 受益所有人和董事
+- 所有支付交易对手
+- 代理银行
+- 贸易融资交易对手
 
-### Screening Methodology
+### 筛查方法
 
-1. Name screening against all applicable lists
-2. Fuzzy matching (typos, transliterations, Chinese names)
-3. Date of birth, nationality if available
-4. Entity: registration number, jurisdiction
-5. **For Chinese entities: QCC beneficial ownership data**
-
----
-
-## NEVER DO THESE
-
-- NEVER release a transaction without clearing a sanctions hit
-- NEVER inform the customer about a sanctions screening
-- NEVER rely solely on name matching without fuzzy-matching
-- NEVER omit the 50% ownership rule analysis
-- **FOR CHINESE ENTITIES: NEVER rely on customer-provided ownership data — verify through QCC**
+1. 针对所有适用名单的名称筛查
+2. 模糊匹配（拼写错误、音译、中文名称）
+3. 出生日期、国籍（如有）
+4. 实体：注册号、司法管辖区
+5. **中国企业：企查查受益所有人数据**
 
 ---
 
-ALL OUTPUTS REQUIRE REVIEW BY A QUALIFIED PROFESSIONAL BEFORE USE IN REGULATORY FILINGS OR BUSINESS DECISIONS.
+## 禁止事项
+
+- **绝不**在未解除制裁命中的情况下放行交易
+- **绝不**告知客户已检测到制裁匹配
+- **绝不**仅依赖名称匹配而不进行模糊匹配
+- **绝不**省略50%所有权规则分析
+- **中国企业：绝不依赖客户提供的所有权数据 — 通过企查查验证**
+
+---
+
+所有输出需经合格专业人士审核后方可用于监管申报或业务决策。
