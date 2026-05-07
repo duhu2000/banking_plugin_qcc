@@ -1,5 +1,5 @@
 ---
-name: trade-finance-compliance-qcc
+name: 贸易融资合规核查-trade-finance-compliance-qcc
 description: >
   贸易融资合规核查 SKILL · 企查查 MCP V2.0 增强版。
   跨境贸易与国际结算（信用证 / 保理 / 福费廷 / 出口退税）业务的合规准入与授信前核查工具，输出"A/B/C/D"四档评级，D 级直接拒绝业务。

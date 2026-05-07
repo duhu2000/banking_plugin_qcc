@@ -1,5 +1,5 @@
 ---
-name: ubo-screening-qcc
+name: 受益所有人穿透-ubo-screening-qcc
 description: >
   受益所有人穿透 SKILL · 企查查 MCP V2.0 增强版。
   反洗钱合规场景下的股权穿透工具。基于央行 3 号令与 FATF Recommendation 10 的受益所有人识别标准，自动逐层解析多层股权结构，查明最终受益所有人（UBO）及实际持股比例，识别隐藏的控制关系。与 AML 尽调、KYB 核验形成合规闭环。

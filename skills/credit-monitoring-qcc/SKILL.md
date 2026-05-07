@@ -1,5 +1,5 @@
 ---
-name: credit-monitoring-qcc
+name: 信贷风险定期监控-credit-monitoring-qcc
 description: >
   信贷风险定期监控 SKILL · 企查查 MCP V2.0 增强版。
   贷后管理对存量借款客户的持续风险监控工具。相较授信尽调的"点式评估"，本 SKILL 做的是"面向时间轴的趋势监控"——本期扫描 × 历史对比 × 异动归因三位一体，识别授信后客户的经营恶化、司法风险新增、财务指标退化等所有负面信号。
