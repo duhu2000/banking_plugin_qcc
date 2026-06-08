@@ -129,8 +129,8 @@ metadata:
 ### 维度四：核心人员状态变化
 
 工具链：
-- `mcp__qcc-executive__get_personnel_dishonest` / `_high_consumption_ban` / `_judgment_debtor` / `_exit_restriction` —— 对法代 + 实控人本期扫描
-- `mcp__qcc-executive__get_personnel_historical_dishonest` 等历史版 —— 对比基准日
+- `mcp__qcc-executive__get_executive_dishonest` / `_high_consumption_ban` / `_judgment_debtor` / `_exit_restriction` —— 对法代 + 实控人本期扫描
+- `mcp__qcc-executive__get_executive_historical_dishonest` 等历史版 —— 对比基准日
 
 识别内容：
 - 法代 / 实控人本期新增任何个人风险 → 最高优先级上报

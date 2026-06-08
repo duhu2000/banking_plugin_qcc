@@ -133,10 +133,10 @@ V2.0 相对 V1.0 的升级聚焦三个维度：
 ### 维度四：法代与实控人个人风险（V2.0 新能力）
 
 工具链（对法代 + 实控人）：
-- `mcp__qcc-executive__get_personnel_dishonest`
-- `mcp__qcc-executive__get_personnel_high_consumption_ban`
-- `mcp__qcc-executive__get_personnel_exit_restriction` —— **贸易金融最关键**
-- `mcp__qcc-executive__get_personnel_judgment_debtor`
+- `mcp__qcc-executive__get_executive_dishonest`
+- `mcp__qcc-executive__get_executive_high_consumption_ban`
+- `mcp__qcc-executive__get_executive_exit_restriction` —— **贸易金融最关键**
+- `mcp__qcc-executive__get_executive_judgment_debtor`
 
 **贸易金融特殊评估**：
 - 实控人 / 法代**被限制出境** → **D 级（否决）**

@@ -5,7 +5,7 @@ description: >
   对公客户开户与增强尽职调查（EDD）的全流程工具。对标 FATF Recommendation 10（CDD）/ 12（PEPs）/ 13（代理行业务）标准，实现工商身份核验、最终受益所有人（UBO）穿透、政治公众人物（PEP）启发式筛查、个人司法穿透、关联交易合理性判定的五位一体反洗钱尽调。
 
   核心能力：
-  - UBO 穿透到自然人：qcc-executive `get_personnel_beneficial_owner` + 股权穿透链路，输出符合央行 3 号令受益所有人识别标准的结构化清单
+  - UBO 穿透到自然人：qcc-executive `get_executive_beneficial_owner` + 股权穿透链路，输出符合央行 3 号令受益所有人识别标准的结构化清单
   - PEP 启发式筛查：结合个人任职历史、关联企业质量、行政处罚记录，识别潜在 PEP + RCA（RCA = PEP 关联人）
   - 个人司法穿透：18 维现状 + 14 维历史扫描，识别 UBO 与核心高管的个人风险
   - 关联企业网络：UBO 本人控制 / 任职 / 投资的全部企业的风险画像
@@ -31,7 +31,7 @@ metadata:
 
 本 SKILL 服务于金融机构客户开户时的反洗钱尽调（CDD / EDD）、证券开户、保险保单审核、第三方支付商户入网、VASP 客户尽调等场景。核心对标 FATF Recommendation 10（CDD）、12（PEPs）、13（代理行业务）以及中国人民银行《金融机构反洗钱和反恐怖融资监督管理办法》（3 号令）要求。
 
-V2.0 相对 V1.0 的最大跃迁在于 qcc-executive 的 42 个人员画像工具——特别是 `get_personnel_beneficial_owner`（董监高-作为最终受益人）和 `get_personnel_related_companies`（董监高-全部关联企业），让 AML 尽调真正实现"穿透到自然人 × 识别其所有关联企业 × 评估每一个关联企业的合规状态"的三层反洗钱风险地图。在 V1.0 下这个工作需要通过反复的企业级查询手工拼接，V2.0 下是一次 MCP 调用的直接返回。
+V2.0 相对 V1.0 的最大跃迁在于 qcc-executive 的 42 个人员画像工具——特别是 `get_executive_beneficial_owner`（董监高-作为最终受益人）和 `get_executive_related_companies`（董监高-全部关联企业），让 AML 尽调真正实现"穿透到自然人 × 识别其所有关联企业 × 评估每一个关联企业的合规状态"的三层反洗钱风险地图。在 V1.0 下这个工作需要通过反复的企业级查询手工拼接，V2.0 下是一次 MCP 调用的直接返回。
 
 ## MCP 依赖与配置
 
@@ -49,7 +49,7 @@ V2.0 相对 V1.0 的最大跃迁在于 qcc-executive 的 42 个人员画像工�
 
 **第二，PEP 识别是启发式过程，不做刚性结论。** MCP 不包含国际制裁清单，PEP 判定须依赖以下启发式组合：个人任职历史中是否含党政军公职 / 国有企业高管、关联企业是否为国资背景、姓名在公开 PEP 数据库（如 Dow Jones / World-Check）是否命中。SKILL 输出"疑似 PEP / RCA"标记，最终 PEP 判定由合规岗人工确认。
 
-**第三，RCA 扩展覆盖。** PEP 的近亲属与业务密切关联人（RCA）同样须接受 EDD。通过 qcc-executive 的 `get_personnel_historical_partners` 可识别疑似业务关联人。
+**第三，RCA 扩展覆盖。** PEP 的近亲属与业务密切关联人（RCA）同样须接受 EDD。通过 qcc-executive 的 `get_executive_historical_partners` 可识别疑似业务关联人。
 
 **第四，受益所有人 25% 阈值不是唯一判定。** 央行 3 号令允许金融机构在"基于风险"的前提下降低阈值（例如对高风险客户降至 10%）。SKILL 默认按 25% 输出，同时列出 10-25% 区间的潜在受益人作为补充。
 
@@ -78,7 +78,7 @@ V2.0 相对 V1.0 的最大跃迁在于 qcc-executive 的 42 个人员画像工�
 - `mcp__qcc-company__get_beneficial_owners` — 企业层 UBO 清单
 - `mcp__qcc-company__get_shareholder_info` — 股东结构
 - `mcp__qcc-company__get_actual_controller` — 实际控制人链路
-- `mcp__qcc-executive__get_personnel_beneficial_owner` — 以每个自然人为锚反查其作为 UBO 的企业清单
+- `mcp__qcc-executive__get_executive_beneficial_owner` — 以每个自然人为锚反查其作为 UBO 的企业清单
 
 **受益所有人识别逻辑（3 号令标准）**：
 1. 直接或间接持股 25% 以上的自然人
@@ -92,18 +92,18 @@ V2.0 相对 V1.0 的最大跃迁在于 qcc-executive 的 42 个人员画像工�
 对每个 UBO 自然人跑 qcc-executive 核心工具链：
 
 **当前层**（FATF CDD Step 5）：
-- `mcp__qcc-executive__get_personnel_dishonest`
-- `mcp__qcc-executive__get_personnel_high_consumption_ban`
-- `mcp__qcc-executive__get_personnel_judgment_debtor`
-- `mcp__qcc-executive__get_personnel_exit_restriction`
-- `mcp__qcc-executive__get_personnel_tax_violation`
-- `mcp__qcc-executive__get_personnel_admin_penalty`
-- `mcp__qcc-executive__get_personnel_property_reward_notice`
+- `mcp__qcc-executive__get_executive_dishonest`
+- `mcp__qcc-executive__get_executive_high_consumption_ban`
+- `mcp__qcc-executive__get_executive_judgment_debtor`
+- `mcp__qcc-executive__get_executive_exit_restriction`
+- `mcp__qcc-executive__get_executive_tax_violation`
+- `mcp__qcc-executive__get_executive_admin_penalty`
+- `mcp__qcc-executive__get_executive_property_reward_notice`
 
 **历史层**（识别修复主体）：
-- `mcp__qcc-executive__get_personnel_historical_dishonest`
-- `mcp__qcc-executive__get_personnel_historical_admin_penalty`
-- `mcp__qcc-executive__get_personnel_historical_judgment_debtor`
+- `mcp__qcc-executive__get_executive_historical_dishonest`
+- `mcp__qcc-executive__get_executive_historical_admin_penalty`
+- `mcp__qcc-executive__get_executive_historical_judgment_debtor`
 
 **AML 风险触发条件**：
 
@@ -119,9 +119,9 @@ V2.0 相对 V1.0 的最大跃迁在于 qcc-executive 的 42 个人员画像工�
 ### 维度四：PEP / RCA 启发式筛查（FATF R12）
 
 工具链：
-- `mcp__qcc-executive__get_personnel_positions` / `get_personnel_historical_positions` — 任职履历
-- `mcp__qcc-executive__get_personnel_related_companies` / `get_personnel_historical_related_companies` — 关联企业
-- `mcp__qcc-executive__get_personnel_historical_partners` — 历史业务伙伴
+- `mcp__qcc-executive__get_executive_positions` / `get_executive_historical_positions` — 任职履历
+- `mcp__qcc-executive__get_executive_related_companies` / `get_executive_historical_related_companies` — 关联企业
+- `mcp__qcc-executive__get_executive_historical_partners` — 历史业务伙伴
 
 **PEP 启发式判定组合**：
 - 任职企业包含党政军机关、国资委监管中央 / 地方国企、人民银行系统、监管机构系统等
@@ -137,9 +137,9 @@ V2.0 相对 V1.0 的最大跃迁在于 qcc-executive 的 42 个人员画像工�
 ### 维度五：关联企业网络与交易背景合理性
 
 工具链：
-- `mcp__qcc-executive__get_personnel_controlled_companies` — UBO 当前控制企业
-- `mcp__qcc-executive__get_personnel_investments` — UBO 对外投资
-- `mcp__qcc-executive__get_personnel_related_companies` — UBO 全部关联企业
+- `mcp__qcc-executive__get_executive_controlled_companies` — UBO 当前控制企业
+- `mcp__qcc-executive__get_executive_investments` — UBO 对外投资
+- `mcp__qcc-executive__get_executive_related_companies` — UBO 全部关联企业
 - 对每家关联企业做 `mcp__qcc-risk__get_dishonest_info` 快扫风险标签
 
 分析要点：

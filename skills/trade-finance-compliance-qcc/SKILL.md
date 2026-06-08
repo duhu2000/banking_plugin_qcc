@@ -33,7 +33,7 @@ metadata:
 
 1. 海关信用等级（qcc-operation get_import_export_credit）
 2. 进出口资质证书
-3. **V2.0 新能力：进出口关键人员限出境**（qcc-executive get_personnel_exit_restriction —— 跨境业务关键否决项）
+3. **V2.0 新能力：进出口关键人员限出境**（qcc-executive get_executive_exit_restriction —— 跨境业务关键否决项）
 4. **V2.0 新能力：历史行政处罚**（qcc-history get_historical_admin_penalty —— 海关 / 税务历史违规追溯）
 5. 出口退税资格（税收违法扫描）
 6. 反洗钱 AML 合规（FATF 对标）

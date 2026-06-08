@@ -6,7 +6,7 @@ description: >
 
   核心能力：
   - UBO 识别三层穿透：直接持股 25% + 间接穿透持股 25% + 协议控制
-  - **V2.0 核心新能力**：qcc-executive `get_personnel_beneficial_owner` 反查法——以自然人为锚反查其作为 UBO 的全部企业
+  - **V2.0 核心新能力**：qcc-executive `get_executive_beneficial_owner` 反查法——以自然人为锚反查其作为 UBO 的全部企业
   - UBO 自然人完整画像：18 维现状 + 14 维历史扫描
   - UBO 关联企业网络：识别 UBO 控制 / 任职的其他企业是否存在合规瑕疵
   - AML 风险联动：与 AML-CDD-EDD 流程深度对接，输出可直接入 KYC 档案的 UBO 报告
@@ -59,7 +59,7 @@ metadata:
 
 本 SKILL 服务于金融机构反洗钱合规场景下的受益所有人（UBO）识别需求。相较于 KYB 覆盖主体核验 + 18 维风险、AML 覆盖整个 CDD/EDD 流程、IC Memo 覆盖投资视角的股权穿透，本 SKILL 专注于一件事："**将这家企业的所有 UBO 自然人找出来，并对每个自然人做合规画像**"。
 
-V2.0 相对 V1.0 的颠覆性升级是 qcc-executive 的 `get_personnel_beneficial_owner` 工具——V1.0 只能沿着"企业 → 股东 → 股东的股东 ..."向上穿透，一旦遇到代持、境外主体、信托等架构就终止；V2.0 可以反过来"以自然人为锚，反查其作为 UBO 的全部企业"，从而验证穿透结果的可靠性，并识别同一 UBO 在多家企业的同时角色（可能构成关联关系网络）。
+V2.0 相对 V1.0 的颠覆性升级是 qcc-executive 的 `get_executive_beneficial_owner` 工具——V1.0 只能沿着"企业 → 股东 → 股东的股东 ..."向上穿透，一旦遇到代持、境外主体、信托等架构就终止；V2.0 可以反过来"以自然人为锚，反查其作为 UBO 的全部企业"，从而验证穿透结果的可靠性，并识别同一 UBO 在多家企业的同时角色（可能构成关联关系网络）。
 
 ## MCP 依赖与配置
 
@@ -76,7 +76,7 @@ V2.0 相对 V1.0 的颠覆性升级是 qcc-executive 的 `get_personnel_benefici
 
 **第二，穿透不是到法人为止。** "某某控股集团持有 60%" 只是中间步骤，必须继续穿透到该集团的自然人 UBO。如遇境外主体无法穿透，必须明示标注。
 
-**第三，V2.0 核心规定动作：反向验证。** 对每个识别出的 UBO 自然人调用 `get_personnel_beneficial_owner`，反查其作为 UBO 的全部企业清单。如该清单与本次分析结果不符（例如 MCP 返回该人是 20 家企业的 UBO 但本次分析只看到 1 家），说明穿透路径可能不完整。
+**第三，V2.0 核心规定动作：反向验证。** 对每个识别出的 UBO 自然人调用 `get_executive_beneficial_owner`，反查其作为 UBO 的全部企业清单。如该清单与本次分析结果不符（例如 MCP 返回该人是 20 家企业的 UBO 但本次分析只看到 1 家），说明穿透路径可能不完整。
 
 **第四，对每个 UBO 做司法画像扫描。** 不是"找出 UBO 就结束"——每个 UBO 自然人必须过一遍 4 项红线（失信 / 限高 / 被执行 / 限出境），任一命中触发"高风险 UBO"标签。
 
@@ -112,21 +112,21 @@ V2.0 相对 V1.0 的颠覆性升级是 qcc-executive 的 `get_personnel_benefici
 ### 维度四：V2.0 核心规定动作 —— UBO 反向验证
 
 对每个 UBO 自然人调用：
-- `mcp__qcc-executive__get_personnel_beneficial_owner` —— 该自然人作为 UBO 的全部企业清单
-- `mcp__qcc-executive__get_personnel_related_companies` —— 该自然人的全部关联企业
-- `mcp__qcc-executive__get_personnel_controlled_companies` —— 该自然人实际控制的企业
+- `mcp__qcc-executive__get_executive_beneficial_owner` —— 该自然人作为 UBO 的全部企业清单
+- `mcp__qcc-executive__get_executive_related_companies` —— 该自然人的全部关联企业
+- `mcp__qcc-executive__get_executive_controlled_companies` —— 该自然人实际控制的企业
 
 **验证逻辑**：
-- 如本次分析识别出 X 先生是本企业 UBO，但 `get_personnel_beneficial_owner` 返回他是 0 家企业的 UBO → 矛盾，穿透可能错误
+- 如本次分析识别出 X 先生是本企业 UBO，但 `get_executive_beneficial_owner` 返回他是 0 家企业的 UBO → 矛盾，穿透可能错误
 - 如返回他是 50 家企业的 UBO → 正常，但需标注"UBO 具有复杂商业帝国"
 
 ### 维度五：UBO 个人司法画像
 
 对每个 UBO 自然人（25% 阈值）：
-- `mcp__qcc-executive__get_personnel_dishonest`
-- `mcp__qcc-executive__get_personnel_high_consumption_ban`
-- `mcp__qcc-executive__get_personnel_judgment_debtor`
-- `mcp__qcc-executive__get_personnel_exit_restriction`
+- `mcp__qcc-executive__get_executive_dishonest`
+- `mcp__qcc-executive__get_executive_high_consumption_ban`
+- `mcp__qcc-executive__get_executive_judgment_debtor`
+- `mcp__qcc-executive__get_executive_exit_restriction`
 
 对高风险场景（10% 阈值 UBO）同样扫描。
 
@@ -136,7 +136,7 @@ V2.0 相对 V1.0 的颠覆性升级是 qcc-executive 的 `get_personnel_benefici
 
 ### 维度六：UBO 关联企业合规联动
 
-对每个 UBO 做 `get_personnel_related_companies` 扫描其关联企业清单，对清单中的每家做快速风险标签（`get_dishonest_info`）：
+对每个 UBO 做 `get_executive_related_companies` 扫描其关联企业清单，对清单中的每家做快速风险标签（`get_dishonest_info`）：
 
 - 关联企业全部清洁 → **UBO 关联无风险**
 - 关联企业 1-2 家有失信 / 经营异常 → **UBO 关联系内风险**
